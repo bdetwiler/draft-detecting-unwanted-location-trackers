@@ -288,7 +288,7 @@ For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted t
 
 | Operand name         | Data type | Size (octets) | Description                         |
 |:--------------------:|:---------:|:-------------:|:-----------------------------------:|
-| Product Data         | Uint8     | 8             | See [Product data](#product-data)   |
+| Product Data         | Uint64    | 8             | See [Product data](#product-data)   |
 {: title="Product Data Operand" }
 
 #### Manufacturer name
@@ -315,7 +315,7 @@ The Accessory Category operand describes the category the accessory most closely
 
 | Operand name  | Data type | Size (octets) |                                           Description                                           |
 |:--------------------:|:---------:|:-------------:|:------------------------------------------------------------------------------------------------|
-|  Accessory Category  |   Uint8   |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
+|  Accessory Category  |   Uint64  |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
 {: title="Accessory Category Operand" }
 
 #### Accessory capabilities
@@ -574,7 +574,7 @@ If none of the accessory categories provided in {{table-accessory-category-value
 | Transportation device      | 165         |
 | Sports equipment           | 166         |
 | Personal item              | 167         |
-| Reserved for future use    | 2-127, 167+ |
+| Reserved for future use    | 2-127, 168+ |
 {: #table-accessory-category-values title="Accessory Category Values"}
 
 # Firmware Updates
