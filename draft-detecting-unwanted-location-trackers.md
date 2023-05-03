@@ -461,7 +461,7 @@ Future technologies for finding MAY be considered in revisions of this document.
 ## Disablement
 The accessory SHALL have a way to disabled such that its future locations cannot be seen by its owner. Disablement SHALL be done via some physical action (e.g., button press, gesture, removal of battery, etc.).
 
-### Disablement instructions
+### Disablement instructions {#disablement-instructions}
 The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.
 
 ### Retrieval
@@ -606,7 +606,17 @@ Network access MUST NOT be required in the moment that the platform performs pai
 ### Removal
 The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unpairs from the accessory.
 
+## Open to Third-Party Developers
 
+Access to the accessory, its location-enabled advertisement payload, the accessory non-owner service, and the accessory non-owner characteristic MUST be available to third-party developers running software on the platform. This ensures that third-party applications have the capability to extend the platform's unwanted tracking detection through services such as dedicated manual scanning or customizable alerting.
+
+### Disablement Instructions
+
+Third-party developers MUST be able to access the disablement instructions as described in {{disablement-instructions}}. Access to these instructions MUST NOT be limited by special authentication or rate limiting.
+
+### Serial Number Look-Up
+
+Third-party developers MUST be able to perform the serial number look-up or to trigger the serial number look-up on the platform.
 
 # Security Considerations
 
