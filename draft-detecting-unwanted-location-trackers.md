@@ -231,8 +231,8 @@ It is important to prevent unwanted tracking alerts from occurring when the owne
 
 | Near-owner Bit Value | Near-owner state |
 |----------------------|------------------|
-| 0                    | Near-owner mode  |
-| 1                    | Separated mode   |
+| 1                    | Near-owner mode  |
+| 0                    | Separated mode   |
 {: #table-near-owner-bit title="Near-Owner Bit"}
 
 ## Bluetooth LE advertising interval
