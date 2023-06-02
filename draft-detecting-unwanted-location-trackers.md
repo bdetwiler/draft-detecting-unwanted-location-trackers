@@ -197,25 +197,18 @@ The accessory SHALL transition from near-owner mode to separated mode if it has 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
-## Resolvable and private address {#resolvable-private-address}
-The Bluetooth LE advertisement payload SHALL contain a resolvable and private address for the accessory which is the 6-byte Bluetooth LE MAC address.
-
-
-The address MUST be private and it MUST rotate periodically and be unlinkable; otherwise, if the same address is used for long periods of time, an adversary may be able to track a legitimate person from carrying the accessory.
+## Rotating address {#rotating-address}
+The Bluetooth LE MAC address MUST rotate periodically and be unlinkable; otherwise, if the same address is used for long periods of time, an adversary may be able to track a legitimate person from carrying the accessory.
 
 The [rotation policy](#rotation-policy) defined below aims to reduce this risk.
 
-Lastly, the address MUST be resolvable so owner devices can identify their paired accessories. Further details are described in [Paired Accessory Identification](#paired-accessory-identification).
-
-A general approach to generate addresses meeting this requirement is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the pairing of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its paired accessories.
-
 
 ### Rotation policy
-An accessory SHALL rotate its resolvable and private address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
+An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
-When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
+When in near-owner state, the accessory SHALL rotate its address at least every 120 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
-When in a separated state, the accessory SHALL rotate its resolvable and private address every 24 hours.
+When in a separated state, the accessory SHALL rotate its address every 24 hours.
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
@@ -642,7 +635,7 @@ potential victims, by requiring both the accessory to be in separated state as w
 ## Location-enabled payload
 
 ### Stable identifiers
-Rotating the resolvable and private address of the location-enabled payload, as described in {{resolvable-private-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
+Rotating the address of the location-enabled payload, as described in {{rotating-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
 If the address were permanently static, then the accessory would become infinitely trackable for the life of its power source.
 By requiring rotation, this reduces the risk of a malicious actor having the ability to piece together long stretches of longitudinal data
 on the whereabouts of an accessory.
