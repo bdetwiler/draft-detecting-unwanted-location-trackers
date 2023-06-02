@@ -577,19 +577,19 @@ The accessory SHOULD have firmware that is updatable by the owner.
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
 
-## Paired Accessory Identification
-Any platform that supports both pairing and unwanted tracking SHOULD also provide the capability to suppress unwanted tracking alerts caused by an owner device's paired accessory.
+## Associated Accessory Identification
+Any platform that supports unwanted tracking SHALL also provide the capability to suppress unwanted tracking alerts caused by an owner's associated accessory.
 
-If an unwanted tracking alert occurs for an accessory and the platform does not already have the installed capability to prevent this alert for the owner of the accessory, then the platform SHOULD explain to the user how those capabilities can be acquired.
+If an unwanted tracking alert occurs for an accessory and the platform does not already have the installed capability to prevent this alert for the owner of the accessory, then the platform SHALL explain to the user how those capabilities can be acquired.
 
 
 ### Implementation
-Unwanted tracking SHOULD recognize an accessory paired to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
+Unwanted tracking SHALL recognize an accessory associated to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
 
 ### Platform Software Extension
-Platforms SHOULD implement the paired accessory identification capability as a software extension to its unwanted tracking detection.
+Platforms SHALL implement the associated accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [resolvable and private address](#resolvable-private-address).
+Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [rotating address](#rotating-address).
 
 The protocol ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
