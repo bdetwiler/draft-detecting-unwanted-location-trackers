@@ -286,16 +286,16 @@ For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted t
 >0xdfeceff1 11011111 11101100 11101111 11110001<br/>0xe1ff54db 11100001 11111111 01010100 11011011 
 
 
-| Operand name         | Data type | Size (octets) | Description                         |
+| Operand name         | Data type | Count         | Description                         |
 |:--------------------:|:---------:|:-------------:|:-----------------------------------:|
-| Product Data         | Uint64    | 8             | See [Product data](#product-data)   |
+| Product Data         | Uint8     | 8             | See [Product data](#product-data)   |
 {: title="Product Data Operand" }
 
 #### Manufacturer name
 The Manufacturer Name operand contains the name of the company whose brand will appear on the accessory, e.g., ”Acme”.
 
 
-| Operand name  | Data type | Size (octets) |    Description    |
+| Operand name         | Data type | Count         |    Description    |
 |:--------------------:|:---------:|:-------------:|:-----------------:|
 | Manufacturer Name    | UTF-8     | 64            | Manufacturer name |
 {: title="Manufacturer Name Operand" }
@@ -304,7 +304,7 @@ The Manufacturer Name operand contains the name of the company whose brand will 
 The Model Name operand contains the manufacturer specific model of the accessory.
 
 
-| Operand name  | Data type | Size (octets) | Description |
+| Operand name         | Data type | Count         | Description |
 |:--------------------:|:---------:|:-------------:|:-----------:|
 | Model Name           | UTF-8     | 64            | Model name  |
 {: title="Model Name Operand" }
@@ -313,18 +313,18 @@ The Model Name operand contains the manufacturer specific model of the accessory
 The Accessory Category operand describes the category the accessory most closely resembles.
 
 
-| Operand name  | Data type | Size (octets) |                                           Description                                           |
+| Operand name         | Data type | Count         |                                           Description                                           |
 |:--------------------:|:---------:|:-------------:|:------------------------------------------------------------------------------------------------|
-|  Accessory Category  |   Uint64  |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
+|  Accessory Category  |   Uint8   |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
 {: title="Accessory Category Operand" }
 
 #### Accessory capabilities
 The Accessory Capabilities operand enumerates the various capabilities supported on the accessory as defined in {{table-accessory-capability}}.
 
 
-| Operand name  | Data type | Size (octets) |                                                                        Description                                                                        |
-|:--------------------:|:---------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports serial number lookup by NFC <br/> Bit 3 : Supports serial number lookup by BLE |
+| Operand name           | Data type | Count         |                                                                        Description                                                                       |
+|:----------------------:|:---------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accessory Capabilities | Uint32    | 1             | Bit 0 : Supports play sound <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports serial number lookup by NFC <br/> Bit 3 : Supports serial number lookup by BLE |
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and serial number look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
