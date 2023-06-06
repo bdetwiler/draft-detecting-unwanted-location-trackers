@@ -1,0 +1,737 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-06-06T00:49:08.233090+00:00",
+  "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOJdqgvc5lOq-R",
+      "title": "Protection from theft",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/3",
+      "state": "OPEN",
+      "author": "kfet",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "gillian-epm"
+      ],
+      "labels": [],
+      "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
+      "createdAt": "2023-05-06T00:54:39Z",
+      "updatedAt": "2023-06-05T15:23:21Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "Sn0wfreezeDev",
+          "authorAssociation": "NONE",
+          "body": "Hi @kfet,\r\n\r\nThat is one use-case for which these trackers are used, but it has never been the intended use-case. This specification does not make it easier to discover these trackers for thieves. AirTags, Samsung Trackers, Tile, they all rely on Bluetooth. Every simple Bluetooth scanner app can find them. \r\n\r\nThe intended use-case was to find your lost valuables and that's where these devices are great at. The added protection against stalking is helpful for people who are in threat of stalking. Stalking can lead to harmful attacks and have already ended up in at least two people getting killed after they have been tracked with an AirTag. The value of any material device should never be higher than the value of human life. ",
+          "createdAt": "2023-06-05T12:39:43Z",
+          "updatedAt": "2023-06-05T12:39:43Z"
+        },
+        {
+          "author": "kfet",
+          "authorAssociation": "NONE",
+          "body": "Hello @Sn0wfreezeDev, thanks for responding!\r\n\r\n> Stalking can lead to harmful attacks and have already ended up in at least two people getting killed after they have been tracked with an AirTag. The value of any material device should never be higher than the value of human life.\r\n\r\nThis is implied. However it should not be an excuse to ignore how other use-cases are affected.\r\n\r\nI don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property. Just as a very trivial example to start-off such conversation it could be made possible for authorities to recover details of the device used to disable a tracker, it it gets reported as tracking stolen property. If nothing else this could discourage theft.\r\n\r\n> This specification does not make it easier to discover these trackers for thieves. \r\n\r\nI think this is not true. This spec will make it trivially easy, by having a tracker work with any smart phone to proactively notify a thief of the tracker's presence, AND allowing it to get disabled, with zero effort on their part, no additional equipment or app required.\r\n\r\nAt the very least it seem to me the effect on this use case should be acknowledged as a side-effect.",
+          "createdAt": "2023-06-05T13:16:32Z",
+          "updatedAt": "2023-06-05T13:16:32Z"
+        },
+        {
+          "author": "mrlnc",
+          "authorAssociation": "NONE",
+          "body": "> I don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property.\r\n\r\nI think [Section 2: Applicability](https://www.ietf.org/archive/id/draft-detecting-unwanted-location-trackers-00.html#name-applicability-2) goes in that direction; unwanted tracking countermeasures are required only for small items (with high potential for misuse). *Find My* enabled suitcases, bicycles or cars (with the tracker *built-in*) could remain silent.\r\n\r\nIs my understanding correct?",
+          "createdAt": "2023-06-05T14:19:01Z",
+          "updatedAt": "2023-06-05T14:23:45Z"
+        },
+        {
+          "author": "Sn0wfreezeDev",
+          "authorAssociation": "NONE",
+          "body": "Yes that's the way how Apple has internally defined that for participants of the Find My Network already. You can find leaked documents about this online. ",
+          "createdAt": "2023-06-05T15:23:21Z",
+          "updatedAt": "2023-06-05T15:23:21Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOJdqgvc5lgPbB",
+      "title": "Clarification on the threat model of location-trackers",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/5",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n\u201cFirst, I think it's important to be clear on the threat model\r\nhere. The threat from \"finder\" type location trackers like\r\nTiles or AirTags comes from the interaction of a number of features,\r\nspecifically:\r\n\r\n1. They are compact (thus easy to hide)\r\n2. They are cheap (thus easy to obtain)\r\n3. They take advantage of a preexisting infrastructure intended\r\n   for another purpose (the finder network)\r\n4. They have long battery lifetimes (and thus are suitable\r\n   for long-term surveillance)\r\n\r\nTo contextualize this, consider the counter example of a GPS tracker\r\nlike a Garmin inReach, which takes a GPS location and broadcasts it to\r\na satellite. These cost about $300, have battery life measured in days,\r\nand are several centimeters across, so are hard to conceal. This is\r\nmuch less useful for both covert surveillance and for finding ones\r\nown items. So, the objective of this work should be to the extent\r\npossible to prevent attacks which are cheaper than buying your\r\nown GPS tracker.\u201d",
+      "createdAt": "2023-05-10T01:09:42Z",
+      "updatedAt": "2023-05-10T03:41:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "NONE",
+          "body": "It sounds like these are all good nuances to add to the applicability section. Currently that only talks about what makes something \"easily discoverable\"\r\n\r\n> Accessories are considered easily discoverable if they meet one of the following criteria: \r\n> - The item is larger than 30 cm in at least one dimension. \r\n> - The item is larger than 18 cm x 13 cm in two of its dimensions. \r\n> - The item is larger than 250 cm3 in three-dimensional space.\r\n\r\nIt sounds like the cost/availability, battery life, and connectedness model are all dimensions that would be good to add.",
+          "createdAt": "2023-05-10T03:41:11Z",
+          "updatedAt": "2023-05-10T03:41:11Z"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOJdqgvc5lgQag",
+      "title": "UT detection countermeasures",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/6",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n\u201cSecond, I think it's important to consider the situation with\r\nnonconformant tracking tags. There are several attacks here,\r\nincluding:\r\n\r\n1. Modifying an existing tage to make it nonconformant in\r\n   such a way that the countermeasures in this draft don't\r\n   work.\r\n2. Making a new tag which is nonconformant, etc.\r\n\r\nI think this framing is useful when considering two different sets\r\nof countermeasures in this design:\r\n\r\n1. The \"sound maker\" feature of having the device make noise when its\r\n   separated and moving (S 3.12.2.1) or when it is located\r\n   (S 3.12.3).\r\n\r\n2. The BT-based \"this device is following me\" feature described in\r\n   S 3.4.3.\r\n\r\nThe key point I would like to make here is that countermeasure\r\n(1) is potentially evaded without compromising the above invariants.\r\nFor instance, maybe I can take an AirTag and disable the speaker\r\nin some way but it will still work for location tracking. Or\r\nmaybe I can wrap it in some sound insulating material. Clearly I\r\ncan fix the flashing lights. None of this seems like it impacts\r\nthe basic tracking functionality, including the surveillance\r\nuse case.\r\n\r\nBy contrast, I don't think it's necessarily feasible to easily modify\r\nthe tracker to use some different protocol that would still be\r\ncompatible with tracking but harder to detect (e.g., faster ID rotation)\r\nbecause that would depend on changing the firmware. So that is\r\na harder attack to mount, especially if the firmware is signed.\r\nObviously you can burn out the radio or wrap it in a faraday cage,\r\nbut that breaks *both* tracking and unwanted tracking detection.\r\nHowever, it might be able to build a fake tag which violated\r\nthese invariants.\r\n\r\nMy point here is that detection countermeasures need to depend\r\non properties of the system that are hard to subvert while\r\nhaving it continue to be functional. \u201c",
+      "createdAt": "2023-05-10T01:15:39Z",
+      "updatedAt": "2023-05-10T01:15:39Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOJdqgvc5lgQgP",
+      "title": "Overall UT System Description",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/7",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\u201cFinally, this document really focuses on how to detect unwanted\r\ntracking but doesn't describe how the system as a whole works.\r\nThat makes it difficult to understand the overall context and\r\nin particular to determine which invariants in this design are\r\nenforced by the tracking network (and thus presumably harder\r\nto evade) and those which are enforced by compliant tag behavior\r\n(and thus may be easier to evade). A future version of this\r\ndocument would be more useful if it described how the system\r\nworked in its \"as designed\" configuration. This would also\r\nallow evaluating its other security and privacy properties.\u201d",
+      "createdAt": "2023-05-10T01:16:13Z",
+      "updatedAt": "2023-05-10T01:16:13Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOJdqgvc5lgQpF",
+      "title": "location-enabled state assumptions",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/8",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nS 3.3.\r\n>   The accessory SHALL maintain an internal state that determines when\r\n>   its location is, or has been, available to the owner via a network.\r\n>   This state is called the location-enabled state.\r\n\r\n\u201cAre you making any assumptions about who can turn on this state?\r\nE.g., does it have to be a paired device or can it be the network.\u201d",
+      "createdAt": "2023-05-10T01:17:04Z",
+      "updatedAt": "2023-05-15T19:26:16Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "Good callout! I admit the original thinking is that only the accessory could determine this state, but I don\u2019t see any big concerns about the paired device or the network determining this state. However, in the network-controlled case, I think we\u2019d need the control message to originate from one of the owner\u2019s devices and the delivery to the accessory to be private and secure.",
+          "createdAt": "2023-05-15T19:26:16Z",
+          "updatedAt": "2023-05-15T19:26:16Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOJdqgvc5lgQsy",
+      "title": "UT detection and proximity to owner\u2019s phone",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/9",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n>   It is RECOMMENDED that the location-enabled payload is only\r\n>   advertised when the accessory is in the separated state.  The\r\n>   reasoning behind this recommendation is that unwanted tracking\r\n>   detection relies on the Bluetooth LE advertisements emitted while in\r\n>   the location-enabled state to determine if an unknown accessory is\r\n>   traveling with someone who is not the owner.  If the location-enabled\r\n>   payload is advertised only in the separated state, that minimizes\r\n>   false-positive UT alerts.\r\n\r\nHow does this interact with cases where I have lost something in\r\na location near my phone (e.g., in my house.  ?",
+      "createdAt": "2023-05-10T01:17:26Z",
+      "updatedAt": "2023-05-10T20:37:33Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "Good question! One way this could work is that your phone relays the lost item\u2019s location between your own devices, but not over the finder network.",
+          "createdAt": "2023-05-10T20:37:33Z",
+          "updatedAt": "2023-05-10T20:37:33Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOJdqgvc5lgQws",
+      "title": "Clarification on term \u201cunlinkable\u201d",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/10",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\nS 3.5.\r\n>   The address MUST be private and it MUST rotate periodically and be\r\n>   unlinkable; otherwise, if the same address is used for long periods\r\n>   of time, an adversary may be able to track a legitimate person from\r\n>   carrying the accessory.\r\n\r\nUnlinkable to who? You say below that you might use a PRF so it's\r\nlinkable by the paired accessory right}?",
+      "createdAt": "2023-05-10T01:17:48Z",
+      "updatedAt": "2023-05-16T16:32:38Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "NONE",
+          "body": "Agreed \u2014 perhaps it would be clearer to describe the randomness requirements as opposed to calling it broadly \"unlinkable\"?",
+          "createdAt": "2023-05-10T21:02:52Z",
+          "updatedAt": "2023-05-10T21:02:52Z"
+        },
+        {
+          "author": "yannick-sierra",
+          "authorAssociation": "NONE",
+          "body": "I think the intent is for the addresses to be unlinkable by all but the owner devices, who need a way to recognize their own accessories. Agreed this could be made clearer.",
+          "createdAt": "2023-05-16T16:32:38Z",
+          "updatedAt": "2023-05-16T16:32:38Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOJdqgvc5lgQzM",
+      "title": "track-ability when in near-owner state",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/11",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nS 3.5.1.\r\n>   When in near-owner state, the accessory SHALL rotate its resolvable\r\n>   and private address every 15 minutes.  This is a privacy\r\n>   consideration to deter tracking of the accessory by non-owners when\r\n>   it is in physical proximity to the owner.\r\n\r\n\u201cCan you still track a device in this state?\u201d",
+      "createdAt": "2023-05-10T01:18:04Z",
+      "updatedAt": "2023-05-15T21:09:14Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "Not 100% sure I follow the question, so gonna try to clarify the intent of the section. In this state, the accessory\u2019s location can still be determined by the owner\u2019s devices (not the network). The unwanted tracking detection algorithms will not track the accessory in this state, because it\u2019s in the near-owner state.\r\n\r\nThe word \u201ctracking\u201d referred to in the second sentence is for BT-scanner-based tracking that looks for an address that is static over a long period of time (>> 15 min).\r\n\r\nSo, maybe should rephrase this to:\r\n\r\n\"When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter long-term tracking of the accessory when it is in physical proximity to the owner.\"",
+          "createdAt": "2023-05-15T21:09:13Z",
+          "updatedAt": "2023-05-15T21:09:13Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOJdqgvc5lgQ2L",
+      "title": "Threat vectors which could compromise near-owner state configuration",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/12",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n3.8\r\n\r\n>  It is important to prevent unwanted tracking alerts from occurring\r\n>  when the owner of the accessory is in physical proximity of the\r\n>  accessory, i.e., it is in near-owner mode.  In order to allow\r\n>  suppression of unwanted tracking alerts for an accessory advertising\r\n>  the location-enabled advertisement with the owner nearby, the\r\n>  accessory MUST set the near-owner bit to be 1 when the near-owner\r\n>  state is in near-owner mode, otherwise the bit is set to 0.  Table 2\r\n>  specifies the values of this bit.\r\n\r\n\u201cSo here's another example of a potential attack. How hard is it to\r\npersuade a device it is in near-owner state?\u201d",
+      "createdAt": "2023-05-10T01:18:22Z",
+      "updatedAt": "2023-05-10T01:18:22Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOJdqgvc5lgQ8o",
+      "title": "Firmware update UT threat vectors",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/13",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n> 5.  Firmware Updates\r\n>\r\n> The accessory SHOULD have firmware that is updatable by the owner.\r\n\r\n\u201cThis seems bad for the reasons above.\u201d",
+      "createdAt": "2023-05-10T01:18:53Z",
+      "updatedAt": "2023-05-11T00:29:26Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "The 'reasons above' that I am interpreting from Eric:\r\n\r\n* https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/6\r\n* https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/12\r\n* https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/8",
+          "createdAt": "2023-05-10T01:19:29Z",
+          "updatedAt": "2023-05-10T01:22:56Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "NONE",
+          "body": "Well, more generally, if you can update the firmware, you can cause the tag to just violate all the rules in this document.",
+          "createdAt": "2023-05-10T19:26:25Z",
+          "updatedAt": "2023-05-10T19:26:25Z"
+        },
+        {
+          "author": "tfpauly",
+          "authorAssociation": "NONE",
+          "body": "Although I suppose in general, these tag devices need to be benevolent in the first place to participate in this to begin with \u2014 implementers could choose to violate the rules in any version, right? It sounds like the danger is that a product that is sold and is known to be compatible with these anti-tracking protocols could later get a malicious update. The question is if that risk is worse than the risk of not being able to update and being vulnerable to an attack due to an unpatched security flaw.",
+          "createdAt": "2023-05-10T23:52:18Z",
+          "updatedAt": "2023-05-10T23:52:18Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "NONE",
+          "body": "Well, I think that this basically is a function of the overly narrow threat model of this document. which is that it doesn't address how to prevent the creation of a malicious device which uses the network.\r\n\r\nSee: https://educatedguesswork.org/posts/unwanted-tracking/#the-broader-threat-model\r\n",
+          "createdAt": "2023-05-11T00:29:26Z",
+          "updatedAt": "2023-05-11T00:29:26Z"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOJdqgvc5ll8nG",
+      "title": "non-owner controls should only be enabled in separated mode",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/14",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Sun, 07 May 2023 20:06 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nThe non-owner controls specified in S 3.12.4 should probably only be\r\nenabled\r\nin separated mode. It would obviously be quite annoying if I could cause any\r\ntag near me to start emitting noise.",
+      "createdAt": "2023-05-10T18:37:44Z",
+      "updatedAt": "2023-05-10T23:12:43Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Agree that non-owner controls shall only be available when in separated mode.\r\n\r\nBelow Table 11 in 3.12.4 there is this statement:\r\n\r\n\u201cThis control point SHALL be available to the platform only when the accessory is in separated state. In all other states, ...\"\r\n \r\nI propose moving this paragraph above Table 11 so it's not as separated from the rest.",
+          "createdAt": "2023-05-10T23:12:43Z",
+          "updatedAt": "2023-05-10T23:12:43Z"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOJdqgvc5ll9NV",
+      "title": "IANA registry",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/15",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Sun, 07 May 2023 20:06 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n\"Section 9 creates an IANA registry, but as a general matter, an I-D does\r\nnot\r\ncreate registries and Independent Stream documents cannot do so except\r\nin exceptional cases [0].\r\n\r\n\r\n[0]\r\nhttps://datatracker.ietf.org/doc/html/rfc8726#name-creating-new-iana-registrie\"\r\n",
+      "createdAt": "2023-05-10T18:39:43Z",
+      "updatedAt": "2023-05-10T20:59:09Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "NONE",
+          "body": "If this goes on standards track at some point, then keeping the IANA considerations would be fine. Let's see where this lands first.",
+          "createdAt": "2023-05-10T20:59:09Z",
+          "updatedAt": "2023-05-10T20:59:09Z"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOJdqgvc5malNm",
+      "title": "Pairing and pairing registry",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/17",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "// originally from josselin=[40life360.com@dmarc.ietf.org](mailto:40life360.com@dmarc.ietf.org) on May 11th, 2023\r\n// via [unwanted-trackers@ietf.org](mailto:unwanted-trackers@ietf.org)\r\n\r\n1: Pairing\r\n\r\nThe word \"Pairing\" is used in various places of the draft and it seems for different meanings. I recommend using \"BLE Pairing\" to describe the actual BLE Pairing and avoid using the word \"Pairing\" for other uses. \r\n\r\nFor instance, the following paragraph:\r\n3.15.  Pairing registry\r\n\r\n   Verifiable identity information of the owner of an accessory at time\r\n   of pairing SHALL be recorded and associated with the serial number of\r\n   the accessory, e.g., phone number, email address.\r\n\r\nShould be replaced with something like:\r\n\r\n3.15. Owner registry\r\n\r\nVerifiable identity information of the owner of an accessory at time of association SHALL be...",
+      "createdAt": "2023-05-20T18:06:28Z",
+      "updatedAt": "2023-06-05T19:43:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Josselin,\r\n\r\nRe: 1 (Pairing) - that seems like a good update. Do you want to submit a pull request with the places you\u2019d like to update that language? Else we can take a pass through in the next round of updates.",
+          "createdAt": "2023-05-23T21:29:38Z",
+          "updatedAt": "2023-05-23T21:29:38Z"
+        },
+        {
+          "author": "josselindlb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, I'll prepare a PR",
+          "createdAt": "2023-06-01T22:29:57Z",
+          "updatedAt": "2023-06-01T22:29:57Z"
+        },
+        {
+          "author": "josselindlb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I created a branch with the related changes, could I get permission to push it so I can create a PR?\r\n",
+          "createdAt": "2023-06-02T23:35:53Z",
+          "updatedAt": "2023-06-02T23:35:53Z"
+        },
+        {
+          "author": "josselindlb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Can you please help with push access @bdetwiler ?",
+          "createdAt": "2023-06-05T19:29:33Z",
+          "updatedAt": "2023-06-05T19:29:33Z"
+        },
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "@josselindlb yes sure I can help ",
+          "createdAt": "2023-06-05T19:30:24Z",
+          "updatedAt": "2023-06-05T19:30:24Z"
+        },
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "@josselindlb try now ",
+          "createdAt": "2023-06-05T19:43:44Z",
+          "updatedAt": "2023-06-05T19:43:44Z"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOJdqgvc5malRg",
+      "title": "MAC address format",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/18",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "// originally from josselin=[40life360.com@dmarc.ietf.org](mailto:40life360.com@dmarc.ietf.org) on May 11th, 2023\r\n// via [unwanted-trackers@ietf.org](mailto:unwanted-trackers@ietf.org)\r\n\r\n2: MAC addresses\r\n\r\nThe following requirement in 3.5:\r\n\"\"\"\r\nThe Bluetooth LE advertisement payload SHALL contain a resolvable and\r\n   private address for the accessory which is the 6-byte Bluetooth LE\r\n   MAC address.\r\n\"\"\"\r\nis out of scope of this document. The scope of the document does not require a specific MAC address format to be used and this should be an implementation choice.\r\n",
+      "createdAt": "2023-05-20T18:07:30Z",
+      "updatedAt": "2023-05-20T19:00:36Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOJdqgvc5malZz",
+      "title": "Advertising interval",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/19",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "// originally from josselin=40life360.com@dmarc.ietf.org on May 11th, 2023\r\n// via unwanted-trackers@ietf.org\r\n\r\n3: Advertising Interval\r\n\r\nThe advertising Interval requirements in 3.9:\r\n\r\nThere is no justification to constraint devices to these advertising intervals so the requirement should be removed.",
+      "createdAt": "2023-05-20T18:09:33Z",
+      "updatedAt": "2023-06-01T22:42:35Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "NONE",
+          "body": "Seems like adding a justification is a good idea! \r\n\r\nHere are some initial thoughts:\r\n\r\nOn the lower bound of the advertising interval, we probably want to add the fastest possible rate in which BT LE advertises for completeness and consistence. \r\n\r\nOn the upper bound of the advertising interval, the reason to have a value that is not too large is:\r\na. Probability of detection: The longer the advertising interval, the harder it will be to reliably detect if an accessory is traveling with you \r\nb. User experience: Time-to-connect for non-owner play sound is a function of the advertising interval. I don't think we'd want users waiting a very long time to connect to locate an accessory that may be tracking them",
+          "createdAt": "2023-05-20T18:17:48Z",
+          "updatedAt": "2023-05-20T18:17:48Z"
+        },
+        {
+          "author": "josselindlb",
+          "authorAssociation": "NONE",
+          "body": "Agreed to not provide a lower bound limit.\r\n\r\nAbout upper bound:\r\nOur understanding is that time to discover or time to connect connect increase linearly with the advertising interval at close to medium range and staying under 4 seconds provides acceptable latencies for item trackers.\r\nIn the scope of this spec, close to medium range could be assumed and thus a 4s seconds limit could be used. Interested to hear about potential different findings on this.",
+          "createdAt": "2023-06-01T22:42:34Z",
+          "updatedAt": "2023-06-01T22:42:34Z"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOJdqgvc5man40",
+      "title": "Availability for law enforcement",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/20",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "// Originally from alexis@eff.org on May 15th, 2023\r\n// via unwanted-trackers@ietf.org\r\n\r\n''''\r\n3.15.3.  Availability for law enforcement\r\n\r\n  The pairing registry SHALL be made available to law enforcement upon\r\n  a valid law enforcement request.\r\n''''\r\n\r\nSince this a protocol for how a location tracker should behave for proper detection, this section is out of scope. This appears to dictate on what should happen with law enforcement access on what happens *after detection*, thus the protocol completing it's task and afterwards the user deciding on whatever action to take.\r\n\r\nI anticipate language about law enforcement would appear somewhere in the usage of user establishing a tracker for use (benign or malicious), but strongly suggest addressing law enforcement access should be stricken from the scope of the specification.\r\n",
+      "createdAt": "2023-05-20T18:50:38Z",
+      "updatedAt": "2023-05-20T19:02:36Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOJdqgvc5naYLb",
+      "title": "addition of \"Shipment/Package\" to accessory category values list",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/21",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "// to: draft-detecting-unwanted-location-trackers@ietf.org\r\n// from: <klein.elliot@gmail.com> \r\n// on: May 2, 2023\r\n\r\n\r\nI recommend the addition of \"Shipment/Package\" as one additional category to list as I anticipate devices included on or within package shipments will help monitor if lost or otherwise to determine ETA or other exceptions to on-time delivery of important packages -- including vaccines, pharma products, medical devices, or other valuable shipment(s) with particular relevance into expanding B2B enterprise market use cases.\r\n\r\nThanks,\r\n\r\nElliot Klein\r\n",
+      "createdAt": "2023-05-31T20:29:30Z",
+      "updatedAt": "2023-06-02T22:16:20Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "gillian-epm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Elliot, is it your expectation that the shipping packages would have bluetooth tracking capability built into the package itself?  Or do you expect to be placing a BT tracker into the box? ",
+          "createdAt": "2023-06-02T22:16:20Z",
+          "updatedAt": "2023-06-02T22:16:20Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJdqgvc5Pn-Pd",
+      "title": "Fix errors",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/1",
+      "state": "CLOSED",
+      "author": "bgasiorzewski",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-05-02T21:47:41Z",
+      "updatedAt": "2023-06-01T22:38:24Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "8638157e2ea04c4d5cca47b4e0459af6b88bf456",
+      "headRepository": "bgasiorzewski/draft-detecting-unwanted-location-trackers",
+      "headRefName": "fix-errors",
+      "headRefOid": "1920c454d422795f26e6c252bb542db5450af210",
+      "closedAt": "2023-06-01T22:38:24Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "@bgasiorzewski thanks for the PR. I had one feedback that I think needs fixed before this can be merged and that is changing the size to 1 in the Product Data table. Removing '(octets)' from the other table columns can come in a different PR if you don't want to tackle that portion.",
+          "createdAt": "2023-05-09T01:06:06Z",
+          "updatedAt": "2023-05-09T01:06:06Z"
+        },
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "@bgasiorzewski I have cherry-picked your changes over to https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/22\r\n\r\nI'll rebase and push a commit or 2 on top and then merge; therefore, closing this PR given work will continue over at #22. Thank you.",
+          "createdAt": "2023-06-01T22:36:56Z",
+          "updatedAt": "2023-06-01T22:38:19Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJdqgvc5PsTIO",
+      "title": "Open to Third-Party Developers",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/2",
+      "state": "OPEN",
+      "author": "Sn0wfreezeDev",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The current version of the document needs to clarify how a platform handles third-party developers. \r\nWe want to ensure that platforms must not limit access to accessories following unwanted tracking specifications. Third-party developers must be able to scan for accessories, connect to them and interact with them over the accessory non-owner characteristic. \r\n\r\nThe current version of the document is based on Apple's tracking detection for iOS, which is an excellent solution for most people. Nevertheless, there may exist different target groups that have different needs. For example, a police officer can be required to perform a detailed scan of the environment to detect any nearby trackers. It would be possible for a third-party developer to implement such a service and offer it on the App Store / Google Play Store. \r\n\r\nFurthermore, users might need more detailed settings. A user that has previously experienced stalking might want to be alerted earlier and is okay with experiencing a higher false-positive rate. \r\n\r\nTherefore, I propose the added changes to ensure that no platform or manufacturer limits access to the Bluetooth accessories following this specification. ",
+      "createdAt": "2023-05-03T16:33:28Z",
+      "updatedAt": "2023-06-05T19:51:05Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "8638157e2ea04c4d5cca47b4e0459af6b88bf456",
+      "headRepository": "seemoo-lab/draft-detecting-unwanted-location-trackers",
+      "headRefName": "third_party_software",
+      "headRefOid": "c03f99b2aa2e7810d59f5d712b5ae8d4f9d72159",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Hi @Sn0wfreezeDev \r\n\r\nThank you for the feedback.\r\n\r\nThe primary goal of this internet draft is to outline the protocols and standards for location-tracking accessory makers to comply with platforms' unwanted tracking services. The \"Platform Support for Unwanted Tracking\u201d section is intended to standardize the model where accessory makers shall make a software extension available for the platforms to allow owner\u2019s of their accessories to suppress UT alerts from their own paired accessories. ",
+          "createdAt": "2023-06-05T19:51:05Z",
+          "updatedAt": "2023-06-05T19:51:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5VFQky",
+          "commit": {
+            "abbreviatedOid": "c03f99b"
+          },
+          "author": "JPBFRCA4",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-05-15T22:14:55Z",
+          "updatedAt": "2023-05-15T22:14:55Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOJdqgvc5P-Wme",
+      "title": "Fix error ## Near-owner bit text",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/4",
+      "state": "MERGED",
+      "author": "MiFareLady",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "text doesn't match the table.",
+      "createdAt": "2023-05-08T08:16:01Z",
+      "updatedAt": "2023-05-09T20:47:16Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "8638157e2ea04c4d5cca47b4e0459af6b88bf456",
+      "headRepository": "MiFareLady/draft-detecting-unwanted-location-trackers",
+      "headRefName": "patch-1",
+      "headRefOid": "40a009b7bb2658bc929b662401789f1c7fd24100",
+      "closedAt": "2023-05-09T20:47:16Z",
+      "mergedAt": "2023-05-09T20:47:16Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "504e2d978df13acac71219d8347af3a057a7a018"
+      },
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "@MiFareLady thank you for catching this mistake. Could you please actually change the value in the table 2? Near-owner bit value should be 1 in the near-owner state. thanks again.",
+          "createdAt": "2023-05-09T00:46:24Z",
+          "updatedAt": "2023-05-09T00:46:24Z"
+        },
+        {
+          "author": "MiFareLady",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@bdetwiler Done!",
+          "createdAt": "2023-05-09T09:52:56Z",
+          "updatedAt": "2023-05-09T09:52:56Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOJdqgvc5QOq0o",
+      "title": "Fix broken link in README.md",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/16",
+      "state": "MERGED",
+      "author": "Pablohn26",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Update README.md fix guidelines for contributions broken link",
+      "createdAt": "2023-05-10T20:46:41Z",
+      "updatedAt": "2023-05-10T21:02:22Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "504e2d978df13acac71219d8347af3a057a7a018",
+      "headRepository": "Pablohn26/draft-detecting-unwanted-location-trackers",
+      "headRefName": "main",
+      "headRefOid": "4820cb3725c1e3caf554e4a42ff2edaf2b237ca1",
+      "closedAt": "2023-05-10T21:02:22Z",
+      "mergedAt": "2023-05-10T21:02:22Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "873911be2ef169cd672a8941600d3ba6c0672351"
+      },
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Thanks for fixing this, it was also proposed in https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/1\r\n\r\nbut fine to submit immediately with this PR",
+          "createdAt": "2023-05-10T21:01:28Z",
+          "updatedAt": "2023-05-10T21:01:50Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOJdqgvc5R8u-Y",
+      "title": "Fix errors",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/22",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "cherry-picked from https://github.com/bgasiorzewski/draft-detecting-unwanted-location-trackers/tree/fix-errors for a few updates before merging",
+      "createdAt": "2023-06-01T22:36:07Z",
+      "updatedAt": "2023-06-05T20:30:20Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "fix-table-errors",
+      "headRefOid": "fd0929ece63fb388a73a4dc55a93917187bdf8a2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOJdqgvc5SP0cE",
+      "title": "Jb pairing address",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/23",
+      "state": "OPEN",
+      "author": "josselindlb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi there,\r\n\r\nI was not sure how much bundling is usually done in PRs, so I ended up bundling some, especially as these are related in some cases. This PR provides addresses the following:\r\n\r\n1. Disambiguate \"Pairing\" and use \"association\" instead where applicable (issue #17 ).\r\n2. Not require a given MAC address format (issue #18 ).\r\n3. When not in separated mode, require to rotate the MAC \"at least every 120 minutes\" instead of \"every 15 minutes\": the rational is that 120 should be good enough so we don't really need to require 15 minutes (of course 15 mn would be allowed).\r\n4. Make the \"Paired (Associated) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n\r\nThanks,\r\nJosselin\r\n",
+      "createdAt": "2023-06-05T22:56:23Z",
+      "updatedAt": "2023-06-05T22:56:24Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "jb_pairing_address",
+      "headRefOid": "473a969b3dfe3d000c5cc890b0faaa172e8029cd",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
