@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-06T00:49:08.233090+00:00",
+  "timestamp": "2023-06-08T00:48:17.345719+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -719,7 +719,7 @@
       "labels": [],
       "body": "Hi there,\r\n\r\nI was not sure how much bundling is usually done in PRs, so I ended up bundling some, especially as these are related in some cases. This PR provides addresses the following:\r\n\r\n1. Disambiguate \"Pairing\" and use \"association\" instead where applicable (issue #17 ).\r\n2. Not require a given MAC address format (issue #18 ).\r\n3. When not in separated mode, require to rotate the MAC \"at least every 120 minutes\" instead of \"every 15 minutes\": the rational is that 120 should be good enough so we don't really need to require 15 minutes (of course 15 mn would be allowed).\r\n4. Make the \"Paired (Associated) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n\r\nThanks,\r\nJosselin\r\n",
       "createdAt": "2023-06-05T22:56:23Z",
-      "updatedAt": "2023-06-05T22:56:24Z",
+      "updatedAt": "2023-06-08T00:38:35Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
@@ -730,7 +730,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hey @josselindlb - can you make the PR just for issue #1? I think the others require a bit more discussion before merging.",
+          "createdAt": "2023-06-08T00:38:35Z",
+          "updatedAt": "2023-06-08T00:38:35Z"
+        }
+      ],
       "reviews": []
     }
   ]
