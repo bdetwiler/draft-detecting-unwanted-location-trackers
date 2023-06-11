@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-08T00:48:17.345719+00:00",
+  "timestamp": "2023-06-11T00:56:04.176773+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -510,6 +510,134 @@
           "updatedAt": "2023-06-02T22:16:20Z"
         }
       ]
+    },
+    {
+      "number": 24,
+      "id": "I_kwDOJdqgvc5oOjX4",
+      "title": "Time until unwanted tracking notification becomes active and potential nuisances",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/24",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nHow long is the time before the unwanted tracking notification becomes active? Working on the assumption that this needs to be early enough to prevent sensitive location data (such as home address) from being obtained, could there be the potential for nuisance triggering in crowded spaces such as public transport? Could this also lead to people falsely flagging a genuine tag as being nefarious?",
+      "createdAt": "2023-06-08T21:13:27Z",
+      "updatedAt": "2023-06-09T23:13:01Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\r\nSince this draft focuses mainly on the accessory makers, it is out of scope to specify a time to notify the user about unwanted tracking. The time required for unwanted tracking detection may rely on several factors such as the user's movement pattern and mitigations to prevent false alerts.",
+          "createdAt": "2023-06-09T23:13:01Z",
+          "updatedAt": "2023-06-09T23:13:01Z"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOJdqgvc5oOjzj",
+      "title": "Accessory category value",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/25",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\n2. A number of the categories listed in section 4.  Accessory Category Value would imply that the accessory is used for asset tracking.  Can you explain how the system would determine the difference between unwanted tracking and theft?",
+      "createdAt": "2023-06-08T21:14:34Z",
+      "updatedAt": "2023-06-08T21:14:34Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOJdqgvc5oOj5q",
+      "title": "Location reporting after tag is detected as nefarious",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/26",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nMy understanding is that once a tag is separated from its owner, any device in range can report its position. If a person detects and flags a tag as nefarious, does this prevent other devices in range from updating the location?",
+      "createdAt": "2023-06-08T21:14:57Z",
+      "updatedAt": "2023-06-08T21:14:57Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOJdqgvc5oOkAN",
+      "title": "Requirements and certification",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/27",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nThe proposal relies heavily on the manufacturer of the accessory implementing the recommendations of this paper. How will conformance be ensured and policed? Would the goal be to have these requirements ultimately become part of UL / FCC / EU regulations?",
+      "createdAt": "2023-06-08T21:15:24Z",
+      "updatedAt": "2023-06-09T23:18:50Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We will be working on a process for the conformance to this specification. ",
+          "createdAt": "2023-06-09T23:18:50Z",
+          "updatedAt": "2023-06-09T23:18:50Z"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "I_kwDOJdqgvc5oOkhm",
+      "title": "Pairing registry data validation",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/28",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nThe proposal for Registration Data depends on honesty. In section 3.15.  Pairing registry, how would the registry data be validated (prepaid SIM, gmail address)? Who would be responsible for managing the personal data with respect to GDPR? While many countries now require formal identification, many do not, leaving the ability to register anonymously available. Recording the IMEI of the owner's device could be valid too. Logging biometric data during registration, possibly with a government-issued identification document could also be considered.",
+      "createdAt": "2023-06-08T21:17:06Z",
+      "updatedAt": "2023-06-08T21:17:06Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 29,
+      "id": "I_kwDOJdqgvc5oOklX",
+      "title": "Methods to prevent customized firmware installments",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/29",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nSection 5. Firmware updates allow the user to update the accessory. How will customised firmware be prevented from being uploaded? Secure methods for software signing would need to be part of the technical requirements manufacturers would need to conform to.",
+      "createdAt": "2023-06-08T21:17:19Z",
+      "updatedAt": "2023-06-08T21:17:19Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 30,
+      "id": "I_kwDOJdqgvc5oOkok",
+      "title": "Handling of other location tracking apps",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/30",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nThe paper is largely aimed at nefarious intent. In the case of domestic violence, the abuser normally has access to the target\u2019s phone. How will this paper address the ability to install, and then hide (remove from home screen), apps that can track location, especially without the app being active?",
+      "createdAt": "2023-06-08T21:17:33Z",
+      "updatedAt": "2023-06-08T21:17:33Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -693,7 +821,7 @@
       "labels": [],
       "body": "cherry-picked from https://github.com/bgasiorzewski/draft-detecting-unwanted-location-trackers/tree/fix-errors for a few updates before merging",
       "createdAt": "2023-06-01T22:36:07Z",
-      "updatedAt": "2023-06-05T20:30:20Z",
+      "updatedAt": "2023-06-09T21:25:11Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
