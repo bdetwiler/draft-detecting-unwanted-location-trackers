@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-11T00:56:04.176773+00:00",
+  "timestamp": "2023-06-13T00:47:30.100089+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -563,9 +563,17 @@
       "labels": [],
       "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nMy understanding is that once a tag is separated from its owner, any device in range can report its position. If a person detects and flags a tag as nefarious, does this prevent other devices in range from updating the location?",
       "createdAt": "2023-06-08T21:14:57Z",
-      "updatedAt": "2023-06-08T21:14:57Z",
+      "updatedAt": "2023-06-11T23:56:23Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Once a tag is separated from its owner, other devices in range can update its location. If a tag was identified as nefarious, it must be physically disabled for location updating to stop (See Section 3.13).",
+          "createdAt": "2023-06-11T23:56:23Z",
+          "updatedAt": "2023-06-11T23:56:23Z"
+        }
+      ]
     },
     {
       "number": 27,
@@ -687,21 +695,21 @@
       "id": "PR_kwDOJdqgvc5PsTIO",
       "title": "Open to Third-Party Developers",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sn0wfreezeDev",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The current version of the document needs to clarify how a platform handles third-party developers. \r\nWe want to ensure that platforms must not limit access to accessories following unwanted tracking specifications. Third-party developers must be able to scan for accessories, connect to them and interact with them over the accessory non-owner characteristic. \r\n\r\nThe current version of the document is based on Apple's tracking detection for iOS, which is an excellent solution for most people. Nevertheless, there may exist different target groups that have different needs. For example, a police officer can be required to perform a detailed scan of the environment to detect any nearby trackers. It would be possible for a third-party developer to implement such a service and offer it on the App Store / Google Play Store. \r\n\r\nFurthermore, users might need more detailed settings. A user that has previously experienced stalking might want to be alerted earlier and is okay with experiencing a higher false-positive rate. \r\n\r\nTherefore, I propose the added changes to ensure that no platform or manufacturer limits access to the Bluetooth accessories following this specification. ",
       "createdAt": "2023-05-03T16:33:28Z",
-      "updatedAt": "2023-06-05T19:51:05Z",
+      "updatedAt": "2023-06-12T22:14:40Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "8638157e2ea04c4d5cca47b4e0459af6b88bf456",
       "headRepository": "seemoo-lab/draft-detecting-unwanted-location-trackers",
       "headRefName": "third_party_software",
       "headRefOid": "c03f99b2aa2e7810d59f5d712b5ae8d4f9d72159",
-      "closedAt": null,
+      "closedAt": "2023-06-12T22:14:39Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -712,6 +720,13 @@
           "body": "Hi @Sn0wfreezeDev \r\n\r\nThank you for the feedback.\r\n\r\nThe primary goal of this internet draft is to outline the protocols and standards for location-tracking accessory makers to comply with platforms' unwanted tracking services. The \"Platform Support for Unwanted Tracking\u201d section is intended to standardize the model where accessory makers shall make a software extension available for the platforms to allow owner\u2019s of their accessories to suppress UT alerts from their own paired accessories. ",
           "createdAt": "2023-06-05T19:51:05Z",
           "updatedAt": "2023-06-05T19:51:05Z"
+        },
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Thank you for this PR. As noted above, these additional requirements are beyond the scope of this document. If there are additional ideas in this area, please open an issue for discussion.",
+          "createdAt": "2023-06-12T22:14:39Z",
+          "updatedAt": "2023-06-12T22:14:39Z"
         }
       ],
       "reviews": [
@@ -821,7 +836,7 @@
       "labels": [],
       "body": "cherry-picked from https://github.com/bgasiorzewski/draft-detecting-unwanted-location-trackers/tree/fix-errors for a few updates before merging",
       "createdAt": "2023-06-01T22:36:07Z",
-      "updatedAt": "2023-06-09T21:25:11Z",
+      "updatedAt": "2023-06-12T07:09:54Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
@@ -833,7 +848,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5X3juo",
+          "commit": {
+            "abbreviatedOid": "fd0929e"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "When octets is dropped, total size of the data with type UTF-8 will not be clear. Shall we consider adding another column indicating the total size?\r\n\r\nOtherwise LGTM",
+          "createdAt": "2023-06-12T07:09:54Z",
+          "updatedAt": "2023-06-12T07:09:54Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 23,
@@ -847,7 +876,7 @@
       "labels": [],
       "body": "Hi there,\r\n\r\nI was not sure how much bundling is usually done in PRs, so I ended up bundling some, especially as these are related in some cases. This PR provides addresses the following:\r\n\r\n1. Disambiguate \"Pairing\" and use \"association\" instead where applicable (issue #17 ).\r\n2. Not require a given MAC address format (issue #18 ).\r\n3. When not in separated mode, require to rotate the MAC \"at least every 120 minutes\" instead of \"every 15 minutes\": the rational is that 120 should be good enough so we don't really need to require 15 minutes (of course 15 mn would be allowed).\r\n4. Make the \"Paired (Associated) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n\r\nThanks,\r\nJosselin\r\n",
       "createdAt": "2023-06-05T22:56:23Z",
-      "updatedAt": "2023-06-08T00:38:35Z",
+      "updatedAt": "2023-06-12T21:41:05Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
@@ -865,6 +894,13 @@
           "body": "Hey @josselindlb - can you make the PR just for issue #1? I think the others require a bit more discussion before merging.",
           "createdAt": "2023-06-08T00:38:35Z",
           "updatedAt": "2023-06-08T00:38:35Z"
+        },
+        {
+          "author": "josselindlb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Hey @josselindlb - can you make the PR just for issue #1? I think the others require a bit more discussion before merging.\r\n\r\n\r\nThat makes sense, I'll prepare it and create issues for the others.",
+          "createdAt": "2023-06-12T21:41:05Z",
+          "updatedAt": "2023-06-12T21:41:05Z"
         }
       ],
       "reviews": []
