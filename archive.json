@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-13T00:47:30.100089+00:00",
+  "timestamp": "2023-06-15T00:46:49.881602+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -643,9 +643,17 @@
       "labels": [],
       "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nThe paper is largely aimed at nefarious intent. In the case of domestic violence, the abuser normally has access to the target\u2019s phone. How will this paper address the ability to install, and then hide (remove from home screen), apps that can track location, especially without the app being active?",
       "createdAt": "2023-06-08T21:17:33Z",
-      "updatedAt": "2023-06-08T21:17:33Z",
+      "updatedAt": "2023-06-14T21:39:35Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This draft focuses on how to make tracking devices (like tags) detectable for unwanted tracking purposes and the changes that accessory makers can apply to do so. Altering the behavior of location-tracking software on a phone is out of scope for this draft, though perhaps there are additional forums where this is discussed.",
+          "createdAt": "2023-06-14T21:39:35Z",
+          "updatedAt": "2023-06-14T21:39:35Z"
+        }
+      ]
     }
   ],
   "pulls": [
