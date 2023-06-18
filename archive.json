@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-15T00:46:49.881602+00:00",
+  "timestamp": "2023-06-18T00:53:17.557867+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -710,7 +710,7 @@
       "labels": [],
       "body": "The current version of the document needs to clarify how a platform handles third-party developers. \r\nWe want to ensure that platforms must not limit access to accessories following unwanted tracking specifications. Third-party developers must be able to scan for accessories, connect to them and interact with them over the accessory non-owner characteristic. \r\n\r\nThe current version of the document is based on Apple's tracking detection for iOS, which is an excellent solution for most people. Nevertheless, there may exist different target groups that have different needs. For example, a police officer can be required to perform a detailed scan of the environment to detect any nearby trackers. It would be possible for a third-party developer to implement such a service and offer it on the App Store / Google Play Store. \r\n\r\nFurthermore, users might need more detailed settings. A user that has previously experienced stalking might want to be alerted earlier and is okay with experiencing a higher false-positive rate. \r\n\r\nTherefore, I propose the added changes to ensure that no platform or manufacturer limits access to the Bluetooth accessories following this specification. ",
       "createdAt": "2023-05-03T16:33:28Z",
-      "updatedAt": "2023-06-12T22:14:40Z",
+      "updatedAt": "2023-06-15T10:25:22Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "8638157e2ea04c4d5cca47b4e0459af6b88bf456",
@@ -735,6 +735,13 @@
           "body": "Thank you for this PR. As noted above, these additional requirements are beyond the scope of this document. If there are additional ideas in this area, please open an issue for discussion.",
           "createdAt": "2023-06-12T22:14:39Z",
           "updatedAt": "2023-06-12T22:14:39Z"
+        },
+        {
+          "author": "Sn0wfreezeDev",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I see that this might go beyond the current scope. Unfortunately, I know that Apple is blocking certain Bluetooth advertisements from third-party applications. There may be valid reasons to do so and that's why I tried to implement a section that would disallow platform owners to block the advertisements and access to other data sent out by these trackers. \r\n\r\nAs you might already know, we are developing the AirGuard app that is used to perform the currently missing tracking detection for a variety of trackers: Samsung SmartTag, Tile, Chipolo + Find My Trackers on Android. \r\nWhen platforms can detect these automatically, we are more than happy because it brings protection to more people. However, there may be issues where a platform integration might lack support of specific features, like manual scanning. My approach to opennes was to ensure that these features can be implemented by third-parties, like us or other people. ",
+          "createdAt": "2023-06-15T10:25:21Z",
+          "updatedAt": "2023-06-15T10:25:21Z"
         }
       ],
       "reviews": [
