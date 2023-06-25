@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-18T00:53:17.557867+00:00",
+  "timestamp": "2023-06-25T00:58:59.785004+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -57,43 +57,50 @@
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/3",
       "state": "OPEN",
       "author": "kfet",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [
         "gillian-epm"
       ],
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-06-05T15:23:21Z",
+      "updatedAt": "2023-06-23T16:28:18Z",
       "closedAt": null,
       "comments": [
         {
           "author": "Sn0wfreezeDev",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "Hi @kfet,\r\n\r\nThat is one use-case for which these trackers are used, but it has never been the intended use-case. This specification does not make it easier to discover these trackers for thieves. AirTags, Samsung Trackers, Tile, they all rely on Bluetooth. Every simple Bluetooth scanner app can find them. \r\n\r\nThe intended use-case was to find your lost valuables and that's where these devices are great at. The added protection against stalking is helpful for people who are in threat of stalking. Stalking can lead to harmful attacks and have already ended up in at least two people getting killed after they have been tracked with an AirTag. The value of any material device should never be higher than the value of human life. ",
           "createdAt": "2023-06-05T12:39:43Z",
           "updatedAt": "2023-06-05T12:39:43Z"
         },
         {
           "author": "kfet",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "Hello @Sn0wfreezeDev, thanks for responding!\r\n\r\n> Stalking can lead to harmful attacks and have already ended up in at least two people getting killed after they have been tracked with an AirTag. The value of any material device should never be higher than the value of human life.\r\n\r\nThis is implied. However it should not be an excuse to ignore how other use-cases are affected.\r\n\r\nI don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property. Just as a very trivial example to start-off such conversation it could be made possible for authorities to recover details of the device used to disable a tracker, it it gets reported as tracking stolen property. If nothing else this could discourage theft.\r\n\r\n> This specification does not make it easier to discover these trackers for thieves. \r\n\r\nI think this is not true. This spec will make it trivially easy, by having a tracker work with any smart phone to proactively notify a thief of the tracker's presence, AND allowing it to get disabled, with zero effort on their part, no additional equipment or app required.\r\n\r\nAt the very least it seem to me the effect on this use case should be acknowledged as a side-effect.",
           "createdAt": "2023-06-05T13:16:32Z",
           "updatedAt": "2023-06-05T13:16:32Z"
         },
         {
           "author": "mrlnc",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "> I don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property.\r\n\r\nI think [Section 2: Applicability](https://www.ietf.org/archive/id/draft-detecting-unwanted-location-trackers-00.html#name-applicability-2) goes in that direction; unwanted tracking countermeasures are required only for small items (with high potential for misuse). *Find My* enabled suitcases, bicycles or cars (with the tracker *built-in*) could remain silent.\r\n\r\nIs my understanding correct?",
           "createdAt": "2023-06-05T14:19:01Z",
           "updatedAt": "2023-06-05T14:23:45Z"
         },
         {
           "author": "Sn0wfreezeDev",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "Yes that's the way how Apple has internally defined that for participants of the Find My Network already. You can find leaked documents about this online. ",
           "createdAt": "2023-06-05T15:23:21Z",
           "updatedAt": "2023-06-05T15:23:21Z"
+        },
+        {
+          "author": "Guggie30",
+          "authorAssociation": "NONE",
+          "body": "After experiencing the theft of my wallet, I purchased a new one which has the capability of holding an AirTag in it.  I also add AirTags to my briefcase and hide them inside my luggage lining.  I\u2019m concerned that these benefits  will be rendered useless if proposed specifications do not allow for this popular usage.  ",
+          "createdAt": "2023-06-23T16:28:18Z",
+          "updatedAt": "2023-06-23T16:28:18Z"
         }
       ]
     },
@@ -244,7 +251,7 @@
       "labels": [],
       "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nS 3.5.1.\r\n>   When in near-owner state, the accessory SHALL rotate its resolvable\r\n>   and private address every 15 minutes.  This is a privacy\r\n>   consideration to deter tracking of the accessory by non-owners when\r\n>   it is in physical proximity to the owner.\r\n\r\n\u201cCan you still track a device in this state?\u201d",
       "createdAt": "2023-05-10T01:18:04Z",
-      "updatedAt": "2023-05-15T21:09:14Z",
+      "updatedAt": "2023-06-23T17:18:35Z",
       "closedAt": null,
       "comments": [
         {
@@ -253,6 +260,13 @@
           "body": "Not 100% sure I follow the question, so gonna try to clarify the intent of the section. In this state, the accessory\u2019s location can still be determined by the owner\u2019s devices (not the network). The unwanted tracking detection algorithms will not track the accessory in this state, because it\u2019s in the near-owner state.\r\n\r\nThe word \u201ctracking\u201d referred to in the second sentence is for BT-scanner-based tracking that looks for an address that is static over a long period of time (>> 15 min).\r\n\r\nSo, maybe should rephrase this to:\r\n\r\n\"When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter long-term tracking of the accessory when it is in physical proximity to the owner.\"",
           "createdAt": "2023-05-15T21:09:13Z",
           "updatedAt": "2023-05-15T21:09:13Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "NONE",
+          "body": "Yes, my question was whether the owner could still track the device using the network. I.e., do nearby devices still publish reports to the network?\r\n\r\nWith that said, I don't think the use of the term \"tracking\" with that limited meaning is helpful here. It's all tracking.\r\n",
+          "createdAt": "2023-06-23T17:18:34Z",
+          "updatedAt": "2023-06-23T17:18:34Z"
         }
       ]
     },
