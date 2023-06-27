@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-25T00:58:59.785004+00:00",
+  "timestamp": "2023-06-27T00:55:07.841074+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -64,7 +64,7 @@
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-06-23T16:28:18Z",
+      "updatedAt": "2023-06-26T11:01:23Z",
       "closedAt": null,
       "comments": [
         {
@@ -101,6 +101,41 @@
           "body": "After experiencing the theft of my wallet, I purchased a new one which has the capability of holding an AirTag in it.  I also add AirTags to my briefcase and hide them inside my luggage lining.  I\u2019m concerned that these benefits  will be rendered useless if proposed specifications do not allow for this popular usage.  ",
           "createdAt": "2023-06-23T16:28:18Z",
           "updatedAt": "2023-06-23T16:28:18Z"
+        },
+        {
+          "author": "Sn0wfreezeDev",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We are actively developing an iOS and an Android App that can detect virtually any tracker that is out there. Our goal is stalking and unwanted tracking protection and its a state funded university project. You can already expect that a thieve would be able to find the AirTag in your wallet. ",
+          "createdAt": "2023-06-26T07:43:28Z",
+          "updatedAt": "2023-06-26T07:43:28Z"
+        },
+        {
+          "author": "kfet",
+          "authorAssociation": "COLLABORATOR",
+          "body": "You are assuming 100% adoption of your app on all Android and iOS devices. This is not a realistic assumption.",
+          "createdAt": "2023-06-26T08:18:55Z",
+          "updatedAt": "2023-06-26T08:18:55Z"
+        },
+        {
+          "author": "Sn0wfreezeDev",
+          "authorAssociation": "COLLABORATOR",
+          "body": "No, I do not assume that. That's why I am in favor of this proposal, because that will lead to the adoption needed to fight unwanted tracking. However, I assume that knowledgable people that are concerned of unwanted tracking (e.g. politians, journalists, etc.) can inform themselves and use these tools to protect themselves. The same I assume for organized thieves. ",
+          "createdAt": "2023-06-26T10:37:08Z",
+          "updatedAt": "2023-06-26T10:37:08Z"
+        },
+        {
+          "author": "kfet",
+          "authorAssociation": "COLLABORATOR",
+          "body": ">... The same I assume for organized thieves.\r\n\r\nJumping from \"it is possible with knowledge\" to \"everyone will know how to do this\" is a huge leap, especially when talking about petty theft, and random un-targeted street crimes, like stealing wallets and suite cases.\r\n\r\nI don't see substance so far behind the claim that trackers provide no protection from such crimes, because everyone would already know how to detect and disable the tracker, even without this specification. This is not a realistic assumption for the general public, criminal or not.",
+          "createdAt": "2023-06-26T10:52:35Z",
+          "updatedAt": "2023-06-26T10:52:35Z"
+        },
+        {
+          "author": "kfet",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > I don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property.\r\n> \r\n> I think [Section 2: Applicability](https://www.ietf.org/archive/id/draft-detecting-unwanted-location-trackers-00.html#name-applicability-2) goes in that direction; unwanted tracking countermeasures are required only for small items (with high potential for misuse). _Find My_ enabled suitcases, bicycles or cars (with the tracker _built-in_) could remain silent.\r\n> \r\n> Is my understanding correct?\r\n\r\nThanks for pointing this out, I read the section, and the intent is unrelated. It specifies the best practices as required for items small enough to be hidden undetected, which absolutely makes sense, but it doesn't address the general concern discussed in this issue, like the fact that a lot of valuables one would hope to recover are small enough to match this requirement - think wallets with IDs and credit cards, or passport holders.\r\n",
+          "createdAt": "2023-06-26T11:01:22Z",
+          "updatedAt": "2023-06-26T11:01:22Z"
         }
       ]
     },
