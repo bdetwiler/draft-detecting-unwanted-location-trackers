@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-27T00:55:07.841074+00:00",
+  "timestamp": "2023-06-29T00:52:30.238983+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -548,7 +548,7 @@
       "labels": [],
       "body": "// to: draft-detecting-unwanted-location-trackers@ietf.org\r\n// from: <klein.elliot@gmail.com> \r\n// on: May 2, 2023\r\n\r\n\r\nI recommend the addition of \"Shipment/Package\" as one additional category to list as I anticipate devices included on or within package shipments will help monitor if lost or otherwise to determine ETA or other exceptions to on-time delivery of important packages -- including vaccines, pharma products, medical devices, or other valuable shipment(s) with particular relevance into expanding B2B enterprise market use cases.\r\n\r\nThanks,\r\n\r\nElliot Klein\r\n",
       "createdAt": "2023-05-31T20:29:30Z",
-      "updatedAt": "2023-06-02T22:16:20Z",
+      "updatedAt": "2023-06-27T14:04:16Z",
       "closedAt": null,
       "comments": [
         {
@@ -557,6 +557,13 @@
           "body": "Hi Elliot, is it your expectation that the shipping packages would have bluetooth tracking capability built into the package itself?  Or do you expect to be placing a BT tracker into the box? ",
           "createdAt": "2023-06-02T22:16:20Z",
           "updatedAt": "2023-06-02T22:16:20Z"
+        },
+        {
+          "author": "elliotklein",
+          "authorAssociation": "NONE",
+          "body": "Hi Gillian, Bluetooth monitoring for packages/shipments under the draft spec is very low cost and essentially can provide worldwide location exception monitoring for important packages. In the envisioned use case(s) the device would be placed inside a package (or potentially outside too). The value is more in **exception** monitoring, not \"tracking\" to know when ETA is missed by package not being in designated geofence or location(s) or other misdirected or lost package event(s) occur to then trigger a notification Ideally, by an appropriate API. \r\n\r\nMost value is for B2B market in monitoring shipment(s)...from high-value medical shipments, to one of a kind samples, vaccines, high value medical or biological tissue samples,, or food products that under pending U.S. and E.U. regulations will need to be location monitored for chain of custody audit and/or food safety.  \r\n\r\nAssigning a unique category code can potentially not be only for B2B enterprise markets or other authorized shipment use cases or registered shippers (UPS, US Postal, etc.) where a unique profile is associated with the Bluetooth tag/device to better assure privacy or functionality to prevent unwanted tracking with an appropriate API or interface(s) to be developed or potentially possible in the future.",
+          "createdAt": "2023-06-27T14:04:16Z",
+          "updatedAt": "2023-06-27T14:04:16Z"
         }
       ]
     },
