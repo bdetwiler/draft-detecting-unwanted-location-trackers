@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-29T00:52:30.238983+00:00",
+  "timestamp": "2023-07-02T00:55:48.486428+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -710,6 +710,54 @@
           "updatedAt": "2023-06-14T21:39:35Z"
         }
       ]
+    },
+    {
+      "number": 31,
+      "id": "I_kwDOJdqgvc5qSF2h",
+      "title": "Endpoint Validation for FindMy to Prevent Surreptitious Tracking",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/31",
+      "state": "OPEN",
+      "author": "cfossace",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently, there is no endpoint validation for FindMy, so the FindMy protocol provides transit for ALL traffic, even unwanted or malicious traffic. \r\n\r\nThis means is that anyone can use FindMy to place a tracker on someone (that is not an AirTag) **_so it will NOT be detected by Apple's anti-tracking framework._** \r\n\r\nThere needs to be some kind of endpoint validation to ensure that only legitimate Apple devices (or trackers that have been developed by official Apple developers using the FindMy Developer Program) are enrolled.   \r\n\r\n1) **POC for registering non-Apple endpoints to the FindMy network to be geolocated by FindMy protocol** https://github.com/seemoo-lab/openhaystack\r\n\r\n\r\n2) **POC for circumventing anti-tracking framework that allows malicious actors to surreptitiously track people** \r\nhttps://samteplov.com/uploads/who-tracks-the-trackers/trackers.pdf\r\n\r\n3) **Potential Endpoint registration approach that also preserves user privacy** https://petsymposium.org/popets/2023/popets-2023-0006.pdf\r\n",
+      "createdAt": "2023-06-30T20:27:45Z",
+      "updatedAt": "2023-06-30T20:27:45Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 33,
+      "id": "I_kwDOJdqgvc5qSamp",
+      "title": "Allow for a rotation interval of 120 minutes in Near Mode",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/33",
+      "state": "OPEN",
+      "author": "josselindlb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "When not in separated mode, require to rotate the MAC \"at least every 120 minutes\" instead of \"every 15 minutes\": the rational is that 120 should be good enough so we don't really need to require 15 minutes (of course 15 mn would be allowed).\r\n",
+      "createdAt": "2023-06-30T22:11:53Z",
+      "updatedAt": "2023-06-30T22:11:53Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 34,
+      "id": "I_kwDOJdqgvc5qSa7X",
+      "title": "Make the \"Paired (Owned) Accessory Identification\" mandatory",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/34",
+      "state": "OPEN",
+      "author": "josselindlb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Make the \"Paired (Owned) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n",
+      "createdAt": "2023-06-30T22:13:58Z",
+      "updatedAt": "2023-06-30T22:13:58Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -974,6 +1022,32 @@
           "updatedAt": "2023-06-12T21:41:05Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDOJdqgvc5UXgG2",
+      "title": "Jb pairing only",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/32",
+      "state": "OPEN",
+      "author": "josselindlb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\r\nPull Request to disambiguate the use of the word \"Pairing\" and use \"association\" instead, or \"owner\".\r\n\r\nThis PR is a subset of this one: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/23 which bundles a few somewhat related issues, some of which need more discussion and I left it open for context.\r\n",
+      "createdAt": "2023-06-30T22:08:47Z",
+      "updatedAt": "2023-06-30T22:08:47Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "jb_pairing_only",
+      "headRefOid": "a89bcb1573b85913baa0ccf3709fe5025ed59d64",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
