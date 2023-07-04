@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-02T00:55:48.486428+00:00",
+  "timestamp": "2023-07-04T00:54:34.493164+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -64,7 +64,7 @@
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-06-26T11:01:23Z",
+      "updatedAt": "2023-07-03T23:44:07Z",
       "closedAt": null,
       "comments": [
         {
@@ -136,6 +136,13 @@
           "body": "> > I don't think it is an either-or case, we could have both unwanted tracker detection and help on finding stolen property.\r\n> \r\n> I think [Section 2: Applicability](https://www.ietf.org/archive/id/draft-detecting-unwanted-location-trackers-00.html#name-applicability-2) goes in that direction; unwanted tracking countermeasures are required only for small items (with high potential for misuse). _Find My_ enabled suitcases, bicycles or cars (with the tracker _built-in_) could remain silent.\r\n> \r\n> Is my understanding correct?\r\n\r\nThanks for pointing this out, I read the section, and the intent is unrelated. It specifies the best practices as required for items small enough to be hidden undetected, which absolutely makes sense, but it doesn't address the general concern discussed in this issue, like the fact that a lot of valuables one would hope to recover are small enough to match this requirement - think wallets with IDs and credit cards, or passport holders.\r\n",
           "createdAt": "2023-06-26T11:01:22Z",
           "updatedAt": "2023-06-26T11:01:22Z"
+        },
+        {
+          "author": "gillian-epm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Kalin, it\u2019s true that this tradeoff exists, and if you implement this spec this should be taken into consideration. Prioritizing protections against unwanted tracking is the position we (Google and Apple) have taken; as others have commented above, AirTag is specifically intended to be used for tracking lost items, not for recovering stolen items.  Accessory makers who implement the spec should be aware of this tradeoff and understand its implications on the theft detection scenario.",
+          "createdAt": "2023-07-03T23:44:07Z",
+          "updatedAt": "2023-07-03T23:44:07Z"
         }
       ]
     },
@@ -756,6 +763,38 @@
       "body": "Make the \"Paired (Owned) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n",
       "createdAt": "2023-06-30T22:13:58Z",
       "updatedAt": "2023-06-30T22:13:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 35,
+      "id": "I_kwDOJdqgvc5qf74W",
+      "title": "Minor clarification on location-enabled state text (section 3.3)",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/35",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Thanks for your work on this document, and for soliciting feedback.\r\n\r\nMinor suggested clarification: in section 3.3, the report says:\r\n\r\n> The accessory SHALL maintain an internal state that determines when its location is, or has been, available to the owner via a network. This state is called the location-enabled state.\r\n\r\nThe use of the verb \"determines\" is a little confusing here. I think what you mean is it \"detects\" when the location is, or has been, available. Determines to me implies that the internal state itself is controlling whether it is in the location-enabled state.",
+      "createdAt": "2023-07-03T20:11:39Z",
+      "updatedAt": "2023-07-03T20:11:39Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOJdqgvc5qgDXo",
+      "title": "Supporting active scanning for unwanted tracking",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/36",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Thanks for your work on this document, and for soliciting feedback.\r\n\r\nI did some research on Apple AirTags last year, and one of the things that surprised me was how difficult it was to detect an AirTag using a [standard bluetooth scanner](https://www.maggiedelano.com/2022/02/21/apple-airtags-active-scanning.html) on iOS. It was much easier on Android, and unless it has changed recently there is no way to actively scan for AirTags on iOS (although it was in a beta at some point?). There are many contexts where a user would prefer to be able to actively scan their environment for unwanted trackers, rather than relying on a passive notification (which can take hours to occur).\r\n\r\nI understand that platform issues are out of scope for this document, so I'll focus my other comments more specifically here too. Could the authors share the above concerns/suggestions with the relevant iOS team?\r\n\r\nThis document proposes an advertisement payload (section 3.4) that would allow \"platforms to easily scan for and detect the location-enabled Bluetooth advertisement\" (section 3.6). From what I can tell this is close to what AirTags already do. A few questions/comments:\r\n\r\n- Will the service data TLV be standardized across location trackers? (I'm assuming yes but part of that section is marked TODO)\r\n- It would be helpful to have some context on what existing location trackers already do and how/whether this is codification of what existing trackers e.g. AirTags already do, vs. a new proposed advertisement packet. I think the existing one works fine but the iOS platform is an issue for active scanning right now as I discuss above.\r\n- I think section 6 should encourage (if not require) platforms to support both active and passive scanning. There should also be some discussion about appropriate time frames for passive notification (getting notified hours later is not helpful, but at the same time false positives need to be avoided).\r\n",
+      "createdAt": "2023-07-03T20:39:19Z",
+      "updatedAt": "2023-07-03T20:39:19Z",
       "closedAt": null,
       "comments": []
     }
