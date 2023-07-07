@@ -1,5 +1,4 @@
 *.html
-*.pdf
 *.redxml
 *.swp
 *.txt
@@ -18,6 +17,7 @@
 Gemfile.lock
 archive.json
 draft-detecting-unwanted-location-trackers.xml
+draft-detecting-unwanted-location-trackers.pdf
 package-lock.json
 report.xml
 !requirements.txt
