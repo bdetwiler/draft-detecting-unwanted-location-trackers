@@ -171,7 +171,7 @@ The payload format is defined in {{table-payload-format}}
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
 |  9-12  | Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)                 |  REQUIRED   |
 |   13   | Protocol ID (TBD value)                                                                       |  REQUIRED   |
-|   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
+|   14   |  bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
 
@@ -197,21 +197,19 @@ The accessory SHALL transition from near-owner mode to separated mode if it has 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
-## Resolvable and private address {#resolvable-private-address}
-The Bluetooth LE advertisement payload SHALL contain a resolvable and private address for the accessory which is the 6-byte Bluetooth LE MAC address.
+## MAC address {#mac-address}
+The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
 
+The owner MUST be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by an owner device’s paired accessory. See [Paired Accessory Identification](#paired-accessory-identification) for additional details.
 
-The address MUST be private and it MUST rotate periodically and be unlinkable; otherwise, if the same address is used for long periods of time, an adversary may be able to track a legitimate person from carrying the accessory.
+The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices.
 
-The [rotation policy](#rotation-policy) defined below aims to reduce this risk.
+A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the pairing of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its paired accessories.
 
-Lastly, the address MUST be resolvable so owner devices can identify their paired accessories. Further details are described in [Paired Accessory Identification](#paired-accessory-identification).
-
-A general approach to generate addresses meeting this requirement is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the pairing of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its paired accessories.
-
+This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [paired accessory identification](#paired-accessory-identification).
 
 ### Rotation policy
-An accessory SHALL rotate its resolvable and private address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
+An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
 When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
@@ -596,7 +594,7 @@ Unwanted tracking SHOULD recognize an accessory paired to that owner device by m
 ### Platform Software Extension
 Platforms SHOULD implement the paired accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [resolvable and private address](#resolvable-private-address).
+Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
 The protocol ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
@@ -642,7 +640,7 @@ potential victims, by requiring both the accessory to be in separated state as w
 ## Location-enabled payload
 
 ### Stable identifiers
-Rotating the resolvable and private address of the location-enabled payload, as described in {{resolvable-private-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
+Rotating the resolvable and private address of the location-enabled payload, as described in {{mac-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
 If the address were permanently static, then the accessory would become infinitely trackable for the life of its power source.
 By requiring rotation, this reduces the risk of a malicious actor having the ability to piece together long stretches of longitudinal data
 on the whereabouts of an accessory.
