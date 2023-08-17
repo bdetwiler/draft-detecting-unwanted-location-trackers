@@ -171,7 +171,7 @@ The payload format is defined in {{table-payload-format}}
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
 |  9-12  | Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)                 |  REQUIRED   |
 |   13   | Protocol ID (TBD value)                                                                       |  REQUIRED   |
-|   14   |  bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
+|   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
 
