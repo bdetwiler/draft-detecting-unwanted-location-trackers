@@ -211,9 +211,9 @@ This construction allows accessories to define their own MAC address generation 
 ### Rotation policy
 An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
-When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
+When in near-owner state, the accessory SHALL rotate its address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
-When in a separated state, the accessory SHALL rotate its resolvable and private address every 24 hours.
+When in a separated state, the accessory SHALL rotate its address every 24 hours.
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
@@ -640,7 +640,7 @@ potential victims, by requiring both the accessory to be in separated state as w
 ## Location-enabled payload
 
 ### Stable identifiers
-Rotating the resolvable and private address of the location-enabled payload, as described in {{mac-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
+Rotating the mac address of the location-enabled payload, as described in {{mac-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
 If the address were permanently static, then the accessory would become infinitely trackable for the life of its power source.
 By requiring rotation, this reduces the risk of a malicious actor having the ability to piece together long stretches of longitudinal data
 on the whereabouts of an accessory.
