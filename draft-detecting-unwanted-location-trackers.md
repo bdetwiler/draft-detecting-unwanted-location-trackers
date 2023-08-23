@@ -192,7 +192,12 @@ Proprietary company payload data is both OPTIONAL and variable length.
 The accessory SHALL broadcast the location-enabled advertisement payload if location is available to the owner or was available any time within the past 24 hours. This allows unwanted tracking detection to operate both between and beyond the specific moments an accessory's location is made available to the owner.
 
 ### Maximum duration after physical separation from owner to transition into separated mode
-The accessory SHALL transition from near-owner mode to separated mode if it has physically separated from the owner device for a duration no longer than 30 minutes.
+The accessory SHALL transition from near-owner mode to separated mode under the conditions listed in Table 2 below.
+
+| Preferred            | Acceptable                        |
+|----------------------|:---------------------------------:|
+| fix_later   | 0.5 - 2 seconds                   |
+{: #table-advertising-policy title="Advertising Policy" }
 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
@@ -213,7 +218,7 @@ A general approach to generate addresses meeting this requirement is to construc
 ### Rotation policy
 An accessory SHALL rotate its resolvable and private address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
-When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
+When in near-owner state, the accessory SHALL rotate its resolvable and private address approximately every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
 When in a separated state, the accessory SHALL rotate its resolvable and private address every 24 hours.
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
@@ -237,15 +242,7 @@ It is important to prevent unwanted tracking alerts from occurring when the owne
 
 ## Bluetooth LE advertising interval
 
-The Bluetooth LE advertising interval SHALL be as described in {{table-advertising-policy}}
-
-
-
-|                      | Bluetooth LE Advertising Interval |
-|----------------------|:---------------------------------:|
-| Advertising policy   | 0.5 - 2 seconds                   |
-{: #table-advertising-policy title="Advertising Policy" }
-
+The Bluetooth LE advertising interval SHALL be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.
 
 ## Accessory Connections {#accessory-connections}
 The accessory non-owner service UUID SHALL be TODO. This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service. The accessory non-owner characteristic UUID SHALL be TODO.
@@ -468,50 +465,53 @@ The accessory manufacturer SHALL provide both a text description of how to disab
 A registry which maps [Product data](#product-data) to an affiliated URL supporting retrieval of disablement instructions SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL must return a response which can be rendered by an HTML view.
 
 
-## Serial Number Identification
-The serial number SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
+## Identification
+The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
+
+### Serial number identification
+
+If a serial number is available, it SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
+
+###  Identifier retrieval capability {#identifier-retrieval}
+The identifier payload SHALL be readable either through NFC tap (see [Identifier payload over NFC](#serial-number-over-nfc)) or Bluetooth LE ( see [Identifier Payload](#identifier-payload) ).
 
 
-### Serial number retrieval capability {#serial-number-retrieval}
-The serial number payload SHALL be readable either through NFC tap (see [Serial Number payload over NFC](#serial-number-over-nfc)) or Bluetooth LE ( see [Serial Number Payload](#serial-number-payload) ).
+### Identifier retrieval over Bluetooth LE
+For privacy reasons, accessories that support identifier retrieval over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
+enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#serial-number-payload).
+
+The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
+
+A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 
 
-### Serial number retrieval over Bluetooth LE
-For privacy reasons, accessories that support serial number retrieval over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
-enable the Get_Serial_Number opcode, as discussed in [Serial Number Payload](#serial-number-payload).
+### Identifier retrieval from a server {#identifier-from-server}
+For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
-The accessory manufacturer SHALL provide both a text description of how to enable serial number retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
-
-A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable serial number look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
-
-
-### Serial number retrieval from a server {#serial-number-from-server}
-For security reasons, the serial number payload returned from an accessory in the paired state SHALL be encrypted.
-
-A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the serial number payload and return the serial number value
+A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the identifier payload and return the identifier value
 SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
 Security considerations are discussed in {{sn-lookup-security}}.
 
 
-### Serial number over NFC
-For those accessories that support serial number retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
-This URL SHALL decrypt the serial number payload and return the serial number of the accessory in a form that can be rendered in the platform's HTML view.
+### Identifier over NFC
+For those accessories that support identifier retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
+This URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 
 |        Operand       | Data type | Size (octets) |       Description                           |
 |:--------------------:|:---------:|:-------------:|:-------------------------------------------:|
 | p | bytes     |      defined by accessory      | Non-identifiable metadata                     |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in paired state. |
-{: #table-sn-payload-over-nfc title="Serial Number Lookup Payload Over NFC"}
+| e | bytes     |      defined by accessory      | Encrypted identifier when in paired state. |
+{: #table-sn-payload-over-nfc title="identifier Lookup Payload Over NFC"}
 
 
 
 ## Pairing registry
-Verifiable identity information of the owner of an accessory at time of pairing SHALL be recorded and associated with the serial number of the accessory, e.g., phone number, email address.
+Verifiable identity information of the owner of an accessory at time of pairing SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
-A limited amount of obfuscated owner information from the pairing registry SHALL be made available to the platform along with a [retrieved serial number](serial-number-retrieval). This information SHALL be part of the response of the [serial number retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
+A limited amount of obfuscated owner information from the pairing registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
 
 
 This MUST include at least one of the following:
@@ -580,6 +580,17 @@ If none of the accessory categories provided in {{table-accessory-category-value
 # Firmware Updates
 The accessory SHOULD have firmware that is updatable by the owner.
 
+## Backwards Compatibility
+### Existing trackers
+
+Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
+
+### Advertisement backwards compatibility
+The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here <link TBD>. Backwards compatibility requests must be submitted by December 1, 2023.
+
+Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
+
+Companies who have registered their protocol IDs will appear in a table below.
 
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
@@ -612,7 +623,7 @@ The platform MUST delete any local identifying information associated with an ac
 
 ## Serial number look-up {#sn-lookup-security}
 
-Serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
+If a serial number is available, serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
 
 However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
