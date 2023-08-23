@@ -200,13 +200,13 @@ The accessory SHALL transition from separated to near-owner mode if it has reuni
 ## MAC address {#mac-address}
 The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
 
-The owner MUST be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by an owner device’s paired accessory. See [Paired Accessory Identification](#paired-accessory-identification) for additional details.
+The owner MUST be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See [Owned Accessory Identification](#owned-accessory-identification) for additional details.
 
 The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices.
 
-A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the pairing of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its paired accessories.
+A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
 
-This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [paired accessory identification](#paired-accessory-identification).
+This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [owned accessory identification](#owned-accessory-identification).
 
 ### Rotation policy
 An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
