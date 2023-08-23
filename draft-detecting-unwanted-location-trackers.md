@@ -197,25 +197,23 @@ The accessory SHALL transition from near-owner mode to separated mode if it has 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
-## Resolvable and private address {#resolvable-private-address}
-The Bluetooth LE advertisement payload SHALL contain a resolvable and private address for the accessory which is the 6-byte Bluetooth LE MAC address.
+## MAC address {#mac-address}
+The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
 
+The owner MUST be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See [Owned Accessory Identification](#owned-accessory-identification) for additional details.
 
-The address MUST be private and it MUST rotate periodically and be unlinkable; otherwise, if the same address is used for long periods of time, an adversary may be able to track a legitimate person from carrying the accessory.
+The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices.
 
-The [rotation policy](#rotation-policy) defined below aims to reduce this risk.
+A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
 
-Lastly, the address MUST be resolvable so owner devices can identify their associated accessories. Further details are described in [Owned Accessory Identification](#owned-accessory-identification).
-
-A general approach to generate addresses meeting this requirement is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its owned accessories.
-
+This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [owned accessory identification](#owned-accessory-identification).
 
 ### Rotation policy
-An accessory SHALL rotate its resolvable and private address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
+An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
-When in near-owner state, the accessory SHALL rotate its resolvable and private address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
+When in near-owner state, the accessory SHALL rotate its address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
-When in a separated state, the accessory SHALL rotate its resolvable and private address every 24 hours.
+When in a separated state, the accessory SHALL rotate its address every 24 hours.
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
@@ -596,7 +594,7 @@ Unwanted tracking SHOULD recognize an accessory associated to that owner device 
 ### Platform Software Extension
 Platforms SHOULD implement the owned accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [resolvable and private address](#resolvable-private-address).
+Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
 The protocol ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
@@ -642,7 +640,7 @@ potential victims, by requiring both the accessory to be in separated state as w
 ## Location-enabled payload
 
 ### Stable identifiers
-Rotating the resolvable and private address of the location-enabled payload, as described in {{resolvable-private-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
+Rotating the mac address of the location-enabled payload, as described in {{mac-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
 If the address were permanently static, then the accessory would become infinitely trackable for the life of its power source.
 By requiring rotation, this reduces the risk of a malicious actor having the ability to piece together long stretches of longitudinal data
 on the whereabouts of an accessory.
