@@ -81,7 +81,7 @@ Throughout this document, these terms have specific meanings:
 
 - The term platform is used to refer to mobile device hardware and associated operating system. Examples of mobile devices are phones, tablets, laptops, etc.
 - The term accessory is used to refer to any product intended to interface with a platform through the means described in this specification.
-- The term owner device is a device that is paired to the accessory and can retrieve the accessory’s location.
+- The term owner device is a device that is associated with the accessory and can retrieve the accessory’s location.
 - The term non-owner device refers to a device that may connect to an accessory but is not an owner device of that accessory.
 - The term location-tracking accessory refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via the internet, cellular connection, etc.
 - The term location-enabled state refers to the state an accessory in where its location can be remotely viewed by its owner
@@ -357,7 +357,7 @@ The accessory SHALL disable the motion detector for T<sub>SEPARATED_UT_BACKOFF</
 If the accessory is still in separated state at the end of T<sub>SEPARATED_UT_BACKOFF</sub>, the UT behavior MUST restart.
 
 
-A Bluetooth LE connection from a paired device MUST reset the separated behavior and transition the accessory to connected state.
+A Bluetooth LE connection from a associated device MUST reset the separated behavior and transition the accessory to connected state.
 
 
 |        Name                                  | Value        |     Description                                                              |
@@ -432,7 +432,7 @@ When the accessory is in this mode, it MUST respond with Get_Serial_Number_Respo
 |        Operand       | Data type | Size (octets) |        Description                           |
 |:--------------------:|:---------:|:-------------:|:--------------------------------------------:|
 | p | bytes     |      defined by accessory      | Non-identifiable metadata                      |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in paired state.  |
+| e | bytes     |      defined by accessory      | Encrypted serial number when in associated state.  |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
 
 If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
@@ -484,7 +484,7 @@ A registry which maps [Product Data](#product-data) to an affiliated URL that wi
 
 
 ### Serial number retrieval from a server {#serial-number-from-server}
-For security reasons, the serial number payload returned from an accessory in the paired state SHALL be encrypted.
+For security reasons, the serial number payload returned from an accessory in the associated state SHALL be encrypted.
 
 A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the serial number payload and return the serial number value
 SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
@@ -493,23 +493,23 @@ Security considerations are discussed in {{sn-lookup-security}}.
 
 
 ### Serial number over NFC
-For those accessories that support serial number retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
+For those accessories that support serial number retrieval over NFC, an associated accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
 This URL SHALL decrypt the serial number payload and return the serial number of the accessory in a form that can be rendered in the platform's HTML view.
 
 
 |        Operand       | Data type | Size (octets) |       Description                           |
 |:--------------------:|:---------:|:-------------:|:-------------------------------------------:|
 | p | bytes     |      defined by accessory      | Non-identifiable metadata                     |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in paired state. |
+| e | bytes     |      defined by accessory      | Encrypted serial number when in associated state. |
 {: #table-sn-payload-over-nfc title="Serial Number Lookup Payload Over NFC"}
 
 
 
-## Pairing registry
-Verifiable identity information of the owner of an accessory at time of pairing SHALL be recorded and associated with the serial number of the accessory, e.g., phone number, email address.
+## Owner registry
+Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the serial number of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
-A limited amount of obfuscated owner information from the pairing registry SHALL be made available to the platform along with a [retrieved serial number](serial-number-retrieval). This information SHALL be part of the response of the [serial number retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
+A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved serial number](serial-number-retrieval). This information SHALL be part of the response of the [serial number retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
 
 
 This MUST include at least one of the following:
@@ -519,10 +519,10 @@ This MUST include at least one of the following:
 
 
 ### Persistence
-The pairing registry SHOULD be stored for a minimum of 25 days after an owner has unpaired an accessory. After the elapsed period, the data SHOULD be deleted.
+The owner registry SHOULD be stored for a minimum of 25 days after an owner has unassociated an accessory. After the elapsed period, the data SHOULD be deleted.
 
 ### Availability for law enforcement
-The pairing registry SHALL be made available to law enforcement upon a valid law enforcement request.
+The owner registry SHALL be made available to law enforcement upon a valid law enforcement request.
 
 
 # Accessory Category Value
@@ -582,27 +582,27 @@ The accessory SHOULD have firmware that is updatable by the owner.
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
 
-## Paired Accessory Identification
-Any platform that supports both pairing and unwanted tracking SHOULD also provide the capability to suppress unwanted tracking alerts caused by an owner device's paired accessory.
+## Owned Accessory Identification
+Any platform that supports unwanted tracking SHOULD also provide the capability to suppress unwanted tracking alerts caused by an accessory associated with the owner device.
 
 If an unwanted tracking alert occurs for an accessory and the platform does not already have the installed capability to prevent this alert for the owner of the accessory, then the platform SHOULD explain to the user how those capabilities can be acquired.
 
 
 ### Implementation
-Unwanted tracking SHOULD recognize an accessory paired to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
+Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
 
 ### Platform Software Extension
-Platforms SHOULD implement the paired accessory identification capability as a software extension to its unwanted tracking detection.
+Platforms SHOULD implement the owned accessory identification capability as a software extension to its unwanted tracking detection.
 
 Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
 The protocol ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
 ### Network Access
-Network access MUST NOT be required in the moment that the platform performs paired accessory recognition.
+Network access MUST NOT be required in the moment that the platform performs owned accessory recognition.
 
 ### Removal
-The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unpairs from the accessory.
+The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unassociates from the accessory.
 
 
 
@@ -614,7 +614,7 @@ Serial number look-up is required to display important information to users who 
 
 However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
-The serial number look-up SHALL only be available in separated mode for a paired accessory.
+The serial number look-up SHALL only be available in separated mode for an associated accessory.
 When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the serial number. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
 
 To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory MUST only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory SHOULD be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.
