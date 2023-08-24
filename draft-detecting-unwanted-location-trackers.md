@@ -81,7 +81,7 @@ Throughout this document, these terms have specific meanings:
 
 - The term platform is used to refer to mobile device hardware and associated operating system. Examples of mobile devices are phones, tablets, laptops, etc.
 - The term accessory is used to refer to any product intended to interface with a platform through the means described in this specification.
-- The term owner device is a device that is paired to the accessory and can retrieve the accessory’s location.
+- The term owner device is a device that is associated with the accessory and can retrieve the accessory’s location.
 - The term non-owner device refers to a device that may connect to an accessory but is not an owner device of that accessory.
 - The term location-tracking accessory refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via the internet, cellular connection, etc.
 - The term location-enabled state refers to the state an accessory in where its location can be remotely viewed by its owner
@@ -205,25 +205,23 @@ The accessory SHALL transition from near-owner mode to separated mode under the 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
-## Resolvable and private address {#resolvable-private-address}
-The Bluetooth LE advertisement payload SHALL contain a resolvable and private address for the accessory which is the 6-byte Bluetooth LE MAC address.
+## MAC address {#mac-address}
+The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
 
+The owner MUST be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See [Owned Accessory Identification](#owned-accessory-identification) for additional details.
 
-The address MUST be private and it MUST rotate periodically and be unlinkable; otherwise, if the same address is used for long periods of time, an adversary may be able to track a legitimate person from carrying the accessory.
+The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices.
 
-The [rotation policy](#rotation-policy) defined below aims to reduce this risk.
+A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
 
-Lastly, the address MUST be resolvable so owner devices can identify their paired accessories. Further details are described in [Paired Accessory Identification](#paired-accessory-identification).
-
-A general approach to generate addresses meeting this requirement is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the pairing of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its paired accessories.
-
+This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [owned accessory identification](#owned-accessory-identification).
 
 ### Rotation policy
-An accessory SHALL rotate its resolvable and private address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
+An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
 
-When in near-owner state, the accessory SHALL rotate its resolvable and private address approximately every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
+When in near-owner state, the accessory SHALL rotate its address every 15 minutes. This is a privacy consideration to deter tracking of the accessory by non-owners when it is in physical proximity to the owner.
 
-When in a separated state, the accessory SHALL rotate its resolvable and private address every 24 hours.
+When in a separated state, the accessory SHALL rotate its address every 24 hours.
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
@@ -359,7 +357,7 @@ The accessory SHALL disable the motion detector for T<sub>SEPARATED_UT_BACKOFF</
 If the accessory is still in separated state at the end of T<sub>SEPARATED_UT_BACKOFF</sub>, the UT behavior MUST restart.
 
 
-A Bluetooth LE connection from a paired device MUST reset the separated behavior and transition the accessory to connected state.
+A Bluetooth LE connection from a associated device MUST reset the separated behavior and transition the accessory to connected state.
 
 
 |        Name                                  | Value        |     Description                                                              |
@@ -434,7 +432,7 @@ When the accessory is in this mode, it MUST respond with Get_Serial_Number_Respo
 |        Operand       | Data type | Size (octets) |        Description                           |
 |:--------------------:|:---------:|:-------------:|:--------------------------------------------:|
 | p | bytes     |      defined by accessory      | Non-identifiable metadata                      |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in paired state.  |
+| e | bytes     |      defined by accessory      | Encrypted serial number when in associated state.  |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
 
 If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
@@ -487,7 +485,6 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 
 A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 
-
 ### Identifier retrieval from a server {#identifier-from-server}
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
@@ -495,7 +492,6 @@ A registry which maps [Product Data](#product-data) to an affiliated URL which w
 SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
 Security considerations are discussed in {{sn-lookup-security}}.
-
 
 ### Identifier over NFC
 For those accessories that support identifier retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
@@ -524,10 +520,10 @@ This MUST include at least one of the following:
 
 
 ### Persistence
-The pairing registry SHOULD be stored for a minimum of 25 days after an owner has unpaired an accessory. After the elapsed period, the data SHOULD be deleted.
+The owner registry SHOULD be stored for a minimum of 25 days after an owner has unassociated an accessory. After the elapsed period, the data SHOULD be deleted.
 
 ### Availability for law enforcement
-The pairing registry SHALL be made available to law enforcement upon a valid law enforcement request.
+The owner registry SHALL be made available to law enforcement upon a valid law enforcement request.
 
 
 # Accessory Category Value
@@ -598,27 +594,27 @@ Companies who have registered their protocol IDs will appear in a table below.
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
 
-## Paired Accessory Identification
-Any platform that supports both pairing and unwanted tracking SHOULD also provide the capability to suppress unwanted tracking alerts caused by an owner device's paired accessory.
+## Owned Accessory Identification
+Any platform that supports unwanted tracking SHOULD also provide the capability to suppress unwanted tracking alerts caused by an accessory associated with the owner device.
 
 If an unwanted tracking alert occurs for an accessory and the platform does not already have the installed capability to prevent this alert for the owner of the accessory, then the platform SHOULD explain to the user how those capabilities can be acquired.
 
 
 ### Implementation
-Unwanted tracking SHOULD recognize an accessory paired to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
+Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
 
 ### Platform Software Extension
-Platforms SHOULD implement the paired accessory identification capability as a software extension to its unwanted tracking detection.
+Platforms SHOULD implement the owned accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [resolvable and private address](#resolvable-private-address).
+Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
 The protocol ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
 ### Network Access
-Network access MUST NOT be required in the moment that the platform performs paired accessory recognition.
+Network access MUST NOT be required in the moment that the platform performs owned accessory recognition.
 
 ### Removal
-The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unpairs from the accessory.
+The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unassociates from the accessory.
 
 
 
@@ -630,7 +626,7 @@ If a serial number is available, serial number look-up is required to display im
 
 However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
-The serial number look-up SHALL only be available in separated mode for a paired accessory.
+The serial number look-up SHALL only be available in separated mode for an associated accessory.
 When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the serial number. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
 
 To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory MUST only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory SHOULD be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.
@@ -656,7 +652,7 @@ potential victims, by requiring both the accessory to be in separated state as w
 ## Location-enabled payload
 
 ### Stable identifiers
-Rotating the resolvable and private address of the location-enabled payload, as described in {{resolvable-private-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
+Rotating the mac address of the location-enabled payload, as described in {{mac-address}}, balances the risk of nefarious stable identifier tracking with the need for unwanted tracking detection.
 If the address were permanently static, then the accessory would become infinitely trackable for the life of its power source.
 By requiring rotation, this reduces the risk of a malicious actor having the ability to piece together long stretches of longitudinal data
 on the whereabouts of an accessory.
