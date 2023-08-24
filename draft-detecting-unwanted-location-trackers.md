@@ -415,11 +415,13 @@ This MUST be enabled for 5 minutes upon user action on the accessory (for exampl
 When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
 
 
-|        Operand       | Data type | Size (octets) |        Description                           |
-|:--------------------:|:---------:|:-------------:|:--------------------------------------------:|
-| p | bytes     |      defined by accessory      | Non-identifiable metadata                      |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in associated state.  |
+|        Operand       | Data type | Size (octets)        |        Description                                           |
+|:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
+| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the serial number can be retrieved |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
+
+The encrypted serial number SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+
 
 If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
 
@@ -479,17 +481,12 @@ SHALL be available for platforms to reference, as defined in {{product-data-regi
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
 Security considerations are discussed in {{sn-lookup-security}}.
 
-### Identifier over NFC
-For those accessories that support identifier retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
-This URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
+### Identifer over NFC
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
+SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
-|        Operand       | Data type | Size (octets) |       Description                           |
-|:--------------------:|:---------:|:-------------:|:-------------------------------------------:|
-| p | bytes     |      defined by accessory      | Non-identifiable metadata                     |
-| e | bytes     |      defined by accessory      | Encrypted identifier when in associated state. |
-{: #table-sn-payload-over-nfc title="Identifier Number Lookup Payload Over NFC"}
-
+The encrypted serial number when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
 
 
 ## Owner registry
