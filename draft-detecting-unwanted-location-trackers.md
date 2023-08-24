@@ -672,6 +672,15 @@ An entry in this registry contains the following fields:
 * Manufacturer Name: the name of an organization that is producing a location-tracker accessory
 * Protocol ID: a 1-byte value specifying the Protocol ID associated with the Manufacturer Name
 
+### Temporary Registry
+Until this an IANA registry is available, the values in this registry are listed in {{table-temp-manufacturer-registry}}.
+
+|  Protocol ID | Manufacturer    |
+|:------------:|:---------------:|
+|  0x00        | Reserved        |
+|              | Apple           |
+|              | Google          |
+{: #table-temp-manufacturer-registry title="Manufacturer Registry"}
 
 
 ## Product Data Registry {#product-data-registry}
@@ -687,6 +696,15 @@ An entry in this registry contains the following fields:
 * Serial Number Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
 serial number look-up over Bluetooth LE can be retrieved.
 * Serial Number Look-up: a string representing the URL where the serial number and obfuscated owner information can be retrieved.
+
+
+### Temporary Registry
+Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
+
+|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL |
+|:--------------:|:----------------------------:|:--------------------------------------------------:|
+|                |                              |                                                    |
+{: #table-temp-product-data-registry title="Product Data Registry"}
 
 
 --- back
