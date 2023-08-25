@@ -497,16 +497,16 @@ This URL SHALL decrypt the identifier payload and return the identifier of the a
 |        Operand       | Data type | Size (octets) |       Description                           |
 |:--------------------:|:---------:|:-------------:|:-------------------------------------------:|
 | p | bytes     |      defined by accessory      | Non-identifiable metadata                     |
-| e | bytes     |      defined by accessory      | Encrypted serial number when in associated state. |
-{: #table-sn-payload-over-nfc title="Serial Number Lookup Payload Over NFC"}
+| e | bytes     |      defined by accessory      | Encrypted identifier when in associated state. |
+{: #table-sn-payload-over-nfc title="Identifier Number Lookup Payload Over NFC"}
 
 
 
 ## Owner registry
-Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the serial number of the accessory, e.g., phone number, email address.
+Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
-A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved serial number](serial-number-retrieval). This information SHALL be part of the response of the [serial number retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
+A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
 
 
 This MUST include at least one of the following:
