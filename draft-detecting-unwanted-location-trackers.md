@@ -192,7 +192,12 @@ Proprietary company payload data is both OPTIONAL and variable length.
 The accessory SHALL broadcast the location-enabled advertisement payload if location is available to the owner or was available any time within the past 24 hours. This allows unwanted tracking detection to operate both between and beyond the specific moments an accessory's location is made available to the owner.
 
 ### Maximum duration after physical separation from owner to transition into separated mode
-The accessory SHALL transition from near-owner mode to separated mode if it has physically separated from the owner device for a duration no longer than 30 minutes.
+The accessory SHALL transition from near-owner mode to separated mode under the conditions listed in {{table-advertising-policy}} below.
+
+| Preferred | Acceptable |
+|---|---|
+| The accessory has been physically separated from the owner device for more than 30 minutes | The accessory has been physically separated from the owner device for more than 30 minutes **AND** The owner of the accessory has received a more recent location update for that accessory after 30 minutes |
+{: #table-advertising-policy title="Advertising Policy" }
 
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
