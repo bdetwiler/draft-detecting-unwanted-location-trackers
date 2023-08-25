@@ -481,18 +481,17 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 
 A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 
-### Serial number retrieval from a server {#serial-number-from-server}
-For security reasons, the serial number payload returned from an accessory in the associated state SHALL be encrypted.
+### Identifier retrieval from a server {#identifier-from-server}
+For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
-A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the serial number payload and return the serial number value
+A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the identifier payload and return the identifier value
 SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
 Security considerations are discussed in {{sn-lookup-security}}.
 
-
-### Serial number over NFC
-For those accessories that support serial number retrieval over NFC, an associated accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
-This URL SHALL decrypt the serial number payload and return the serial number of the accessory in a form that can be rendered in the platform's HTML view.
+### Identifier over NFC
+For those accessories that support identifier retrieval over NFC, a paired accessory SHALL advertise a URL with parameters in {{table-sn-payload-over-nfc}}.
+This URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 
 |        Operand       | Data type | Size (octets) |       Description                           |
