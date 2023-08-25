@@ -239,9 +239,7 @@ It is important to prevent unwanted tracking alerts from occurring when the owne
 {: #table-near-owner-bit title="Near-Owner Bit"}
 
 ## Bluetooth LE advertising interval
-
 The Bluetooth LE advertising interval SHALL be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.
-
 
 ## Accessory Connections {#accessory-connections}
 The accessory non-owner service UUID SHALL be TODO. This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service. The accessory non-owner characteristic UUID SHALL be TODO.
@@ -464,22 +462,24 @@ The accessory manufacturer SHALL provide both a text description of how to disab
 A registry which maps [Product data](#product-data) to an affiliated URL supporting retrieval of disablement instructions SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL must return a response which can be rendered by an HTML view.
 
 
-## Serial Number Identification
-The serial number SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
+## Identification
+The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
+
+### Serial number identification
+
+If a serial number is available, it SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
+
+###  Identifier retrieval capability {#identifier-retrieval}
+The identifier payload SHALL be readable either through NFC tap (see [Identifier over NFC](#identifier-over-nfc)) or Bluetooth LE (see [Identifier Retrieval over Bluetooth LE](#identifier-retrieval-over-bluetooth-le) ).
 
 
-### Serial number retrieval capability {#serial-number-retrieval}
-The serial number payload SHALL be readable either through NFC tap (see [Serial Number payload over NFC](#serial-number-over-nfc)) or Bluetooth LE ( see [Serial Number Payload](#serial-number-payload) ).
+### Identifier retrieval over Bluetooth LE
+For privacy reasons, accessories that support identifier retrieval over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
+enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#serial-number-payload).
 
+The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
-### Serial number retrieval over Bluetooth LE
-For privacy reasons, accessories that support serial number retrieval over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
-enable the Get_Serial_Number opcode, as discussed in [Serial Number Payload](#serial-number-payload).
-
-The accessory manufacturer SHALL provide both a text description of how to enable serial number retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
-
-A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable serial number look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
-
+A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 
 ### Serial number retrieval from a server {#serial-number-from-server}
 For security reasons, the serial number payload returned from an accessory in the associated state SHALL be encrypted.
