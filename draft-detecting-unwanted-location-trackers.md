@@ -194,11 +194,6 @@ The accessory SHALL broadcast the location-enabled advertisement payload if loca
 ### Maximum duration after physical separation from owner to transition into separated mode
 The accessory SHALL transition from near-owner mode to separated mode under the conditions listed in {{table-advertising-policy}} below.
 
-| Preferred | Acceptable |
-|---|---|
-| The accessory has been physically separated from the owner device for more than 30 minutes | The accessory has been physically separated from the owner device for more than 30 minutes **AND** The owner of the accessory has received a more recent location update for that accessory after 30 minutes |
-{: #table-advertising-policy title="Advertising Policy" }
-
 ### Maximum duration after reunification with owner to transition into near-owner mode
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
