@@ -616,6 +616,8 @@ The platform MUST delete any local identifying information associated with an ac
 
 # Security Considerations
 
+## Serial number look-up {#sn-lookup-security}
+
 If a serial number is available, serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
 
 However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
