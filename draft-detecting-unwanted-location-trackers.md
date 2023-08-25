@@ -474,7 +474,7 @@ The accessory MUST include a way to uniquely identify it - either via a serial n
 If a serial number is available, it SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
 
 ###  Identifier retrieval capability {#identifier-retrieval}
-The identifier payload SHALL be readable either through NFC tap (see [Identifier payload over NFC](#serial-number-over-nfc)) or Bluetooth LE ( see [Identifier Payload](#identifier-payload) ).
+The identifier payload SHALL be readable either through NFC tap (see [Identifier over NFC](#identifier-over-nfc)) or Bluetooth LE (see [Identifier Retrieval over Bluetooth LE](#identifier-retrieval-over-bluetooth-le) ).
 
 
 ### Identifier retrieval over Bluetooth LE
