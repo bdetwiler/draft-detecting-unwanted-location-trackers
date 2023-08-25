@@ -388,7 +388,7 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 This control point SHALL be available to the platform only when the accessory is in separated state. In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in CommandResponse. See [Command Response](#command-response) for details.
 
 
-##### Play sound
+#### Play sound
 The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds.
 
 * The accessory SHALL confirm the start of the play sound procedure by sending a [Command_Response](#command-response) with the corresponding CommandOpCode and a ResponseStatus value of Success.
@@ -406,7 +406,7 @@ The Sound_Start opcode is used to play sound on the sound maker of the accessory
 * The accessory SHALL confirm the completion of the stop sound procedure by sending  the Sound_Completed message.
 
 
-##### Command Response
+#### Command Response
 
 There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
  The accessory SHALL respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.
