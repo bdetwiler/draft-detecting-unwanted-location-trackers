@@ -575,6 +575,17 @@ If none of the accessory categories provided in {{table-accessory-category-value
 # Firmware Updates
 The accessory SHOULD have firmware that is updatable by the owner.
 
+## Backwards Compatibility
+### Existing trackers
+
+Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
+
+### Advertisement backwards compatibility
+The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here <link TBD>. Backwards compatibility requests must be submitted by December 1, 2023.
+
+Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
+
+Companies who have registered their protocol IDs will appear in a table below.
 
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
@@ -605,9 +616,7 @@ The platform MUST delete any local identifying information associated with an ac
 
 # Security Considerations
 
-## Serial number look-up {#sn-lookup-security}
-
-Serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
+If a serial number is available, serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
 
 However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
