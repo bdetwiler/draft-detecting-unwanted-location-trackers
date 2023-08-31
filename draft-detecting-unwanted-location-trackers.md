@@ -371,7 +371,7 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
 | Get_Serial_Number          | 0x404         | None                                             | Write; To accessory         |
-| Get_Serial_Number_Response | 0x405         | [Serial Number Payload](#serial-number-payload)  | Indications; From accessory |
+| Get_Serial_Number_Response | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
 {: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 
@@ -409,7 +409,7 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 {: title="Command Response Operands"}
 
 
-#### Identifier Payload
+#### Identifier Payload {#identifier-payload}
 The Get_Serial_Number opcode is used to retrieve identifier lookup payload over Bluetooth LE.
 This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
 When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
@@ -467,7 +467,7 @@ The identifier payload SHALL be readable either through NFC tap (see [Identifier
 
 ### Identifier retrieval over Bluetooth LE
 For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
-enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#serial-number-payload).
+enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#identifier-payload).
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
@@ -482,7 +482,7 @@ The arguments sent to this URL SHALL match those that are defined in {{table-sn-
 Security considerations are discussed in {{info-lookup-security}}.
 
 
-### Identifer over NFC
+### Identifier over NFC
 For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
 SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
