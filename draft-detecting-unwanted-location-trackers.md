@@ -171,7 +171,7 @@ The payload format is defined in {{table-payload-format}}
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
 |  9-12  | Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)                 |  REQUIRED   |
 |   13   | Protocol ID (TBD value)                                                                       |  REQUIRED   |
-|   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
+|   14   | Near-owner bit (1 bit, least significant bit) + reserved (7 bits)                             |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
 
@@ -231,6 +231,7 @@ The 1-byte Protocol ID SHALL be set based on a registered value for the manufact
 ## Near-owner bit
 It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-enabled advertisement with the owner nearby, the accessory MUST set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. {{table-near-owner-bit}} specifies the values of this bit.
 
+The near-owner bit MUST be the least significant bit.
 
 | Near-owner Bit Value | Near-owner state |
 |----------------------|------------------|
