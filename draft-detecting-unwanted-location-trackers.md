@@ -482,7 +482,7 @@ The arguments sent to this URL SHALL match those that are defined in {{table-sn-
 Security considerations are discussed in {{sn-lookup-security}}.
 
 
-### Identifer over NFC
+### Identifer over NFC {#identifier-over-nfc}
 For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
 SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
