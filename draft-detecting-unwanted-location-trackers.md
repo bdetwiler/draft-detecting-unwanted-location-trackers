@@ -518,7 +518,7 @@ The accessory SHOULD have firmware that is updatable by the owner.
 Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
 
 ### Advertisement backwards compatibility
-The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by December 1, 2023.
+The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Once the unwanted tracking service UUID is implemented, the manufacturer SHALL update their advertising packet to use the protocol ID listed in the [temporary registry](temporary-registry) at the same time.
 
 Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
 
@@ -609,7 +609,7 @@ An entry in this registry contains the following fields:
 * Manufacturer Name: the name of an organization that is producing a location-tracker accessory
 * Protocol ID: a 1-byte value specifying the Protocol ID associated with the Manufacturer Name
 
-### Temporary Registry
+### Temporary Registry {#temporary-registry}
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-manufacturer-registry}}.
 
 |  Protocol ID | Manufacturer    |
