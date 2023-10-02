@@ -39,6 +39,7 @@ The WG is expected to:
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory
+ * Provide instructions and means to physically disable location reporting of tracker
 
 
 2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
