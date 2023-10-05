@@ -169,8 +169,8 @@ The payload format is defined in {{table-payload-format}}
 |:------:|:----------------------------------------------------------------------------------------------|:-----------:|
 |  0-5   | MAC address                                                                                   |  REQUIRED   |
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
-|  9-12  | Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)                 |  REQUIRED   |
-|   13   | Protocol ID (TBD value)                                                                       |  REQUIRED   |
+|  9-12  | Service Data TLV; length = 1 byte, type = 0x16, value = 0xFCB2                                |  REQUIRED   |
+|   13   | Protocol ID                                                                                   |  REQUIRED   |
 |   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
@@ -222,7 +222,7 @@ When in a separated state, the accessory SHALL rotate its address every 24 hours
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
-The Service data TLV with a 2-byte UUID value of TODO provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
+The Service data TLV with a 2-byte UUID value of 0xFCB2 provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
 
 ## Protocol ID
 The 1-byte Protocol ID SHALL be set based on a registered value for the manufacturer, as defined in [Manufacturer Protocol ID Registry](#manufacturer-protocol-registry).
@@ -242,7 +242,9 @@ It is important to prevent unwanted tracking alerts from occurring when the owne
 The Bluetooth LE advertising interval SHALL be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.
 
 ## Accessory Connections {#accessory-connections}
-The accessory non-owner service UUID SHALL be TODO. This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service. The accessory non-owner characteristic UUID SHALL be TODO.
+The accessory non-owner service UUID SHALL be 15190001-12F4-C226-88ED-2AC5579F2A85.
+This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service.
+The accessory non-owner characteristic UUID SHALL be 8E0C0001-1D68-FB92-BF61-48377421680E.
 
 ### Byte transmission order
 The characteristic used within this service SHALL be transmitted with the least significant octet first (that is, little endian).
@@ -256,14 +258,16 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 
 |             Opcode                  | Opcode value |        Operands                                   |     GATT subprocedure       |
 |:-----------------------------------:|:------------:|:-------------------------------------------------:|:--------------------------: |
-|           Get_Product_Data          | 0x306        |          None                                     |    Write; To Accessory      |
-|      Get_Product_Data_Response      | 0x311        |      [Product Data](#product-data)                | Indications; From Accessory |
-|        Get_Manufacturer_Name        | 0x307        |          None                                     |    Write; To Accessory      |
-|    Get_Manufacturer_Name_Response   | 0x312        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
-|            Get_Model_Name           | 0x308        |          None                                     |    Write; To Accessory      |
-|       Get_Model_Name_Response       | 0x313        |       [Model Name](#model-name)                   | Indications; From Accessory |
-|      Get_Accessory_Capabilities     | 0x30A        |          None                                     |    Write; To Accessory      |
-| Get_Accessory_Capabilities_Response | 0x315        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|           Get_Product_Data          | 0x003        |          None                                     |    Write; To Accessory      |
+|      Get_Product_Data_Response      | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory |
+|        Get_Manufacturer_Name        | 0x004        |          None                                     |    Write; To Accessory      |
+|    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
+|            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      |
+|       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory |
+| Get_Protocol_Implementation_Version | 0x006        |          None                                     |    Write; To Accessory      |
+| Get_Protocol_Implementation_Version_Response | 0x806 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
+|      Get_Accessory_Capabilities     | 0x007        |           None                                    |    Write; To Accessory      |
+| Get_Accessory_Capabilities_Response | 0x807        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 
@@ -300,6 +304,19 @@ The Model Name operand contains the manufacturer specific model of the accessory
 |:--------------------:|:---------:|:-------------:|:-----------:|
 | Model Name           | UTF-8     | 64            | Model name  |
 {: title="Model Name Operand" }
+
+#### Protocol implementation version
+The Protocol Implemention Version operand contains a value indicating an implemention version of these protocols.
+
+| Operand name                    | Data type | Size (octets) | Description                                                                                                |
+|:-------------------------------:|:---------:|:-------------:|:----------------------------------------------------------------------------------------------------------:|
+| Protocol Implementation Version | Uint32    | 4             | Byte 0 : revision version number <br/> Byte 1 : minor version number <br/> Byte 2-3 : major version number |
+{: title="Protocol Implementation Version Operand" }
+
+
+The Major.Minor.Revision value associated with this document is 1.0.0.
+The equivalent byte value is 0x00000001.
+
 
 
 #### Accessory capabilities
@@ -615,8 +632,8 @@ Until this an IANA registry is available, the values in this registry are listed
 |  Protocol ID | Manufacturer    |
 |:------------:|:---------------:|
 |  0x00        | Reserved        |
-|              | Apple           |
-|              | Google          |
+|  0x01        | Apple  Inc.     |
+|  0x02        | Google LLC      |
 {: #table-temp-manufacturer-registry title="Manufacturer Registry"}
 
 
@@ -633,14 +650,14 @@ An entry in this registry contains the following fields:
 * Serial Number Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
 serial number look-up over Bluetooth LE can be retrieved.
 * Serial Number Look-up: a string representing the URL where the serial number and obfuscated owner information can be retrieved.
-
+* Product Name: a string representing the product name associated with the Product Data string.
 
 ### Temporary Registry
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
 
-|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL |
-|:--------------:|:----------------------------:|:--------------------------------------------------:|
-|                |                              |                                                    |
+|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL | Product Name |
+|:--------------:|:----------------------------:|:--------------------------------------------------:|:------------:|
+|                |                              |                                                    |              |
 {: #table-temp-product-data-registry title="Product Data Registry"}
 
 
