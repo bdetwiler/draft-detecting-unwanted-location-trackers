@@ -47,7 +47,7 @@ The WG is expected to:
 3. Specify guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
 
-4. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and prevented from using crowdsourced location networks.
+4. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded  from being trackable via crowdsourced location networks.
 
 
 The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. In addition, these items are out-of-scope:
