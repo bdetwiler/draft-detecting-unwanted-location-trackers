@@ -45,6 +45,7 @@ The WG is expected to:
 
 
 3. Specify guidance for non-owner device platforms necessary to support implementation of the WG specified protocol
+4. Carry out a threat analysis and security analysis before publishing protocol
 
 
 
@@ -61,4 +62,3 @@ Since most of the existing tracking accessories use Bluetooth, the DULT WG will 
 
 * Submit an informational document about the state of tracker accessory platforms and how they work for publication
 * Submit a standards document defining the protocol to detect and interact with unwanted tracker accessories for publication
-* Produce evidence of efficacy of proposed solution
