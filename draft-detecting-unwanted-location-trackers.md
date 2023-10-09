@@ -250,7 +250,7 @@ The accessory non-owner characteristic UUID SHALL be 8E0C0001-1D68-FB92-BF61-483
 The characteristic used within this service SHALL be transmitted with the least significant octet first (that is, little endian).
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), and [Accessory capabilities](#accessory-capabilities).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
 
 
 ### Opcodes
@@ -264,10 +264,12 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
 |            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      |
 |       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory |
-| Get_Protocol_Implementation_Version | 0x006        |          None                                     |    Write; To Accessory      |
-| Get_Protocol_Implementation_Version_Response | 0x806 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
-|      Get_Accessory_Capabilities     | 0x007        |           None                                    |    Write; To Accessory      |
-| Get_Accessory_Capabilities_Response | 0x807        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      |
+|   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory |
+| Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      |
+| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
+|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
+| Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 
@@ -305,6 +307,16 @@ The Model Name operand contains the manufacturer specific model of the accessory
 | Model Name           | UTF-8     | 64            | Model name  |
 {: title="Model Name Operand" }
 
+#### Accessory category
+The Accessory Category operand describes the category the accessory most closely resembles.
+
+
+| Operand name  | Data type | Size (octets) |                                           Description                                           |
+|:--------------------:|:---------:|:-------------:|:------------------------------------------------------------------------------------------------|
+|  Accessory Category  |   Uint8   |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
+{: title="Accessory Category Operand" }
+
+
 #### Protocol implementation version
 The Protocol Implemention Version operand contains a value indicating an implemention version of these protocols.
 
@@ -316,7 +328,6 @@ The Protocol Implemention Version operand contains a value indicating an impleme
 
 The Major.Minor.Revision value associated with this document is 1.0.0.
 The equivalent byte value is 0x00000001.
-
 
 
 #### Accessory capabilities
@@ -525,6 +536,56 @@ The owner registry SHOULD be stored for a minimum of 25 days after an owner has 
 ### Availability for law enforcement
 The owner registry SHALL be made available to law enforcement upon a valid law enforcement request.
 
+
+# Accessory Category Value
+Accessory manufacturer’s MUST pick an accessory category value that closest resembles their physical product.
+If none of the accessory categories provided in {{table-accessory-category-values}} match the physical product, Other MUST be chosen.
+
+| Accessory Category Name    | Value       |
+|:---------------------------|:-----------:
+| Finder                     | 1           |
+| Other                      | 128         |
+| Luggage                    | 129         |
+| Backpack                   | 130         |
+| Jacket                     | 131         |
+| Coat                       | 132         |
+| Shoes                      | 133         |
+| Bike                       | 134         |
+| Scooter                    | 135         |
+| Stroller                   | 136         |
+| Wheelchair                 | 137         |
+| Boat                       | 138         |
+| Helmet                     | 139         |
+| Skateboard                 | 140         |
+| Skis                       | 141         |
+| Snowboard                  | 142         |
+| Surfboard                  | 143         |
+| Camera                     | 144         |
+| Laptop                     | 145         |
+| Watch                      | 146         |
+| Flash drive                | 147         |
+| Drone                      | 148         |
+| Headphones                 | 149         |
+| Earphones                  | 150         |
+| Inhaler                    | 151         |
+| Sunglasses                 | 152         |
+| Handbag                    | 153         |
+| Wallet                     | 154         |
+| Umbrella                   | 155         |
+| Water bottle               | 156         |
+| Tools or tool box          | 157         |
+| Keys                       | 158         |
+| Smart case                 | 159         |
+| Remote                     | 160         |
+| Hat                        | 161         |
+| Motorbike                  | 162         |
+| Consumer electronic device | 163         |
+| Apparel                    | 164         |
+| Transportation device      | 165         |
+| Sports equipment           | 166         |
+| Personal item              | 167         |
+| Reserved for future use    | 2-127, 167+ |
+{: #table-accessory-category-values title="Accessory Category Values"}
 
 # Firmware Updates
 The accessory SHOULD have firmware that is updatable by the owner.
