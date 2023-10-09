@@ -584,7 +584,7 @@ If none of the accessory categories provided in {{table-accessory-category-value
 | Transportation device      | 165         |
 | Sports equipment           | 166         |
 | Personal item              | 167         |
-| Reserved for future use    | 2-127, 167+ |
+| Reserved for future use    | 2-127, 168+ |
 {: #table-accessory-category-values title="Accessory Category Values"}
 
 # Firmware Updates
