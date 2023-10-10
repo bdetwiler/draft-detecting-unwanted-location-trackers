@@ -36,7 +36,7 @@ The WG is expected to:
 
 1. Standardize a protocol between tracking accessories and nearby devices, which may:
 
- * Allow a tracking accessory to identify & advertise its presence when in a detectable mode
+ * Allow a tracking accessory to identify & advertise its presence when in a detectable mode; this shall include the privacy and security properties of the entire BT advertisement
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory
 
