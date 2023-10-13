@@ -7,6 +7,8 @@ Location-tracking accessories provide numerous benefits to users (e.g., such as 
 
 To address this threat, accessory manufacturers have developed independent solutions for protecting users from unwanted tracking. However, this requires users to know about the threat of unwanted tracking, download multiple apps, and constantly be checking for the threat of unwanted tracking. In order to build a scalable solution for detecting unwanted tracking, trackers require a consistent protocol and set of behaviors that will enable protection from unwanted tracking using any tracker.
 
+A sample [system diagram](https://github.com/rdanyliw/ietf-dult/blob/main/dult-scope.md#notional-dult-architecture) describes the notional DULT architecture.
+
 
 ## Goals
 
