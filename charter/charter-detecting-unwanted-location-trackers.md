@@ -7,7 +7,7 @@ Location-tracking accessories provide numerous benefits to users (e.g., such as 
 
 To address this threat, accessory manufacturers have developed independent solutions for protecting users from unwanted tracking. However, this requires users to know about the threat of unwanted tracking, download multiple apps, and constantly be checking for the threat of unwanted tracking. In order to build a scalable solution for detecting unwanted tracking, trackers require a consistent protocol and set of behaviors that will enable protection from unwanted tracking using any tracker.
 
-A sample [system diagram](https://github.com/rdanyliw/ietf-dult/blob/main/dult-scope.md#notional-dult-architecture) describes the notional DULT architecture.
+A sample [system diagram](https://github.com/rdanyliw/ietf-dult/blob/main/dult-scope.md#notional-dult-architecture) describes the notional DULT architecture and illustrates the different modes trackers can be in.
 
 
 ## Goals
@@ -35,7 +35,7 @@ The WG is expected to:
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode; this shall include the privacy and security properties of the entire BT advertisement
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
-
+ * Add privacy and security requirements or considerations to crowdsourcing networks
 
 2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
  * Includes physical security considerations, such as user impact when device has been physically modified to diminish findability
@@ -47,7 +47,6 @@ The WG is expected to:
 * This includes considerations for addressing legacy trackers that cannot update to the DULT protocol.
 
 The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. In addition, these items are out-of-scope:
- * Mechanisms for detecting whether a tracking accessory implements the DULT protocol or allowing a tracking accessory to attest that it implements the protocol
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
 
