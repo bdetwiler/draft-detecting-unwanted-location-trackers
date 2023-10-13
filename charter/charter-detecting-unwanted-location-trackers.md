@@ -11,16 +11,10 @@ To address this threat, accessory manufacturers have developed independent solut
 ## Goals
 
 
-The goal of the DULT WG is to standardize a protocol for information exchange between location-tracking accessories and nearby devices, along with actions that these accessories and devices should take once unwanted tracking is detected. The intent of this WG is to make it easier for arbitrary devices to detect unwanted tracking by these accessories. The protocols and interactions between devices may be limited to certain states or modes, such as the accessory being separated from a paired/owner device.
+The goal of the DULT WG is to standardize a protocol for information exchange between location-tracking accessories and nearby devices, along with actions that these accessories and devices should take once unwanted tracking is detected. This protocol is intended to protect people against being unknowingly tracked. The intent of this WG is to make it easier for arbitrary devices to detect unwanted tracking by these accessories. The protocols and interactions between devices may be limited to certain states or modes, such as the accessory being separated from a paired/owner device.
 
 
-The privacy goals of the WG solution are that:
-
-
-* The owner of the tracking accessory must not learn information about nearby devices that discover or interact with the tracking accessory
-* The interactions between tracking accessories and nearby devices are secure
-* Actions available to a nearby device (e.g., playing a sound on a tracking accessory) can be limited to certain states or modes
-
+The working group will define privacy and security properties of its solution, and evaluate the tradeoffs.
 
 
 The WG protocol design will be guided by an intent to:
@@ -36,13 +30,13 @@ The WG is expected to:
 
 1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
- * Allow a tracking accessory to identify & advertise its presence when in a detectable mode
+ * Allow a tracking accessory to identify & advertise its presence when in a detectable mode; this shall include the privacy and security properties of the entire BT advertisement
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
- * Allow nearby devices to fetch additional information about a tracker accessory
+ * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
 
 
-2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the DULT protocol.
-
+2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
+ * Includes physical security considerations, such as user impact when device has been physically modified to diminish findability
 
 3. Specify guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
