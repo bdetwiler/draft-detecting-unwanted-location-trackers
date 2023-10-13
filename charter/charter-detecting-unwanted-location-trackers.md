@@ -28,7 +28,7 @@ The WG protocol design will be guided by an intent to:
 
 The WG is expected to:
 
-1. Standardize a protocol between tracking accessories and nearby devices, which may:
+1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode; this shall include the privacy and security properties of the entire BT advertisement
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
@@ -38,14 +38,15 @@ The WG is expected to:
 2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
  * Includes physical security considerations, such as user impact when device has been physically modified to diminish findability
 
-3. Specify guidance for non-owner device platforms necessary to support implementation of the WG specified protocol
+3. Specify guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
+
+4. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded  from being trackable via crowdsourced location networks.
 
 
 The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. In addition, these items are out-of-scope:
 
- * Mechanisms for detecting tracking accessories that do not implement the protocol specified by the WG, and
- * Mechanisms for detecting whether a tracking accessory implements the protocol or allowing a tracking accessory to attest that it implements the protocol
+ * Mechanisms for detecting whether a tracking accessory implements the DULT protocol or allowing a tracking accessory to attest that it implements the protocol
 
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
