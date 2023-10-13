@@ -36,7 +36,7 @@ The WG is expected to:
 
 
 2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
-
+ * Includes physical security considerations, such as user impact when device has been physically modified to diminish findability
 
 3. Specify guidance for non-owner device platforms necessary to support implementation of the WG specified protocol
 
