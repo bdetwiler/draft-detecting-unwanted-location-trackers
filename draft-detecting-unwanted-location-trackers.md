@@ -272,6 +272,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Protocol_Implementation_Version_Response | 0x806 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
 |      Get_Accessory_Capabilities     | 0x007        |           None                                    |    Write; To Accessory      |
 | Get_Accessory_Capabilities_Response | 0x807        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+| Get_Serial_Number                   | 0x008         | None                                             | Write; To accessory         |
+| Get_Serial_Number_Response          | 0x808         | [Serial Number Payload](#serial-number-payload)  | Indications; From accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 
@@ -334,6 +336,24 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 
 For example, an accessory supporting play sound, motion detector UT, and serial number look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
 
+
+#### Serial Number Payload
+The Get_Serial_Number opcode is used to retrieve serial number lookup payload over Bluetooth LE.
+This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate serial number read state).
+When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
+
+
+|        Operand       | Data type | Size (octets)        |        Description                                           |
+|:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
+| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the serial number can be retrieved |
+{: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
+
+The encrypted serial number SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+
+
+If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
+
+
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
 
@@ -391,8 +411,6 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Sound_Stop                 | 0x301         | None                                             | Write; To accessory         |
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
-| Get_Serial_Number          | 0x404         | None                                             | Write; To accessory         |
-| Get_Serial_Number_Response | 0x405         | [Serial Number Payload](#serial-number-payload)  | Indications; From accessory |
 {: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 
@@ -428,23 +446,6 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 | CommandOpCode  | Uint16    | 2             | The control procedure matching this response                                                                                       |
 | ResponseStatus | Uint16    | 2             | 0x0000 Success<br/>0x0001 Invalid_state<br/>0x0002 Invalid_configuration<br/>0x0003 Invalid_length<br/>0x0004 Invalid_param<br/>0xFFFF Invalid_command |
 {: title="Command Response Operands"}
-
-
-#### Serial Number Payload
-The Get_Serial_Number opcode is used to retrieve serial number lookup payload over Bluetooth LE.
-This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate serial number read state).
-When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
-
-
-|        Operand       | Data type | Size (octets)        |        Description                                           |
-|:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the serial number can be retrieved |
-{: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
-
-The encrypted serial number SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
-
-
-If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
 
 
 ### Alternate finding hardware
