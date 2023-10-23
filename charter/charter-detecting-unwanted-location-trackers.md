@@ -32,10 +32,10 @@ The WG is expected to:
 
 1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
- * Allow a tracking accessory to identify & advertise its presence when in a detectable mode; this shall include the privacy and security properties of the entire BT advertisement
+ * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., BT, NFC, etc.)
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
- * Add privacy and security requirements or considerations to crowdsourcing networks
+ * Add privacy and security requirements or considerations for all messages used for advertisement as well as interations with crowdsourcing networks
 
 2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
  * Includes physical security considerations, such as user impact when device has been physically modified to diminish findability
