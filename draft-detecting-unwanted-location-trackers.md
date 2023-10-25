@@ -535,11 +535,19 @@ The accessory SHOULD have firmware that is updatable by the owner.
 Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
 
 ### Advertisement backwards compatibility
-The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by December 1, 2023.
+The manufacturer MAY continue to use the company’s existing service UUID (Legacy ID) as registered in the Bluetooth SIG until November 1, 2024, after which all manufacturers MUST use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. 
 
-Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
+If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST be registered with platforms. If a manufacturer is using a Legacy ID, Protocol ID MAY be omitted.
 
-Companies who have registered their protocol IDs will appear in a table below.
+Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by January 15, 2023.
+
+Legacy IDs that have been registered with the platforms are listed in {{table-legacy-IDs}}.
+
+| Manufacturer | Legacy ID |
+|----------------------|:--------:|
+|TBD                      | TBD     |
+{: #table-legacy-IDs title="Legacy Manufacturer IDs"}
+
 
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
