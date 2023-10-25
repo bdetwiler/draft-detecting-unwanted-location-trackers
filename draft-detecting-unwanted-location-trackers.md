@@ -270,6 +270,13 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Accessory_Capabilities_Response | 0x807        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
+Opcodes should be structured as defined in {{accessory-opcode-structure}}.
+|             Bytes                  | Description |
+|:-----------------------------------:|:------------:|
+|           0-1         | Opcode value        |
+|      2+      | Operand        |
+
+
 
 #### Product data
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
