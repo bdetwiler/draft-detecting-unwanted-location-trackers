@@ -275,7 +275,7 @@ Opcodes should be structured as defined in {{accessory-opcode-structure}}.
 |:-----------------------------------:|:------------:|
 |           0-1         | Opcode value        |
 |      2+      | Operand        |
-
+{: #accessory-opcode-structure title="Accessory Opcode Structure" }
 
 
 #### Product data
