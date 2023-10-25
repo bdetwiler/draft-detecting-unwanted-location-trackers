@@ -275,6 +275,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
 This value SHALL be available in a public registry as defined in {{product-data-registry}}.
 
+To help prevent collisions in the Product Data value, the first byte of the Product Data SHALL be the Protocol ID as defined in [Manufacturer Protocol ID Registry](#manufacturer-protocol-registry).
+
 The Product Data operand is 8 bytes, composed of two 8-character hex strings (lowercase zero padded), each of which is 4 bytes.
 
 For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted to binary would be
@@ -640,7 +642,7 @@ Until this an IANA registry is available, the values in this registry are listed
 ## Product Data Registry {#product-data-registry}
 New entries are assigned only for values that have received Expert Review, per {{Section 4.5 of !RFC8126}}.
 
-There SHALL NOT be two entries in this registry with the same Product Data value. Serial Number Look-up Over Bluetooth Instructions field MAY be
+There SHALL NOT be two entries in this registry with the same Product Data value. To help prevent collisions in the Product Data value, the first byte of the Product Data SHALL be the Protocol ID as defined in [Manufacturer Protocol ID Registry](#manufacturer-protocol-registry). Serial Number Look-up Over Bluetooth Instructions field MAY be
 left empty if the accessory does not support that capability.
 
 An entry in this registry contains the following fields:
