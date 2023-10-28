@@ -98,8 +98,8 @@ Throughout this document, these terms have specific meanings:
 These best practices are REQUIRED for location-enabled accessories that are small and not easily discoverable. For large accessories, such as a bicycle, these best practices are RECOMMENDED.
 
 Accessories are considered easily discoverable if they meet one of the following criteria:  
-- The item is larger than 30 cm in at least one dimension.  
-- The item is larger than 18 cm x 13 cm in two of its dimensions.  
+- The item is larger than 30 cm in at least one dimension.
+- The item is larger than 18 cm x 13 cm in two of its dimensions.
 - The item is larger than 250 cm<sup>3</sup> in three-dimensional space.
 
 # Requirements
@@ -524,7 +524,6 @@ Verifiable identity information of the owner of an accessory at time of associat
 ### Obfuscated owner information {#obfuscated-owner-info}
 A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
 
-
 This MUST include at least one of the following:
 
 * the last four digits of the owner's telephone number. e.g., (\*\*\*) \*\*\*-5555
@@ -673,7 +672,6 @@ on the whereabouts of an accessory.
 Accessory manufacturers SHOULD evaluate the contents of the proprietary company payload data in {{table-payload-format}} to ensure it does not introduce additional privacy risk through the broadcast of stable identifiers or unencrypted sensitive data.
 
 
-
 # IANA Considerations
 IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
 This group includes the "Manufacturer Protocol ID" and "Product Data" registries described below.
@@ -716,7 +714,6 @@ identifier look-up over Bluetooth LE can be retrieved.
 * The URL for serial number lookup operations SHALL only include the base URL. The HTTP handler serving the URL SHALL accept the following query parameters, provided as a GET request:
    * ID - which includes the hex-encoded identifier read over BLE or NFC.
    * Locale - which includes an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
-
 
 ### Temporary Registry
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
