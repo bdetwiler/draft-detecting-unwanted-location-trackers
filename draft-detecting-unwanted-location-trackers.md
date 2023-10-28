@@ -512,9 +512,7 @@ Security considerations are discussed in {{info-lookup-security}}.
 
 
 ### Identifer over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string 
-SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier 
-of the accessory in a form that can be rendered in the platform's HTML view.
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
 
