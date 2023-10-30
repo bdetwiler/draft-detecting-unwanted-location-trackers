@@ -539,7 +539,7 @@ The manufacturer MAY continue to use the company’s existing service UUID (Lega
 
 If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST be registered with platforms. If a manufacturer is using a Legacy ID, Protocol ID MAY be omitted.
 
-Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by January 15, 2023.
+Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by January 15, 2024.
 
 Legacy IDs that have been registered with the platforms are listed in {{table-legacy-IDs}}.
 
