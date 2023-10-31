@@ -271,10 +271,11 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
-| Bytes | Description   |
-|:-----:|:------------: |
-|  0-1  | Opcode value  |
-| 2+    | Operand       |
+
+| Bytes | Description  |
+|:-----:|:------------:|
+|  0-1  | Opcode value |
+| 2+    | Operand      |
 {: title="Accessory Opcode Structure" }
 
 #### Product data
