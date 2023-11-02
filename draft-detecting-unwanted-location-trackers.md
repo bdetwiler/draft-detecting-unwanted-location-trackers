@@ -170,7 +170,7 @@ The payload format is defined in {{table-payload-format}}
 |  0-5   | MAC address                                                                                   |  REQUIRED   |
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
 |  9-12  | Service Data TLV; length = 1 byte, type = 0x16, value = 0xFCB2                                |  REQUIRED   |
-|   13   | network ID                                                                                   |  REQUIRED   |
+|   13   | Network ID                                                                                   |  REQUIRED   |
 |   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
@@ -224,8 +224,8 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
 ## Service data TLV
 The Service data TLV with a 2-byte UUID value of 0xFCB2 provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
 
-## network ID
-The 1-byte network ID SHALL be set based on a registered value for the manufacturer, as defined in [Manufacturer network ID Registry](#manufacturer-protocol-registry).
+## Network ID
+The 1-byte Network ID SHALL be set based on a registered value for the manufacturer, as defined in [Manufacturer Network ID Registry](#manufacturer-protocol-registry).
 
 
 ## Near-owner bit
@@ -612,7 +612,7 @@ The manufacturer MAY continue to use the company’s existing service UUID as re
 
 Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
 
-Companies who have registered their network IDs will appear in a table below.
+Companies who have registered their Network IDs will appear in a table below.
 
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
@@ -631,7 +631,7 @@ Platforms SHOULD implement the owned accessory identification capability as a so
 
 Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
-The network ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
+The Network ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
 ### Network Access
 Network access MUST NOT be required in the moment that the platform performs owned accessory recognition.
@@ -687,22 +687,22 @@ Accessory manufacturers SHOULD evaluate the contents of the proprietary company 
 
 # IANA Considerations
 IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer network ID" and "Product Data" registries described below.
+This group includes the "Manufacturer Network ID" and "Product Data" registries described below.
 
 
-## Manufacturer network ID Registry {#manufacturer-protocol-registry}
+## Manufacturer Network ID Registry {#manufacturer-protocol-registry}
 
 New entries are assigned only for values that have received Expert Review, per {{Section 4.5 of !RFC8126}}.
 
 An entry in this registry contains the following fields:
 
 * Manufacturer Name: the name of an organization that is producing a location-tracker accessory
-* network ID: a 1-byte value specifying the network ID associated with the Manufacturer Name
+* Network ID: a 1-byte value specifying the Network ID associated with the Manufacturer Name
 
 ### Temporary Registry
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-manufacturer-registry}}.
 
-|  network ID | Manufacturer    |
+|  Network ID | Manufacturer    |
 |:------------:|:---------------:|
 |  0x00        | Reserved        |
 |  0x01        | Apple  Inc.     |
