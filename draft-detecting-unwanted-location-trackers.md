@@ -249,6 +249,10 @@ The accessory non-owner characteristic UUID SHALL be 8E0C0001-1D68-FB92-BF61-483
 ### Byte transmission order
 The characteristic used within this service SHALL be transmitted with the least significant octet first (that is, little endian).
 
+### Maximum transmission unit
+Data fragmentation and reassembly is not defined in this document; therefore, the accessory SHALL NOT request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in (Non-owner controls)[#non-owner-controls] and (opcodes){#opcodes}.
+In other words, all opcode response data must fit within a single write operation.
+
 ## Accessory Information
 The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
 
@@ -272,6 +276,13 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
+Opcodes should be structured as defined below.
+
+| Bytes | Description  |
+|:-----:|:------------:|
+|  0-1  | Opcode value |
+| 2+    | Operand      |
+{: title="Accessory Opcode Structure" }
 
 #### Product data
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
@@ -388,7 +399,7 @@ The accessory MUST include a sound maker (for example, a speaker) to play sound 
 It MUST also play sound when a non-owner tries to locate the accessory by initiating a play sound command from a non-owner device when the accessory is in range and connectable through Bluetooth LE.
 The sound maker MUST emit a sound with minimum 60 Phon peak loudness as defined by ISO 532-1:2017. The loudness MUST be measured in free acoustic space substantially free of obstacles that would affect the pressure measurement. The loudness MUST be measured by a calibrated (to the Pascal) free field microphone 25 cm from the accessory suspended in free space.
 
-### Non-owner controls
+### Non-owner controls {#non-owner-controls}
 Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections). The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in {{table-non-owner-control-pt-opcodes}}.
 
 
