@@ -28,19 +28,19 @@ The WG protocol design will be guided by an intent to:
 
 The WG is expected to:
 
-1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
+1. Develop a standards-track protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
- * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., BT, NFC, etc.)
+ * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., Bluetooth, Near Field Communication, etc.)
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
  * Add privacy and security requirements or considerations for all messages used for advertisement, interations with crowdsourcing networks, and owners of accessories
 
 
-2. Specify practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
+2. Develop standards-track best practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
  * Include physical security considerations, such as user impact when device has been physically modified to diminish detectability and/or findability
  * Include considerations for protecting people that don't have a device capable of running a platform-based unwanted tracking detection system
 
-3. Specify guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
+3. Develop standards-track guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
 4. Carry out a threat analysis and security analysis before publishing protocol
 
@@ -53,5 +53,5 @@ Since most of the existing tracking accessories use Bluetooth, the DULT WG will 
 
 ### Milestones
 
-* Submit an informational document about the state of tracker accessory platforms and how they work for publication
-* Submit a standards document defining the protocol to detect and interact with unwanted tracker accessories for publication
+* By July 2025 submit an informational document about the state of tracker accessory platforms and how they work for publication
+* By July 2025 submit a standards document defining the protocol to detect and interact with unwanted tracker accessories for publication
