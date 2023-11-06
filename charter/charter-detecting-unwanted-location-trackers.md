@@ -47,7 +47,11 @@ The WG is expected to:
 5. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded from being trackable via crowdsourced location networks.
  * This includes considerations for addressing legacy trackers that cannot update to the DULT protocol.
 
-The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. Phones, tablets, watches, and laptops are not considered accessories and are out of scope for this working group.
+The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. The focus of the WG will be on small and not easily-discoverable accessories. Accessories are considered easily discoverable if they meet one of the following criteria:  
+
+* The accessory is larger than 30 cm in at least one dimension.  
+* The accessory is larger than 18 cm x 13 cm in two of its dimensions.  
+* The accessory is larger than 250 cm3 in three-dimensional space.
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
 
