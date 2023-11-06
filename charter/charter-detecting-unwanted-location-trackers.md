@@ -51,6 +51,8 @@ The WG will not standardize an end-to-end platform-based unwanted tracking detec
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
 
+The WG will gather implementation experience before deciding to publish its specifications and will vet its work with gender-based violence experts.
+
 ### Milestones
 
 * Submit an informational document about the state of tracker accessory platforms and how they work for publication
