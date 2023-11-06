@@ -30,6 +30,7 @@ The WG is expected to:
 
 1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
+ * Specify requirements and a baseline algorithm for determination of unwanted tracking.
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., BT, NFC, etc.)
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
