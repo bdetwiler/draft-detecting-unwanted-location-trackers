@@ -50,7 +50,7 @@ The WG is expected to:
 
 The WG will not define requirements for interactions between accessory manufacturers and law enforcement. Phones, tablets, watches, and laptops are not considered accessories and are out of scope for this working group.
 
-Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
+The WG will work with gender-based violence experts. Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
 
 ### Milestones
 
