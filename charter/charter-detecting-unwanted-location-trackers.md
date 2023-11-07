@@ -42,7 +42,10 @@ The WG is expected to:
 
 3. Specify guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
-4. Carry out a threat analysis and security analysis before publishing protocol
+4. Before deciding to publish the protocol the WG will:
+	* Carry out a threat analysis and security analysis 
+	* Gather implementation experience
+	* Vet its work with gender-based violence experts
 
 5. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded from being trackable via crowdsourced location networks.
  * This includes considerations for addressing legacy trackers that cannot update to the DULT protocol.
@@ -50,8 +53,6 @@ The WG is expected to:
 The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. Phones, tablets, watches, and laptops are not considered accessories and are out of scope for this working group.
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
-
-The WG will gather implementation experience before deciding to publish its specifications and will vet its work with gender-based violence experts.
 
 ### Milestones
 
