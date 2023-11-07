@@ -284,6 +284,8 @@ Opcodes should be structured as defined below.
 | 2+    | Operand      |
 {: title="Accessory Opcode Structure" }
 
+This control point SHALL be available to devices only when the accessory is in separated state. In all other states, the accessory SHALL return the Invalid_command error as the responseStatus in Command_Response. See Command Response for details.
+
 #### Product data
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
 This value SHALL be available in a public registry as defined in {{product-data-registry}}.
