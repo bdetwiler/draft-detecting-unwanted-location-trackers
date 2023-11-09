@@ -554,8 +554,8 @@ Accessory manufacturer’s MUST pick an accessory category value that closest re
 If none of the accessory categories provided in {{table-accessory-category-values}} match the physical product, Other MUST be chosen.
 
 | Accessory Category Name    | Value       |
-|:---------------------------|:-----------:
-| Finder                     | 1           |
+|:---------------------------|:------------:
+| Location-Tracker           | 1           |
 | Other                      | 128         |
 | Luggage                    | 129         |
 | Backpack                   | 130         |
