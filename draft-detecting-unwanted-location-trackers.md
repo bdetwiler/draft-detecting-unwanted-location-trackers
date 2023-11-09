@@ -650,7 +650,7 @@ Additional details will follow in 2024 to specify formats for disablement instru
 
 ## Network providers
 
-Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024. 
+Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024.
 
 # Security Considerations
 
