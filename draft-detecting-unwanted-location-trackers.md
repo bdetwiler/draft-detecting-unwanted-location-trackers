@@ -222,7 +222,7 @@ When in a separated state, the accessory SHALL rotate its address every 24 hours
 This duration allows a platform's unwanted tracking algorithms to detect that the same accessory is in proximity for some period of time, when the owner is not in physical proximity.
 
 ## Service data TLV
-The Service data TLV with a 2-byte UUID value of TODO provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
+The Service data TLV with a 2-byte UUID value of 0xFCB2 provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
 
 ## Protocol ID
 The 1-byte Protocol ID SHALL be set based on a registered value for the manufacturer, as defined in [Manufacturer Protocol ID Registry](#manufacturer-protocol-registry).
@@ -243,13 +243,19 @@ The near-owner bit MUST be the least significant bit.
 The Bluetooth LE advertising interval SHALL be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.
 
 ## Accessory Connections {#accessory-connections}
-The accessory non-owner service UUID SHALL be TODO. This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service. The accessory non-owner characteristic UUID SHALL be TODO.
+The accessory non-owner service UUID SHALL be 15190001-12F4-C226-88ED-2AC5579F2A85.
+This service SHALL use GATT over LE. The non-owner accessory service SHALL be instantiated as a primary service.
+The accessory non-owner characteristic UUID SHALL be 8E0C0001-1D68-FB92-BF61-48377421680E.
 
 ### Byte transmission order
 The characteristic used within this service SHALL be transmitted with the least significant octet first (that is, little endian).
 
+### Maximum transmission unit
+Data fragmentation and reassembly is not defined in this document; therefore, the accessory SHALL NOT request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in (Non-owner controls)[#non-owner-controls] and (opcodes){#opcodes}.
+In other words, all opcode response data must fit within a single write operation.
+
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), and [Accessory capabilities](#accessory-capabilities).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
 
 
 ### Opcodes
@@ -257,16 +263,27 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 
 |             Opcode                  | Opcode value |        Operands                                   |     GATT subprocedure       |
 |:-----------------------------------:|:------------:|:-------------------------------------------------:|:--------------------------: |
-|           Get_Product_Data          | 0x306        |          None                                     |    Write; To Accessory      |
-|      Get_Product_Data_Response      | 0x311        |      [Product Data](#product-data)                | Indications; From Accessory |
-|        Get_Manufacturer_Name        | 0x307        |          None                                     |    Write; To Accessory      |
-|    Get_Manufacturer_Name_Response   | 0x312        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
-|            Get_Model_Name           | 0x308        |          None                                     |    Write; To Accessory      |
-|       Get_Model_Name_Response       | 0x313        |       [Model Name](#model-name)                   | Indications; From Accessory |
-|      Get_Accessory_Capabilities     | 0x30A        |          None                                     |    Write; To Accessory      |
-| Get_Accessory_Capabilities_Response | 0x315        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|           Get_Product_Data          | 0x003        |          None                                     |    Write; To Accessory      |
+|      Get_Product_Data_Response      | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory |
+|        Get_Manufacturer_Name        | 0x004        |          None                                     |    Write; To Accessory      |
+|    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
+|            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      |
+|       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory |
+|        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      |
+|   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory |
+| Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      |
+| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
+|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
+| Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
+Opcodes should be structured as defined below.
+
+| Bytes | Description  |
+|:-----:|:------------:|
+|  0-1  | Opcode value |
+| 2+    | Operand      |
+{: title="Accessory Opcode Structure" }
 
 #### Product data
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
@@ -302,6 +319,28 @@ The Model Name operand contains the manufacturer specific model of the accessory
 | Model Name           | UTF-8     | 64            | Model name  |
 {: title="Model Name Operand" }
 
+#### Accessory category
+The Accessory Category operand describes the category the accessory most closely resembles.
+
+
+| Operand name  | Data type | Size (octets) |                                           Description                                           |
+|:--------------------:|:---------:|:-------------:|:------------------------------------------------------------------------------------------------|
+|  Accessory Category  |   Uint8   |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
+{: title="Accessory Category Operand" }
+
+
+#### Protocol implementation version
+The Protocol Implemention Version operand contains a value indicating an implemention version of these protocols.
+
+| Operand name                    | Data type | Size (octets) | Description                                                                                                |
+|:-------------------------------:|:---------:|:-------------:|:----------------------------------------------------------------------------------------------------------:|
+| Protocol Implementation Version | Uint32    | 4             | Byte 0 : revision version number <br/> Byte 1 : minor version number <br/> Byte 2-3 : major version number |
+{: title="Protocol Implementation Version Operand" }
+
+
+The Major.Minor.Revision value associated with this document is 1.0.0.
+The equivalent byte value is 0x00000001.
+
 
 #### Accessory capabilities
 The Accessory Capabilities operand enumerates the various capabilities supported on the accessory as defined in {{table-accessory-capability}}.
@@ -309,10 +348,10 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 
 | Operand name  | Data type | Size (octets) |                                                                        Description                                                                        |
 |:--------------------:|:---------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports serial number lookup by NFC <br/> Bit 3 : Supports serial number lookup by BLE |
+| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
-For example, an accessory supporting play sound, motion detector UT, and serial number look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
+For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
@@ -361,7 +400,7 @@ The accessory MUST include a sound maker (for example, a speaker) to play sound 
 It MUST also play sound when a non-owner tries to locate the accessory by initiating a play sound command from a non-owner device when the accessory is in range and connectable through Bluetooth LE.
 The sound maker MUST emit a sound with minimum 60 Phon peak loudness as defined by ISO 532-1:2017. The loudness MUST be measured in free acoustic space substantially free of obstacles that would affect the pressure measurement. The loudness MUST be measured by a calibrated (to the Pascal) free field microphone 25 cm from the accessory suspended in free space.
 
-### Non-owner controls
+### Non-owner controls {#non-owner-controls}
 Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections). The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in {{table-non-owner-control-pt-opcodes}}.
 
 
@@ -372,7 +411,7 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
 | Get_Serial_Number          | 0x404         | None                                             | Write; To accessory         |
-| Get_Serial_Number_Response | 0x405         | [Serial Number Payload](#serial-number-payload)  | Indications; From accessory |
+| Get_Serial_Number_Response | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
 {: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 
@@ -410,21 +449,21 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 {: title="Command Response Operands"}
 
 
-#### Serial Number Payload
-The Get_Serial_Number opcode is used to retrieve serial number lookup payload over Bluetooth LE.
-This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate serial number read state).
+#### Identifier Payload {#identifier-payload}
+The Get_Serial_Number opcode is used to retrieve identifier lookup payload over Bluetooth LE.
+This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
 When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
 
 
 |        Operand       | Data type | Size (octets)        |        Description                                           |
 |:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the serial number can be retrieved |
+| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the identifier can be retrieved |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
 
-The encrypted serial number SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted identifier SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
 
 
-If the accessory is not in serial number read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
+If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
 
 
 ### Alternate finding hardware
@@ -467,8 +506,8 @@ The identifier payload SHALL be readable either through NFC tap (see [Identifier
 
 
 ### Identifier retrieval over Bluetooth LE
-For privacy reasons, accessories that support identifier retrieval over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
-enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#serial-number-payload).
+For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
+enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#identifier-payload).
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
@@ -480,14 +519,15 @@ For security reasons, the identifier payload returned from an accessory in the p
 A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the identifier payload and return the identifier value
 SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
-Security considerations are discussed in {{sn-lookup-security}}.
+Security considerations are discussed in {{info-lookup-security}}.
+
 
 
 ### Identifer over NFC {#identifier-over-nfc}
 For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
 SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
-The encrypted serial number when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
 
 
 ## Owner registry
@@ -509,6 +549,56 @@ The owner registry SHOULD be stored for a minimum of 25 days after an owner has 
 ### Availability for law enforcement
 The owner registry SHALL be made available to law enforcement upon a valid law enforcement request.
 
+
+# Accessory Category Value
+Accessory manufacturer’s MUST pick an accessory category value that closest resembles their physical product.
+If none of the accessory categories provided in {{table-accessory-category-values}} match the physical product, Other MUST be chosen.
+
+| Accessory Category Name    | Value       |
+|:---------------------------|:------------:
+| Location Tracker           | 1           |
+| Other                      | 128         |
+| Luggage                    | 129         |
+| Backpack                   | 130         |
+| Jacket                     | 131         |
+| Coat                       | 132         |
+| Shoes                      | 133         |
+| Bike                       | 134         |
+| Scooter                    | 135         |
+| Stroller                   | 136         |
+| Wheelchair                 | 137         |
+| Boat                       | 138         |
+| Helmet                     | 139         |
+| Skateboard                 | 140         |
+| Skis                       | 141         |
+| Snowboard                  | 142         |
+| Surfboard                  | 143         |
+| Camera                     | 144         |
+| Laptop                     | 145         |
+| Watch                      | 146         |
+| Flash drive                | 147         |
+| Drone                      | 148         |
+| Headphones                 | 149         |
+| Earphones                  | 150         |
+| Inhaler                    | 151         |
+| Sunglasses                 | 152         |
+| Handbag                    | 153         |
+| Wallet                     | 154         |
+| Umbrella                   | 155         |
+| Water bottle               | 156         |
+| Tools or tool box          | 157         |
+| Keys                       | 158         |
+| Smart case                 | 159         |
+| Remote                     | 160         |
+| Hat                        | 161         |
+| Motorbike                  | 162         |
+| Consumer electronic device | 163         |
+| Apparel                    | 164         |
+| Transportation device      | 165         |
+| Sports equipment           | 166         |
+| Personal item              | 167         |
+| Reserved for future use    | 2-127, 168+ |
+{: #table-accessory-category-values title="Accessory Category Values"}
 
 # Firmware Updates
 The accessory SHOULD have firmware that is updatable by the owner.
@@ -554,14 +644,14 @@ The platform MUST delete any local identifying information associated with an ac
 
 # Security Considerations
 
-## Serial number look-up {#sn-lookup-security}
+## Obfuscated owner information look-up {#info-lookup-security}
 
-If a serial number is available, serial number look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative.
+Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying a serial number may be one method to allow for partial user information look up.
 
-However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, it SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
+However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, serial number (if used) and obfuscated owner information SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
-The serial number look-up SHALL only be available in separated mode for an associated accessory.
-When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the serial number. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
+The obfuscated owner information and serial number look-up SHALL only be available in separated mode for an associated accessory.
+When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the obfuscated owner information and serial number. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
 
 To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory MUST only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory SHOULD be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.
 
@@ -616,32 +706,33 @@ Until this an IANA registry is available, the values in this registry are listed
 |  Protocol ID | Manufacturer    |
 |:------------:|:---------------:|
 |  0x00        | Reserved        |
-|              | Apple           |
-|              | Google          |
+|  0x01        | Apple  Inc.     |
+|  0x02        | Google LLC      |
 {: #table-temp-manufacturer-registry title="Manufacturer Registry"}
 
 
 ## Product Data Registry {#product-data-registry}
 New entries are assigned only for values that have received Expert Review, per {{Section 4.5 of !RFC8126}}.
 
-There SHALL NOT be two entries in this registry with the same Product Data value. Serial Number Look-up Over Bluetooth Instructions field MAY be
+There SHALL NOT be two entries in this registry with the same Product Data value. Identifier Look-up Over Bluetooth Instructions field MAY be
 left empty if the accessory does not support that capability.
 
 An entry in this registry contains the following fields:
 
 * Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
 * Disablement Instructions: a string representing the URL where disablement instructions can be retrieved.
-* Serial Number Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
-serial number look-up over Bluetooth LE can be retrieved.
-* Serial Number Look-up: a string representing the URL where the serial number and obfuscated owner information can be retrieved.
+* Identifier Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
+identifier look-up over Bluetooth LE can be retrieved.
+* Identifier Look-up: a string representing the URL where the identifier and obfuscated owner information can be retrieved.
+* Product Name: a string representing the product name associated with the Product Data string.
 
 
 ### Temporary Registry
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
 
-|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL |
-|:--------------:|:----------------------------:|:--------------------------------------------------:|
-|                |                              |                                                    |
+|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL | Product Name |
+|:--------------:|:----------------------------:|:--------------------------------------------------:|:------------:|
+|                |                              |                                                    |              |
 {: #table-temp-product-data-registry title="Product Data Registry"}
 
 
