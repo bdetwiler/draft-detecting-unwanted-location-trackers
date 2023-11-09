@@ -640,7 +640,17 @@ Network access MUST NOT be required in the moment that the platform performs own
 ### Removal
 The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unassociates from the accessory.
 
+# Onboarding
 
+Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms.
+* Add their company to the IANA registry (until available, manufacturers can use the temporary registry)
+* Add complete information for each accessory to the Product Data Registry
+
+Additional details will follow in 2024 to specify formats for disablement instructions and product images.
+
+## Network providers
+
+Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024.
 
 # Security Considerations
 
