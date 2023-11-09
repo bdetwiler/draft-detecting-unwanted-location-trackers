@@ -555,7 +555,7 @@ If none of the accessory categories provided in {{table-accessory-category-value
 
 | Accessory Category Name    | Value       |
 |:---------------------------|:------------:
-| Location-Tracker           | 1           |
+| Location Tracker           | 1           |
 | Other                      | 128         |
 | Luggage                    | 129         |
 | Backpack                   | 130         |
