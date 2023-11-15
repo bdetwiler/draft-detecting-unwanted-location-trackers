@@ -169,9 +169,9 @@ The payload format is defined in {{table-payload-format}}
 |:------:|:----------------------------------------------------------------------------------------------|:-----------:|
 |  0-5   | MAC address                                                                                   |  REQUIRED   |
 |  6-8   | Flags TLV; length = 1 byte, type = 1 byte, value = 1 byte                                     |  OPTIONAL   |
-|  9-12  | Service Data TLV; length = 1 byte, type = 0x16, value = 0xFCB2                                |  REQUIRED   |
-|   13   | Protocol ID                                                                                   |  REQUIRED   |
-|   14   | Near-owner bit (1 bit) + reserved (7 bits)                                                    |  REQUIRED   |
+|  9-12  | Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)                 |  REQUIRED   |
+|   13   | Protocol ID (TBD value)                                                                       |  REQUIRED   |
+|   14   | Near-owner bit (1 bit, least significant bit) + reserved (7 bits)                             |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
 {: #table-payload-format title="Location-Enabled Payload Format" }
 
@@ -231,6 +231,7 @@ The 1-byte Protocol ID SHALL be set based on a registered value for the manufact
 ## Near-owner bit
 It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-enabled advertisement with the owner nearby, the accessory MUST set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. {{table-near-owner-bit}} specifies the values of this bit.
 
+The near-owner bit MUST be the least significant bit.
 
 | Near-owner Bit Value | Near-owner state |
 |----------------------|------------------|
@@ -554,8 +555,8 @@ Accessory manufacturer’s MUST pick an accessory category value that closest re
 If none of the accessory categories provided in {{table-accessory-category-values}} match the physical product, Other MUST be chosen.
 
 | Accessory Category Name    | Value       |
-|:---------------------------|:-----------:
-| Finder                     | 1           |
+|:---------------------------|:------------:
+| Location Tracker           | 1           |
 | Other                      | 128         |
 | Luggage                    | 129         |
 | Backpack                   | 130         |
@@ -639,7 +640,17 @@ Network access MUST NOT be required in the moment that the platform performs own
 ### Removal
 The platform MUST delete any local identifying information associated with an accessory if the manufacturer's software is removed or if the platform unassociates from the accessory.
 
+# Onboarding
 
+Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms.
+* Add their company to the IANA registry (until available, manufacturers can use the temporary registry)
+* Add complete information for each accessory to the Product Data Registry
+
+Additional details will follow in 2024 to specify formats for disablement instructions and product images.
+
+## Network providers
+
+Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024.
 
 # Security Considerations
 
