@@ -30,6 +30,7 @@ The WG is expected to:
 
 1. Standardize a protocol ("DULT protocol") between tracking accessories and nearby devices, which may:
 
+ * Specify requirements and a baseline algorithm for determination of unwanted tracking
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., BT, NFC, etc.)
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
@@ -47,7 +48,7 @@ The WG is expected to:
 5. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded from being trackable via crowdsourced location networks.
  * This includes considerations for addressing legacy trackers that cannot update to the DULT protocol.
 
-The WG will not standardize an end-to-end platform-based unwanted tracking detection system or define requirements for interactions between accessory manufacturers and law enforcement. Phones, tablets, watches, and laptops are not considered accessories and are out of scope for this working group.
+The WG will not define requirements for interactions between accessory manufacturers and law enforcement. Phones, tablets, watches, and laptops are not considered accessories and are out of scope for this working group.
 
 Since most of the existing tracking accessories use Bluetooth, the DULT WG will coordinate as needed with the IETF 6lo WG and Bluetooth SIG.
 
