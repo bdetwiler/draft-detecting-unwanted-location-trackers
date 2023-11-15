@@ -14,7 +14,7 @@ To address this threat, accessory manufacturers have developed independent solut
 The goal of the DULT WG is to standardize an application protocol for information exchange between location-tracking accessories and nearby devices, along with actions that these accessories and devices should take once unwanted tracking is detected. This protocol is intended to protect people against being unknowingly tracked. The intent of this WG is to make it easier for arbitrary devices to detect unwanted tracking by these accessories. The protocols and interactions between devices may be limited to certain states or modes, such as the accessory being separated from a paired/owner device.
 
 
-The working group will define privacy and security properties of its solution, including privacy and security protections for tag owners when tags are used appropriately, and evaluate the tradeoffs.
+The working group will define privacy and security properties of its solution, including privacy and security protections for tag owners when tags are used appropriately, and evaluate the tradeoffs. The mechanisms specified by the WG will be designed to not create new vector for user tracking.
 
 
 The WG protocol design will be guided by an intent to:
@@ -34,7 +34,7 @@ The WG is expected to:
  * Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., Bluetooth, Near Field Communication, etc.)
  * Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location
  * Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions
- * Add privacy and security requirements or considerations for all messages used for advertisement, interations with crowdsourcing networks, and owners of accessories
+ * Add privacy and security requirements for all messages used for advertisement, interations with crowdsourcing networks, and owners of accessories
 
 
 2. Develop standards-track best practices that accessory manufacturers can implement to deter malicious use of tracking accessories and support the implementation of the WG-specified protocol.
