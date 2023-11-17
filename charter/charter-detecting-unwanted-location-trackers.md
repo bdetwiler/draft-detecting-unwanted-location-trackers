@@ -4,6 +4,7 @@
 ## Background
 Location-tracking accessories provide numerous benefits to users (e.g., such as being able to find where they left their keys), but can also have security and privacy implications if used for malicious purposes. These accessories can be misused to track another person’s location without their knowledge.
 
+The full system consists of three major subsystems: i) crowd-sourcing network, ii) unwanted tracked detection, and iii) alerting, providing information about the accessory, and enabling the non-owner to find it. These three subsystems have interfaces that are relevant to unwanted tracking, namely: enrolling in the network, broadcasting an accessory’s presence, non-owner interface for querying information from the accessory, performing non-owner actions such as play sound, querying assets and disablement instructions, querying limited owner information, disabling the accessory, and detection and exclusion of nonconformant accessories.
 
 To address this threat, accessory manufacturers have developed independent solutions for protecting users from unwanted tracking. However, this requires users to know about the threat of unwanted tracking, download multiple apps, and constantly be checking for the threat of unwanted tracking. In order to build a scalable solution for detecting unwanted tracking, trackers require a consistent protocol and set of behaviors that will enable protection from unwanted tracking using any tracker.
 
