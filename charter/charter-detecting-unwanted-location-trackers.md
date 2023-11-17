@@ -43,7 +43,9 @@ The WG is expected to:
 
 3. Develop standards-track guidance for non-owner device platforms necessary to support implementation of the DULT protocol.
 
-4. Carry out a threat analysis and security analysis before publishing protocol
+4. The WG will work with gender-based violence experts throughout development of the protocol. Additionally, before publishing the protocol the WG will:
+	* Carry out a threat analysis and security analysis 
+	* Gather implementation experience
 
 5. Design mechanisms to ensure that devices that do not correctly implement or adhere to the DULT protocol can be detected and excluded from being trackable via crowdsourced location networks.
  * This includes considerations for addressing legacy trackers that cannot update to the DULT protocol.
