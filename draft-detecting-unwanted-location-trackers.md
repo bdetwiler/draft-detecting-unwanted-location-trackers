@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).   
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), and [Firmware version](#firmware-version).   
 
 
 ### Opcodes
@@ -276,7 +276,7 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |      Get_Accessory_Capabilities     | 0x008        |          None                                     |    Write; To Accessory      |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 |         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      |
-|     Get_Firmware_Version_Response   | 0x80A        | [Firmware Version](#firmware-version)             | Indications; From Accessory |  
+|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory |  
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -356,7 +356,7 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
 
 #### Firmware version
-The firmware version describes the current firmware version on the accessory. 
+The Firmware Version describes the current firmware version running on the accessory. 
 The firmware revision string shall use the x\[.y\[.z\]\] format where :
 * \<x\> is the major version number, required.
 * \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
@@ -373,10 +373,11 @@ Major version must not be greater than (2^16 \- 1).
 Minor and revision version must not be greater than (2^8 \- 1).
 The value must change after every firmware update.
 
-| Operand name         | Data type | Size (octets) |           Description               |
-|:--------------------:|:---------:|:-------------:|:-----------------------------------:|
+| Operand name         | Data type | Size (octets) |                                               Description                                                     |
+|:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
 | Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
 {: title="Firmware Version Operand" }
+
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
