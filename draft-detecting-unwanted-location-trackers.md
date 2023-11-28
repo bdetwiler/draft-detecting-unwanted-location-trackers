@@ -360,7 +360,7 @@ For example, an accessory supporting play sound, motion detector UT, and identif
 The firmware version describes the current firmware version on the accessory. 
 The firmware revision string shall use the x\[.y\[.z\]\] format where :
 - \<x\> is the major version number, required.
-- \<y\> is the minor version number, required if it is non zero or if <z> is present.
+- \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
 - \<z\> is the revision version number, required if non zero.
 
 The firmware revision must follow these rules:
