@@ -377,7 +377,7 @@ The value must change after every firmware update.
 | Operand name         | Data type | Size (octets) |           Description               |
 |:--------------------:|:---------:|:-------------:|:-----------------------------------:|
 | Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
-{: title="Firmware Version" }
+{: title="Firmware Version Operand" }
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
