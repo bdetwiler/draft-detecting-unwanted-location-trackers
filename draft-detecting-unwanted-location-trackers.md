@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), and [Network ID](#network-id).
 
 
 ### Opcodes
@@ -275,6 +275,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
 |      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      |
+|      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -352,6 +354,16 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
+
+#### Network ID
+The Newtork Id operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
+
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Network ID          | Uint8     | 1            | Network ID  |
+{: title="Network ID Operand" }
+
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
