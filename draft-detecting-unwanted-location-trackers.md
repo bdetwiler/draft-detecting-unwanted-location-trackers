@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), and [Firmware Version](#firmware-version).   
 
 
 ### Opcodes
@@ -273,8 +273,10 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory |
 | Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      |
 | Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
-|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
+|      Get_Accessory_Capabilities     | 0x008        |          None                                     |    Write; To Accessory      |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      |
+|     Get_Firmware_Version_Response   | 0x80A        | [Firmware Version](#firmware-version)             | Indications; From Accessory |  
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -352,6 +354,30 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
+
+#### Firmware version
+
+The firmware version describes the current firmware version on the accessory. 
+The firmware revision string shall use the  x[.y[.z]] format where :
+• <x> is the major version number, required.
+• <y> is the minor version number, required if it is non zero or if <z> is present.
+• <z> is the revision version number, required if non zero.
+
+The firmware revision must follow these rules:
+• <x> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+• <y> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+• <z> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+• Subsequent firmware updates can have a lower <y> version only if <x> is incremented.
+• Subsequent firmware updates can have a lower <z> version only if <x> or <y> is incremented.
+
+Major version must not be greater than (2^16 -1).
+Minor and revision version must not be greater than (2^8 -1).
+The value must change after every firmware update.
+
+| Operand name         | Data type | Size (octets) |           Description               |
+|:--------------------:|:---------:|:-------------:|:-----------------------------------:|
+| Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+{: title="Firmware Version" }
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
