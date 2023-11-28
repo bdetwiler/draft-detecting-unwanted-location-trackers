@@ -287,7 +287,7 @@ Opcodes should be structured as defined below.
 
 #### Product data
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
-This value SHALL be available in a public registry as defined in {{product-data-registry}}.
+This value SHALL be determined during the [onboarding process](#onboarding).
 
 The Product Data operand is 8 bytes, composed of two 8-character hex strings (lowercase zero padded), each of which is 4 bytes.
 
@@ -490,9 +490,6 @@ The accessory SHALL have a way to disabled such that its future locations cannot
 ### Disablement instructions
 The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.
 
-### Retrieval
-A registry which maps [Product data](#product-data) to an affiliated URL supporting retrieval of disablement instructions SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL must return a response which can be rendered by an HTML view.
-
 
 ## Identification
 The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
@@ -511,16 +508,9 @@ enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#ident
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
-A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
 
 ### Identifier retrieval from a server {#identifier-from-server}
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
-
-A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the identifier payload and return the identifier value
-SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
-The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
-Security considerations are discussed in {{info-lookup-security}}.
-
 
 
 ### Identifer over NFC {#identifier-over-nfc}
@@ -642,9 +632,7 @@ The platform MUST delete any local identifying information associated with an ac
 
 # Onboarding
 
-Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms.
-* Add their company to the IANA registry (until available, manufacturers can use the temporary registry)
-* Add complete information for each accessory to the Product Data Registry
+Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Manufacturer network ID Registry](#manufacturer-protocol-registry).
 
 Additional details will follow in 2024 to specify formats for disablement instructions and product images.
 
@@ -719,31 +707,6 @@ Until this an IANA registry is available, the values in this registry are listed
 |  0x01        | Apple  Inc.     |
 |  0x02        | Google LLC      |
 {: #table-temp-manufacturer-registry title="Manufacturer Registry"}
-
-
-## Product Data Registry {#product-data-registry}
-New entries are assigned only for values that have received Expert Review, per {{Section 4.5 of !RFC8126}}.
-
-There SHALL NOT be two entries in this registry with the same Product Data value. Identifier Look-up Over Bluetooth Instructions field MAY be
-left empty if the accessory does not support that capability.
-
-An entry in this registry contains the following fields:
-
-* Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
-* Disablement Instructions: a string representing the URL where disablement instructions can be retrieved.
-* Identifier Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
-identifier look-up over Bluetooth LE can be retrieved.
-* Identifier Look-up: a string representing the URL where the identifier and obfuscated owner information can be retrieved.
-* Product Name: a string representing the product name associated with the Product Data string.
-
-
-### Temporary Registry
-Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
-
-|  Product Data  | Disablement Instructions URL | Identifier Look-up Over Bluetooth Instructions URL | Product Name |
-|:--------------:|:----------------------------:|:--------------------------------------------------:|:------------:|
-|                |                              |                                                    |              |
-{: #table-temp-product-data-registry title="Product Data Registry"}
 
 
 --- back
