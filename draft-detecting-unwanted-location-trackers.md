@@ -353,6 +353,30 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
 
+#### Firmware version
+The Firmware Version describes the current firmware version running on the accessory. 
+The firmware revision string SHALL use the x\[.y\[.z\]\] format where :
+* \<x\> is the major version number, required.
+* \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
+* \<z\> is the revision version number, required if non zero.
+
+The firmware revision MUST follow these rules:
+* \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+* \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+* \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+* Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
+* Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
+
+Major version MUST not be greater than (2^16 \- 1).
+Minor and revision version MUST not be greater than (2^8 \- 1).
+The value MUST change after every firmware update.
+
+| Operand name         | Data type | Size (octets) |                                               Description                                                     |
+|:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
+| Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+{: title="Firmware Version Operand" }
+
+
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
 
