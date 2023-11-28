@@ -359,19 +359,19 @@ For example, an accessory supporting play sound, motion detector UT, and identif
 
 The firmware version describes the current firmware version on the accessory. 
 The firmware revision string shall use the x\[.y\[.z\]\] format where :
-- <x> is the major version number, required.
-- <y> is the minor version number, required if it is non zero or if <z> is present.
-- <z> is the revision version number, required if non zero.
+- \<x\> is the major version number, required.
+- \<y\> is the minor version number, required if it is non zero or if <z> is present.
+- \<z\> is the revision version number, required if non zero.
 
 The firmware revision must follow these rules:
-- <x> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
-- <y> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
-- <z> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
-- Subsequent firmware updates can have a lower <y> version only if <x> is incremented.
-- Subsequent firmware updates can have a lower <z> version only if <x> or <y> is incremented.
+- \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+- \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+- \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+- Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
+- Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
 
-Major version must not be greater than (2^16 -1).
-Minor and revision version must not be greater than (2^8 -1).
+Major version must not be greater than (2^16 - 1).
+Minor and revision version must not be greater than (2^8 - 1).
 The value must change after every firmware update.
 
 | Operand name         | Data type | Size (octets) |           Description               |
