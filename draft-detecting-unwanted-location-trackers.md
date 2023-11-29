@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), [Battery Type](#battery-type), and [Battery Level](#battery-level).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), [Battery Type](#battery-type), and [Battery State](#battery-state).
 
 
 ### Opcodes
@@ -279,8 +279,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
 |           Get_Battery_Type          | 0x00B        |          None                                     |    Write; To Accessory      |
 |      Get_Battery_Type_Response      | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory |
-|           Get_Battery_Level         | 0x00C        |          None                                     |    Write; To Accessory      |
-|      Get_Battery_Level_Response     | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory |
+|           Get_Battery_State         | 0x00C        |          None                                     |    Write; To Accessory      |
+|      Get_Battery_State_Response     | 0x80C        |      [Battery State](#battery-state)              | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
