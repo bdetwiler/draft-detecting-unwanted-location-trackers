@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), and [Network ID](#network-id).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), [Battery Type](#battery-type), and [Battery Level](#battery-level).
 
 
 ### Opcodes
@@ -277,6 +277,10 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 |           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      |
 |      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
+|           Get_Battery_Type          | 0x00B        |          None                                     |    Write; To Accessory      |
+|      Get_Battery_Type_Response      | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory |
+|           Get_Battery_Level         | 0x00C        |          None                                     |    Write; To Accessory      |
+|      Get_Battery_Level_Response     | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -364,6 +368,21 @@ The Newtork Id operand contains the Network ID for the accessory. This is the sa
 | Network ID          | Uint8     | 1            | Network ID  |
 {: title="Network ID Operand" }
 
+#### Battery type
+The Battery type operand describes the battery type used in the accessory.
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Battery Type         | Uint8     | 1             | 0 = Powered<\br> 1 = Non-rechargeable battery<\br> 2 = Rechargeable battery  |
+{: title="Battery Type Operand" }
+
+#### Battery state
+The Battery state operand indicates the current battery level.
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Battery State         | Uint8    | 1             | 0 = Full<\br> 1 = Medium<\br> 2 = Low<\br>3 = Critically low  |
+{: title="Battery State Operand" }
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
