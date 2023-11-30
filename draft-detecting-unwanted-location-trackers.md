@@ -413,7 +413,9 @@ It MUST also play sound when a non-owner tries to locate the accessory by initia
 The sound maker MUST emit a sound with minimum 60 Phon peak loudness as defined by ISO 532-1:2017. The loudness MUST be measured in free acoustic space substantially free of obstacles that would affect the pressure measurement. The loudness MUST be measured by a calibrated (to the Pascal) free field microphone 25 cm from the accessory suspended in free space.
 
 ### Non-owner controls {#non-owner-controls}
-Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections). The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in {{table-non-owner-control-pt-opcodes}}.
+Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections).
+These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.
+The opcodes for these controls are defined in {{table-non-owner-controls-opcodes}}.
 
 
 |           Opcode           | Opcode  value |           Operands                               | GATT subprocedure           |
@@ -423,11 +425,16 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
 | Get_Serial_Number          | 0x404         | None                                             | Write; To accessory         |
-| Get_Serial_Number_Response | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
-{: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
+| Get_Serial_Number_Response | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
+{: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
 
-This control point SHALL be available to the platform only when the accessory is in separated state. In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in CommandResponse. See [Command Response](#command-response) for details.
+Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
+In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in CommandResponse.
+See [Command Response](#command-response) for details.
+
+
+Get_Serial_Number SHALL only be available if in identifier read state; otherwise, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus.
 
 
 ##### Play sound
