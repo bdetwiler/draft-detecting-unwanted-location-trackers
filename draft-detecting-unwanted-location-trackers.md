@@ -98,8 +98,8 @@ Throughout this document, these terms have specific meanings:
 These best practices are REQUIRED for location-enabled accessories that are small and not easily discoverable. For large accessories, such as a bicycle, these best practices are RECOMMENDED.
 
 Accessories are considered easily discoverable if they meet one of the following criteria:  
-- The item is larger than 30 cm in at least one dimension.  
-- The item is larger than 18 cm x 13 cm in two of its dimensions.  
+- The item is larger than 30 cm in at least one dimension.
+- The item is larger than 18 cm x 13 cm in two of its dimensions.
 - The item is larger than 250 cm<sup>3</sup> in three-dimensional space.
 
 # Requirements
@@ -467,12 +467,12 @@ This MUST be enabled for 5 minutes upon user action on the accessory (for exampl
 When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
 
 
-|        Operand       | Data type | Size (octets)        |        Description                                           |
-|:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the identifier can be retrieved |
+|        Operand          | Data type | Size (octets)        |        Description                                           |
+|:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
+| Encrypted Serial Number | UTF-8     | defined by accessory | The encrypted serial number, encoded as a hex string.       |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
 
-The encrypted identifier SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted serial number SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
 
 
 If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
@@ -503,7 +503,7 @@ The accessory SHALL have a way to disabled such that its future locations cannot
 The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.
 
 ### Retrieval
-A registry which maps [Product data](#product-data) to an affiliated URL supporting retrieval of disablement instructions SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL must return a response which can be rendered by an HTML view.
+A registry which maps [Product data](#product-data) to an affiliated URL supporting retrieval of disablement instructions SHALL be available for platforms to reference, as defined in [Product data registry](product-data-registry). This URL must return a response which can be rendered by an HTML view.
 
 
 ## Identification
@@ -523,31 +523,28 @@ enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#ident
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
-A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
+A registry which maps [Product Data](#product-data) to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE SHALL be available for platforms to reference, as defined in [Product data registry](product-data-registry). This URL MUST return a response which can be rendered by an HTML view.
 
 ### Identifier retrieval from a server {#identifier-from-server}
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
 A registry which maps [Product Data](#product-data) to an affiliated URL which will decrypt the identifier payload and return the identifier value
-SHALL be available for platforms to reference, as defined in {{product-data-registry}}. This URL MUST return a response which can be rendered by an HTML view.
+SHALL be available for platforms to reference, as defined in [Product data registry](product-data-registry). This URL MUST return a response which can be rendered by an HTML view.
 The arguments sent to this URL SHALL match those that are defined in {{table-sn-payload-over-bt}}.
 Security considerations are discussed in {{info-lookup-security}}.
 
 
 
 ### Identifer over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
-SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
-
 
 ## Owner registry
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
 A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
-
 
 This MUST include at least one of the following:
 
@@ -707,7 +704,6 @@ on the whereabouts of an accessory.
 Accessory manufacturers SHOULD evaluate the contents of the proprietary company payload data in {{table-payload-format}} to ensure it does not introduce additional privacy risk through the broadcast of stable identifiers or unencrypted sensitive data.
 
 
-
 # IANA Considerations
 IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
 This group includes the "Manufacturer Network ID" and "Product Data" registries described below.
@@ -747,7 +743,9 @@ An entry in this registry contains the following fields:
 identifier look-up over Bluetooth LE can be retrieved.
 * Identifier Look-up: a string representing the URL where the identifier and obfuscated owner information can be retrieved.
 * Product Name: a string representing the product name associated with the Product Data string.
-
+* The URL for serial number lookup operations SHALL only include the base URL. The HTTP handler serving the URL SHALL accept the following query parameters, provided as a GET request:
+   * ID - which includes the hex-encoded identifier read over BLE or NFC.
+   * Locale - which includes an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
 
 ### Temporary Registry
 Until this an IANA registry is available, the values in this registry are listed in {{table-temp-product-data-registry}}.
