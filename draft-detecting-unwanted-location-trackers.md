@@ -634,6 +634,13 @@ The platform MUST delete any local identifying information associated with an ac
 
 Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Manufacturer network ID Registry](#manufacturer-protocol-registry).
 
+During onboarding, a product data registry will be created that includes information such as:
+* Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
+* Disablement Instructions: information on how a user can disable the tracker.
+* Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
+* Identifier Look-up: a method for the obfuscated owner information to be retrieved.
+* Product Name: a string representing the product name associated with the Product Data string.
+
 Additional details will follow in 2024 to specify formats for disablement instructions and product images.
 
 ## Network providers
