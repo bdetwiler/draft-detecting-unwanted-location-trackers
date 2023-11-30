@@ -255,7 +255,8 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), and [Network ID](#network-id).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Firmware version](#firmware-version), and [Network ID](#network-id).
+
 
 
 ### Opcodes
@@ -277,6 +278,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
 |           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      |
 |      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
+|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      |
+|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -363,6 +366,29 @@ The Newtork Id operand contains the Network ID for the accessory. This is the sa
 |:--------------------:|:---------:|:-------------:|:-----------:|
 | Network ID          | Uint8     | 1            | Network ID  |
 {: title="Network ID Operand" }
+
+#### Firmware version
+The Firmware Version describes the current firmware version running on the accessory.
+The firmware revision string SHALL use the x\[.y\[.z\]\] format where :
+* \<x\> is the major version number, required.
+* \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
+* \<z\> is the revision version number, required if non zero.
+
+The firmware revision MUST follow these rules:
+* \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+* \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+* \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+* Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
+* Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
+
+Major version MUST not be greater than (2^16 \- 1).
+Minor and revision version MUST not be greater than (2^8 \- 1).
+The value MUST change after every firmware update.
+
+| Operand name         | Data type | Size (octets) |                                               Description                                                     |
+|:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
+| Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+{: title="Firmware Version Operand" }
 
 
 ## Non-Owner Finding
