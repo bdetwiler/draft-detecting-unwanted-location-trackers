@@ -98,8 +98,8 @@ Throughout this document, these terms have specific meanings:
 These best practices are REQUIRED for location-enabled accessories that are small and not easily discoverable. For large accessories, such as a bicycle, these best practices are RECOMMENDED.
 
 Accessories are considered easily discoverable if they meet one of the following criteria:  
-- The item is larger than 30 cm in at least one dimension.  
-- The item is larger than 18 cm x 13 cm in two of its dimensions.  
+- The item is larger than 30 cm in at least one dimension.
+- The item is larger than 18 cm x 13 cm in two of its dimensions.
 - The item is larger than 250 cm<sup>3</sup> in three-dimensional space.
 
 # Requirements
@@ -255,7 +255,8 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), and [Accessory capabilities](#accessory-capabilities).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Firmware version](#firmware-version), and [Network ID](#network-id).
+
 
 
 ### Opcodes
@@ -275,6 +276,10 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 | Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
 |      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
+|           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      |
+|      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
+|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      |
+|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -352,6 +357,39 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
+
+#### Network ID
+The Newtork Id operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
+
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Network ID          | Uint8     | 1            | Network ID  |
+{: title="Network ID Operand" }
+
+#### Firmware version
+The Firmware Version describes the current firmware version running on the accessory.
+The firmware revision string SHALL use the x\[.y\[.z\]\] format where :
+* \<x\> is the major version number, required.
+* \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
+* \<z\> is the revision version number, required if non zero.
+
+The firmware revision MUST follow these rules:
+* \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+* \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+* \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+* Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
+* Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
+
+Major version MUST not be greater than (2^16 \- 1).
+Minor and revision version MUST not be greater than (2^8 \- 1).
+The value MUST change after every firmware update.
+
+| Operand name         | Data type | Size (octets) |                                               Description                                                     |
+|:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
+| Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+{: title="Firmware Version Operand" }
+
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
@@ -455,12 +493,12 @@ This MUST be enabled for 5 minutes upon user action on the accessory (for exampl
 When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
 
 
-|        Operand       | Data type | Size (octets)        |        Description                                           |
-|:--------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Serial Number URL    | UTF-8     | defined by accessory | String for URL from which the identifier can be retrieved |
+|        Operand          | Data type | Size (octets)        |        Description                                           |
+|:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
+| Encrypted Serial Number | UTF-8     | defined by accessory | The encrypted serial number, encoded as a hex string.       |
 {: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
 
-The encrypted identifier SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted serial number SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
 
 
 If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
@@ -490,7 +528,6 @@ The accessory SHALL have a way to disabled such that its future locations cannot
 ### Disablement instructions
 The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.
 
-
 ## Identification
 The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
 
@@ -508,24 +545,19 @@ enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#ident
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.
 
-
 ### Identifier retrieval from a server {#identifier-from-server}
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
-
 ### Identifer over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise a URL which
-SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
-
 
 ## Owner registry
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
 A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
-
 
 This MUST include at least one of the following:
 
@@ -688,7 +720,6 @@ on the whereabouts of an accessory.
 
 ### Proprietary company payload data
 Accessory manufacturers SHOULD evaluate the contents of the proprietary company payload data in {{table-payload-format}} to ensure it does not introduce additional privacy risk through the broadcast of stable identifiers or unencrypted sensitive data.
-
 
 
 # IANA Considerations
