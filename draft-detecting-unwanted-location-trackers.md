@@ -255,7 +255,7 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), [Battery Type](#battery-type), and [Battery State](#battery-state).
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), [Battery Type](#battery-type), and [Battery Level](#battery-level).
 
 ### Opcodes
 The opcodes for accessory information are defined in {{accessory-information-opcodes}}.
@@ -279,8 +279,8 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
 |           Get_Battery_Type          | 0x00B        |          None                                     |    Write; To Accessory      | OPTIONAL    |
 |      Get_Battery_Type_Response      | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
-|           Get_Battery_State         | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
-|      Get_Battery_State_Response     | 0x80C        |      [Battery State](#battery-state)              | Indications; From Accessory | OPTIONAL    |
+|           Get_Battery_Level         | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Level_Response     | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -399,13 +399,13 @@ The Battery type operand describes the battery type used in the accessory.
 | Battery Type         | Uint8     | 1             | 0 = Powered<\br> 1 = Non-rechargeable battery<\br> 2 = Rechargeable battery  |
 {: title="Battery Type Operand" }
 
-#### Battery state
-The Battery state operand indicates the current battery level.
+#### Battery level
+The Battery level operand indicates the current battery level.
 
 | Operand name  | Data type | Size (octets) | Description |
 |:--------------------:|:---------:|:-------------:|:-----------:|
-| Battery State         | Uint8    | 1             | 0 = Full<\br> 1 = Medium<\br> 2 = Low<\br>3 = Critically low  |
-{: title="Battery State Operand" }
+| Battery Level         | Uint8    | 1             | 0 = Full<\br> 1 = Medium<\br> 2 = Low<\br>3 = Critically low  |
+{: title="Battery Level Operand" }
 
 
 ## Non-Owner Finding
