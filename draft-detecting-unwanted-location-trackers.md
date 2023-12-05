@@ -764,6 +764,7 @@ Until this an IANA registry is available, the values in this registry are listed
 |  0x00        | Reserved        |
 |  0x01        | Apple  Inc.     |
 |  0x02        | Google LLC      |
+|  0xFF        | Reserved        |
 {: #table-temp-manufacturer-registry title="Manufacturer Registry"}
 
 
