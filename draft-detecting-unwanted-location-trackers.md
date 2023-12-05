@@ -255,31 +255,32 @@ Data fragmentation and reassembly is not defined in this document; therefore, th
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
-The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Firmware version](#firmware-version), and [Network ID](#network-id).
-
-
+The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), and [Battery Type](#battery-type).
 
 ### Opcodes
 The opcodes for accessory information are defined in {{accessory-information-opcodes}}.
 
-|             Opcode                  | Opcode value |        Operands                                   |     GATT subprocedure       |
-|:-----------------------------------:|:------------:|:-------------------------------------------------:|:--------------------------: |
-|           Get_Product_Data          | 0x003        |          None                                     |    Write; To Accessory      |
-|      Get_Product_Data_Response      | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory |
-|        Get_Manufacturer_Name        | 0x004        |          None                                     |    Write; To Accessory      |
-|    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory |
-|            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      |
-|       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory |
-|        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      |
-|   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory |
-| Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      |
-| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory |
-|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      |
-| Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory |
-|           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      |
-|      Get_Network_ID_Response        | 0x809        |      [Network ID](#network-id)                    | Indications; From Accessory |
-|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      |
-|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory |
+|             Opcode                  | Opcode value |        Operands                                   |     GATT subprocedure       | Requirement |
+|:-----------------------------------:|:------------:|:-------------------------------------------------:|:--------------------------: | REQUIRED    |
+|           Get_Product_Data          | 0x003        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|      Get_Product_Data_Response      | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory | REQUIRED    |
+|        Get_Manufacturer_Name        | 0x004        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory | REQUIRED    |
+|            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory | REQUIRED    |
+|        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
+| Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      | REQUIRED    |
+| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
+|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
+| Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
+|           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
+|           Get_Battery_Type          | 0x00B        |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Type_Response      | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
+|           Get_Battery_Level         | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Level_Response     | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 Opcodes should be structured as defined below.
@@ -389,6 +390,22 @@ The value MUST change after every firmware update.
 |:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
 | Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
 {: title="Firmware Version Operand" }
+
+#### Battery type
+The Battery type operand describes the battery type used in the accessory.
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Battery Type         | Uint8     | 1             | 0 = Powered<\br> 1 = Non-rechargeable battery<\br> 2 = Rechargeable battery  |
+{: title="Battery Type Operand" }
+
+#### Battery level
+The Battery level operand indicates the current battery level.
+
+| Operand name  | Data type | Size (octets) | Description |
+|:--------------------:|:---------:|:-------------:|:-----------:|
+| Battery Level         | Uint8    | 1             | 0 = Full<\br> 1 = Medium<\br> 2 = Low<\br>3 = Critically low  |
+{: title="Battery Level Operand" }
 
 
 ## Non-Owner Finding
