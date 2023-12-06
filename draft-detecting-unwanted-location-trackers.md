@@ -743,8 +743,8 @@ Accessory manufacturers SHOULD evaluate the contents of the proprietary company 
 
 
 # IANA Considerations
-IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer Network ID" and "Product Data" registries described below.
+Eventually an IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
+This group includes the "Manufacturer Network ID" registry.
 
 
 ## Manufacturer Network ID Registry {#manufacturer-protocol-registry}
