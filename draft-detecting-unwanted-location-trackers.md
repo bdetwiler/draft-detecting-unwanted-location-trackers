@@ -240,7 +240,7 @@ The near-owner bit MUST be the least significant bit.
 {: #table-near-owner-bit title="Near-Owner Bit"}
 
 ## Bluetooth LE advertising interval
-The Bluetooth LE advertising interval SHALL be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.
+The detection rate performance has a dependency on the BLE advertising interval used. A maximum advertising interval of 4 seconds SHALL be used; for the best detection rate, the advertising interval SHOULD be less than or equal to 2 seconds. If an accessory manufacturer advertises at an interval less frequent than 2 seconds, detection performance is diminished.
 
 ## Accessory Connections {#accessory-connections}
 The accessory non-owner service UUID SHALL be 15190001-12F4-C226-88ED-2AC5579F2A85.
