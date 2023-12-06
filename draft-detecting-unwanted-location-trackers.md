@@ -348,7 +348,7 @@ The Protocol Implemention Version operand contains a value indicating an impleme
 
 
 The Major.Minor.Revision value associated with this document is 1.0.0.
-The equivalent byte value is 0x00000001.
+The equivalent 4-byte value is 0x00000001.
 
 
 #### Accessory capabilities
@@ -399,7 +399,7 @@ The Battery type operand describes the battery type used in the accessory.
 
 | Operand name  | Data type | Size (octets) | Description |
 |:--------------------:|:---------:|:-------------:|:-----------:|
-| Battery Type         | Uint8     | 1             | 0 = Powered<\br> 1 = Non-rechargeable battery<\br> 2 = Rechargeable battery  |
+| Battery Type         | Uint8     | 1             | 0 = Powered<br/> 1 = Non-rechargeable battery<br/> 2 = Rechargeable battery  |
 {: title="Battery Type Operand" }
 
 #### Battery level
@@ -407,7 +407,7 @@ The Battery level operand indicates the current battery level.
 
 | Operand name  | Data type | Size (octets) | Description |
 |:--------------------:|:---------:|:-------------:|:-----------:|
-| Battery Level         | Uint8    | 1             | 0 = Full<\br> 1 = Medium<\br> 2 = Low<\br>3 = Critically low  |
+| Battery Level         | Uint8    | 1             | 0 = Full<br/> 1 = Medium<br/> 2 = Low<br/>3 = Critically low  |
 {: title="Battery Level Operand" }
 
 
