@@ -441,7 +441,7 @@ The accessory SHALL disable the motion detector for T<sub>SEPARATED_UT_BACKOFF</
 If the accessory is still in separated state at the end of T<sub>SEPARATED_UT_BACKOFF</sub>, the UT behavior MUST restart.
 
 
-A Bluetooth LE connection from a associated device MUST reset the separated behavior and transition the accessory to connected state.
+A Bluetooth LE connection from an associated device MUST reset the separated behavior.
 
 
 |        Name                                  | Value        |     Description                                                              |
