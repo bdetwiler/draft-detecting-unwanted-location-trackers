@@ -363,7 +363,7 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
 
 #### Network ID
-The Newtork Id operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
+The Network ID operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
 
 
 | Operand name  | Data type | Size (octets) | Description |
