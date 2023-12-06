@@ -391,7 +391,7 @@ The value MUST change after every firmware update.
 
 | Operand name         | Data type | Size (octets) |                                               Description                                                     |
 |:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
-| Firmware version     | Octet     | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+| Firmware version     | Uint32    | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
 {: title="Firmware Version Operand" }
 
 #### Battery type
