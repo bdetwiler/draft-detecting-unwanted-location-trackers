@@ -298,12 +298,6 @@ Opcodes should be structured as defined below.
 The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
 This value SHALL be determined during the [onboarding process](#onboarding).
 
-The Product Data operand is 8 bytes, composed of two 8-character hex strings (lowercase zero padded), each of which is 4 bytes.
-
-For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted to binary would be
-
->0xdfeceff1 11011111 11101100 11101111 11110001<br/>0xe1ff54db 11100001 11111111 01010100 11011011 
-
 
 | Operand name         | Data type | Size (octets) | Description                         |
 |:--------------------:|:---------:|:-------------:|:-----------------------------------:|
