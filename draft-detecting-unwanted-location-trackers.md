@@ -512,7 +512,7 @@ When the accessory is in this mode, it MUST respond with Get_Identifier_Response
 | Encrypted Identifier    | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
 {: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
-The encrypted identifier SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted identifier (which in some cases is the product serial number) SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
 
 
 If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted identifier look-up](#design-of-encrypted-identifier-look-up).
@@ -697,7 +697,7 @@ Companies that have their own accessory-locating networks will need to create in
 
 ## Obfuscated owner information look-up {#info-lookup-security}
 
-Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying an identifier may be one method to allow for partial user information look up.
+Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying an identifier (or serial number) may be one method to allow for partial user information look up.
 
 However, the identifier is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, identifier (if used) and obfuscated owner information SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
