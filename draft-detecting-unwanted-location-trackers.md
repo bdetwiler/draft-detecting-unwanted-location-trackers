@@ -462,8 +462,8 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Sound_Stop                 | 0x301         | None                                             | Write; To accessory         |
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
-| Get_Serial_Number          | 0x404         | None                                             | Write; To accessory         |
-| Get_Serial_Number_Response | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
+| Get_Identifier             | 0x404         | None                                             | Write; To accessory         |
+| Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
 {: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 
@@ -502,20 +502,20 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 
 
 #### Identifier Payload {#identifier-payload}
-The Get_Serial_Number opcode is used to retrieve identifier lookup payload over Bluetooth LE.
+The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
 This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
-When the accessory is in this mode, it MUST respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.
+When the accessory is in this mode, it MUST respond with Get_Identifier_Response opcode and Identifier Payload operand.
 
 
 |        Operand          | Data type | Size (octets)        |        Description                                           |
 |:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Encrypted Serial Number | UTF-8     | defined by accessory | The encrypted serial number, encoded as a hex string.       |
-{: #table-sn-payload-over-bt title="Serial Number Payload Over Bluetooth"}
+| Encrypted Identifier    | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
+{: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
-The encrypted serial number SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
+The encrypted identifier (which in some cases is the product serial number) SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
 
 
-If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted serial number look-up](#design-of-encrypted-serial-number-look-up).
+If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted identifier look-up](#design-of-encrypted-identifier-look-up).
 
 
 ### Alternate finding hardware
@@ -555,7 +555,7 @@ The identifier payload SHALL be readable either through NFC tap (see [Identifier
 
 ### Identifier retrieval over Bluetooth LE
 For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE MUST have a physical mechanism, for example, a button, that SHALL be required to
-enable the Get_Serial_Number opcode, as discussed in [Identifier Payload](#identifier-payload).
+enable the Get_Identifier opcode, as discussed in [Identifier Payload](#identifier-payload).
 
 The accessory manufacturer SHALL provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates. These are provided as part of the [onboarding process](#onboarding).
 
@@ -563,7 +563,7 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
 ### Identifier over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted identifier encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
 
@@ -571,7 +571,7 @@ The encrypted identifier when in associated state SHALL be an argument passed to
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
 
 ### Obfuscated owner information {#obfuscated-owner-info}
-A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](serial-number-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](serial-number-from-server) which can be rendered in a platform's HTML view.
+A limited amount of obfuscated owner information from the owner registry SHALL be made available to the platform along with a [retrieved identifier](identifier-retrieval). This information SHALL be part of the response of the [identifier retrieval from a server](identifier-from-server) which can be rendered in a platform's HTML view.
 
 This MUST include at least one of the following:
 
@@ -684,7 +684,7 @@ During onboarding, a product data registry will be created that includes informa
 * Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
 * Disablement Instructions: information on how a user can disable the tracker.
 * Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
-* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly serial number.
+* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.
 * Product Name: a string representing the accessory make and model associated with the Product Data string.
 
 Additional details will follow in 2024 to specify formats for disablement instructions and product images.
@@ -697,17 +697,17 @@ Companies that have their own accessory-locating networks will need to create in
 
 ## Obfuscated owner information look-up {#info-lookup-security}
 
-Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying a serial number may be one method to allow for partial user information look up.
+Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying an identifier (or serial number) may be one method to allow for partial user information look up.
 
-However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, serial number (if used) and obfuscated owner information SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
+However, the identifier is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, identifier (if used) and obfuscated owner information SHOULD NOT be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps SHOULD be employed.
 
-The obfuscated owner information and serial number look-up SHALL only be available in separated mode for an associated accessory.
-When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the obfuscated owner information and serial number. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
+The obfuscated owner information and identifier look-up SHALL only be available in separated mode for an associated accessory.
+When requested through any long range wireless interface like Bluetooth, a user action MUST be required for the requesting device to access the obfuscated owner information and identifier. Over NFC, it MAY be acceptable to consider the close proximity as intent for this flow.
 
-To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory MUST only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory SHOULD be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.
+To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory MUST only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the identifier. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory SHOULD be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.
 
-### Design of encrypted serial number look-up
-One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the serial number, a monotonic counter or one time token and a signature covering both the serial number and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which MAY be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata MAY be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.
+### Design of encrypted identifier look-up
+One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the identifier, a monotonic counter or one time token and a signature covering both the identifier and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which MAY be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata MAY be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.
 
 
 # Privacy Considerations
@@ -718,11 +718,11 @@ By allowing the retrieval of an obfuscated email or phone number when in possess
 provides the potential victim with some level of information on the owner, while balancing the privacy of accessory owners in the arbitrary situations
 where they have separated from those accessories.
 
-## Serial number look-up
-A serial number both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
-While retrieval of the serial number over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
-The procedure required for serial number look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
-potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the serial number retrieval.
+## Identifier look-up
+An identifier both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
+While retrieval of the identifier over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
+The procedure required for identifier look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
+potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the identifier retrieval.
 
 ## Location-enabled payload
 
