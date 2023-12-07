@@ -333,7 +333,7 @@ The Accessory Category operand describes the category the accessory most closely
 
 
 #### Protocol implementation version
-The Protocol Implemention Version operand contains a value indicating an implemention version of these protocols.
+The Protocol Implementation Version operand contains a value indicating an implementation version of these protocols.
 
 | Operand name                    | Data type | Size (octets) | Description                                                                                                |
 |:-------------------------------:|:---------:|:-------------:|:----------------------------------------------------------------------------------------------------------:|
@@ -562,7 +562,7 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 ### Identifier retrieval from a server {#identifier-from-server}
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
-### Identifer over NFC {#identifier-over-nfc}
+### Identifier over NFC {#identifier-over-nfc}
 For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted serial number encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 
 The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
