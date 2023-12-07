@@ -287,6 +287,14 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |      RESERVED (Response)            | 0x80D - 0x85F|                                                   |                             |             |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
+These opcodes SHALL be available when the accessory is in separated state.
+These opcodes SHALL NOT be available when the accessory is in the near-owner state.
+When any opcode is not available, the accessory SHALL return the Invalid_command error as the ResponseStatus in Command_Response.
+If an optional opcode is not available, the accessory SHALL return the Invalid_command error as the ResponseStatus in Command_Response.
+If any opcode value is commanded that is not supported by the accessory, it SHALL return the Invalid_command error as the ResponseStatus in the Command_Response.
+See [Command Response](#command-response) for details.
+
+
 Opcodes should be structured as defined below.
 
 | Bytes | Description  |
@@ -456,7 +464,11 @@ It MUST also play sound when a non-owner tries to locate the accessory by initia
 The sound maker MUST emit a sound with minimum 60 Phon peak loudness as defined by ISO 532-1:2017. The loudness MUST be measured in free acoustic space substantially free of obstacles that would affect the pressure measurement. The loudness MUST be measured by a calibrated (to the Pascal) free field microphone 25 cm from the accessory suspended in free space.
 
 ### Non-owner controls {#non-owner-controls}
-Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections). The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in {{table-non-owner-control-pt-opcodes}}.
+Non-owner controls SHALL use the same service and characteristic UUIDs as defined in [Accessory Connections](#accessory-connections).
+
+These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.
+
+These opcodes are defined in {{table-non-owner-controls-opcodes}}.
 
 
 |           Opcode           | Opcode  value |           Operands                               | GATT subprocedure           |
@@ -469,11 +481,15 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
 |      RESERVED              | 0x304 - 0x35F |                                                  |                             |
 |      RESERVED (Response)   | 0x405 - 0x45F |                                                  |                             |
-{: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
+{: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}{: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
+Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
 
-This control point SHALL be available to the platform only when the accessory is in separated state. In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in CommandResponse. See [Command Response](#command-response) for details.
+In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in Command_Response.
 
+Get_Identifier SHALL only be available when in identifier read state; otherwise, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus.
+
+The identifier read state is discussed further in [Identifier Payload](#identifier-payload).
 
 ##### Play sound
 The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds.
@@ -484,13 +500,13 @@ The Sound_Start opcode is used to play sound on the sound maker of the accessory
 
 * The Sound_Stop opcode is used to stop an ongoing sound request.
 
-* If the sound event is completed or was not initiated by the connected non owner device, the accessory responds with the Invalid_state ResponseStatus code.
+* If the sound event is completed or was not initiated by the connected non-owner device, the accessory responds with the Invalid_state ResponseStatus code.
 
 * If the accessory does not support the play sound procedure, it responds with Invalid_command ResponseStatus code.
 
 * If a Sound_Start procedure is initiated when another play sound action is in progress, it rejects with Invalid_state error code.
 
-* The accessory SHALL confirm the completion of the stop sound procedure by sending  the Sound_Completed message.
+* The accessory SHALL confirm the completion of the stop sound procedure by sending the Sound_Completed message.
 
 
 ##### Command Response
@@ -508,8 +524,9 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 
 #### Identifier Payload {#identifier-payload}
 The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
-This MUST be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
-When the accessory is in this mode, it MUST respond with Get_Identifier_Response opcode and Identifier Payload operand.
+To enable this opcode, the accessory MUST be in the identifier read state.
+To enter the identifier read state, a user action on the accessory MUST be performed (for example, press and hold a button for 10 seconds).
+The identifier read state MUST be enabled for 5 minutes once the user action on the accessory is successfully performed.
 
 
 |        Operand          | Data type | Size (octets)        |        Description                                           |
