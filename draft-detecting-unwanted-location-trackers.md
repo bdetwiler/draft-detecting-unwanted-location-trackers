@@ -271,7 +271,7 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
 |   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
 | Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      | REQUIRED    |
-| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
+| Get_Protocol_Implementation_<br/>Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
 |      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
 |           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
