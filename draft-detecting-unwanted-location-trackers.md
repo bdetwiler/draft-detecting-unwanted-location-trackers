@@ -85,7 +85,7 @@ Throughout this document, these terms have specific meanings:
 - The term non-owner device refers to a device that may connect to an accessory but is not an owner device of that accessory.
 - The term location-tracking accessory refers to any accessory that has location-tracking capabilities, including, but not limited to, crowd-sourced location, GPS/GNSS location, WiFi location, cell location, etc., and provides the location information back to the owner of the accessory via the internet, cellular connection, etc.
 - The term location-enabled state refers to the state an accessory in where its location can be remotely viewed by its owner
-- The term location-enabled advertisement payload refers to the Bluetooth (BT) advertisement payload that is advertised when an accessory has recently, is currently, or will in the future provide location updates to its owner
+- The term location-tracker advertisement payload refers to the Bluetooth (BT) advertisement payload that is advertised when an accessory has recently, is currently, or will in the future provide location updates to its owner
 - The term unwanted tracking (UT) refers to undesired tracking of a person, their property, or their belongings by a location-enabled accessory.
 - The term unwanted tracking detection refers to the algorithms that detect the presence of an unknown accessory traveling with a person over time.
 - The term unwanted tracking alert refers to notifying the user of the presence of an unrecognized accessory that may be traveling with them over time and allows them to take various actions, including playing a sound on the accessory if it’s in Bluetooth Low Energy (LE) range.
@@ -128,7 +128,7 @@ The accessory SHALL maintain an internal state that detects when its location is
 
 Misuse of location-enabled accessories can occur when the owner’s device is not physically with the accessory. Thereby, the accessory SHOULD maintain a second internal state, denoted the near-owner state, which indicates if the accessory is connected to or nearby one or more of the owner’s devices. Near-owner state can take on two values, either near-owner mode or separated mode. Near-owner mode is denoted as the opposite of separated mode.
 
-{{table-location-enabled-payload}} details the requirements and recommendations for advertising the location-enabled payload based on the location-enabled state and separated state.
+{{table-location-enabled-state}} details the requirements and recommendations for the location-enabled state based on near-owner state and timeline of location availability.
 
 
 ~~~
@@ -139,30 +139,32 @@ Misuse of location-enabled accessories can occur when the owner’s device is no
                          |  Enabled in Past 24 |
                          |        Hours        |
     +--------------------+---------------------|
-    |         near-owner |     SHOULD NOT      |
-    |            mode    | advertise location- |
-    | Near-              |  enabled payload    |
+    |         near-owner |     SHOULD NOT be   |
+    |            mode    | in location-enabled |
+    | Near-              |      state          |
     | Owner              +---------------------|
-    | State    separated |   MUST advertise    |
+    | State    separated |   MUST be in        |
     |            mode    |  location-enabled   |
-    |                    |     payload         |
+    |                    |     state           |
     +--------------------+---------------------+
 ~~~
-{: #table-location-enabled-payload title="Requirements & Recommendations For Advertising Location-Enabled Payload"}
+{: #table-location-enabled-state title="Requirements & Recommendations For Location-Enabled State"}
 
 
+It is RECOMMENDED that the location-enabled state is only configured when the accessory is in the separated state (i.e., it is not near its owner).
 
-It is RECOMMENDED that the location-enabled payload is only advertised when the accessory is in the separated state. The reasoning behind this recommendation is that unwanted tracking detection relies on the Bluetooth LE advertisements emitted while in the location-enabled state to determine if an unknown accessory is traveling with someone who is not the owner. If the location-enabled payload is advertised only in the separated state, that minimizes false-positive UT alerts.
+<!-- Unwanted tracking detection relies on the Bluetooth LE advertisements emitted to determine if an unknown accessory is traveling with someone who is not the owner. -->
+<!-- If the location-enabled payload is advertised only in the separated state, that minimizes false-positive UT alerts. -->
 
-As a point of clarity, if the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the [near-owner bit](#near-owner-bit) compensates for this.
+<!-- As a point of clarity, if the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the [near-owner bit](#near-owner-bit) compensates for this. -->
 
 ## Location-enabled Bluetooth LE Advertisement Payload
 
 
 ### Overview
-When in location-enabled state, the accessory SHALL advertise a Bluetooth LE format, denoted the location-enabled Bluetooth advertisement payload, that is recognizable to the platforms.
+The accessory SHALL advertise a Bluetooth LE format, denoted the location-tracker Bluetooth advertisement payload, that is recognizable to the platforms.
 
-###  Location-enabled advertisement payload format
+###  Location-tracker advertisement payload format
 The payload format is defined in {{table-payload-format}}
 
 
@@ -174,7 +176,7 @@ The payload format is defined in {{table-payload-format}}
 |   13   | Network ID                                                                                   |  REQUIRED   |
 |   14   | Near-owner bit (1 bit, least significant bit) + reserved (7 bits)                            |  REQUIRED   |
 | 15-36  | Proprietary company payload data                                                              |  OPTIONAL   |
-{: #table-payload-format title="Location-Enabled Payload Format" }
+{: #table-payload-format title="Location-Tracker Payload Format" }
 
 
 When Flags TLV are not added, the MAC address type needs to be set to random.
@@ -188,9 +190,10 @@ in {{accessory-connections}}.
 Proprietary company payload data is both OPTIONAL and variable length.
 
 
-### Duration of advertising location-enabled advertisement payload
+### Duration of advertising in separated state
 
-The accessory SHALL broadcast the location-enabled advertisement payload if location is available to the owner or was available any time within the past 24 hours. This allows unwanted tracking detection to operate both between and beyond the specific moments an accessory's location is made available to the owner.
+The accessory SHALL broadcast the location-tracker advertisement payload in separated state if location is available to the owner or was available any time within the past 24 hours and the accessory is in the separated state.
+This allows unwanted tracking detection to operate both between and beyond the specific moments an accessory's location is made available to the owner.
 
 ### Maximum duration after physical separation from owner to transition into separated mode
 The accessory SHALL transition from near-owner mode to separated mode under the conditions listed in {{table-advertising-policy}} below.
@@ -230,7 +233,7 @@ The 1-byte Network ID SHALL be set based on a registered value for the manufactu
 
 
 ## Near-owner bit
-It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-enabled advertisement with the owner nearby, the accessory MUST set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. {{table-near-owner-bit}} specifies the values of this bit.
+It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-tracker advertisement with the owner nearby, the accessory MUST set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. {{table-near-owner-bit}} specifies the values of this bit.
 
 The near-owner bit MUST be the least significant bit.
 
