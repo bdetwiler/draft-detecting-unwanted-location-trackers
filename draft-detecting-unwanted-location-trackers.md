@@ -510,7 +510,7 @@ When the accessory is in this mode, it MUST respond with Get_Identifier_Response
 |        Operand          | Data type | Size (octets)        |        Description                                           |
 |:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
 | Encrypted Identifier    | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
-{: #table-sn-payload-over-bt title="Identifier Payload Over Bluetooth"}
+{: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
 The encrypted identifier SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
 
