@@ -97,7 +97,8 @@ Throughout this document, these terms have specific meanings:
 ## Applicability
 These best practices are REQUIRED for location-enabled accessories that are small and not easily discoverable. For large accessories, such as a bicycle, these best practices are RECOMMENDED.
 
-Accessories are considered easily discoverable if they meet one of the following criteria:  
+Accessories are considered easily discoverable if they meet one of the following criteria:
+
 - The item is larger than 30 cm in at least one dimension.
 - The item is larger than 18 cm x 13 cm in two of its dimensions.
 - The item is larger than 250 cm<sup>3</sup> in three-dimensional space.
@@ -251,7 +252,7 @@ The accessory non-owner characteristic UUID SHALL be 8E0C0001-1D68-FB92-BF61-483
 The characteristic used within this service SHALL be transmitted with the least significant octet first (that is, little endian).
 
 ### Maximum transmission unit
-Data fragmentation and reassembly is not defined in this document; therefore, the accessory SHALL NOT request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in (Non-owner controls)[#non-owner-controls] and (opcodes){#opcodes}.
+Data fragmentation and reassembly is not defined in this document; therefore, the accessory SHALL NOT request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in [Non-owner controls](#non-owner-controls) and [opcodes](#opcodes).
 In other words, all opcode response data must fit within a single write operation.
 
 ## Accessory Information
@@ -271,7 +272,7 @@ The opcodes for accessory information are defined in {{accessory-information-opc
 |        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
 |   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
 | Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      | REQUIRED    |
-| Get_Protocol_Implementation_Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
+| Get_Protocol_Implementation_<br/>Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
 |      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
 | Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
 |           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
@@ -376,16 +377,18 @@ The Network ID operand contains the Network ID for the accessory. This is the sa
 #### Firmware version
 The Firmware Version describes the current firmware version running on the accessory.
 The firmware revision string SHALL use the x\[.y\[.z\]\] format where :
-* \<x\> is the major version number, required.
-* \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
-* \<z\> is the revision version number, required if non zero.
+
+- \<x\> is the major version number, required.
+- \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
+- \<z\> is the revision version number, required if non zero.
 
 The firmware revision MUST follow these rules:
-* \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
-* \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
-* \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
-* Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
-* Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
+
+- \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+- \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+- \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+- Subsequent firmware updates can have a lower \<y\> version only if \<x\> is incremented.
+- Subsequent firmware updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
 
 Major version MUST not be greater than (2^16 \- 1).
 Minor and revision version MUST not be greater than (2^8 \- 1).
@@ -478,8 +481,11 @@ These opcodes are defined in {{table-non-owner-controls-opcodes}}.
 | Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
 {: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
-
 Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
+=======
+|      RESERVED              | 0x304 - 0x35F |                                                  |                             |
+|      RESERVED (Response)   | 0x405 - 0x45F |                                                  |                             |
+{: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in Command_Response.
 
@@ -658,6 +664,7 @@ If none of the accessory categories provided in {{table-accessory-category-value
 The accessory SHOULD have firmware that is updatable by the owner.
 
 ## Backwards Compatibility
+
 ### Existing trackers
 
 Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
@@ -699,11 +706,12 @@ The platform MUST delete any local identifying information associated with an ac
 Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Manufacturer network ID Registry](#manufacturer-protocol-registry).
 
 During onboarding, a product data registry will be created that includes information such as:
-* Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
-* Disablement Instructions: information on how a user can disable the tracker.
-* Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
-* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.
-* Product Name: a string representing the accessory make and model associated with the Product Data string.
+
+- Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
+- Disablement Instructions: information on how a user can disable the tracker.
+- Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
+- Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.
+- Product Name: a string representing the accessory make and model associated with the Product Data string.
 
 Additional details will follow in 2024 to specify formats for disablement instructions and product images.
 
