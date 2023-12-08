@@ -139,22 +139,19 @@ Misuse of location-enabled accessories can occur when the owner’s device is no
                          |  Enabled in Past 24 |
                          |        Hours        |
     +--------------------+---------------------|
-    |         near-owner |     SHOULD NOT      |
+    |         near-owner |        MAY          |
     |            mode    | advertise location- |
     | Near-              |  enabled payload    |
     | Owner              +---------------------|
     | State    separated |   MUST advertise    |
     |            mode    |  location-enabled   |
-    |                    |     payload         |
+    |                    |     payloa          |
     +--------------------+---------------------+
 ~~~
 {: #table-location-enabled-payload title="Requirements & Recommendations For Advertising Location-Enabled Payload"}
 
+If the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the [near-owner bit](#near-owner-bit) compensates for this.
 
-
-It is RECOMMENDED that the location-enabled payload is only advertised when the accessory is in the separated state. The reasoning behind this recommendation is that unwanted tracking detection relies on the Bluetooth LE advertisements emitted while in the location-enabled state to determine if an unknown accessory is traveling with someone who is not the owner. If the location-enabled payload is advertised only in the separated state, that minimizes false-positive UT alerts.
-
-As a point of clarity, if the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the [near-owner bit](#near-owner-bit) compensates for this.
 
 ## Location-enabled Bluetooth LE Advertisement Payload
 
