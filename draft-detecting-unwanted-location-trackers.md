@@ -466,7 +466,9 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 | Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
 | Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
 | Get_Identifier             | 0x404         | None                                             | Write; To accessory         |
-| Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)  | Indications; From accessory |
+| Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
+|      RESERVED              | 0x304 - 0x35F |                                                  |                             |      
+|      RESERVED (Response)   | 0x405 - 0x45F |                                                  |                             |   
 {: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}
 
 
