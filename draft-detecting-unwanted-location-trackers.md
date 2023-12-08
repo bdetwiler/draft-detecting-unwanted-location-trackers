@@ -145,7 +145,7 @@ Misuse of location-enabled accessories can occur when the owner’s device is no
     | Owner              +---------------------|
     | State    separated |   MUST advertise    |
     |            mode    |  location-enabled   |
-    |                    |     payloa          |
+    |                    |     payload         |
     +--------------------+---------------------+
 ~~~
 {: #table-location-enabled-payload title="Requirements & Recommendations For Advertising Location-Enabled Payload"}
