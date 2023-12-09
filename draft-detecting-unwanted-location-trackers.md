@@ -527,14 +527,15 @@ The Get_Identifier opcode is used to retrieve identifier lookup payload over Blu
 To enable this opcode, the accessory MUST be in the identifier read state.
 To enter the identifier read state, a user action on the accessory MUST be performed (for example, press and hold a button for 10 seconds).
 The identifier read state MUST be enabled for 5 minutes once the user action on the accessory is successfully performed.
+When the accessory is in this mode, it MUST respond with Get_Identifier_Response opcode and Identifier Payload operand.
 
 
 |        Operand          | Data type | Size (octets)        |        Description                                           |
 |:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Encrypted Identifier    | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
+| Identifier Payload      | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
 {: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
-The encrypted identifier (which in some cases is the product serial number) SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) and it is REQUIRED that any metadata passed be non-identifiable.
+It is REQUIRED that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.
 
 
 If the accessory is not in identifier read state, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in [Design of encrypted identifier look-up](#design-of-encrypted-identifier-look-up).
