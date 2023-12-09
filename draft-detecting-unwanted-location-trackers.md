@@ -305,45 +305,47 @@ The Product Data operand represents an 8-byte value that is intended to serve as
 This value SHALL be determined during the [onboarding process](#onboarding).
 
 
-| Operand name         | Data type | Size (octets) | Description                         |
-|:--------------------:|:---------:|:-------------:|:-----------------------------------:|
-| Product Data         | Uint8     | 8             | See [Product data](#product-data)   |
+| Operand name         | Data type | Count | Total Size (Bytes) | Description                      |
+|:--------------------:|:---------:|:-----:|:------------------:|:---------------------------------:|
+| Product Data         | Uint8     | 8     |      64            | See [Product data](#product-data) |
 {: title="Product Data Operand" }
+
 
 #### Manufacturer name
 The Manufacturer Name operand contains the name of the company whose brand will appear on the accessory, e.g., ”Acme”.
 
+| Operand name      | Data type | Count         | Total Size (Bytes) | Description                      |
+|:-----------------:|:---------:|:-------------:|:------------------:|:--------------------------------:|
+| Manufacturer Name | UTF-8     | 64 (maximum)  |  64 (maximum)      | Manufacturer name                |
 
-| Operand name  | Data type | Size (octets) |    Description    |
-|:--------------------:|:---------:|:-------------:|:-----------------:|
-| Manufacturer Name    | UTF-8     | 64 (maximum)  | Manufacturer name |
 {: title="Manufacturer Name Operand" }
 
 #### Model name
 The Model Name operand contains the manufacturer specific model of the accessory.
 
 
-| Operand name  | Data type | Size (octets) | Description |
-|:--------------------:|:---------:|:-------------:|:-----------:|
-| Model Name           | UTF-8     | 64 (maximum)  | Model name  |
+| Operand name      | Data type | Count        | Total Size (Bytes) | Description     |
+|:-----------------:|:---------:|:------------:|:------------------:|:---------------:|
+| Model Name        | UTF-8     | 64 (maximum  |  64 (maximum)      | Model name      |
 {: title="Model Name Operand" }
 
 #### Accessory category
 The Accessory Category operand describes the category the accessory most closely resembles.
 
 
-| Operand name  | Data type | Size (octets) |                                           Description                                           |
-|:--------------------:|:---------:|:-------------:|:------------------------------------------------------------------------------------------------|
-|  Accessory Category  |   Uint8   |       8       | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
+
+| Operand name         | Data type | Count | Total Size (Bytes) | Description                      |
+|:--------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+|  Accessory Category  |   Uint8   |   8   |    8               | Byte 0: Uint8 value of [Accessory Category Value](#accessory-category-value) <br/> Byte 1-7: Reserved |
 {: title="Accessory Category Operand" }
 
 
 #### Protocol implementation version
 The Protocol Implementation Version operand contains a value indicating an implementation version of these protocols.
 
-| Operand name                    | Data type | Size (octets) | Description                                                                                                |
-|:-------------------------------:|:---------:|:-------------:|:----------------------------------------------------------------------------------------------------------:|
-| Protocol Implementation Version | Uint32    | 4             | Byte 0 : revision version number <br/> Byte 1 : minor version number <br/> Byte 2-3 : major version number |
+| Operand name                    | Data type | Count | Total Size (Bytes) | Description                      |
+|:-------------------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Protocol Implementation Version | Uint32    | 1     |     4              | Byte 0 : revision version number <br/> Byte 1 : minor version number <br/> Byte 2-3 : major version number |
 {: title="Protocol Implementation Version Operand" }
 
 
@@ -355,9 +357,9 @@ The equivalent 4-byte value is 0x00010000.
 The Accessory Capabilities operand enumerates the various capabilities supported on the accessory as defined in {{table-accessory-capability}}.
 
 
-| Operand name  | Data type | Size (octets) |                                                                        Description                                                                        |
-|:--------------------:|:---------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound (REQUIRED) <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Accessory Capabilities | Uint32    | 1     |     4              | Bit 0 : Supports play sound (REQUIRED) <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
@@ -366,9 +368,9 @@ For example, an accessory supporting play sound, motion detector UT, and identif
 The Network ID operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
 
 
-| Operand name  | Data type | Size (octets) | Description |
-|:--------------------:|:---------:|:-------------:|:-----------:|
-| Network ID          | Uint8     | 1            | Network ID  |
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Network ID             | Uint8     | 1     |         1          | Network ID                       |
 {: title="Network ID Operand" }
 
 #### Firmware version
@@ -391,25 +393,25 @@ Major version MUST not be greater than (2^16 \- 1).
 Minor and revision version MUST not be greater than (2^8 \- 1).
 The value MUST change after every firmware update.
 
-| Operand name         | Data type | Size (octets) |                                               Description                                                     |
-|:--------------------:|:---------:|:-------------:|:-------------------------------------------------------------------------------------------------------------:|
-| Firmware version     | Uint32    | 4             | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Firmware version       | Uint32    |   1   | 4                  | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
 {: title="Firmware Version Operand" }
 
 #### Battery type
 The Battery type operand describes the battery type used in the accessory.
 
-| Operand name  | Data type | Size (octets) | Description |
-|:--------------------:|:---------:|:-------------:|:-----------:|
-| Battery Type         | Uint8     | 1             | 0 = Powered<br/> 1 = Non-rechargeable battery<br/> 2 = Rechargeable battery  |
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Battery Type           | Uint8     | 1     |     1              | 0 = Powered<br/> 1 = Non-rechargeable battery<br/> 2 = Rechargeable battery  |
 {: title="Battery Type Operand" }
 
 #### Battery level
 The Battery level operand indicates the current battery level.
 
-| Operand name  | Data type | Size (octets) | Description |
-|:--------------------:|:---------:|:-------------:|:-----------:|
-| Battery Level         | Uint8    | 1             | 0 = Full<br/> 1 = Medium<br/> 2 = Low<br/>3 = Critically low  |
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Battery Level          | Uint8     | 1     |    1               | 0 = Full<br/> 1 = Medium<br/> 2 = Low<br/>3 = Critically low  |
 {: title="Battery Level Operand" }
 
 
@@ -512,10 +514,10 @@ There are 2 components of the command response operands: CommandOpCode and Respo
  The accessory SHALL respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.
 
 
-| Operand        | Data type | Size (octets) | Description                                                                                                                        |
-|----------------|-----------|---------------|------------------------------------------------------------------------------------------------------------------------------------|
-| CommandOpCode  | Uint16    | 2             | The control procedure matching this response                                                                                       |
-| ResponseStatus | Uint16    | 2             | 0x0000 Success<br/>0x0001 Invalid_state<br/>0x0002 Invalid_configuration<br/>0x0003 Invalid_length<br/>0x0004 Invalid_param<br/>0xFFFF Invalid_command |
+| Operand name   | Data type | Count | Total Size (Bytes) | Description                                          |
+|:---------------|----------:|:-----:|:------------------:|:----------------------------------------------------:|
+| CommandOpCode  | Uint16    | 1     |         2          | The control procedure matching this response                                                                                       |
+| ResponseStatus | Uint16    | 1     |         2          | 0x0000 Success<br/>0x0001 Invalid_state<br/>0x0002 Invalid_configuration<br/>0x0003 Invalid_length<br/>0x0004 Invalid_param<br/>0xFFFF Invalid_command |
 {: title="Command Response Operands"}
 
 
@@ -527,9 +529,10 @@ The identifier read state MUST be enabled for 5 minutes once the user action on 
 When the accessory is in this mode, it MUST respond with Get_Identifier_Response opcode and Identifier Payload operand.
 
 
-|        Operand          | Data type | Size (octets)        |        Description                                           |
-|:-----------------------:|:---------:|:--------------------:|:------------------------------------------------------------:|
-| Identifier Payload      | UTF-8     | defined by accessory | The encrypted identifier, encoded as a hex string.           |
+
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Identifier Payload     | UTF-8     | defined by accessory | defined by accessory |  The encrypted identifier, encoded as a hex string.           |
 {: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
 It is REQUIRED that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.
