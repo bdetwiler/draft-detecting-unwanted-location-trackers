@@ -261,30 +261,30 @@ The following accessory information MUST be persistent through the lifetime of t
 ### Opcodes
 The opcodes for accessory information are defined in {{accessory-information-opcodes}}.
 
-|             Opcode                  | Opcode value |        Operands                                   |     GATT subprocedure       | Requirement |
-|:-----------------------------------:|:------------:|:-------------------------------------------------:|:--------------------------: | :---------: |
-|           Get_Product_Data          | 0x003        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|      Get_Product_Data_Response      | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory | REQUIRED    |
-|        Get_Manufacturer_Name        | 0x004        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|    Get_Manufacturer_Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory | REQUIRED    |
-|            Get_Model_Name           | 0x005        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|       Get_Model_Name_Response       | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory | REQUIRED    |
-|        Get_Accessory_Category       | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|   Get_Accessory_Category_Response   | 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
-| Get_Protocol_Implementation_Version | 0x007        |          None                                     |    Write; To Accessory      | REQUIRED    |
-| Get_Protocol_Implementation_<br/>Version_Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
-|      Get_Accessory_Capabilities     | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
-| Get_Accessory_Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
-|           Get_Network_ID            | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|       Get_Network_ID_Reponse        | 0x809        |        [Network ID](#network-id)                  | Indications; From Accessory | REQUIRED    |
-|         Get_Firmware_Version        | 0x00A        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|     Get_Firmware_Version_Response   | 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
-|           Get_Battery_Type          | 0x00B        |          None                                     |    Write; To Accessory      | OPTIONAL    |
-|      Get_Battery_Type_Response      | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
-|           Get_Battery_Level         | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
-|      Get_Battery_Level_Response     | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
-|      RESERVED                       | 0x00D - 0x05F|                                                   |                             |             |
-|      RESERVED (Response)            | 0x80D - 0x85F|                                                   |                             |             |
+|             Opcode                    | Opcode value |        Operands                                   |     GATT subprocedure       | Requirement |
+|:--------------------------------------|------------:|:-------------------------------------------------:|:--------------------------: | :---------: |
+|           Get_Product_Data            | 0x003        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|      Get_Product_Data_<br/>Response   | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory | REQUIRED    |
+|   Get_Manufacturer_<br/>Name          | 0x004        |          None                                     |    Write; To Accessory      | REQUIRED    |
+| Get_Manufacturer_<br/>Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory | REQUIRED    |
+|            Get_Model_Name             | 0x005        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|       Get_Model_Name_<br/>Response    | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory | REQUIRED    |
+|        Get_Accessory_<br/>Category    | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|   Get_Accessory_<br/>Category_Response| 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
+| Get_Protocol_<br/>Implementation_Version | 0x007     |          None                                     |    Write; To Accessory      | REQUIRED    |
+| Get_Protocol_<br/>Implementation_Version_<br/>Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
+| Get_Accessory_<br/>Capabilities       | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
+| Get_Accessory_<br/>Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
+|           Get_Network_ID              | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|       Get_Network_ID_<br/>Response    | 0x809        |        [Network ID](#network-id)                  | Indications; From Accessory | REQUIRED    |
+|         Get_Firmware_Version          | 0x00A        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|     Get_Firmware_Version_<br/>Response| 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
+|           Get_Battery_Type            | 0x00B        |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Type_<br/>Response   | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
+|           Get_Battery_Level           | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Level_<br/>Response  | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
+|      RESERVED                         | 0x00D - 0x05F|                                                   |                             |             |
+|      RESERVED (Response)              | 0x80D - 0x85F|                                                   |                             |             |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 These opcodes SHALL be available when the accessory is in separated state.
