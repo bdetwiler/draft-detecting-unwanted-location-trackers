@@ -481,7 +481,7 @@ These opcodes are defined in {{table-non-owner-controls-opcodes}}.
 | Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
 |      RESERVED              | 0x304 - 0x35F |                                                  |                             |
 |      RESERVED (Response)   | 0x405 - 0x45F |                                                  |                             |
-{: #table-non-owner-control-pt-opcodes title="Non-Owner Control Point Opcodes"}{: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
+{: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
 Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
 
