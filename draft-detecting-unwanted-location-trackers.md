@@ -307,7 +307,7 @@ This value SHALL be determined during the [onboarding process](#onboarding).
 
 | Operand name         | Data type | Count | Total Size (Bytes) | Description                      |
 |:--------------------:|:---------:|:-----:|:------------------:|:---------------------------------:|
-| Product Data         | Uint8     | 8     |      64            | See [Product data](#product-data) |
+| Product Data         | Uint8     | 8     |      8            | See [Product data](#product-data) |
 {: title="Product Data Operand" }
 
 
