@@ -603,7 +603,7 @@ This MUST include at least one of the following:
 The owner registry SHOULD be stored for a minimum of 25 days after an owner has unassociated an accessory. After the elapsed period, the data SHOULD be deleted.
 
 ### Availability for law enforcement
-The owner registry SHALL be made available to law enforcement upon a valid law enforcement request.
+Available ownership registry information SHOULD be produced in response to a valid law enforcement request seeking information related to the misuse of location-tracking accessories provided that the request is submitted pursuant to defined procedures for obtaining such information. Network providers SHOULD define their own procedures for submission of valid legal requests from law enforcement.
 
 
 # Accessory Category Value
