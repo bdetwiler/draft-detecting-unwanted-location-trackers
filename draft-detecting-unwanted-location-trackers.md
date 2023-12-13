@@ -348,7 +348,7 @@ The Protocol Implementation Version operand contains a value indicating an imple
 
 
 The Major.Minor.Revision value associated with this document is 1.0.0.
-The equivalent 4-byte value is 0x00000001.
+The equivalent 4-byte value is 0x00010000.
 
 
 #### Accessory capabilities
