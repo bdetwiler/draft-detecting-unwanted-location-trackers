@@ -551,7 +551,7 @@ The accessory SHOULD provide alternate means to help find it, e.g. by vibrating 
 | Sound maker          | X        | X         |
 | Haptics              |          | X         |
 | Lights               |          | X         |
-{: #accessory-finding-hw title="Accessory Finding Hardware Options"} 
+{: #accessory-finding-hw title="Accessory Finding Hardware Options"}
 
 ### Future hardware
 Future technologies for finding MAY be considered in revisions of this document.
