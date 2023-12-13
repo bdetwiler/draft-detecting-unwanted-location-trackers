@@ -357,7 +357,7 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 
 | Operand name  | Data type | Size (octets) |                                                                        Description                                                                        |
 |:--------------------:|:---------:|:-------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
+| Accessory Capabilities | Uint32    | 4             | Bit 0 : Supports play sound (REQUIRED) <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
 For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
@@ -539,7 +539,7 @@ If the accessory is not in identifier read state, it MUST send [Command_Response
 
 
 ### Alternate finding hardware
-The accessory SHOULD provide alternate means to help find it, e.g. by vibrating or flashing lights, via a platform-compatible method.
+The accessory SHOULD provide alternate means to help find it, e.g. by vibrating or flashing lights, via a platform-compatible method. Future versions of this document will consider support for haptics and lights.
 
 ### Recommended Finding Options
 {{accessory-finding-hw}} lists two RECOMMENDED options on the set of technology in an accessory to make it findable.
@@ -551,7 +551,7 @@ The accessory SHOULD provide alternate means to help find it, e.g. by vibrating 
 | Sound maker          | X        | X         |
 | Haptics              |          | X         |
 | Lights               |          | X         |
-{: #accessory-finding-hw title="Accessory Finding Hardware Options"}
+{: #accessory-finding-hw title="Accessory Finding Hardware Options"} 
 
 ### Future hardware
 Future technologies for finding MAY be considered in revisions of this document.
