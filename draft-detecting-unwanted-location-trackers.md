@@ -666,7 +666,7 @@ The accessory SHOULD have firmware that is updatable by the owner.
 Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
 
 ### Advertisement backwards compatibility
-The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2023.
+The manufacturer MAY continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID MUST be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024.
 
 Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
 
