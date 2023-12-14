@@ -316,7 +316,7 @@ The Manufacturer Name operand contains the name of the company whose brand will 
 
 | Operand name  | Data type | Size (octets) |    Description    |
 |:--------------------:|:---------:|:-------------:|:-----------------:|
-| Manufacturer Name    | UTF-8     | 64            | Manufacturer name |
+| Manufacturer Name    | UTF-8     | 64 (maximum)  | Manufacturer name |
 {: title="Manufacturer Name Operand" }
 
 #### Model name
@@ -325,7 +325,7 @@ The Model Name operand contains the manufacturer specific model of the accessory
 
 | Operand name  | Data type | Size (octets) | Description |
 |:--------------------:|:---------:|:-------------:|:-----------:|
-| Model Name           | UTF-8     | 64            | Model name  |
+| Model Name           | UTF-8     | 64 (maximum)  | Model name  |
 {: title="Model Name Operand" }
 
 #### Accessory category
