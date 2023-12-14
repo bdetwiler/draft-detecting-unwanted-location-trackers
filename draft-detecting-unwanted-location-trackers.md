@@ -680,9 +680,7 @@ Legacy IDs that have been registered with the platforms are listed in {{table-le
 | Google       | 0xAAFE                  |
 {: #table-legacy-IDs title="Legacy Manufacturer IDs"}
 
-Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.
-
-Companies who have registered their Network IDs will appear in a table below.
+If using existing service UUIDs, rather than the unwanted tracking protocol UUID, detection performance might be degraded.
 
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
