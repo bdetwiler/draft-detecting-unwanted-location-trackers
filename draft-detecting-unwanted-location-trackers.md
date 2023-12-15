@@ -670,15 +670,7 @@ The manufacturer MAY continue to use the company’s existing service UUID (Lega
 
 If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST be registered with platforms. If a manufacturer is using a Legacy ID, Network ID in {{table-payload-format}} MAY be omitted.
 
-Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024.
-
-Legacy IDs that have been registered with the platforms are listed in {{table-legacy-IDs}}.
-
-| Manufacturer | Legacy ID               |
-|--------------|:-----------------------:|
-| Apple        | N/A (Manufacturer data) |
-| Google       | 0xAAFE                  |
-{: #table-legacy-IDs title="Legacy Manufacturer IDs"}
+Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024. Manufacturers who have registered their Network IDs will appear in a table below.
 
 If using existing service UUIDs, rather than the unwanted tracking protocol UUID, detection performance might be degraded.
 
