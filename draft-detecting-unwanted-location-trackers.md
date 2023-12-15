@@ -314,19 +314,18 @@ This value SHALL be determined during the [onboarding process](#onboarding).
 #### Manufacturer name
 The Manufacturer Name operand contains the name of the company whose brand will appear on the accessory, e.g., ”Acme”.
 
-| Operand name      | Data type | Count         | Total Size (Bytes) | Description                      |
-|:-----------------:|:---------:|:-------------:|:------------------:|:--------------------------------:|
-| Manufacturer Name | UTF-8     | 64 (maximum)  |  64 (maximum)      | Manufacturer name                |
-
+| Operand name      | Data type | Count             | Total Size (Bytes) | Description                      |
+|:-----------------:|:---------:|:-----------------:|:------------------:|:--------------------------------:|
+| Manufacturer Name | UTF-8     | 64<br/>(maximum)  |  64<br/>(maximum)  | Manufacturer name                |
 {: title="Manufacturer Name Operand" }
 
 #### Model name
 The Model Name operand contains the manufacturer specific model of the accessory.
 
 
-| Operand name      | Data type | Count        | Total Size (Bytes) | Description     |
-|:-----------------:|:---------:|:------------:|:------------------:|:---------------:|
-| Model Name        | UTF-8     | 64 (maximum  |  64 (maximum)      | Model name      |
+| Operand name      | Data type | Count             | Total Size (Bytes) | Description     |
+|:-----------------:|:---------:|:-----------------:|:------------------:|:---------------:|
+| Model Name        | UTF-8     | 64<br/>(maximum)  |  64<br/>(maximum)  | Model name      |
 {: title="Model Name Operand" }
 
 #### Accessory category
