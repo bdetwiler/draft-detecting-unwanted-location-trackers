@@ -397,6 +397,9 @@ The value MUST change after every firmware update.
 | Firmware version       | Uint32    |   1   | 4                  | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
 {: title="Firmware Version Operand" }
 
+As an example, a Major.Minor.Revision value of 1.0.0 has an equivalent 4-byte value of 0x00010000.
+
+
 #### Battery type
 The Battery type operand describes the battery type used in the accessory.
 
