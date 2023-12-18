@@ -662,7 +662,7 @@ If none of the accessory categories provided in {{table-accessory-category-value
 {: #table-accessory-category-values title="Accessory Category Values"}
 
 # Firmware Updates
-The accessory SHOULD have firmware that is updatable by the owner.
+The accessory SHOULD have a mechanism for the manufacturer to provide firmware updates.
 
 ## Backwards Compatibility
 
