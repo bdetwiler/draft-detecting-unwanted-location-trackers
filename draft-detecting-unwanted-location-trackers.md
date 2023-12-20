@@ -689,12 +689,12 @@ If an unwanted tracking alert occurs for an accessory and the platform does not 
 
 
 ### Implementation
-Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching the MAC address advertised, as defined in {{table-payload-format}}, against the one(s) expected during that time.
+Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching the MAC address advertised as defined in {{table-payload-format}}, or some other part of the payload, against the one(s) expected during that time.
 
 ### Platform Software Extension
 Platforms SHOULD implement the owned accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
+Accessory manufacturers SHALL provide this set of MAC addresses or matching rules to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
 
 The Network ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
