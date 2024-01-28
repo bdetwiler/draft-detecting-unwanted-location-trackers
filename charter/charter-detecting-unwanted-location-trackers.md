@@ -15,11 +15,12 @@ To address this threat, accessory manufacturers have developed independent solut
 The goal of the DULT WG is to standardize an application protocol for information exchange between location-tracking accessories and nearby devices, along with actions that these accessories and devices should take once unwanted tracking is detected. This protocol is intended to protect people against being unknowingly tracked. The intent of this WG is to make it easier for arbitrary devices to detect unwanted tracking by these accessories. The protocols and interactions between devices may be limited to certain states or modes, such as the accessory being separated from a paired/owner device.
 
 
-The working group will define privacy and security properties of its solution, including privacy and security protections for tag owners when tags are used appropriately, and evaluate the tradeoffs. The mechanisms specified by the WG will be designed to not create new vector for user tracking.
+The working group will define privacy and security properties of its solution, including privacy and security protections for tag owners when tags are used appropriately, and evaluate the tradeoffs.
 
 
-The WG protocol design will be guided by an intent to:
+The WG's specified mechanisms and protocol design will be guided by an intent to:
 
+* Not create new vectors for user tracking;
 * Minimize hardware changes needed in tracking accessories to implement this protocol; and
 * Not preclude adoption by manufacturers of larger devices whose primary purpose is not location tracking, but have location tracking capabilities (e.g., headphones, bicycle, smartphone)
 
