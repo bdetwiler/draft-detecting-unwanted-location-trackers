@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-28T00:40:08.024787+00:00",
+  "timestamp": "2024-01-30T00:37:33.085719+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -8650,6 +8650,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 174,
+      "id": "PR_kwDOJdqgvc5lPjA8",
+      "title": "consolidate the list of design goals",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/174",
+      "state": "OPEN",
+      "author": "cfm",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Both the DULT protocol itself and other mechanisms specified by this working group should share the goal of not creating new vectors for tracking.\r\n\r\nHowever, I offer this as a substantively neutral copy-editing change.  If you believe it would modify the scope or goals of the working group, please feel free to reject this suggestion; it's not intended as a challenge to the current consensus call.",
+      "createdAt": "2024-01-28T01:25:46Z",
+      "updatedAt": "2024-01-28T01:25:46Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "439a1abc65ee8d4c96013cd7078365bbe40c4330",
+      "headRepository": "cfm/draft-detecting-unwanted-location-trackers",
+      "headRefName": "patch-1",
+      "headRefOid": "5abc85f474f34276db920a05637a80b88447e467",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
