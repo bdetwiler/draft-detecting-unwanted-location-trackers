@@ -493,7 +493,7 @@ Get_Identifier SHALL only be available when in identifier read state; otherwise,
 The identifier read state is discussed further in [Identifier Payload](#identifier-payload).
 
 ##### Play sound
-The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds.
+The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The recommended duration is 12 seconds.
 
 * The accessory SHALL confirm the start of the play sound procedure by sending a [Command_Response](#command-response) with the corresponding CommandOpCode and a ResponseStatus value of Success.
 
