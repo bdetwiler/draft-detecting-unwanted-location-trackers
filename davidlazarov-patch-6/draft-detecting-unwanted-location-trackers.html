@@ -12,25 +12,25 @@
 <meta content="
        This document lists a set of best practices and protocols for accessory manufacturers whose products have built-in location-tracking capabilities. By following these requirements and recommendations, a location-tracking accessory will be compatible with unwanted tracking detection and alerts on mobile platforms. This is an important capability for improving the privacy and safety of individuals in the circumstance that those accessories are used to track their location without their knowledge or consent. 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
+<meta content="xml2rfc 3.20.0" name="generator">
 <meta content="unwanted tracking" name="keyword">
 <meta content="location tracker" name="keyword">
 <meta content="draft-detecting-unwanted-location-trackers-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
-    Python 3.11.6
-    ConfigArgParse 1.5.3
+  xml2rfc 3.20.0
+    Python 3.11.8
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 4.0.0
+    platformdirs 4.2.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.10
+    wcwidth 0.2.13
 -->
 <link href="draft-detecting-unwanted-location-trackers.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1029,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers</td>
-<td class="right">December 2023</td>
+<td class="right">March 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 4 June 2024</td>
+<td class="center">Expires 14 September 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-12-02" class="published">2 December 2023</time>
+<time datetime="2024-03-13" class="published">13 March 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-06-04">4 June 2024</time></dd>
+<dd class="expires"><time datetime="2024-09-14">14 September 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 September 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1114,7 +1114,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1279,7 +1279,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.3.2.14.2.4.1"><a href="#section-3.14.4" class="auto internal xref">3.14.4</a>.  <a href="#name-identifier-retrieval-from-a" class="internal xref">Identifier retrieval from a server</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.14.2.5">
-                    <p id="section-toc.1-1.3.2.14.2.5.1"><a href="#section-3.14.5" class="auto internal xref">3.14.5</a>.  <a href="#name-identifer-over-nfc" class="internal xref">Identifer over NFC</a></p>
+                    <p id="section-toc.1-1.3.2.14.2.5.1"><a href="#section-3.14.5" class="auto internal xref">3.14.5</a>.  <a href="#name-identifier-over-nfc" class="internal xref">Identifier over NFC</a></p>
 </li>
                 </ul>
 </li>
@@ -1309,7 +1309,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-backwards-compatibility" class="internal xref">Backwards Compatibility</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
-                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-advertisement-backwards-com" class="internal xref">Advertisement backwards compatibility</a></p>
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-existing-trackers" class="internal xref">Existing trackers</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.2">
+                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-advertisement-backwards-com" class="internal xref">Advertisement backwards compatibility</a></p>
 </li>
                 </ul>
 </li>
@@ -1352,7 +1355,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-obfuscated-owner-information" class="internal xref">Obfuscated owner information look-up</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1.2.1">
-                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-design-of-encrypted-serial-" class="internal xref">Design of encrypted serial number look-up</a></p>
+                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-design-of-encrypted-identif" class="internal xref">Design of encrypted identifier look-up</a></p>
 </li>
                 </ul>
 </li>
@@ -1365,7 +1368,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-obfuscated-owner-information-2" class="internal xref">Obfuscated owner information</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-serial-number-look-up" class="internal xref">Serial number look-up</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-identifier-look-up" class="internal xref">Identifier look-up</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="auto internal xref">9.3</a>.  <a href="#name-location-enabled-payload" class="internal xref">Location-enabled payload</a></p>
@@ -1408,7 +1411,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document’s goal is to, in part, help protect the privacy of individuals from unwanted tracking by location-tracking accessories. Location-tracking accessories provide numerous benefits to consumers, but, as with all technology, it is possible for them to be misused. Misuse of location-tracking accessories can result in unwanted tracking of individuals or items for nefarious purposes such as stalking, harassment, and theft. Formalizing a set of best practices for manufacturers will allow for scalable compatibility with unwanted tracking detection technologies on various smartphone platforms and improve privacy and security for individuals.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This document’s goal is to, in part, help protect the privacy of individuals from unwanted tracking by location-tracking accessories. Location-tracking accessories provide numerous benefits to consumers, but, as with all technology, it is possible for them to be misused. Misuse of location-tracking accessories can result in unwanted tracking of individuals or items for nefarious purposes such as stalking, harassment, and theft. This document is focused on protecting people from misuse of location-tracking accessories. Formalizing a set of best practices for manufacturers will allow for scalable compatibility with unwanted tracking detection technologies on various smartphone platforms and improve privacy and security for individuals.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Unwanted tracking detection can both detect and alert individuals that a location tracker separated from the owner's device is traveling with them, as well as provide means to find and disable the tracker. This document outlines technical best practices for location tracker manufacturers, which will allow for their compatibility with unwanted tracking detection and alerting technology on platforms.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <div id="conventions-and-definitions">
 <section id="section-1.1">
@@ -1477,10 +1480,18 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-applicability" class="section-name selfRef">Applicability</a>
         </h3>
 <p id="section-2.1-1">These best practices are <span class="bcp14">REQUIRED</span> for location-enabled accessories that are small and not easily discoverable. For large accessories, such as a bicycle, these best practices are <span class="bcp14">RECOMMENDED</span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">Accessories are considered easily discoverable if they meet one of the following criteria: <br>
-- The item is larger than 30 cm in at least one dimension.
-- The item is larger than 18 cm x 13 cm in two of its dimensions.
-- The item is larger than 250 cm<sup>3</sup> in three-dimensional space.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">Accessories are considered easily discoverable if they meet one of the following criteria:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.1-3.1">
+            <p id="section-2.1-3.1.1">The item is larger than 30 cm in at least one dimension.<a href="#section-2.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.1-3.2">
+            <p id="section-2.1-3.2.1">The item is larger than 18 cm x 13 cm in two of its dimensions.<a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.1-3.3">
+            <p id="section-2.1-3.3.1">The item is larger than 250 cm<sup>3</sup> in three-dimensional space.<a href="#section-2.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
 </section>
@@ -1529,7 +1540,7 @@ The connection interval of the Bluetooth LE link between the device and accessor
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-location-tracking" class="section-name selfRef">Location Tracking</a>
         </h3>
 <p id="section-3.3-1">The location-enabled accessory has location capabilities via Bluetooth crowd-sourcing, GPS/GNSS location, WiFi location, cellular location, or by some other means. Furthermore, the accessory has a way to communicate its location to its owner via a network (e.g., cell network, crowd-sourced location via Bluetooth, etc.).<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">The accessory <span class="bcp14">SHALL</span> maintain an internal state that determines when its location is, or has been, available to the owner via a network. This state is called the location-enabled state.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">The accessory <span class="bcp14">SHALL</span> maintain an internal state that detects when its location is, or has been, available to the owner via a network. This state is called the location-enabled state.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 <p id="section-3.3-3">Misuse of location-enabled accessories can occur when the owner’s device is not physically with the accessory. Thereby, the accessory <span class="bcp14">SHOULD</span> maintain a second internal state, denoted the near-owner state, which indicates if the accessory is connected to or nearby one or more of the owner’s devices. Near-owner state can take on two values, either near-owner mode or separated mode. Near-owner mode is denoted as the opposite of separated mode.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 <p id="section-3.3-4"><a href="#_table-location-enabled-payload" class="auto internal xref">Figure 1</a> details the requirements and recommendations for advertising the location-enabled payload based on the location-enabled state and separated state.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
 <span id="name-requirements-recommendation"></span><div id="_table-location-enabled-payload">
@@ -1543,7 +1554,7 @@ The connection interval of the Bluetooth LE link between the device and accessor
                          |  Enabled in Past 24 |
                          |        Hours        |
     +--------------------+---------------------|
-    |         near-owner |     SHOULD NOT      |
+    |         near-owner |        MAY          |
     |            mode    | advertise location- |
     | Near-              |  enabled payload    |
     | Owner              +---------------------|
@@ -1557,8 +1568,7 @@ The connection interval of the Bluetooth LE link between the device and accessor
 <a href="#name-requirements-recommendation" class="selfRef">Requirements &amp; Recommendations For Advertising Location-Enabled Payload</a>
           </figcaption></figure>
 </div>
-<p id="section-3.3-6">It is <span class="bcp14">RECOMMENDED</span> that the location-enabled payload is only advertised when the accessory is in the separated state. The reasoning behind this recommendation is that unwanted tracking detection relies on the Bluetooth LE advertisements emitted while in the location-enabled state to determine if an unknown accessory is traveling with someone who is not the owner. If the location-enabled payload is advertised only in the separated state, that minimizes false-positive UT alerts.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
-<p id="section-3.3-7">As a point of clarity, if the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the <span><a href="#near-owner-bit" class="internal xref">near-owner bit</a> (<a href="#near-owner-bit" class="auto internal xref">Section 3.8</a>)</span> compensates for this.<a href="#section-3.3-7" class="pilcrow">¶</a></p>
+<p id="section-3.3-6">If the accessory maker chooses to continue advertising the location-enabled payload while in near-owner mode, setting the <span><a href="#near-owner-bit" class="internal xref">near-owner bit</a> (<a href="#near-owner-bit" class="auto internal xref">Section 3.8</a>)</span> compensates for this.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="location-enabled-bluetooth-le-advertisement-payload">
@@ -1700,8 +1710,8 @@ in <a href="#accessory-connections" class="auto internal xref">Section 3.10</a>.
 <a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-mac-address" class="section-name selfRef">MAC address</a>
         </h3>
 <p id="section-3.5-1">The Bluetooth LE advertisement payload <span class="bcp14">SHALL</span> contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type <span class="bcp14">SHALL</span> be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the <span>[<a href="#BTCore5.4" class="cite xref">BTCore5.4</a>]</span>.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
-<p id="section-3.5-2">The owner <span class="bcp14">MUST</span> be able to predict the MAC address or another advertised identifier used by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See <span><a href="#owned-accessory-identification" class="internal xref">Owned Accessory Identification</a> (<a href="#owned-accessory-identification" class="auto internal xref">Section 6.1</a>)</span> for additional details.<a href="#section-3.5-2" class="pilcrow">¶</a></p>
-<p id="section-3.5-3">The address <span class="bcp14">SHALL</span> rotate periodically (see <span><a href="#rotation-policy" class="internal xref">Rotation policy</a> (<a href="#rotation-policy" class="auto internal xref">Section 3.5.1</a>)</span>); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.5-2">The owner <span class="bcp14">MUST</span> be able to predict the MAC address or the payload advertised by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See <span><a href="#owned-accessory-identification" class="internal xref">Owned Accessory Identification</a> (<a href="#owned-accessory-identification" class="auto internal xref">Section 6.1</a>)</span> for additional details.<a href="#section-3.5-2" class="pilcrow">¶</a></p>
+<p id="section-3.5-3">The address <span class="bcp14">SHALL</span> rotate periodically (see <span><a href="#rotation-policy" class="internal xref">Rotation policy</a> (<a href="#rotation-policy" class="auto internal xref">Section 3.5.1</a>)</span>); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices. Same rules apply to any other identifiable content of the advertised payload.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
 <p id="section-3.5-4">A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.<a href="#section-3.5-4" class="pilcrow">¶</a></p>
 <p id="section-3.5-5">This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for <span><a href="#owned-accessory-identification" class="internal xref">owned accessory identification</a> (<a href="#owned-accessory-identification" class="auto internal xref">Section 6.1</a>)</span>.<a href="#section-3.5-5" class="pilcrow">¶</a></p>
 <div id="rotation-policy">
@@ -1771,7 +1781,7 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
         <h3 id="name-bluetooth-le-advertising-in">
 <a href="#section-3.9" class="section-number selfRef">3.9. </a><a href="#name-bluetooth-le-advertising-in" class="section-name selfRef">Bluetooth LE advertising interval</a>
         </h3>
-<p id="section-3.9-1">The Bluetooth LE advertising interval <span class="bcp14">SHALL</span> be a maximum interval of 2 seconds. If an accessory manufacturer advertises at a less frequent interval, detection performance is diminished.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.9-1">The detection rate performance has a dependency on the BLE advertising interval used. A maximum advertising interval of 4 seconds <span class="bcp14">SHALL</span> be used; for the best detection rate, the advertising interval <span class="bcp14">SHOULD</span> be less than or equal to 2 seconds.<a href="#section-3.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="accessory-connections">
@@ -1795,7 +1805,7 @@ The accessory non-owner characteristic UUID <span class="bcp14">SHALL</span> be 
           <h4 id="name-maximum-transmission-unit">
 <a href="#section-3.10.2" class="section-number selfRef">3.10.2. </a><a href="#name-maximum-transmission-unit" class="section-name selfRef">Maximum transmission unit</a>
           </h4>
-<p id="section-3.10.2-1">Data fragmentation and reassembly is not defined in this document; therefore, the accessory <span class="bcp14">SHALL NOT</span> request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in (Non-owner controls)[#non-owner-controls] and (opcodes){#opcodes}.
+<p id="section-3.10.2-1">Data fragmentation and reassembly is not defined in this document; therefore, the accessory <span class="bcp14">SHALL NOT</span> request an MTU (Maximum Transmission Unit) smaller than the maximum length of its write responses for the opcodes defined in <span><a href="#non-owner-controls" class="internal xref">Non-owner controls</a> (<a href="#non-owner-controls" class="auto internal xref">Section 3.12.4</a>)</span> and <a href="#opcodes" class="auto internal xref">Section 3.11.1</a>.
 In other words, all opcode response data must fit within a single write operation.<a href="#section-3.10.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1806,7 +1816,7 @@ In other words, all opcode response data must fit within a single write operatio
         <h3 id="name-accessory-information">
 <a href="#section-3.11" class="section-number selfRef">3.11. </a><a href="#name-accessory-information" class="section-name selfRef">Accessory Information</a>
         </h3>
-<p id="section-3.11-1">The following accessory information <span class="bcp14">MUST</span> be persistent through the lifetime of the accessory: <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>, <span><a href="#manufacturer-name" class="internal xref">Manufacturer name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>, <span><a href="#model-name" class="internal xref">Model name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>, <span><a href="#accessory-category" class="internal xref">Accessory category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>, <span><a href="#accessory-capabilities" class="internal xref">Accessory capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>, <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.11.1.8</a>)</span>, and <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
+<p id="section-3.11-1">The following accessory information <span class="bcp14">MUST</span> be persistent through the lifetime of the accessory: <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>, <span><a href="#manufacturer-name" class="internal xref">Manufacturer name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>, <span><a href="#model-name" class="internal xref">Model name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>, <span><a href="#accessory-category" class="internal xref">Accessory category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>, <span><a href="#accessory-capabilities" class="internal xref">Accessory capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>, <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>, and <span><a href="#battery-type" class="internal xref">Battery Type</a> (<a href="#battery-type" class="auto internal xref">Section 3.11.1.9</a>)</span>.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
 <div id="opcodes">
 <section id="section-3.11.1">
           <h4 id="name-opcodes">
@@ -1821,129 +1831,238 @@ In other words, all opcode response data must fit within a single write operatio
             </caption>
 <thead>
               <tr>
-                <th class="text-center" rowspan="1" colspan="1">Opcode</th>
-                <th class="text-center" rowspan="1" colspan="1">Opcode value</th>
+                <th class="text-left" rowspan="1" colspan="1">Opcode</th>
+                <th class="text-right" rowspan="1" colspan="1">Opcode value</th>
                 <th class="text-center" rowspan="1" colspan="1">Operands</th>
                 <th class="text-center" rowspan="1" colspan="1">GATT subprocedure</th>
+                <th class="text-center" rowspan="1" colspan="1">Requirement</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Product_Data</td>
-                <td class="text-center" rowspan="1" colspan="1">0x003</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Product_Data</td>
+                <td class="text-right" rowspan="1" colspan="1">0x003</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Product_Data_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x803</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Product_Data_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x803</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Manufacturer_Name</td>
-                <td class="text-center" rowspan="1" colspan="1">0x004</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Manufacturer_<br>Name</td>
+                <td class="text-right" rowspan="1" colspan="1">0x004</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Manufacturer_Name_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x804</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Manufacturer_<br>Name_Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x804</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#manufacturer-name" class="internal xref">Manufacturer Name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Model_Name</td>
-                <td class="text-center" rowspan="1" colspan="1">0x005</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Model_Name</td>
+                <td class="text-right" rowspan="1" colspan="1">0x005</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Model_Name_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x805</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Model_Name_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x805</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#model-name" class="internal xref">Model Name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Accessory_Category</td>
-                <td class="text-center" rowspan="1" colspan="1">0x006</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Category</td>
+                <td class="text-right" rowspan="1" colspan="1">0x006</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Accessory_Category_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x806</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Category_Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x806</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#accessory-category" class="internal xref">Accessory Category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Protocol_Implementation_Version</td>
-                <td class="text-center" rowspan="1" colspan="1">0x007</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Protocol_<br>Implementation_Version</td>
+                <td class="text-right" rowspan="1" colspan="1">0x007</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Protocol_Implementation_Version_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x807</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Protocol_<br>Implementation_Version_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x807</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#protocol-implementation-version" class="internal xref">Protocol Implementation Version</a> (<a href="#protocol-implementation-version" class="auto internal xref">Section 3.11.1.5</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Accessory_Capabilities</td>
-                <td class="text-center" rowspan="1" colspan="1">0x008</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Capabilities</td>
+                <td class="text-right" rowspan="1" colspan="1">0x008</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Accessory_Capabilities_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x808</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Capabilities_Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x808</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#accessory-capabilities" class="internal xref">Accessory Capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Network_ID</td>
-                <td class="text-center" rowspan="1" colspan="1">0x009</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Network_ID</td>
+                <td class="text-right" rowspan="1" colspan="1">0x009</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Network_ID_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x809</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Network_ID_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x809</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Firmware_Version</td>
-                <td class="text-center" rowspan="1" colspan="1">0x00A</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Firmware_Version</td>
+                <td class="text-right" rowspan="1" colspan="1">0x00A</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Firmware_Version_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x80A</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Firmware_Version_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x80A</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.11.1.8</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Type</td>
+                <td class="text-right" rowspan="1" colspan="1">0x00B</td>
+                <td class="text-center" rowspan="1" colspan="1">None</td>
+                <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Type_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x80B</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#battery-type" class="internal xref">Battery Type</a> (<a href="#battery-type" class="auto internal xref">Section 3.11.1.9</a>)</span>
+</td>
+                <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level</td>
+                <td class="text-right" rowspan="1" colspan="1">0x00C</td>
+                <td class="text-center" rowspan="1" colspan="1">None</td>
+                <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level_<br>Response</td>
+                <td class="text-right" rowspan="1" colspan="1">0x80C</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.11.1.10</a>)</span>
+</td>
+                <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">RESERVED</td>
+                <td class="text-right" rowspan="1" colspan="1">0x00D - 0x05F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">RESERVED (Response)</td>
+                <td class="text-right" rowspan="1" colspan="1">0x80D - 0x85F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
               </tr>
             </tbody>
           </table>
 </div>
-<p id="section-3.11.1-3">Opcodes should be structured as defined below.<a href="#section-3.11.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-3">These opcodes <span class="bcp14">SHALL</span> be available when the accessory is in separated state.
+These opcodes <span class="bcp14">SHALL NOT</span> be available when the accessory is in the near-owner state.
+When any opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
+If an optional opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
+If any opcode value is commanded that is not supported by the accessory, it <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in the Command_Response.
+See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> for details.<a href="#section-3.11.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-4">Opcodes should be structured as defined below.<a href="#section-3.11.1-4" class="pilcrow">¶</a></p>
 <span id="name-accessory-opcode-structure"></span><table class="center" id="table-5">
             <caption>
 <a href="#table-5" class="selfRef">Table 5</a>:
@@ -1973,13 +2092,6 @@ In other words, all opcode response data must fit within a single write operatio
             </h5>
 <p id="section-3.11.1.1-1">The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
 This value <span class="bcp14">SHALL</span> be determined during the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.11.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.11.1.1-2">The Product Data operand is 8 bytes, composed of two 8-character hex strings (lowercase zero padded), each of which is 4 bytes.<a href="#section-3.11.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-3.11.1.1-3">For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted to binary would be<a href="#section-3.11.1.1-3" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.11.1.1-4.1">
-                <p id="section-3.11.1.1-4.1.1">0xdfeceff1 11011111 11101100 11101111 11110001<br>0xe1ff54db 11100001 11111111 01010100 11011011<a href="#section-3.11.1.1-4.1.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
 <span id="name-product-data-operand"></span><table class="center" id="table-6">
               <caption>
 <a href="#table-6" class="selfRef">Table 6</a>:
@@ -1989,7 +2101,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
@@ -1997,6 +2110,7 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Product Data</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
+                  <td class="text-center" rowspan="1" colspan="1">8</td>
                   <td class="text-center" rowspan="1" colspan="1">8</td>
                   <td class="text-center" rowspan="1" colspan="1">See <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>
 </td>
@@ -2020,7 +2134,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
@@ -2028,7 +2143,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Manufacturer Name</td>
                   <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
-                  <td class="text-center" rowspan="1" colspan="1">64</td>
+                  <td class="text-center" rowspan="1" colspan="1">64<br>(maximum)</td>
+                  <td class="text-center" rowspan="1" colspan="1">64<br>(maximum)</td>
                   <td class="text-center" rowspan="1" colspan="1">Manufacturer name</td>
                 </tr>
               </tbody>
@@ -2050,7 +2166,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
@@ -2058,7 +2175,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Model Name</td>
                   <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
-                  <td class="text-center" rowspan="1" colspan="1">64</td>
+                  <td class="text-center" rowspan="1" colspan="1">64<br>(maximum)</td>
+                  <td class="text-center" rowspan="1" colspan="1">64<br>(maximum)</td>
                   <td class="text-center" rowspan="1" colspan="1">Model name</td>
                 </tr>
               </tbody>
@@ -2080,8 +2198,9 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
-                  <th class="text-left" rowspan="1" colspan="1">Description</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -2089,7 +2208,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                   <td class="text-center" rowspan="1" colspan="1">Accessory Category</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
                   <td class="text-center" rowspan="1" colspan="1">8</td>
-                  <td class="text-left" rowspan="1" colspan="1">Byte 0: Uint8 value of <span><a href="#accessory-category-value" class="internal xref">Accessory Category Value</a> (<a href="#accessory-category-value" class="auto internal xref">Section 4</a>)</span> <br> Byte 1-7: Reserved</td>
+                  <td class="text-center" rowspan="1" colspan="1">8</td>
+                  <td class="text-center" rowspan="1" colspan="1">Byte 0: Uint8 value of <span><a href="#accessory-category-value" class="internal xref">Accessory Category Value</a> (<a href="#accessory-category-value" class="auto internal xref">Section 4</a>)</span> <br> Byte 1-7: Reserved</td>
                 </tr>
               </tbody>
             </table>
@@ -2100,7 +2220,7 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
             <h5 id="name-protocol-implementation-ver">
 <a href="#section-3.11.1.5" class="section-number selfRef">3.11.1.5. </a><a href="#name-protocol-implementation-ver" class="section-name selfRef">Protocol implementation version</a>
             </h5>
-<p id="section-3.11.1.5-1">The Protocol Implemention Version operand contains a value indicating an implemention version of these protocols.<a href="#section-3.11.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.11.1.5-1">The Protocol Implementation Version operand contains a value indicating an implementation version of these protocols.<a href="#section-3.11.1.5-1" class="pilcrow">¶</a></p>
 <span id="name-protocol-implementation-vers"></span><table class="center" id="table-10">
               <caption>
 <a href="#table-10" class="selfRef">Table 10</a>:
@@ -2110,7 +2230,8 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
@@ -2118,13 +2239,14 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Protocol Implementation Version</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint32</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">4</td>
                   <td class="text-center" rowspan="1" colspan="1">Byte 0 : revision version number <br> Byte 1 : minor version number <br> Byte 2-3 : major version number</td>
                 </tr>
               </tbody>
             </table>
 <p id="section-3.11.1.5-3">The Major.Minor.Revision value associated with this document is 1.0.0.
-The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pilcrow">¶</a></p>
+The equivalent 4-byte value is 0x00010000.<a href="#section-3.11.1.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="accessory-capabilities">
@@ -2143,16 +2265,18 @@ The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pil
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
-                  <th class="text-left" rowspan="1" colspan="1">Description</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Accessory Capabilities</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint32</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">4</td>
-                  <td class="text-left" rowspan="1" colspan="1">Bit 0 : Supports play sound <br> Bit 1 : Supports motion detector UT <br> Bit 2 : Supports identifier lookup by NFC <br> Bit 3 : Supports identifier lookup by BLE</td>
+                  <td class="text-center" rowspan="1" colspan="1">Bit 0 : Supports play sound (<span class="bcp14">REQUIRED</span>) <br> Bit 1 : Supports motion detector UT <br> Bit 2 : Supports identifier lookup by NFC <br> Bit 3 : Supports identifier lookup by BLE</td>
                 </tr>
               </tbody>
             </table>
@@ -2165,7 +2289,7 @@ The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pil
             <h5 id="name-network-id-2">
 <a href="#section-3.11.1.7" class="section-number selfRef">3.11.1.7. </a><a href="#name-network-id-2" class="section-name selfRef">Network ID</a>
             </h5>
-<p id="section-3.11.1.7-1">The Newtork Id operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>.<a href="#section-3.11.1.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.11.1.7-1">The Network ID operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>.<a href="#section-3.11.1.7-1" class="pilcrow">¶</a></p>
 <span id="name-network-id-operand"></span><table class="center" id="table-12">
               <caption>
 <a href="#table-12" class="selfRef">Table 12</a>:
@@ -2175,7 +2299,8 @@ The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pil
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
@@ -2183,6 +2308,7 @@ The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pil
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Network ID</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">Network ID</td>
                 </tr>
@@ -2196,19 +2322,39 @@ The equivalent byte value is 0x00000001.<a href="#section-3.11.1.5-3" class="pil
 <a href="#section-3.11.1.8" class="section-number selfRef">3.11.1.8. </a><a href="#name-firmware-version" class="section-name selfRef">Firmware version</a>
             </h5>
 <p id="section-3.11.1.8-1">The Firmware Version describes the current firmware version running on the accessory.
-The firmware revision string <span class="bcp14">SHALL</span> use the x[.y[.z]] format where :
-* &lt;x&gt; is the major version number, required.
-* &lt;y&gt; is the minor version number, required if it is non zero or if &lt;z&gt; is present.
-* &lt;z&gt; is the revision version number, required if non zero.<a href="#section-3.11.1.8-1" class="pilcrow">¶</a></p>
-<p id="section-3.11.1.8-2">The firmware revision <span class="bcp14">MUST</span> follow these rules:
-* &lt;x&gt; is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
-* &lt;y&gt; is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
-* &lt;z&gt; is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
-* Subsequent firmware updates can have a lower &lt;y&gt; version only if &lt;x&gt; is incremented.
-* Subsequent firmware updates can have a lower &lt;z&gt; version only if &lt;x&gt; or &lt;y&gt; is incremented.<a href="#section-3.11.1.8-2" class="pilcrow">¶</a></p>
-<p id="section-3.11.1.8-3">Major version <span class="bcp14">MUST</span> not be greater than (2^16 - 1).
+The firmware revision string <span class="bcp14">SHALL</span> use the x[.y[.z]] format where :<a href="#section-3.11.1.8-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.11.1.8-2.1">
+                <p id="section-3.11.1.8-2.1.1">&lt;x&gt; is the major version number, required.<a href="#section-3.11.1.8-2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-2.2">
+                <p id="section-3.11.1.8-2.2.1">&lt;y&gt; is the minor version number, required if it is non zero or if &lt;z&gt; is present.<a href="#section-3.11.1.8-2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-2.3">
+                <p id="section-3.11.1.8-2.3.1">&lt;z&gt; is the revision version number, required if non zero.<a href="#section-3.11.1.8-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-3.11.1.8-3">The firmware revision <span class="bcp14">MUST</span> follow these rules:<a href="#section-3.11.1.8-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.11.1.8-4.1">
+                <p id="section-3.11.1.8-4.1.1">&lt;x&gt; is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.<a href="#section-3.11.1.8-4.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-4.2">
+                <p id="section-3.11.1.8-4.2.1">&lt;y&gt; is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.<a href="#section-3.11.1.8-4.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-4.3">
+                <p id="section-3.11.1.8-4.3.1">&lt;z&gt; is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.<a href="#section-3.11.1.8-4.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-4.4">
+                <p id="section-3.11.1.8-4.4.1">Subsequent firmware updates can have a lower &lt;y&gt; version only if &lt;x&gt; is incremented.<a href="#section-3.11.1.8-4.4.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.8-4.5">
+                <p id="section-3.11.1.8-4.5.1">Subsequent firmware updates can have a lower &lt;z&gt; version only if &lt;x&gt; or &lt;y&gt; is incremented.<a href="#section-3.11.1.8-4.5.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-3.11.1.8-5">Major version <span class="bcp14">MUST</span> not be greater than (2^16 - 1).
 Minor and revision version <span class="bcp14">MUST</span> not be greater than (2^8 - 1).
-The value <span class="bcp14">MUST</span> change after every firmware update.<a href="#section-3.11.1.8-3" class="pilcrow">¶</a></p>
+The value <span class="bcp14">MUST</span> change after every firmware update.<a href="#section-3.11.1.8-5" class="pilcrow">¶</a></p>
 <span id="name-firmware-version-operand"></span><table class="center" id="table-13">
               <caption>
 <a href="#table-13" class="selfRef">Table 13</a>:
@@ -2218,16 +2364,83 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
                 <tr>
                   <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Firmware version</td>
-                  <td class="text-center" rowspan="1" colspan="1">Octet</td>
+                  <td class="text-center" rowspan="1" colspan="1">Uint32</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">4</td>
                   <td class="text-center" rowspan="1" colspan="1">Byte 0 : revision version number <br> Byte 1  : minor version number <br> Byte 2:3 :  major version number</td>
+                </tr>
+              </tbody>
+            </table>
+<p id="section-3.11.1.8-7">As an example, a Major.Minor.Revision value of 1.0.0 has an equivalent 4-byte value of 0x00010000.<a href="#section-3.11.1.8-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="battery-type">
+<section id="section-3.11.1.9">
+            <h5 id="name-battery-type">
+<a href="#section-3.11.1.9" class="section-number selfRef">3.11.1.9. </a><a href="#name-battery-type" class="section-name selfRef">Battery type</a>
+            </h5>
+<p id="section-3.11.1.9-1">The Battery type operand describes the battery type used in the accessory.<a href="#section-3.11.1.9-1" class="pilcrow">¶</a></p>
+<span id="name-battery-type-operand"></span><table class="center" id="table-14">
+              <caption>
+<a href="#table-14" class="selfRef">Table 14</a>:
+<a href="#name-battery-type-operand" class="selfRef">Battery Type Operand</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-center" rowspan="1" colspan="1">Operand name</th>
+                  <th class="text-center" rowspan="1" colspan="1">Data type</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Battery Type</td>
+                  <td class="text-center" rowspan="1" colspan="1">Uint8</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">0 = Powered<br> 1 = Non-rechargeable battery<br> 2 = Rechargeable battery</td>
+                </tr>
+              </tbody>
+            </table>
+</section>
+</div>
+<div id="battery-level">
+<section id="section-3.11.1.10">
+            <h5 id="name-battery-level">
+<a href="#section-3.11.1.10" class="section-number selfRef">3.11.1.10. </a><a href="#name-battery-level" class="section-name selfRef">Battery level</a>
+            </h5>
+<p id="section-3.11.1.10-1">The Battery level operand indicates the current battery level.<a href="#section-3.11.1.10-1" class="pilcrow">¶</a></p>
+<span id="name-battery-level-operand"></span><table class="center" id="table-15">
+              <caption>
+<a href="#table-15" class="selfRef">Table 15</a>:
+<a href="#name-battery-level-operand" class="selfRef">Battery Level Operand</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-center" rowspan="1" colspan="1">Operand name</th>
+                  <th class="text-center" rowspan="1" colspan="1">Data type</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Battery Level</td>
+                  <td class="text-center" rowspan="1" colspan="1">Uint8</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">0 = Full<br> 1 = Medium<br> 2 = Low<br>3 = Critically low</td>
                 </tr>
               </tbody>
             </table>
@@ -2262,7 +2475,7 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
             <h5 id="name-implementation">
 <a href="#section-3.12.2.1" class="section-number selfRef">3.12.2.1. </a><a href="#name-implementation" class="section-name selfRef">Implementation</a>
             </h5>
-<p id="section-3.12.2.1-1">The details in this section apply to those accessories that include a motion detector. Values of the variables referenced are specified in <a href="#_table-motion-detector-time-values" class="auto internal xref">Table 14</a>.<a href="#section-3.12.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.2.1-1">The details in this section apply to those accessories that include a motion detector. Values of the variables referenced are specified in <a href="#_table-motion-detector-time-values" class="auto internal xref">Table 16</a>.<a href="#section-3.12.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.12.2.1-2"><br>
 After T<sub>SEPARATED_UT_TIMEOUT</sub> in separated state, the accessory <span class="bcp14">MUST</span> enable the motion detector to detect any motion within T<sub>SEPARATED_UT_SAMPLING_RATE1</sub>.<a href="#section-3.12.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.12.2.1-3">If motion is not detected within the T<sub>SEPARATED_UT_SAMPLING_RATE1</sub> period, the accessory <span class="bcp14">MUST</span> stay in this state until it exits separated state.<a href="#section-3.12.2.1-3" class="pilcrow">¶</a></p>
@@ -2279,11 +2492,11 @@ The accessory <span class="bcp14">SHALL</span> disable the motion detector for T
 </li>
             </ul>
 <p id="section-3.12.2.1-6">If the accessory is still in separated state at the end of T<sub>SEPARATED_UT_BACKOFF</sub>, the UT behavior <span class="bcp14">MUST</span> restart.<a href="#section-3.12.2.1-6" class="pilcrow">¶</a></p>
-<p id="section-3.12.2.1-7">A Bluetooth LE connection from a associated device <span class="bcp14">MUST</span> reset the separated behavior and transition the accessory to connected state.<a href="#section-3.12.2.1-7" class="pilcrow">¶</a></p>
+<p id="section-3.12.2.1-7">A Bluetooth LE connection from an associated device <span class="bcp14">MUST</span> reset the separated behavior.<a href="#section-3.12.2.1-7" class="pilcrow">¶</a></p>
 <span id="name-motion-detector-time-values"></span><div id="_table-motion-detector-time-values">
-<table class="center" id="table-14">
+<table class="center" id="table-16">
               <caption>
-<a href="#table-14" class="selfRef">Table 14</a>:
+<a href="#table-16" class="selfRef">Table 16</a>:
 <a href="#name-motion-detector-time-values" class="selfRef">Motion Detector Time Values</a>
               </caption>
 <thead>
@@ -2340,12 +2553,14 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
           <h4 id="name-non-owner-controls">
 <a href="#section-3.12.4" class="section-number selfRef">3.12.4. </a><a href="#name-non-owner-controls" class="section-name selfRef">Non-owner controls</a>
           </h4>
-<p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>. The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in <a href="#_table-non-owner-control-pt-opcodes" class="auto internal xref">Table 15</a>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
-<span id="name-non-owner-control-point-opc"></span><div id="_table-non-owner-control-pt-opcodes">
-<table class="center" id="table-15">
+<p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-2">These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.<a href="#section-3.12.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-3">These opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<span id="name-non-owner-controls-opcodes"></span><div id="_table-non-owner-controls-opcodes">
+<table class="center" id="table-17">
             <caption>
-<a href="#table-15" class="selfRef">Table 15</a>:
-<a href="#name-non-owner-control-point-opc" class="selfRef">Non-Owner Control Point Opcodes</a>
+<a href="#table-17" class="selfRef">Table 17</a>:
+<a href="#name-non-owner-controls-opcodes" class="selfRef">Non-Owner Controls Opcodes</a>
             </caption>
 <thead>
               <tr>
@@ -2383,29 +2598,44 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Serial_Number</td>
+                <td class="text-center" rowspan="1" colspan="1">Get_Identifier</td>
                 <td class="text-center" rowspan="1" colspan="1">0x404</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To accessory</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Serial_Number_Response</td>
+                <td class="text-center" rowspan="1" colspan="1">Get_Identifier_Response</td>
                 <td class="text-center" rowspan="1" colspan="1">0x405</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
               </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">RESERVED</td>
+                <td class="text-center" rowspan="1" colspan="1">0x304 - 0x35F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">RESERVED (Response)</td>
+                <td class="text-center" rowspan="1" colspan="1">0x405 - 0x45F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
+              </tr>
             </tbody>
           </table>
 </div>
-<p id="section-3.12.4-3">This control point <span class="bcp14">SHALL</span> be available to the platform only when the accessory is in separated state. In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in CommandResponse. See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> for details.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-5">Sound_Start and Sound_Stop <span class="bcp14">SHALL</span> only be available to the platform when the accessory is in the separated state.<a href="#section-3.12.4-5" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-6">In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.<a href="#section-3.12.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-7">Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.12.4-7" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-8">The identifier read state is discussed further in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.12.4-8" class="pilcrow">¶</a></p>
 <div id="play-sound">
 <section id="section-3.12.4.1">
             <h5 id="name-play-sound">
 <a href="#section-3.12.4.1" class="section-number selfRef">3.12.4.1. </a><a href="#name-play-sound" class="section-name selfRef">Play sound</a>
             </h5>
-<p id="section-3.12.4.1-1">The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker <span class="bcp14">MUST</span> play sound for a minimum duration of 5 seconds.<a href="#section-3.12.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.1-1">The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker <span class="bcp14">MUST</span> play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The recommended duration is 12 seconds.<a href="#section-3.12.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.12.4.1-2.1">
                 <p id="section-3.12.4.1-2.1.1">The accessory <span class="bcp14">SHALL</span> confirm the start of the play sound procedure by sending a <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the corresponding CommandOpCode and a ResponseStatus value of Success.<a href="#section-3.12.4.1-2.1.1" class="pilcrow">¶</a></p>
@@ -2417,7 +2647,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <p id="section-3.12.4.1-2.3.1">The Sound_Stop opcode is used to stop an ongoing sound request.<a href="#section-3.12.4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.4">
-                <p id="section-3.12.4.1-2.4.1">If the sound event is completed or was not initiated by the connected non owner device, the accessory responds with the Invalid_state ResponseStatus code.<a href="#section-3.12.4.1-2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-3.12.4.1-2.4.1">If the sound event is completed or was not initiated by the connected non-owner device, the accessory responds with the Invalid_state ResponseStatus code.<a href="#section-3.12.4.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.5">
                 <p id="section-3.12.4.1-2.5.1">If the accessory does not support the play sound procedure, it responds with Invalid_command ResponseStatus code.<a href="#section-3.12.4.1-2.5.1" class="pilcrow">¶</a></p>
@@ -2426,7 +2656,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <p id="section-3.12.4.1-2.6.1">If a Sound_Start procedure is initiated when another play sound action is in progress, it rejects with Invalid_state error code.<a href="#section-3.12.4.1-2.6.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.7">
-                <p id="section-3.12.4.1-2.7.1">The accessory <span class="bcp14">SHALL</span> confirm the completion of the stop sound procedure by sending  the Sound_Completed message.<a href="#section-3.12.4.1-2.7.1" class="pilcrow">¶</a></p>
+                <p id="section-3.12.4.1-2.7.1">The accessory <span class="bcp14">SHALL</span> confirm the completion of the stop sound procedure by sending the Sound_Completed message.<a href="#section-3.12.4.1-2.7.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <div id="command-response">
@@ -2436,31 +2666,34 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
               </h6>
 <p id="section-3.12.4.1.1-1">There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
  The accessory <span class="bcp14">SHALL</span> respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.<a href="#section-3.12.4.1.1-1" class="pilcrow">¶</a></p>
-<span id="name-command-response-operands"></span><table class="center" id="table-16">
+<span id="name-command-response-operands"></span><table class="center" id="table-18">
                 <caption>
-<a href="#table-16" class="selfRef">Table 16</a>:
+<a href="#table-18" class="selfRef">Table 18</a>:
 <a href="#name-command-response-operands" class="selfRef">Command Response Operands</a>
                 </caption>
 <thead>
                   <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Operand</th>
-                    <th class="text-left" rowspan="1" colspan="1">Data type</th>
-                    <th class="text-left" rowspan="1" colspan="1">Size (octets)</th>
-                    <th class="text-left" rowspan="1" colspan="1">Description</th>
+                    <th class="text-left" rowspan="1" colspan="1">Operand name</th>
+                    <th class="text-right" rowspan="1" colspan="1">Data type</th>
+                    <th class="text-center" rowspan="1" colspan="1">Count</th>
+                    <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                    <th class="text-center" rowspan="1" colspan="1">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">CommandOpCode</td>
-                    <td class="text-left" rowspan="1" colspan="1">Uint16</td>
-                    <td class="text-left" rowspan="1" colspan="1">2</td>
-                    <td class="text-left" rowspan="1" colspan="1">The control procedure matching this response</td>
+                    <td class="text-right" rowspan="1" colspan="1">Uint16</td>
+                    <td class="text-center" rowspan="1" colspan="1">1</td>
+                    <td class="text-center" rowspan="1" colspan="1">2</td>
+                    <td class="text-center" rowspan="1" colspan="1">The control procedure matching this response</td>
                   </tr>
                   <tr>
                     <td class="text-left" rowspan="1" colspan="1">ResponseStatus</td>
-                    <td class="text-left" rowspan="1" colspan="1">Uint16</td>
-                    <td class="text-left" rowspan="1" colspan="1">2</td>
-                    <td class="text-left" rowspan="1" colspan="1">0x0000 Success<br>0x0001 Invalid_state<br>0x0002 Invalid_configuration<br>0x0003 Invalid_length<br>0x0004 Invalid_param<br>0xFFFF Invalid_command</td>
+                    <td class="text-right" rowspan="1" colspan="1">Uint16</td>
+                    <td class="text-center" rowspan="1" colspan="1">1</td>
+                    <td class="text-center" rowspan="1" colspan="1">2</td>
+                    <td class="text-center" rowspan="1" colspan="1">0x0000 Success<br>0x0001 Invalid_state<br>0x0002 Invalid_configuration<br>0x0003 Invalid_length<br>0x0004 Invalid_param<br>0xFFFF Invalid_command</td>
                   </tr>
                 </tbody>
               </table>
@@ -2473,35 +2706,39 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
             <h5 id="name-identifier-payload">
 <a href="#section-3.12.4.2" class="section-number selfRef">3.12.4.2. </a><a href="#name-identifier-payload" class="section-name selfRef">Identifier Payload</a>
             </h5>
-<p id="section-3.12.4.2-1">The Get_Serial_Number opcode is used to retrieve identifier lookup payload over Bluetooth LE.
-This <span class="bcp14">MUST</span> be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
-When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
-<span id="name-serial-number-payload-over-"></span><div id="_table-sn-payload-over-bt">
-<table class="center" id="table-17">
+<p id="section-3.12.4.2-1">The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
+To enable this opcode, the accessory <span class="bcp14">MUST</span> be in the identifier read state.
+To enter the identifier read state, a user action on the accessory <span class="bcp14">MUST</span> be performed (for example, press and hold a button for 10 seconds).
+The identifier read state <span class="bcp14">MUST</span> be enabled for 5 minutes once the user action on the accessory is successfully performed.
+When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
+<span id="name-identifier-payload-over-blu"></span><div id="_table-id-payload-over-bt">
+<table class="center" id="table-19">
               <caption>
-<a href="#table-17" class="selfRef">Table 17</a>:
-<a href="#name-serial-number-payload-over-" class="selfRef">Serial Number Payload Over Bluetooth</a>
+<a href="#table-19" class="selfRef">Table 19</a>:
+<a href="#name-identifier-payload-over-blu" class="selfRef">Identifier Payload Over Bluetooth</a>
               </caption>
 <thead>
                 <tr>
-                  <th class="text-center" rowspan="1" colspan="1">Operand</th>
+                  <th class="text-center" rowspan="1" colspan="1">Operand name</th>
                   <th class="text-center" rowspan="1" colspan="1">Data type</th>
-                  <th class="text-center" rowspan="1" colspan="1">Size (octets)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
                   <th class="text-center" rowspan="1" colspan="1">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="text-center" rowspan="1" colspan="1">Encrypted Serial Number</td>
+                  <td class="text-center" rowspan="1" colspan="1">Identifier Payload</td>
                   <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
                   <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
-                  <td class="text-center" rowspan="1" colspan="1">The encrypted serial number, encoded as a hex string.</td>
+                  <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
+                  <td class="text-center" rowspan="1" colspan="1">The encrypted identifier, encoded as a hex string.</td>
                 </tr>
               </tbody>
             </table>
 </div>
-<p id="section-3.12.4.2-3">The encrypted serial number <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.12.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-serial-number-look-up" class="internal xref">Design of encrypted serial number look-up</a> (<a href="#design-of-encrypted-serial-number-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.12.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.2-3">It is <span class="bcp14">REQUIRED</span> that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-identifier-look-up" class="internal xref">Design of encrypted identifier look-up</a> (<a href="#design-of-encrypted-identifier-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.12.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2511,7 +2748,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
           <h4 id="name-alternate-finding-hardware">
 <a href="#section-3.12.5" class="section-number selfRef">3.12.5. </a><a href="#name-alternate-finding-hardware" class="section-name selfRef">Alternate finding hardware</a>
           </h4>
-<p id="section-3.12.5-1">The accessory <span class="bcp14">SHOULD</span> provide alternate means to help find it, e.g. by vibrating or flashing lights, via a platform-compatible method.<a href="#section-3.12.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.5-1">The accessory <span class="bcp14">SHOULD</span> provide alternate means to help find it, e.g. by vibrating or flashing lights, via a platform-compatible method. Future versions of this document will consider support for haptics and lights.<a href="#section-3.12.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommended-finding-options">
@@ -2519,11 +2756,11 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
           <h4 id="name-recommended-finding-options">
 <a href="#section-3.12.6" class="section-number selfRef">3.12.6. </a><a href="#name-recommended-finding-options" class="section-name selfRef">Recommended Finding Options</a>
           </h4>
-<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 18</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 20</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-finding-hardware-"></span><div id="accessory-finding-hw">
-<table class="center" id="table-18">
+<table class="center" id="table-20">
             <caption>
-<a href="#table-18" class="selfRef">Table 18</a>:
+<a href="#table-20" class="selfRef">Table 20</a>:
 <a href="#name-accessory-finding-hardware-" class="selfRef">Accessory Finding Hardware Options</a>
             </caption>
 <thead>
@@ -2574,13 +2811,13 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
         <h3 id="name-disablement">
 <a href="#section-3.13" class="section-number selfRef">3.13. </a><a href="#name-disablement" class="section-name selfRef">Disablement</a>
         </h3>
-<p id="section-3.13-1">The accessory <span class="bcp14">SHALL</span> have a way to disabled such that its future locations cannot be seen by its owner. Disablement <span class="bcp14">SHALL</span> be done via some physical action (e.g., button press, gesture, removal of battery, etc.).<a href="#section-3.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.13-1">The accessory <span class="bcp14">SHALL</span> have a way to be disabled such that its future locations cannot be seen by its owner. Disablement <span class="bcp14">SHALL</span> be done via some physical action (e.g., button press, gesture, removal of battery, etc.).<a href="#section-3.13-1" class="pilcrow">¶</a></p>
 <div id="disablement-instructions">
 <section id="section-3.13.1">
           <h4 id="name-disablement-instructions">
 <a href="#section-3.13.1" class="section-number selfRef">3.13.1. </a><a href="#name-disablement-instructions" class="section-name selfRef">Disablement instructions</a>
           </h4>
-<p id="section-3.13.1-1">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.<a href="#section-3.13.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.13.1-1">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.13.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2613,8 +2850,8 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
 <a href="#section-3.14.3" class="section-number selfRef">3.14.3. </a><a href="#name-identifier-retrieval-over-b" class="section-name selfRef">Identifier retrieval over Bluetooth LE</a>
           </h4>
 <p id="section-3.14.3-1">For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE <span class="bcp14">MUST</span> have a physical mechanism, for example, a button, that <span class="bcp14">SHALL</span> be required to
-enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.14.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.14.3-2">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.<a href="#section-3.14.3-2" class="pilcrow">¶</a></p>
+enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.14.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.14.3-2">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.14.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="identifier-from-server">
@@ -2627,10 +2864,10 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
 </div>
 <div id="identifier-over-nfc">
 <section id="section-3.14.5">
-          <h4 id="name-identifer-over-nfc">
-<a href="#section-3.14.5" class="section-number selfRef">3.14.5. </a><a href="#name-identifer-over-nfc" class="section-name selfRef">Identifer over NFC</a>
+          <h4 id="name-identifier-over-nfc">
+<a href="#section-3.14.5" class="section-number selfRef">3.14.5. </a><a href="#name-identifier-over-nfc" class="section-name selfRef">Identifier over NFC</a>
           </h4>
-<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the encrypted serial number encoded as a hex string. This string <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> which <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the encrypted identifier encoded as a hex string. This string <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> which <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
 <p id="section-3.14.5-2">The encrypted identifier when in associated state <span class="bcp14">SHALL</span> be an argument passed to this URL and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.14.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2647,7 +2884,7 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
           <h4 id="name-obfuscated-owner-informatio">
 <a href="#section-3.15.1" class="section-number selfRef">3.15.1. </a><a href="#name-obfuscated-owner-informatio" class="section-name selfRef">Obfuscated owner information</a>
           </h4>
-<p id="section-3.15.1-1">A limited amount of obfuscated owner information from the owner registry <span class="bcp14">SHALL</span> be made available to the platform along with a <a href="serial-number-retrieval">retrieved identifier</a>. This information <span class="bcp14">SHALL</span> be part of the response of the <a href="serial-number-from-server">identifier retrieval from a server</a> which can be rendered in a platform's HTML view.<a href="#section-3.15.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.15.1-1">A limited amount of obfuscated owner information from the owner registry <span class="bcp14">SHALL</span> be made available to the platform along with a <a href="identifier-retrieval">retrieved identifier</a>. This information <span class="bcp14">SHALL</span> be part of the response of the <a href="identifier-from-server">identifier retrieval from a server</a> which can be rendered in a platform's HTML view.<a href="#section-3.15.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.15.1-2">This <span class="bcp14">MUST</span> include at least one of the following:<a href="#section-3.15.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.15.1-3.1">
@@ -2672,7 +2909,7 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
           <h4 id="name-availability-for-law-enforc">
 <a href="#section-3.15.3" class="section-number selfRef">3.15.3. </a><a href="#name-availability-for-law-enforc" class="section-name selfRef">Availability for law enforcement</a>
           </h4>
-<p id="section-3.15.3-1">The owner registry <span class="bcp14">SHALL</span> be made available to law enforcement upon a valid law enforcement request.<a href="#section-3.15.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.15.3-1">Available ownership registry information <span class="bcp14">SHOULD</span> be produced in response to a valid law enforcement request seeking information related to the misuse of location-tracking accessories provided that the request is submitted pursuant to defined procedures for obtaining such information. Network providers <span class="bcp14">SHOULD</span> define their own procedures for submission of valid legal requests from law enforcement.<a href="#section-3.15.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2685,11 +2922,11 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-accessory-category-value" class="section-name selfRef">Accessory Category Value</a>
       </h2>
 <p id="section-4-1">Accessory manufacturer’s <span class="bcp14">MUST</span> pick an accessory category value that closest resembles their physical product.
-If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 19</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
+If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 21</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-category-values"></span><div id="_table-accessory-category-values">
-<table class="center" id="table-19">
+<table class="center" id="table-21">
         <caption>
-<a href="#table-19" class="selfRef">Table 19</a>:
+<a href="#table-21" class="selfRef">Table 21</a>:
 <a href="#name-accessory-category-values" class="selfRef">Accessory Category Values</a>
         </caption>
 <thead>
@@ -2877,22 +3114,29 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
       <h2 id="name-firmware-updates">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-firmware-updates" class="section-name selfRef">Firmware Updates</a>
       </h2>
-<p id="section-5-1">The accessory <span class="bcp14">SHOULD</span> have firmware that is updatable by the owner.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The accessory <span class="bcp14">SHOULD</span> have a mechanism for the manufacturer to provide firmware updates.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div id="backwards-compatibility">
 <section id="section-5.1">
         <h3 id="name-backwards-compatibility">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-backwards-compatibility" class="section-name selfRef">Backwards Compatibility</a>
         </h3>
-<p id="section-5.1-1">### Existing trackers<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1-2">Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-<div id="advertisement-backwards-compatibility">
+<div id="existing-trackers">
 <section id="section-5.1.1">
-          <h4 id="name-advertisement-backwards-com">
-<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-advertisement-backwards-com" class="section-name selfRef">Advertisement backwards compatibility</a>
+          <h4 id="name-existing-trackers">
+<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-existing-trackers" class="section-name selfRef">Existing trackers</a>
           </h4>
-<p id="section-5.1.1-1">The manufacturer <span class="bcp14">MAY</span> continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID <span class="bcp14">MUST</span> be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by December 1, 2023.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1.1-2">Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-5.1.1-3">Companies who have registered their Network IDs will appear in a table below.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-1">Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="advertisement-backwards-compatibility">
+<section id="section-5.1.2">
+          <h4 id="name-advertisement-backwards-com">
+<a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-advertisement-backwards-com" class="section-name selfRef">Advertisement backwards compatibility</a>
+          </h4>
+<p id="section-5.1.2-1">The manufacturer <span class="bcp14">MAY</span> continue to use the company’s existing service UUID (Legacy ID) as registered in the Bluetooth SIG until November 1, 2024, after which all manufacturers <span class="bcp14">MUST</span> use the unwanted tracking service UUID to be detected for unwanted tracking. Trackers that use the company's Legacy ID <span class="bcp14">MUST</span> be able to have their firmware updated. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-2">If the manufacturer wishes to use their Legacy ID, the Legacy ID <span class="bcp14">MUST</span> be registered with platforms. If a manufacturer is using a Legacy ID, Network ID in <a href="#_table-payload-format" class="auto internal xref">Table 1</a> <span class="bcp14">MAY</span> be omitted.<a href="#section-5.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-3">Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024. Manufacturers who have registered their Network IDs will appear in a table below.<a href="#section-5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-4">If using existing service UUIDs, rather than the unwanted tracking protocol UUID, detection performance might be degraded.<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2917,7 +3161,7 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
           <h4 id="name-implementation-2">
 <a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-implementation-2" class="section-name selfRef">Implementation</a>
           </h4>
-<p id="section-6.1.1-1">Unwanted tracking <span class="bcp14">SHOULD</span> recognize an accessory associated to that owner device by matching the MAC address advertised, as defined in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>, against the one(s) expected during that time.<a href="#section-6.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1.1-1">Unwanted tracking <span class="bcp14">SHOULD</span> recognize an accessory associated to that owner device by matching the MAC address advertised as defined in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>, or some other part of the payload, against the one(s) expected during that time.<a href="#section-6.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="platform-software-extension">
@@ -2926,7 +3170,7 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
 <a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-platform-software-extension" class="section-name selfRef">Platform Software Extension</a>
           </h4>
 <p id="section-6.1.2-1">Platforms <span class="bcp14">SHOULD</span> implement the owned accessory identification capability as a software extension to its unwanted tracking detection.<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.1.2-2">Accessory manufacturers <span class="bcp14">SHALL</span> provide this set of MAC addresses to the platform. This set <span class="bcp14">MUST</span> account for the uncertainty involved with the <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.1.2-2">Accessory manufacturers <span class="bcp14">SHALL</span> provide this set of MAC addresses or matching rules to the platform. This set <span class="bcp14">MUST</span> account for the uncertainty involved with the <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.1.2-3">The Network ID in the advertisement payload, as specified in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>, <span class="bcp14">SHALL</span> be used to associate an accessory detected with the manufacturer's software extension.<a href="#section-6.1.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2956,13 +3200,25 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-onboarding" class="section-name selfRef">Onboarding</a>
       </h2>
 <p id="section-7-1">Accessory manufacturers <span class="bcp14">MUST</span> follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">During onboarding, a product data registry will be created that includes information such as:
-* Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.
-* Disablement Instructions: information on how a user can disable the tracker.
-* Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
-* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly serial number.
-* Product Name: a string representing the accessory make and model associated with the Product Data string.<a href="#section-7-2" class="pilcrow">¶</a></p>
-<p id="section-7-3">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-2">During onboarding, a product data registry will be created that includes information such as:<a href="#section-7-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7-3.1">
+          <p id="section-7-3.1.1">Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.<a href="#section-7-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-3.2">
+          <p id="section-7-3.2.1">Disablement Instructions: information on how a user can disable the tracker.<a href="#section-7-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-3.3">
+          <p id="section-7-3.3.1">Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.<a href="#section-7-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-3.4">
+          <p id="section-7-3.4.1">Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.<a href="#section-7-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-3.5">
+          <p id="section-7-3.5.1">Product Name: a string representing the accessory make and model associated with the Product Data string.<a href="#section-7-3.5.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-7-4">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <div id="network-providers">
 <section id="section-7.1">
         <h3 id="name-network-providers">
@@ -2983,17 +3239,17 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
         <h3 id="name-obfuscated-owner-information">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-obfuscated-owner-information" class="section-name selfRef">Obfuscated owner information look-up</a>
         </h3>
-<p id="section-8.1-1">Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying a serial number may be one method to allow for partial user information look up.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, serial number (if used) and obfuscated owner information <span class="bcp14">SHOULD NOT</span> be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps <span class="bcp14">SHOULD</span> be employed.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
-<p id="section-8.1-3">The obfuscated owner information and serial number look-up <span class="bcp14">SHALL</span> only be available in separated mode for an associated accessory.
-When requested through any long range wireless interface like Bluetooth, a user action <span class="bcp14">MUST</span> be required for the requesting device to access the obfuscated owner information and serial number. Over NFC, it <span class="bcp14">MAY</span> be acceptable to consider the close proximity as intent for this flow.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
-<p id="section-8.1-4">To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory <span class="bcp14">MUST</span> only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory <span class="bcp14">SHOULD</span> be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.<a href="#section-8.1-4" class="pilcrow">¶</a></p>
-<div id="design-of-encrypted-serial-number-look-up">
+<p id="section-8.1-1">Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying an identifier (or serial number) may be one method to allow for partial user information look up.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1-2">However, the identifier is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, identifier (if used) and obfuscated owner information <span class="bcp14">SHOULD NOT</span> be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps <span class="bcp14">SHOULD</span> be employed.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
+<p id="section-8.1-3">The obfuscated owner information and identifier look-up <span class="bcp14">SHALL</span> only be available in separated mode for an associated accessory.
+When requested through any long range wireless interface like Bluetooth, a user action <span class="bcp14">MUST</span> be required for the requesting device to access the obfuscated owner information and identifier. Over NFC, it <span class="bcp14">MAY</span> be acceptable to consider the close proximity as intent for this flow.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
+<p id="section-8.1-4">To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory <span class="bcp14">MUST</span> only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the identifier. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory <span class="bcp14">SHOULD</span> be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.<a href="#section-8.1-4" class="pilcrow">¶</a></p>
+<div id="design-of-encrypted-identifier-look-up">
 <section id="section-8.1.1">
-          <h4 id="name-design-of-encrypted-serial-">
-<a href="#section-8.1.1" class="section-number selfRef">8.1.1. </a><a href="#name-design-of-encrypted-serial-" class="section-name selfRef">Design of encrypted serial number look-up</a>
+          <h4 id="name-design-of-encrypted-identif">
+<a href="#section-8.1.1" class="section-number selfRef">8.1.1. </a><a href="#name-design-of-encrypted-identif" class="section-name selfRef">Design of encrypted identifier look-up</a>
           </h4>
-<p id="section-8.1.1-1">One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the serial number, a monotonic counter or one time token and a signature covering both the serial number and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which <span class="bcp14">MAY</span> be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata <span class="bcp14">MAY</span> be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.<a href="#section-8.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1.1-1">One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the identifier, a monotonic counter or one time token and a signature covering both the identifier and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which <span class="bcp14">MAY</span> be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata <span class="bcp14">MAY</span> be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.<a href="#section-8.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3016,15 +3272,15 @@ provides the potential victim with some level of information on the owner, while
 where they have separated from those accessories.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="serial-number-look-up">
+<div id="identifier-look-up">
 <section id="section-9.2">
-        <h3 id="name-serial-number-look-up">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-serial-number-look-up" class="section-name selfRef">Serial number look-up</a>
+        <h3 id="name-identifier-look-up">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-identifier-look-up" class="section-name selfRef">Identifier look-up</a>
         </h3>
-<p id="section-9.2-1">A serial number both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
-While retrieval of the serial number over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
-The procedure required for serial number look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
-potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the serial number retrieval.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-1">An identifier both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
+While retrieval of the identifier over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
+The procedure required for identifier look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
+potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the identifier retrieval.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="location-enabled-payload">
@@ -3060,8 +3316,8 @@ on the whereabouts of an accessory.<a href="#section-9.3.1-1" class="pilcrow">¶
       <h2 id="name-iana-considerations">
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-10-1">IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer Network ID" and "Product Data" registries described below.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-10-1">Eventually an IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
+This group includes the "Manufacturer Network ID" registry.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <div id="manufacturer-protocol-registry">
 <section id="section-10.1">
         <h3 id="name-manufacturer-network-id-reg">
@@ -3082,11 +3338,11 @@ This group includes the "Manufacturer Network ID" and "Product Data" registries 
           <h4 id="name-temporary-registry">
 <a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-temporary-registry" class="section-name selfRef">Temporary Registry</a>
           </h4>
-<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-manufacturer-registry" class="auto internal xref">Table 20</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-manufacturer-registry" class="auto internal xref">Table 22</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
 <span id="name-manufacturer-registry"></span><div id="_table-temp-manufacturer-registry">
-<table class="center" id="table-20">
+<table class="center" id="table-22">
             <caption>
-<a href="#table-20" class="selfRef">Table 20</a>:
+<a href="#table-22" class="selfRef">Table 22</a>:
 <a href="#name-manufacturer-registry" class="selfRef">Manufacturer Registry</a>
             </caption>
 <thead>
@@ -3107,6 +3363,10 @@ This group includes the "Manufacturer Network ID" and "Product Data" registries 
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">0x02</td>
                 <td class="text-center" rowspan="1" colspan="1">Google LLC</td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">0xFF</td>
+                <td class="text-center" rowspan="1" colspan="1">Reserved</td>
               </tr>
             </tbody>
           </table>
