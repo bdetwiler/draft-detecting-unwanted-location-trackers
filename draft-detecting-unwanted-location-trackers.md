@@ -780,7 +780,7 @@ An entry in this registry contains the following fields:
 * Network ID: a 1-byte value specifying the Network ID associated with the Manufacturer Name
 
 ### Temporary Registry
-Until this an IANA registry is available, the values in this registry are listed in {{table-temp-manufacturer-registry}}.
+Until this an IANA registry is available, the values in this registry are listed in {{table-temp-network-id-registry}}.
 
 |  Network ID | Manufacturer    |
 |:------------:|:---------------:|
@@ -788,7 +788,7 @@ Until this an IANA registry is available, the values in this registry are listed
 |  0x01        | Apple  Inc.     |
 |  0x02        | Google LLC      |
 |  0xFF        | Reserved        |
-{: #table-temp-manufacturer-registry title="Manufacturer Registry"}
+{: #table-temp-network-id-registry title="Network ID Registry"}
 
 
 --- back
