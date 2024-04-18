@@ -534,7 +534,7 @@ When the accessory is in this mode, it MUST respond with Get_Identifier_Response
 
 | Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
 |:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
-| Identifier Payload     | UTF-8     | defined by accessory | defined by accessory |  The encrypted identifier, encoded as a hex string.           |
+| Identifier Payload     | Uint8     | defined by accessory | defined by accessory |  The encrypted identifier as an array of bytes.           |
 {: #table-id-payload-over-bt title="Identifier Payload Over Bluetooth"}
 
 It is REQUIRED that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.
