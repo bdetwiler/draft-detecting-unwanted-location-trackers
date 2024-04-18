@@ -547,7 +547,7 @@ If the accessory is not in identifier read state, it MUST send [Command_Response
 The accessory SHOULD provide alternate means to help find it, e.g. by vibrating or flashing lights, via a platform-compatible method. Future versions of this document will consider support for haptics and lights.
 
 ### Recommended Finding Options
-{{accessory-finding-hw}} lists two RECOMMENDED options on the set of technology in an accessory to make it findable.
+{{accessory-finding-hw}} lists two RECOMMENDED options on the set of technology in an accessory to make it findable. Given that a sound maker is REQUIRED, the accessory maker SHALL at very least implement Option A.
 
 
 |                      | Option A |  Option B |
