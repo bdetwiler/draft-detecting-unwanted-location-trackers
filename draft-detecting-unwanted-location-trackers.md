@@ -482,23 +482,23 @@ These controls allow a non-owner to locate the accessory by playing a sound as w
 These 2-byte opcodes are defined in {{table-non-owner-controls-opcodes}}.
 
 
-|           Opcode           | Opcode  value   |           Operands                               | GATT subprocedure           |
-|:--------------------------:|:---------------:|:------------------------------------------------:|:---------------------------:|
-| Sound_Start                | 0x0300          | None                                             | Write; To accessory         |
-| Sound_Stop                 | 0x0301          | None                                             | Write; To accessory         |
-| Command_Response           | 0x0302          | [Command Response](#command-response)            | Indications; From accessory |
-| Sound_Completed            | 0x0303          | None                                             | Indications; From accessory |
-| Get_Identifier             | 0x0404          | None                                             | Write; To accessory         |
-| Get_Identifier_Response    | 0x0405          | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
-|      RESERVED              | 0x0304 - 0x035F |                                                  |                             |
-|      RESERVED (Response)   | 0x0405 - 0x045F |                                                  |                             |
+|           Opcode           | Opcode  value   |           Operands                               | GATT subprocedure           | Requirement |
+|:--------------------------:|:---------------:|:------------------------------------------------:|:---------------------------:|:-----------:|
+| Sound_Start                | 0x0300          | None                                             | Write; To accessory         |  REQUIRED   |
+| Sound_Stop                 | 0x0301          | None                                             | Write; To accessory         |  REQUIRED   |
+| Command_Response           | 0x0302          | [Command Response](#command-response)            | Indications; From accessory |  REQUIRED   |
+| Sound_Completed            | 0x0303          | None                                             | Indications; From accessory |  REQUIRED   |
+| Get_Identifier             | 0x0404          | None                                             | Write; To accessory         |  OPTIONAL   |
+| Get_Identifier_Response    | 0x0405          | [Identifier Payload](#identifier-payload)        | Indications; From accessory |  OPTIONAL   |
+|      RESERVED              | 0x0304 - 0x035F |                                                  |                             |             |
+|      RESERVED (Response)   | 0x0405 - 0x045F |                                                  |                             |             |
 {: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
 Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
 
 In all other states, the accessory SHALL return the Invalid_command error as the ResponseStatus in Command_Response.
 
-Get_Identifier SHALL only be available when in identifier read state; otherwise, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus.
+If [Identifer Retrieval over Bluetooth LE](#identifier-retrieval-over-bluetooth-le) is supported, Get_Identifier SHALL only be available when in identifier read state; otherwise, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus.
 
 The identifier read state is discussed further in [Identifier Payload](#identifier-payload).
 
