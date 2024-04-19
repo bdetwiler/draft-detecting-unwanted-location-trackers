@@ -368,10 +368,10 @@ The Accessory Capabilities operand enumerates the various capabilities supported
 
 | Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
 |:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
-| Accessory Capabilities | Uint32    | 1     |     4              | Bit 0 : Supports play sound (REQUIRED) <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE |
+| Accessory Capabilities | Uint32    | 1     |     4              | Bit 0 : Supports play sound (REQUIRED) <br/> Bit 1 : Supports motion detector UT <br/> Bit 2 : Supports identifier lookup by NFC <br/> Bit 3 : Supports identifier lookup by BLE <br/> Bit 4-8 : Reserved for private use <br/> Bit 9-31 : Reserved |
 {: #table-accessory-capability title="Accessory Capabilities Operand"}
 
-For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 1011 in binary and 11 as Uint32.
+For example, an accessory supporting play sound, motion detector UT, and identifier look-up over BT will have the value set as 0b1011 in binary and 11 as Uint32.
 
 #### Network ID
 The Network ID operand contains the Network ID for the accessory. This is the same information that's in the BT advertisement header in {{table-payload-format}}.
@@ -483,15 +483,22 @@ These 2-byte opcodes are defined in {{table-non-owner-controls-opcodes}}.
 
 
 |           Opcode           | Opcode  value   |           Operands                               | GATT subprocedure           | Requirement |
-|:--------------------------:|:---------------:|:------------------------------------------------:|:---------------------------:|:-----------:|
-| Sound_Start                | 0x0300          | None                                             | Write; To accessory         |  REQUIRED   |
-| Sound_Stop                 | 0x0301          | None                                             | Write; To accessory         |  REQUIRED   |
-| Command_Response           | 0x0302          | [Command Response](#command-response)            | Indications; From accessory |  REQUIRED   |
-| Sound_Completed            | 0x0303          | None                                             | Indications; From accessory |  REQUIRED   |
-| Get_Identifier             | 0x0404          | None                                             | Write; To accessory         |  OPTIONAL   |
-| Get_Identifier_Response    | 0x0405          | [Identifier Payload](#identifier-payload)        | Indications; From accessory |  OPTIONAL   |
-|      RESERVED              | 0x0304 - 0x035F |                                                  |                             |             |
-|      RESERVED (Response)   | 0x0405 - 0x045F |                                                  |                             |             |
+|:-------------------------------------:|:---------------:|:------------------------------------------------:|:---------------------------:|:-----------:|
+| Sound_Start                          | 0x0300          | None                                             | Write; To accessory         |  REQUIRED   |
+| Sound_Stop                           | 0x0301          | None                                             | Write; To accessory         |  REQUIRED   |
+| Command_Response                     | 0x0302          | [Command Response](#command-response)            | Indications; From accessory |  REQUIRED   |
+| Sound_Completed                      | 0x0303          | None                                             | Indications; From accessory |  REQUIRED   |
+| Get_Identifier                       | 0x0404          | None                                             | Write; To accessory         |  OPTIONAL   |
+| Get_Identifier_Response              | 0x0405          | [Identifier Payload](#identifier-payload)        | Indications; From accessory |  OPTIONAL   |
+| RESERVED for private use             | 0x0304          |                                                  |                             |             |
+| RESERVED                             | 0x0305 - 0x0319 |                                                  |                             |             |
+| RESERVED for private use             | 0x031A          |                                                  |                             |             |
+| RESERVED                             | 0x031B - 0x031F |                                                  |                             |             |
+| RESERVED for private use             | 0x0320 - 0x033F |                                                  |                             |             |
+| RESERVED                             | 0x0340 - 0x035F |                                                  |                             |             |
+| RESERVED (Response)                  | 0x0406 - 0x041F |                                                  |                             |             |
+| RESERVED for private use (Response)  | 0x0420 - 0x043F |                                                  |                             |             |
+| RESERVED (Response)                  | 0x0440 - 0x045F |                                                  |                             |             |
 {: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
 Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
