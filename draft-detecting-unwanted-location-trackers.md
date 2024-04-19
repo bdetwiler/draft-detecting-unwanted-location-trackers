@@ -319,6 +319,11 @@ The Manufacturer Name operand contains the name of the company whose brand will 
 | Manufacturer Name | UTF-8     | 64<br/>(maximum)  |  64<br/>(maximum)  | Manufacturer name                |
 {: title="Manufacturer Name Operand" }
 
+When the Manufacturer Name is less than 64 bytes, it SHALL be formatted either as:
+* a string value with length less than 64 bytes
+* a string value that is both zero-terminated and zero-padded up to 64 bytes
+
+
 #### Model name
 The Model Name operand contains the manufacturer specific model of the accessory.
 
@@ -327,6 +332,11 @@ The Model Name operand contains the manufacturer specific model of the accessory
 |:-----------------:|:---------:|:-----------------:|:------------------:|:---------------:|
 | Model Name        | UTF-8     | 64<br/>(maximum)  |  64<br/>(maximum)  | Model name      |
 {: title="Model Name Operand" }
+
+When the Model Name is less than 64 bytes, it SHALL be formatted either as:
+* a string value with length less than 64 bytes
+* a string value that is both zero-terminated and zero-padded up to 64 bytes
+
 
 #### Accessory category
 The Accessory Category operand describes the category the accessory most closely resembles.
