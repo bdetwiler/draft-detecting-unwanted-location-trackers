@@ -405,7 +405,7 @@ The Battery type operand describes the battery type used in the accessory.
 
 | Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
 |:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
-| Battery Type           | Uint8     | 1     |     1              | 0 = Powered<br/> 1 = Non-rechargeable battery<br/> 2 = Rechargeable battery  |
+| Battery Type           | Uint8     | 1     |     1              | 0x00 : Powered<br/> 0x01 : Non-rechargeable battery<br/> 0x02 : Rechargeable battery<br/> 0x03-0xFF : Reserved  |
 {: title="Battery Type Operand" }
 
 #### Battery level
