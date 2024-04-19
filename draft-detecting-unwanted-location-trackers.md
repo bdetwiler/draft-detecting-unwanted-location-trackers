@@ -223,7 +223,7 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
 The Service data TLV with a 2-byte UUID value of 0xFCB2 provides a way for platforms to easily scan for and detect the location-enabled Bluetooth advertisement.
 
 ## Network ID
-The 1-byte Network ID SHALL be set based on a registered value for the manufacturer, as defined in [Manufacturer Network ID Registry](#manufacturer-protocol-registry).
+The 1-byte Network ID SHALL be set based on a registered value for the manufacturer, as defined in [Finding Network Registry](#finding-network-registry).
 
 
 ## Near-owner bit
@@ -716,7 +716,7 @@ The platform MUST delete any local identifying information associated with an ac
 
 # Onboarding
 
-Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Manufacturer network ID Registry](#manufacturer-protocol-registry).
+Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Finding Network Registry](#finding-network-registry).
 
 During onboarding, a product data registry will be created that includes information such as:
 
@@ -777,28 +777,29 @@ Accessory manufacturers SHOULD evaluate the contents of the proprietary company 
 
 # IANA Considerations
 Eventually an IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer Network ID" registry.
+This group includes the "Finding Network ID" registry.
 
 
-## Manufacturer Network ID Registry {#manufacturer-protocol-registry}
+## Finding Network Registry
 
 New entries are assigned only for values that have received Expert Review, per {{Section 4.5 of !RFC8126}}.
 
 An entry in this registry contains the following fields:
 
-* Manufacturer Name: the name of an organization that is producing a location-tracker accessory
-* Network ID: a 1-byte value specifying the Network ID associated with the Manufacturer Name
+* Network ID: a 1-byte value specifying the Network ID associated with the Network Provider
+* Network Provider: the name of the organization that is facilitating the locations for location-tracker accessories
+
 
 ### Temporary Registry
-Until this an IANA registry is available, the values in this registry are listed in {{table-temp-network-id-registry}}.
+Until this an IANA registry is available, the values in this registry are listed in {{table-temp-network-registry}}.
 
-|  Network ID | Manufacturer    |
+|  Network ID | Network Provider |
 |:------------:|:---------------:|
 |  0x00        | Reserved        |
 |  0x01        | Apple  Inc.     |
 |  0x02        | Google LLC      |
 |  0xFF        | Reserved        |
-{: #table-temp-network-id-registry title="Network ID Registry"}
+{: #table-temp-network-registry title="Finding Network Registry"}
 
 
 --- back
