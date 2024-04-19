@@ -423,7 +423,7 @@ The Battery level operand indicates the current battery level.
 
 | Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
 |:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
-| Battery Level          | Uint8     | 1     |    1               | 0 = Full<br/> 1 = Medium<br/> 2 = Low<br/>3 = Critically low  |
+| Battery Level          | Uint8     | 1     |    1               | 0x00 : Full<br/> 0x01 : Medium<br/> 0x02 : Low<br/> 0x03 : Critically low<br/> 0x04-0xFF : Reserved  |
 {: title="Battery Level Operand" }
 
 
