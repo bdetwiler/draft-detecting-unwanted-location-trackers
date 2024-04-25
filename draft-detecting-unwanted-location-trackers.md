@@ -588,9 +588,8 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
 ### Identifier over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the whole URL with arguments as the payload over NFC. The payload SHALL look like the one shown below.
-
-Identifier Retrieval URL: https://<URL>?pid=%04x&b=%02x&fv=%08x&e=%s
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the whole URL with arguments as the payload over NFC. The payload SHALL look like the URL shown below.
+"https://<URL>?pid=%04x&b=%02x&fv=%08x&e=%s"
 
 |  URL argument | URL Argument Type | Notes                          | Reference                                |
 |:-------------:|:-----------------:|:------------------------------:|:----------------------------------------:|
