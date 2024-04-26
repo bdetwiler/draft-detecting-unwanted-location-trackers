@@ -600,10 +600,11 @@ For those accessories that support identifier retrieval over NFC, an associated 
 | pid           | hex string        | Product Data (Required)        | [Product Data](#product-data)            |
 {: #table-temp-identifier-lookup-url-arguments title="Identifier Lookup URL-arguments"}
 
-One approach to exchange the URL of the accessory network-service-provider with the accessory, is when the accessory owner associates the accessory to a network-service-provider.
+The URL SHALL be hosted by the network provider. The URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+One approach to exchange the URL with the accessory, is when the accessory owner associates the accessory to a network provider.
 When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string SHALL be an argument("e") passed to the identifier retrieval URL.
 When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.
-The URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+
 
 ## Owner registry
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
