@@ -256,32 +256,32 @@ In other words, all opcode response data must fit within a single write operatio
 The following accessory information MUST be persistent through the lifetime of the accessory: [Product data](#product-data), [Manufacturer name](#manufacturer-name), [Model name](#model-name), [Accessory category](#accessory-category), [Accessory capabilities](#accessory-capabilities), [Network ID](#network-id), and [Battery Type](#battery-type).
 
 ### Opcodes
-The opcodes for accessory information are defined in {{accessory-information-opcodes}}.
+The 2-byte opcodes for accessory information are defined in {{accessory-information-opcodes}}.
 
 |             Opcode                    | Opcode value |        Operands                                   |     GATT subprocedure       | Requirement |
 |:--------------------------------------|------------:|:-------------------------------------------------:|:--------------------------: | :---------: |
-|           Get_Product_Data            | 0x003        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|      Get_Product_Data_<br/>Response   | 0x803        |      [Product Data](#product-data)                | Indications; From Accessory | REQUIRED    |
-|   Get_Manufacturer_<br/>Name          | 0x004        |          None                                     |    Write; To Accessory      | REQUIRED    |
-| Get_Manufacturer_<br/>Name_Response   | 0x804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory | REQUIRED    |
-|            Get_Model_Name             | 0x005        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|       Get_Model_Name_<br/>Response    | 0x805        |       [Model Name](#model-name)                   | Indications; From Accessory | REQUIRED    |
-|        Get_Accessory_<br/>Category    | 0x006        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|   Get_Accessory_<br/>Category_Response| 0x806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
-| Get_Protocol_<br/>Implementation_Version | 0x007     |          None                                     |    Write; To Accessory      | REQUIRED    |
-| Get_Protocol_<br/>Implementation_Version_<br/>Response | 0x807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
-| Get_Accessory_<br/>Capabilities       | 0x008        |           None                                    |    Write; To Accessory      | REQUIRED    |
-| Get_Accessory_<br/>Capabilities_Response | 0x808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
-|           Get_Network_ID              | 0x009        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|       Get_Network_ID_<br/>Response    | 0x809        |        [Network ID](#network-id)                  | Indications; From Accessory | REQUIRED    |
-|         Get_Firmware_Version          | 0x00A        |          None                                     |    Write; To Accessory      | REQUIRED    |
-|     Get_Firmware_Version_<br/>Response| 0x80A        | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
-|           Get_Battery_Type            | 0x00B        |          None                                     |    Write; To Accessory      | OPTIONAL    |
-|      Get_Battery_Type_<br/>Response   | 0x80B        |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
-|           Get_Battery_Level           | 0x00C        |          None                                     |    Write; To Accessory      | OPTIONAL    |
-|      Get_Battery_Level_<br/>Response  | 0x80C        |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
-|      RESERVED                         | 0x00D - 0x05F|                                                   |                             |             |
-|      RESERVED (Response)              | 0x80D - 0x85F|                                                   |                             |             |
+|           Get_Product_Data            | 0x0003        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|      Get_Product_Data_<br/>Response   | 0x0803        |      [Product Data](#product-data)                | Indications; From Accessory | REQUIRED    |
+|   Get_Manufacturer_<br/>Name          | 0x0004        |          None                                     |    Write; To Accessory      | REQUIRED    |
+| Get_Manufacturer_<br/>Name_Response   | 0x0804        |    [Manufacturer Name](#manufacturer-name)        | Indications; From Accessory | REQUIRED    |
+|            Get_Model_Name             | 0x0005        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|       Get_Model_Name_<br/>Response    | 0x0805        |       [Model Name](#model-name)                   | Indications; From Accessory | REQUIRED    |
+|        Get_Accessory_<br/>Category    | 0x0006        |          None                                     |    Write; To Accessory      | REQUIRED    |
+|   Get_Accessory_<br/>Category_Response| 0x0806        |   [Accessory Category](#accessory-category)       | Indications; From Accessory | REQUIRED    |
+| Get_Protocol_<br/>Implementation_Version | 0x0007     |          None                                     |    Write; To Accessory      | REQUIRED    |
+| Get_Protocol_<br/>Implementation_Version_<br/>Response | 0x0807 | [Protocol Implementation Version](#protocol-implementation-version)           | Indications; From Accessory | REQUIRED    |
+| Get_Accessory_<br/>Capabilities       | 0x0008         |           None                                    |    Write; To Accessory      | REQUIRED    |
+| Get_Accessory_<br/>Capabilities_Response | 0x0808        | [Accessory Capabilities](#accessory-capabilities) | Indications; From Accessory | REQUIRED    |
+|           Get_Network_ID              | 0x0009         |          None                                     |    Write; To Accessory      | REQUIRED    |
+|       Get_Network_ID_<br/>Response    | 0x0809         |        [Network ID](#network-id)                  | Indications; From Accessory | REQUIRED    |
+|         Get_Firmware_Version          | 0x000A         |          None                                     |    Write; To Accessory      | REQUIRED    |
+|     Get_Firmware_Version_<br/>Response| 0x080A         | [Firmware version](#firmware-version)             | Indications; From Accessory | REQUIRED    |
+|           Get_Battery_Type            | 0x000B         |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Type_<br/>Response   | 0x080B         |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
+|           Get_Battery_Level           | 0x000C         |          None                                     |    Write; To Accessory      | OPTIONAL    |
+|      Get_Battery_Level_<br/>Response  | 0x080C         |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
+|      RESERVED                         | 0x000D - 0x005F|                                                   |                             |             |
+|      RESERVED (Response)              | 0x080D - 0x085F|                                                   |                             |             |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 These opcodes SHALL be available when the accessory is in separated state.
@@ -479,19 +479,19 @@ Non-owner controls SHALL use the same service and characteristic UUIDs as define
 
 These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.
 
-These opcodes are defined in {{table-non-owner-controls-opcodes}}.
+These 2-byte opcodes are defined in {{table-non-owner-controls-opcodes}}.
 
 
-|           Opcode           | Opcode  value |           Operands                               | GATT subprocedure           |
-|:--------------------------:|:-------------:|:------------------------------------------------:|:---------------------------:|
-| Sound_Start                | 0x300         | None                                             | Write; To accessory         |
-| Sound_Stop                 | 0x301         | None                                             | Write; To accessory         |
-| Command_Response           | 0x302         | [Command Response](#command-response)            | Indications; From accessory |
-| Sound_Completed            | 0x303         | None                                             | Indications; From accessory |
-| Get_Identifier             | 0x404         | None                                             | Write; To accessory         |
-| Get_Identifier_Response    | 0x405         | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
-|      RESERVED              | 0x304 - 0x35F |                                                  |                             |
-|      RESERVED (Response)   | 0x405 - 0x45F |                                                  |                             |
+|           Opcode           | Opcode  value   |           Operands                               | GATT subprocedure           |
+|:--------------------------:|:---------------:|:------------------------------------------------:|:---------------------------:|
+| Sound_Start                | 0x0300          | None                                             | Write; To accessory         |
+| Sound_Stop                 | 0x0301          | None                                             | Write; To accessory         |
+| Command_Response           | 0x0302          | [Command Response](#command-response)            | Indications; From accessory |
+| Sound_Completed            | 0x0303          | None                                             | Indications; From accessory |
+| Get_Identifier             | 0x0404          | None                                             | Write; To accessory         |
+| Get_Identifier_Response    | 0x0405          | [Identifier Payload](#identifier-payload)        | Indications; From accessory |
+|      RESERVED              | 0x0304 - 0x035F |                                                  |                             |
+|      RESERVED (Response)   | 0x0405 - 0x045F |                                                  |                             |
 {: #table-non-owner-controls-opcodes title="Non-Owner Controls Opcodes"}
 
 Sound_Start and Sound_Stop SHALL only be available to the platform when the accessory is in the separated state.
