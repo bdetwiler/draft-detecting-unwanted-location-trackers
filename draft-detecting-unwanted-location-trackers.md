@@ -529,7 +529,7 @@ There are 2 components of the command response operands: CommandOpCode and Respo
 | Operand name   | Data type | Count | Total Size (Bytes) | Description                                          |
 |:---------------|----------:|:-----:|:------------------:|:----------------------------------------------------:|
 | CommandOpCode  | Uint16    | 1     |         2          | The control procedure matching this response                                                                                       |
-| ResponseStatus | Uint16    | 1     |         2          | 0x0000 Success<br/>0x0001 Invalid_state<br/>0x0002 Invalid_configuration<br/>0x0003 Invalid_length<br/>0x0004 Invalid_param<br/>0xFFFF Invalid_command |
+| ResponseStatus | Uint16    | 1     |         2          | 0x0000 : Success<br/>0x0001 : Invalid_state<br/>0x0002 : Invalid_configuration<br/>0x0003 : Invalid_length<br/>0x0004 : Invalid_param<br/> 0x0005-0xFFFE : Reserved<br/> 0xFFFF : Invalid_command |
 {: title="Command Response Operands"}
 
 
