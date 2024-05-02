@@ -589,7 +589,7 @@ For security reasons, the identifier payload returned from an accessory in the p
 
 ### Identifier over NFC {#identifier-over-nfc}
 For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the whole URL with arguments as the payload over NFC. The payload SHALL look like the URL shown below.
-"https://<URL>?pid=%04x&b=%02x&fv=%08x&e=%s"
+"https://{URL}?pid=%04x&b=%02x&fv=%08x&e=%s"
 
 |  URL argument | URL Argument Type | Notes                          | Reference                                |
 |:-------------:|:-----------------:|:------------------------------:|:----------------------------------------:|
@@ -602,7 +602,7 @@ For those accessories that support identifier retrieval over NFC, an associated 
 
 The URL SHALL be hosted by the network provider. The URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 One approach to exchange the URL with the accessory, is when the accessory owner associates the accessory to a network provider.
-When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string SHALL be an argument("e") passed to the identifier retrieval URL.
+When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string SHALL be an argument ("e") passed to the identifier retrieval URL.
 When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.
 
 
