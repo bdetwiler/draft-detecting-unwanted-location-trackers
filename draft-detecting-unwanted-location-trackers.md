@@ -718,7 +718,7 @@ The platform MUST delete any local identifying information associated with an ac
 
 Accessory manufacturers MUST follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the [Manufacturer network ID Registry](#manufacturer-protocol-registry).
 
-During onboarding, a product data registry will be created that includes information such as:
+During onboarding, a product data registry SHALL be created and maintained by the network provider for all accessory manufacturers participating in their network. Accessory manufacturers will work with the network providers they participate in, to provide information such as:
 
 - Product Data: an 8-byte string representing a unique identifier for a product. See [Product Data](#product-data).
 - Disablement Instructions: information on how a user can disable the tracker.
