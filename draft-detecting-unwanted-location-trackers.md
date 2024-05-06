@@ -598,9 +598,23 @@ The accessory manufacturer SHALL provide both a text description of how to enabl
 For security reasons, the identifier payload returned from an accessory in the paired state SHALL be encrypted.
 
 ### Identifier over NFC {#identifier-over-nfc}
-For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the encrypted identifier encoded as a hex string. This string SHALL be an argument passed to the URL defined in the [Product data registry](product-data-registry) which SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+For those accessories that support identifier retrieval over NFC, an associated accessory SHALL advertise the whole URL with arguments as the payload over NFC. The payload SHALL look like the URL shown below.
+"https://{URL}?pid=%04x&b=%02x&fv=%08x&e=%s"
 
-The encrypted identifier when in associated state SHALL be an argument passed to this URL and it is REQUIRED that any metadata passed be non-identifiable.
+|  URL argument | URL Argument Type | Notes                          | Reference                                |
+|:-------------:|:-----------------:|:------------------------------:|:----------------------------------------:|
+| b             | hex string        | Battery Level  (Optional)      | [Battery Level](#battery-level)          |
+| bt            | hex string        | BT Mac address (Optional)      | [MAC address](#mac-address)              |
+| fv            | hex string        | Firmware version (Optional)    | [Firmware version](#firmware-version)    |
+| e             | hex string        | Encrypted Identifier (Required)| [Identifier Payload](#identifier-payload)|
+| pid           | hex string        | Product Data (Required)        | [Product Data](#product-data)            |
+{: #table-temp-identifier-lookup-url-arguments title="Identifier Lookup URL-arguments"}
+
+The URL SHALL be hosted by the network provider. The URL SHALL decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+One approach to exchange the URL with the accessory, is when the accessory owner associates the accessory to a network provider.
+When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string SHALL be an argument ("e") passed to the identifier retrieval URL.
+When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.
+
 
 ## Owner registry
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
