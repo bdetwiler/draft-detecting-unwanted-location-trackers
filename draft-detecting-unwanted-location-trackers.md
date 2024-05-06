@@ -280,8 +280,10 @@ The 2-byte opcodes for accessory information are defined in {{accessory-informat
 |      Get_Battery_Type_<br/>Response   | 0x080B         |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
 |           Get_Battery_Level           | 0x000C         |          None                                     |    Write; To Accessory      | OPTIONAL    |
 |      Get_Battery_Level_<br/>Response  | 0x080C         |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
-|      RESERVED                         | 0x000D - 0x005F|                                                   |                             |             |
-|      RESERVED (Response)              | 0x080D - 0x085F|                                                   |                             |             |
+|     Apple RESERVED                    | 0x000D         |                                                   |                             |             |
+|     Apple RESERVED  (Response)        | 0x080D         |                                                   |                             |             |
+|      RESERVED                         | 0x000E - 0x005F|                                                   |                             |             |
+|      RESERVED (Response)              | 0x080E - 0x085F|                                                   |                             |             |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
 
 These opcodes SHALL be available when the accessory is in separated state.
