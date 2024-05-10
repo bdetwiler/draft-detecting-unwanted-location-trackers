@@ -1033,7 +1033,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 7 November 2024</td>
+<td class="center">Expires 11 November 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-05-06" class="published">6 May 2024</time>
+<time datetime="2024-05-10" class="published">10 May 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-11-07">7 November 2024</time></dd>
+<dd class="expires"><time datetime="2024-11-11">11 November 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2040,18 +2040,24 @@ In other words, all opcode response data must fit within a single write operatio
 </td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Apple RESERVED</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Network_Version</td>
                 <td class="text-right" rowspan="1" colspan="1">0x000D</td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1">None</td>
+                <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Apple RESERVED  (Response)</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Network_Version_<br>Response</td>
                 <td class="text-right" rowspan="1" colspan="1">0x080D</td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#network-version" class="internal xref">Network Version</a> (<a href="#network-version" class="auto internal xref">Section 3.11.1.11</a>)</span>
+</td>
+                <td class="text-center" rowspan="1" colspan="1">Indications; From Accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">RESERVED</td>
@@ -2466,6 +2472,72 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
             </table>
 </section>
 </div>
+<div id="network-version">
+<section id="section-3.11.1.11">
+            <h5 id="name-network-version">
+<a href="#section-3.11.1.11" class="section-number selfRef">3.11.1.11. </a><a href="#name-network-version" class="section-name selfRef">Network version</a>
+            </h5>
+<p id="section-3.11.1.11-1">The Network Version describes the network specification the accessory complies with for the network specified by <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>.
+The network revision string <span class="bcp14">SHALL</span> use the x[.y[.z]] format where :<a href="#section-3.11.1.11-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.11.1.11-2.1">
+                <p id="section-3.11.1.11-2.1.1">&lt;x&gt; is the major version number, required.<a href="#section-3.11.1.11-2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-2.2">
+                <p id="section-3.11.1.11-2.2.1">&lt;y&gt; is the minor version number, required if it is non zero or if &lt;z&gt; is present.<a href="#section-3.11.1.11-2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-2.3">
+                <p id="section-3.11.1.11-2.3.1">&lt;z&gt; is the revision version number, required if non zero.<a href="#section-3.11.1.11-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-3.11.1.11-3">The network revision <span class="bcp14">MUST</span> follow these rules:<a href="#section-3.11.1.11-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.11.1.11-4.1">
+                <p id="section-3.11.1.11-4.1.1">&lt;x&gt; is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.<a href="#section-3.11.1.11-4.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-4.2">
+                <p id="section-3.11.1.11-4.2.1">&lt;y&gt; is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.<a href="#section-3.11.1.11-4.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-4.3">
+                <p id="section-3.11.1.11-4.3.1">&lt;z&gt; is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.<a href="#section-3.11.1.11-4.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-4.4">
+                <p id="section-3.11.1.11-4.4.1">Subsequent network updates can have a lower &lt;y&gt; version only if &lt;x&gt; is incremented.<a href="#section-3.11.1.11-4.4.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.11.1.11-4.5">
+                <p id="section-3.11.1.11-4.5.1">Subsequent network updates can have a lower &lt;z&gt; version only if &lt;x&gt; or &lt;y&gt; is incremented.<a href="#section-3.11.1.11-4.5.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-3.11.1.11-5">Major version <span class="bcp14">MUST</span> not be greater than (2^16 - 1).
+Minor and revision version <span class="bcp14">MUST</span> not be greater than (2^8 - 1).
+The value <span class="bcp14">MUST</span> change after every network update.<a href="#section-3.11.1.11-5" class="pilcrow">¶</a></p>
+<span id="name-network-version-operand"></span><table class="center" id="table-16">
+              <caption>
+<a href="#table-16" class="selfRef">Table 16</a>:
+<a href="#name-network-version-operand" class="selfRef">Network Version Operand</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-center" rowspan="1" colspan="1">Operand name</th>
+                  <th class="text-center" rowspan="1" colspan="1">Data type</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" rowspan="1" colspan="1">Network version</td>
+                  <td class="text-center" rowspan="1" colspan="1">Uint32</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">4</td>
+                  <td class="text-center" rowspan="1" colspan="1">Byte 0 : revision version number <br> Byte 1  : minor version number <br> Byte 2:3 :  major version number</td>
+                </tr>
+              </tbody>
+            </table>
+<p id="section-3.11.1.11-7">As an example, a Major.Minor.Revision value of 1.0.0 has an equivalent 4-byte value of 0x00010000.<a href="#section-3.11.1.11-7" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -2495,7 +2567,7 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
             <h5 id="name-implementation">
 <a href="#section-3.12.2.1" class="section-number selfRef">3.12.2.1. </a><a href="#name-implementation" class="section-name selfRef">Implementation</a>
             </h5>
-<p id="section-3.12.2.1-1">The details in this section apply to those accessories that include a motion detector. Values of the variables referenced are specified in <a href="#_table-motion-detector-time-values" class="auto internal xref">Table 16</a>.<a href="#section-3.12.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.2.1-1">The details in this section apply to those accessories that include a motion detector. Values of the variables referenced are specified in <a href="#_table-motion-detector-time-values" class="auto internal xref">Table 17</a>.<a href="#section-3.12.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.12.2.1-2"><br>
 After T<sub>SEPARATED_UT_TIMEOUT</sub> in separated state, the accessory <span class="bcp14">MUST</span> enable the motion detector to detect any motion within T<sub>SEPARATED_UT_SAMPLING_RATE1</sub>.<a href="#section-3.12.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.12.2.1-3">If motion is not detected within the T<sub>SEPARATED_UT_SAMPLING_RATE1</sub> period, the accessory <span class="bcp14">MUST</span> stay in this state until it exits separated state.<a href="#section-3.12.2.1-3" class="pilcrow">¶</a></p>
@@ -2514,9 +2586,9 @@ The accessory <span class="bcp14">SHALL</span> disable the motion detector for T
 <p id="section-3.12.2.1-6">If the accessory is still in separated state at the end of T<sub>SEPARATED_UT_BACKOFF</sub>, the UT behavior <span class="bcp14">MUST</span> restart.<a href="#section-3.12.2.1-6" class="pilcrow">¶</a></p>
 <p id="section-3.12.2.1-7">A Bluetooth LE connection from an associated device <span class="bcp14">MUST</span> reset the separated behavior.<a href="#section-3.12.2.1-7" class="pilcrow">¶</a></p>
 <span id="name-motion-detector-time-values"></span><div id="_table-motion-detector-time-values">
-<table class="center" id="table-16">
+<table class="center" id="table-17">
               <caption>
-<a href="#table-16" class="selfRef">Table 16</a>:
+<a href="#table-17" class="selfRef">Table 17</a>:
 <a href="#name-motion-detector-time-values" class="selfRef">Motion Detector Time Values</a>
               </caption>
 <thead>
@@ -2575,11 +2647,11 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
           </h4>
 <p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.12.4-2">These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.<a href="#section-3.12.4-2" class="pilcrow">¶</a></p>
-<p id="section-3.12.4-3">These 2-byte opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-3">These 2-byte opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 18</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
 <span id="name-non-owner-controls-opcodes"></span><div id="_table-non-owner-controls-opcodes">
-<table class="center" id="table-17">
+<table class="center" id="table-18">
             <caption>
-<a href="#table-17" class="selfRef">Table 17</a>:
+<a href="#table-18" class="selfRef">Table 18</a>:
 <a href="#name-non-owner-controls-opcodes" class="selfRef">Non-Owner Controls Opcodes</a>
             </caption>
 <thead>
@@ -2707,9 +2779,9 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
               </h6>
 <p id="section-3.12.4.1.1-1">There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
  The accessory <span class="bcp14">SHALL</span> respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.<a href="#section-3.12.4.1.1-1" class="pilcrow">¶</a></p>
-<span id="name-command-response-operands"></span><table class="center" id="table-18">
+<span id="name-command-response-operands"></span><table class="center" id="table-19">
                 <caption>
-<a href="#table-18" class="selfRef">Table 18</a>:
+<a href="#table-19" class="selfRef">Table 19</a>:
 <a href="#name-command-response-operands" class="selfRef">Command Response Operands</a>
                 </caption>
 <thead>
@@ -2753,9 +2825,9 @@ To enter the identifier read state, a user action on the accessory <span class="
 The identifier read state <span class="bcp14">MUST</span> be enabled for 5 minutes once the user action on the accessory is successfully performed.
 When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
 <span id="name-identifier-payload-over-blu"></span><div id="_table-id-payload-over-bt">
-<table class="center" id="table-19">
+<table class="center" id="table-20">
               <caption>
-<a href="#table-19" class="selfRef">Table 19</a>:
+<a href="#table-20" class="selfRef">Table 20</a>:
 <a href="#name-identifier-payload-over-blu" class="selfRef">Identifier Payload Over Bluetooth</a>
               </caption>
 <thead>
@@ -2797,11 +2869,11 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
           <h4 id="name-recommended-finding-options">
 <a href="#section-3.12.6" class="section-number selfRef">3.12.6. </a><a href="#name-recommended-finding-options" class="section-name selfRef">Recommended Finding Options</a>
           </h4>
-<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 20</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable. Given that a sound maker is <span class="bcp14">REQUIRED</span>, the accessory maker <span class="bcp14">SHALL</span> at very least implement Option A.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 21</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable. Given that a sound maker is <span class="bcp14">REQUIRED</span>, the accessory maker <span class="bcp14">SHALL</span> at very least implement Option A.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-finding-hardware-"></span><div id="accessory-finding-hw">
-<table class="center" id="table-20">
+<table class="center" id="table-21">
             <caption>
-<a href="#table-20" class="selfRef">Table 20</a>:
+<a href="#table-21" class="selfRef">Table 21</a>:
 <a href="#name-accessory-finding-hardware-" class="selfRef">Accessory Finding Hardware Options</a>
             </caption>
 <thead>
@@ -2963,11 +3035,11 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-accessory-category-value" class="section-name selfRef">Accessory Category Value</a>
       </h2>
 <p id="section-4-1">Accessory manufacturer’s <span class="bcp14">MUST</span> pick an accessory category value that closest resembles their physical product.
-If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 21</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
+If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 22</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-category-values"></span><div id="_table-accessory-category-values">
-<table class="center" id="table-21">
+<table class="center" id="table-22">
         <caption>
-<a href="#table-21" class="selfRef">Table 21</a>:
+<a href="#table-22" class="selfRef">Table 22</a>:
 <a href="#name-accessory-category-values" class="selfRef">Accessory Category Values</a>
         </caption>
 <thead>
@@ -3379,11 +3451,11 @@ This group includes the "Finding Network ID" registry.<a href="#section-10-1" cl
           <h4 id="name-temporary-registry">
 <a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-temporary-registry" class="section-name selfRef">Temporary Registry</a>
           </h4>
-<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-registry" class="auto internal xref">Table 22</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-registry" class="auto internal xref">Table 23</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
 <span id="name-finding-network-registry-2"></span><div id="_table-temp-network-registry">
-<table class="center" id="table-22">
+<table class="center" id="table-23">
             <caption>
-<a href="#table-22" class="selfRef">Table 22</a>:
+<a href="#table-23" class="selfRef">Table 23</a>:
 <a href="#name-finding-network-registry-2" class="selfRef">Finding Network Registry</a>
             </caption>
 <thead>
