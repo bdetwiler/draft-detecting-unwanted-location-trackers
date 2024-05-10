@@ -280,8 +280,8 @@ The 2-byte opcodes for accessory information are defined in {{accessory-informat
 |      Get_Battery_Type_<br/>Response   | 0x080B         |      [Battery Type](#battery-type)                | Indications; From Accessory | OPTIONAL    |
 |           Get_Battery_Level           | 0x000C         |          None                                     |    Write; To Accessory      | OPTIONAL    |
 |      Get_Battery_Level_<br/>Response  | 0x080C         |      [Battery Level](#battery-level)              | Indications; From Accessory | OPTIONAL    |
-|     Apple RESERVED                    | 0x000D         |                                                   |                             |             |
-|     Apple RESERVED  (Response)        | 0x080D         |                                                   |                             |             |
+| Get_Network_Version                   | 0x000D         |          None                                     |    Write; To Accessory      | OPTIONAL    |
+| Get_Network_Version_<br/>Response     | 0x080D         | [Network Version](#network-version)               | Indications; From Accessory | OPTIONAL    |
 |      RESERVED                         | 0x000E - 0x005F|                                                   |                             |             |
 |      RESERVED (Response)              | 0x080E - 0x085F|                                                   |                             |             |
 {: #accessory-information-opcodes title="Accessory Information Opcodes" }
@@ -428,6 +428,32 @@ The Battery level operand indicates the current battery level.
 | Battery Level          | Uint8     | 1     |    1               | 0x00 : Full<br/> 0x01 : Medium<br/> 0x02 : Low<br/> 0x03 : Critically low<br/> 0x04-0xFF : Reserved  |
 {: title="Battery Level Operand" }
 
+#### Network version
+The Network Version describes the network specification the accessory complies with for the network specified by [Network ID](#network-id).
+The network revision string SHALL use the x\[.y\[.z\]\] format where :
+
+- \<x\> is the major version number, required.
+- \<y\> is the minor version number, required if it is non zero or if \<z\> is present.
+- \<z\> is the revision version number, required if non zero.
+
+The network revision MUST follow these rules:
+
+- \<x\> is incremented when there is significant change; for example, 1.0.0, 2.0.0, 3.0.0, and so on.
+- \<y\> is incremented when minor changes are introduced, such as 1.1.0, 2.1.0, 3.1.0, and so on.
+- \<z\> is incremented when bug fixes are introduced, such as 1.0.1, 2.0.1, 3.0.1, and so on.
+- Subsequent network updates can have a lower \<y\> version only if \<x\> is incremented.
+- Subsequent network updates can have a lower \<z\> version only if \<x\> or \<y\> is incremented.
+
+Major version MUST not be greater than (2^16 \- 1).
+Minor and revision version MUST not be greater than (2^8 \- 1).
+The value MUST change after every network update.
+
+| Operand name           | Data type | Count | Total Size (Bytes) | Description                      |
+|:----------------------:|:---------:|:-----:|:------------------:|:--------------------------------:|
+| Network version        | Uint32    |   1   | 4                  | Byte 0 : revision version number <br/> Byte 1  : minor version number <br/> Byte 2:3 :  major version number  |
+{: title="Network Version Operand" }
+
+As an example, a Major.Minor.Revision value of 1.0.0 has an equivalent 4-byte value of 0x00010000.
 
 ## Non-Owner Finding
 Once a user has been notified of an unknown accessory traveling with them, it is REQUIRED they have the means to physically locate the accessory. This is called non-owner finding of the accessory.
