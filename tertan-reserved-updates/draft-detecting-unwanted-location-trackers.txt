@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 10 November 2024                                         Google
+Expires: 11 November 2024                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                              9 May 2024
+                                                             10 May 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 November 2024.
+   This Internet-Draft will expire on 11 November 2024.
 
 Copyright Notice
 
@@ -739,30 +739,27 @@ Table of Contents
    The Accessory Capabilities operand enumerates the various
    capabilities supported on the accessory as defined in Table 11.
 
-   +==============+========+=======+=========+========================+
-   | Operand name |  Data  | Count |  Total  |      Description       |
-   |              |  type  |       |   Size  |                        |
-   |              |        |       | (Bytes) |                        |
-   +==============+========+=======+=========+========================+
-   |  Accessory   | Uint32 |   1   |    4    | Bit 0 : Supports play  |
-   | Capabilities |        |       |         |    sound (REQUIRED)    |
-   |              |        |       |         |    Bit 1 : Supports    |
-   |              |        |       |         |   motion detector UT   |
-   |              |        |       |         |    Bit 2 : Supports    |
-   |              |        |       |         |  identifier lookup by  |
-   |              |        |       |         |          NFC           |
-   |              |        |       |         |    Bit 3 : Supports    |
-   |              |        |       |         |  identifier lookup by  |
-   |              |        |       |         |          BLE           |
-   |              |        |       |         | Bit 4 : Apple Reserved |
-   |              |        |       |         |  Bit 5 : Apple-Google  |
-   |              |        |       |         |        Reserved        |
-   |              |        |       |         |    Bit 6-8 : Apple     |
-   |              |        |       |         |        Reserved        |
-   |              |        |       |         |  Bit 9-31 : Reserved   |
-   +--------------+--------+-------+---------+------------------------+
+    +==============+========+=======+=========+=======================+
+    | Operand name |  Data  | Count |  Total  |      Description      |
+    |              |  type  |       |   Size  |                       |
+    |              |        |       | (Bytes) |                       |
+    +==============+========+=======+=========+=======================+
+    |  Accessory   | Uint32 |   1   |    4    | Bit 0 : Supports play |
+    | Capabilities |        |       |         |    sound (REQUIRED)   |
+    |              |        |       |         |    Bit 1 : Supports   |
+    |              |        |       |         |   motion detector UT  |
+    |              |        |       |         |    Bit 2 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          NFC          |
+    |              |        |       |         |    Bit 3 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          BLE          |
+    |              |        |       |         |    Bit 4-8 : Apple    |
+    |              |        |       |         |        Reserved       |
+    |              |        |       |         |  Bit 9-31 : Reserved  |
+    +--------------+--------+-------+---------+-----------------------+
 
-                 Table 11: Accessory Capabilities Operand
+                  Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and identifier look-up over BT will have the value set as 0b1011 in
@@ -1012,13 +1009,13 @@ Table of Contents
    |                       |      |  (Section | accessory  |           |
    |                       |      | 3.12.4.2) |            |           |
    +-----------------------+------+-----------+------------+-----------+
-   | Apple-Google RESERVED |0x0304|           |            |           |
+   |     Apple RESERVED    |0x0304|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
    |        RESERVED       |0x0305|           |            |           |
    |                       |  -   |           |            |           |
    |                       |0x0319|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
-   | Apple-Google RESERVED |0x031A|           |            |           |
+   |     Apple RESERVED    |0x031A|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
    |        RESERVED       |0x031B|           |            |           |
    |                       |  -   |           |            |           |
