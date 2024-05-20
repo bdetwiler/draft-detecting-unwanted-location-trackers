@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 20 October 2024                                          Google
+Expires: 21 November 2024                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                           18 April 2024
+                                                             20 May 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 October 2024.
+   This Internet-Draft will expire on 21 November 2024.
 
 Copyright Notice
 
@@ -139,7 +139,7 @@ Table of Contents
        9.3.1.  Stable identifiers
        9.3.2.  Proprietary company payload data
    10. IANA Considerations
-     10.1.  Manufacturer Network ID Registry
+     10.1.  Finding Network Registry
        10.1.1.  Temporary Registry
    11. Normative References
    Authors' Addresses
@@ -455,7 +455,7 @@ Table of Contents
 3.7.  Network ID
 
    The 1-byte Network ID SHALL be set based on a registered value for
-   the manufacturer, as defined in Manufacturer Network ID Registry
+   the manufacturer, as defined in Finding Network Registry
    (Section 10.1).
 
 3.8.  Near-owner bit
@@ -521,94 +521,94 @@ Table of Contents
 
 3.11.1.  Opcodes
 
-   The opcodes for accessory information are defined in Table 4.
+   The 2-byte opcodes for accessory information are defined in Table 4.
 
    +=======================+======+==============+============+===========+
    |Opcode                 |Opcode|   Operands   |    GATT    |Requirement|
    |                       | value|              |subprocedure|           |
    +=======================+======+==============+============+===========+
-   |Get_Product_Data       | 0x003|     None     | Write; To  |  REQUIRED |
+   |Get_Product_Data       |0x0003|     None     | Write; To  |  REQUIRED |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Product_Data_      | 0x803| Product Data |Indications;|  REQUIRED |
+   |Get_Product_Data_      |0x0803| Product Data |Indications;|  REQUIRED |
    |Response               |      |   (Section   |    From    |           |
    |                       |      |  3.11.1.1)   | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Manufacturer_      | 0x004|     None     | Write; To  |  REQUIRED |
+   |Get_Manufacturer_      |0x0004|     None     | Write; To  |  REQUIRED |
    |Name                   |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Manufacturer_      | 0x804| Manufacturer |Indications;|  REQUIRED |
+   |Get_Manufacturer_      |0x0804| Manufacturer |Indications;|  REQUIRED |
    |Name_Response          |      |Name (Section |    From    |           |
    |                       |      |  3.11.1.2)   | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Model_Name         | 0x005|     None     | Write; To  |  REQUIRED |
+   |Get_Model_Name         |0x0005|     None     | Write; To  |  REQUIRED |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Model_Name_        | 0x805|  Model Name  |Indications;|  REQUIRED |
+   |Get_Model_Name_        |0x0805|  Model Name  |Indications;|  REQUIRED |
    |Response               |      |   (Section   |    From    |           |
    |                       |      |  3.11.1.3)   | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Accessory_         | 0x006|     None     | Write; To  |  REQUIRED |
+   |Get_Accessory_         |0x0006|     None     | Write; To  |  REQUIRED |
    |Category               |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Accessory_         | 0x806|  Accessory   |Indications;|  REQUIRED |
+   |Get_Accessory_         |0x0806|  Accessory   |Indications;|  REQUIRED |
    |Category_Response      |      |   Category   |    From    |           |
    |                       |      |   (Section   | Accessory  |           |
    |                       |      |  3.11.1.4)   |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Protocol_          | 0x007|     None     | Write; To  |  REQUIRED |
+   |Get_Protocol_          |0x0007|     None     | Write; To  |  REQUIRED |
    |Implementation_Version |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Protocol_          | 0x807|   Protocol   |Indications;|  REQUIRED |
+   |Get_Protocol_          |0x0807|   Protocol   |Indications;|  REQUIRED |
    |Implementation_Version_|      |Implementation|    From    |           |
    |Response               |      |   Version    | Accessory  |           |
    |                       |      |   (Section   |            |           |
    |                       |      |  3.11.1.5)   |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Accessory_         | 0x008|     None     | Write; To  |  REQUIRED |
+   |Get_Accessory_         |0x0008|     None     | Write; To  |  REQUIRED |
    |Capabilities           |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Accessory_         | 0x808|  Accessory   |Indications;|  REQUIRED |
+   |Get_Accessory_         |0x0808|  Accessory   |Indications;|  REQUIRED |
    |Capabilities_Response  |      | Capabilities |    From    |           |
    |                       |      |   (Section   | Accessory  |           |
    |                       |      |  3.11.1.6)   |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Network_ID         | 0x009|     None     | Write; To  |  REQUIRED |
+   |Get_Network_ID         |0x0009|     None     | Write; To  |  REQUIRED |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Network_ID_        | 0x809|  Network ID  |Indications;|  REQUIRED |
+   |Get_Network_ID_        |0x0809|  Network ID  |Indications;|  REQUIRED |
    |Response               |      |(Section 3.7) |    From    |           |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Firmware_Version   | 0x00A|     None     | Write; To  |  REQUIRED |
+   |Get_Firmware_Version   |0x000A|     None     | Write; To  |  REQUIRED |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Firmware_Version_  | 0x80A|   Firmware   |Indications;|  REQUIRED |
+   |Get_Firmware_Version_  |0x080A|   Firmware   |Indications;|  REQUIRED |
    |Response               |      |   version    |    From    |           |
    |                       |      |   (Section   | Accessory  |           |
    |                       |      |  3.11.1.8)   |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Battery_Type       | 0x00B|     None     | Write; To  |  OPTIONAL |
+   |Get_Battery_Type       |0x000B|     None     | Write; To  |  OPTIONAL |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Battery_Type_      | 0x80B| Battery Type |Indications;|  OPTIONAL |
+   |Get_Battery_Type_      |0x080B| Battery Type |Indications;|  OPTIONAL |
    |Response               |      |   (Section   |    From    |           |
    |                       |      |  3.11.1.9)   | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Battery_Level      | 0x00C|     None     | Write; To  |  OPTIONAL |
+   |Get_Battery_Level      |0x000C|     None     | Write; To  |  OPTIONAL |
    |                       |      |              | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |Get_Battery_Level_     | 0x80C|Battery Level |Indications;|  OPTIONAL |
+   |Get_Battery_Level_     |0x080C|Battery Level |Indications;|  OPTIONAL |
    |Response               |      |   (Section   |    From    |           |
    |                       |      |  3.11.1.10)  | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |RESERVED               | 0x00D|              |            |           |
+   |RESERVED               |0x000D|              |            |           |
    |                       |     -|              |            |           |
-   |                       | 0x05F|              |            |           |
+   |                       |0x005F|              |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |RESERVED (Response)    | 0x80D|              |            |           |
+   |RESERVED (Response)    |0x080D|              |            |           |
    |                       |     -|              |            |           |
-   |                       | 0x85F|              |            |           |
+   |                       |0x085F|              |            |           |
    +-----------------------+------+--------------+------------+-----------+
 
                    Table 4: Accessory Information Opcodes
@@ -623,6 +623,11 @@ Table of Contents
    commanded that is not supported by the accessory, it SHALL return the
    Invalid_command error as the ResponseStatus in the Command_Response.
    See Command Response (Section 3.12.4.1.1) for details.
+
+   In the circumstances that there are multiple non-owner connections,
+   all GATT indication subprocedures defined in Table 4 SHALL be sent
+   through only to the connection that commanded the affiliated write
+   subprocedure.
 
    Opcodes should be structured as defined below.
 
@@ -669,6 +674,11 @@ Table of Contents
 
                     Table 7: Manufacturer Name Operand
 
+   When the Manufacturer Name is less than 64 bytes, it SHALL be
+   formatted either as: * a string value with length less than 64 bytes
+   * a string value that is both zero-terminated and zero-padded up to
+   64 bytes
+
 3.11.1.3.  Model name
 
    The Model Name operand contains the manufacturer specific model of
@@ -683,6 +693,10 @@ Table of Contents
     +--------------+-----------+-----------+------------+-------------+
 
                         Table 8: Model Name Operand
+
+   When the Model Name is less than 64 bytes, it SHALL be formatted
+   either as: * a string value with length less than 64 bytes * a string
+   value that is both zero-terminated and zero-padded up to 64 bytes
 
 3.11.1.4.  Accessory category
 
@@ -825,34 +839,37 @@ Table of Contents
    The Battery type operand describes the battery type used in the
    accessory.
 
-   +=========+=======+=======+=========+==============================+
-   | Operand |  Data | Count |  Total  |         Description          |
-   |   name  |  type |       |   Size  |                              |
-   |         |       |       | (Bytes) |                              |
-   +=========+=======+=======+=========+==============================+
-   | Battery | Uint8 |   1   |    1    |         0 = Powered          |
-   |   Type  |       |       |         | 1 = Non-rechargeable battery |
-   |         |       |       |         |   2 = Rechargeable battery   |
-   +---------+-------+-------+---------+------------------------------+
+    +=========+=======+=======+=========+=============================+
+    | Operand |  Data | Count |  Total  |         Description         |
+    |   name  |  type |       |   Size  |                             |
+    |         |       |       | (Bytes) |                             |
+    +=========+=======+=======+=========+=============================+
+    | Battery | Uint8 |   1   |    1    |        0x00 : Powered       |
+    |   Type  |       |       |         |   0x01 : Non-rechargeable   |
+    |         |       |       |         |           battery           |
+    |         |       |       |         | 0x02 : Rechargeable battery |
+    |         |       |       |         |     0x03-0xFF : Reserved    |
+    +---------+-------+-------+---------+-----------------------------+
 
-                      Table 14: Battery Type Operand
+                       Table 14: Battery Type Operand
 
 3.11.1.10.  Battery level
 
    The Battery level operand indicates the current battery level.
 
-        +=========+=======+=======+=========+====================+
-        | Operand |  Data | Count |  Total  |    Description     |
-        |   name  |  type |       |   Size  |                    |
-        |         |       |       | (Bytes) |                    |
-        +=========+=======+=======+=========+====================+
-        | Battery | Uint8 |   1   |    1    |      0 = Full      |
-        |  Level  |       |       |         |     1 = Medium     |
-        |         |       |       |         |      2 = Low       |
-        |         |       |       |         | 3 = Critically low |
-        +---------+-------+-------+---------+--------------------+
+       +=========+=======+=======+=========+=======================+
+       | Operand |  Data | Count |  Total  |      Description      |
+       |   name  |  type |       |   Size  |                       |
+       |         |       |       | (Bytes) |                       |
+       +=========+=======+=======+=========+=======================+
+       | Battery | Uint8 |   1   |    1    |      0x00 : Full      |
+       |  Level  |       |       |         |     0x01 : Medium     |
+       |         |       |       |         |       0x02 : Low      |
+       |         |       |       |         | 0x03 : Critically low |
+       |         |       |       |         |  0x04-0xFF : Reserved |
+       +---------+-------+-------+---------+-----------------------+
 
-                     Table 15: Battery Level Operand
+                      Table 15: Battery Level Operand
 
 3.12.  Non-Owner Finding
 
@@ -965,43 +982,43 @@ Table of Contents
    sound as well as fetch an encrypted payload used to retrieve the
    identifier of the device.
 
-   These opcodes are defined in Table 17.
+   These 2-byte opcodes are defined in Table 17.
 
-     +=========================+========+=============+==============+
-     |          Opcode         | Opcode |   Operands  |     GATT     |
-     |                         | value  |             | subprocedure |
-     +=========================+========+=============+==============+
-     |       Sound_Start       | 0x300  |     None    |  Write; To   |
-     |                         |        |             |  accessory   |
-     +-------------------------+--------+-------------+--------------+
-     |        Sound_Stop       | 0x301  |     None    |  Write; To   |
-     |                         |        |             |  accessory   |
-     +-------------------------+--------+-------------+--------------+
-     |     Command_Response    | 0x302  |   Command   | Indications; |
-     |                         |        |   Response  |     From     |
-     |                         |        |   (Section  |  accessory   |
-     |                         |        | 3.12.4.1.1) |              |
-     +-------------------------+--------+-------------+--------------+
-     |     Sound_Completed     | 0x303  |     None    | Indications; |
-     |                         |        |             |     From     |
-     |                         |        |             |  accessory   |
-     +-------------------------+--------+-------------+--------------+
-     |      Get_Identifier     | 0x404  |     None    |  Write; To   |
-     |                         |        |             |  accessory   |
-     +-------------------------+--------+-------------+--------------+
-     | Get_Identifier_Response | 0x405  |  Identifier | Indications; |
-     |                         |        |   Payload   |     From     |
-     |                         |        |   (Section  |  accessory   |
-     |                         |        |  3.12.4.2)  |              |
-     +-------------------------+--------+-------------+--------------+
-     |         RESERVED        | 0x304  |             |              |
-     |                         |   -    |             |              |
-     |                         | 0x35F  |             |              |
-     +-------------------------+--------+-------------+--------------+
-     |   RESERVED (Response)   | 0x405  |             |              |
-     |                         |   -    |             |              |
-     |                         | 0x45F  |             |              |
-     +-------------------------+--------+-------------+--------------+
+   +=======================+======+===========+============+===========+
+   |         Opcode        |Opcode|  Operands |    GATT    |Requirement|
+   |                       |value |           |subprocedure|           |
+   +=======================+======+===========+============+===========+
+   |      Sound_Start      |0x0300|    None   | Write; To  |  REQUIRED |
+   |                       |      |           | accessory  |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |       Sound_Stop      |0x0301|    None   | Write; To  |  REQUIRED |
+   |                       |      |           | accessory  |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |    Command_Response   |0x0302|  Command  |Indications;|  REQUIRED |
+   |                       |      |  Response |    From    |           |
+   |                       |      |  (Section | accessory  |           |
+   |                       |      |3.12.4.1.1)|            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |    Sound_Completed    |0x0303|    None   |Indications;|  REQUIRED |
+   |                       |      |           |    From    |           |
+   |                       |      |           | accessory  |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |     Get_Identifier    |0x0404|    None   | Write; To  |  OPTIONAL |
+   |                       |      |           | accessory  |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |Get_Identifier_Response|0x0405| Identifier|Indications;|  OPTIONAL |
+   |                       |      |  Payload  |    From    |           |
+   |                       |      |  (Section | accessory  |           |
+   |                       |      | 3.12.4.2) |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |        RESERVED       |0x0304|           |            |           |
+   |                       |  -   |           |            |           |
+   |                       |0x035F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |  RESERVED (Response)  |0x0405|           |            |           |
+   |                       |  -   |           |            |           |
+   |                       |0x045F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
 
                     Table 17: Non-Owner Controls Opcodes
 
@@ -1011,18 +1028,26 @@ Table of Contents
    In all other states, the accessory SHALL return the Invalid_command
    error as the ResponseStatus in Command_Response.
 
-   Get_Identifier SHALL only be available when in identifier read state;
-   otherwise, it MUST send Command_Response (Section 3.12.4.1.1) with
-   the Invalid_command as the ResponseStatus.
+   If Identifer Retrieval over Bluetooth LE (Section 3.14.3) is
+   supported, Get_Identifier SHALL only be available when in identifier
+   read state; otherwise, it MUST send Command_Response
+   (Section 3.12.4.1.1) with the Invalid_command as the ResponseStatus.
 
    The identifier read state is discussed further in Identifier Payload
    (Section 3.12.4.2).
+
+   In the circumstances that there are multiple non-owner connections,
+   all GATT indication subprocedures defined in Table 17 SHALL be sent
+   through only to the connection that commanded the affiliated write
+   subprocedure.  Sound_Completed MAY be sent over all non-owner
+   connections.
 
 3.12.4.1.  Play sound
 
    The Sound_Start opcode is used to play sound on the sound maker of
    the accessory.  The sound maker MUST play sound for a minimum
-   duration of 5 seconds.
+   duration of 5 seconds and a maximum duration of 30 seconds.  The
+   RECOMMENDED duration is 12 seconds.
 
    *  The accessory SHALL confirm the start of the play sound procedure
       by sending a Command_Response (Section 3.12.4.1.1) with the
@@ -1055,24 +1080,28 @@ Table of Contents
    accessory SHALL respond to any invalid opcode with Command_Response
    and Invalid_command as the ResponseStatus.
 
-   +================+========+=====+=========+========================+
-   | Operand name   |   Data |Count|  Total  |      Description       |
-   |                |   type |     |   Size  |                        |
-   |                |        |     | (Bytes) |                        |
-   +================+========+=====+=========+========================+
-   | CommandOpCode  | Uint16 |  1  |    2    | The control procedure  |
-   |                |        |     |         | matching this response |
-   +----------------+--------+-----+---------+------------------------+
-   | ResponseStatus | Uint16 |  1  |    2    |     0x0000 Success     |
-   |                |        |     |         |  0x0001 Invalid_state  |
-   |                |        |     |         |         0x0002         |
-   |                |        |     |         | Invalid_configuration  |
-   |                |        |     |         | 0x0003 Invalid_length  |
-   |                |        |     |         |  0x0004 Invalid_param  |
-   |                |        |     |         | 0xFFFF Invalid_command |
-   +----------------+--------+-----+---------+------------------------+
+   +================+========+=====+=========+=========================+
+   | Operand name   |   Data |Count|  Total  |       Description       |
+   |                |   type |     |   Size  |                         |
+   |                |        |     | (Bytes) |                         |
+   +================+========+=====+=========+=========================+
+   | CommandOpCode  | Uint16 |  1  |    2    |  The control procedure  |
+   |                |        |     |         |  matching this response |
+   +----------------+--------+-----+---------+-------------------------+
+   | ResponseStatus | Uint16 |  1  |    2    |     0x0000 : Success    |
+   |                |        |     |         |  0x0001 : Invalid_state |
+   |                |        |     |         |         0x0002 :        |
+   |                |        |     |         |  Invalid_configuration  |
+   |                |        |     |         |         0x0003 :        |
+   |                |        |     |         |      Invalid_length     |
+   |                |        |     |         |  0x0004 : Invalid_param |
+   |                |        |     |         |     0x0005-0xFFFE :     |
+   |                |        |     |         |         Reserved        |
+   |                |        |     |         |         0xFFFF :        |
+   |                |        |     |         |     Invalid_command     |
+   +----------------+--------+-----+---------+-------------------------+
 
-                   Table 18: Command Response Operands
+                    Table 18: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
@@ -1086,15 +1115,14 @@ Table of Contents
    respond with Get_Identifier_Response opcode and Identifier Payload
    operand.
 
-   +============+=======+===========+============+=====================+
-   |  Operand   |  Data |   Count   |   Total    |     Description     |
-   |    name    |  type |           |    Size    |                     |
-   |            |       |           |  (Bytes)   |                     |
-   +============+=======+===========+============+=====================+
-   | Identifier | UTF-8 |  defined  |  defined   |    The encrypted    |
-   |  Payload   |       |     by    |     by     | identifier, encoded |
-   |            |       | accessory | accessory  |   as a hex string.  |
-   +------------+-------+-----------+------------+---------------------+
+    +============+=======+============+============+==================+
+    |  Operand   |  Data |   Count    | Total Size |   Description    |
+    |    name    |  type |            |  (Bytes)   |                  |
+    +============+=======+============+============+==================+
+    | Identifier | Uint8 | defined by | defined by |  The encrypted   |
+    |  Payload   |       | accessory  | accessory  | identifier as an |
+    |            |       |            |            | array of bytes.  |
+    +------------+-------+------------+------------+------------------+
 
                 Table 19: Identifier Payload Over Bluetooth
 
@@ -1117,7 +1145,8 @@ Table of Contents
 3.12.6.  Recommended Finding Options
 
    Table 20 lists two RECOMMENDED options on the set of technology in an
-   accessory to make it findable.
+   accessory to make it findable.  Given that a sound maker is REQUIRED,
+   the accessory maker SHALL at very least implement Option A.
 
                    +=============+==========+==========+
                    |             | Option A | Option B |
@@ -1198,15 +1227,43 @@ Table of Contents
 3.14.5.  Identifier over NFC
 
    For those accessories that support identifier retrieval over NFC, an
-   associated accessory SHALL advertise the encrypted identifier encoded
-   as a hex string.  This string SHALL be an argument passed to the URL
-   defined in the Product data registry (product-data-registry) which
-   SHALL decrypt the identifier payload and return the identifier of the
-   accessory in a form that can be rendered in the platform's HTML view.
+   associated accessory SHALL advertise the whole URL with arguments as
+   the payload over NFC.  The payload SHALL look like the URL shown
+   below. "https://{URL}?pid=%04x&b=%02x&fv=%08x&e=%s"
 
-   The encrypted identifier when in associated state SHALL be an
-   argument passed to this URL and it is REQUIRED that any metadata
-   passed be non-identifiable.
+   +==========+==============+==================+=====================+
+   |   URL    | URL Argument |      Notes       |      Reference      |
+   | argument |     Type     |                  |                     |
+   +==========+==============+==================+=====================+
+   |    b     |  hex string  |  Battery Level   |    Battery Level    |
+   |          |              |    (Optional)    | (Section 3.11.1.10) |
+   +----------+--------------+------------------+---------------------+
+   |    bt    |  hex string  |  BT Mac address  |     MAC address     |
+   |          |              |    (Optional)    |    (Section 3.5)    |
+   +----------+--------------+------------------+---------------------+
+   |    fv    |  hex string  | Firmware version |   Firmware version  |
+   |          |              |    (Optional)    |  (Section 3.11.1.8) |
+   +----------+--------------+------------------+---------------------+
+   |    e     |  hex string  |    Encrypted     |  Identifier Payload |
+   |          |              |    Identifier    |  (Section 3.12.4.2) |
+   |          |              |    (Required)    |                     |
+   +----------+--------------+------------------+---------------------+
+   |   pid    |  hex string  |   Product Data   |     Product Data    |
+   |          |              |    (Required)    |  (Section 3.11.1.1) |
+   +----------+--------------+------------------+---------------------+
+
+                Table 21: Identifier Lookup URL-arguments
+
+   The URL SHALL be hosted by the network provider.  The URL SHALL
+   decrypt the identifier payload and return the identifier of the
+   accessory in a form that can be rendered in the platform's HTML view.
+   One approach to exchange the URL with the accessory, is when the
+   accessory owner associates the accessory to a network provider.  When
+   a user performs NFC Tap and the accessory is in associated state, the
+   encrypted identifier encoded in hex string SHALL be an argument ("e")
+   passed to the identifier retrieval URL.  When a user performs NFC Tap
+   and the accessory is not in associated state, the behavior is
+   undefined and is beyond the scope of this spec.
 
 3.15.  Owner registry
 
@@ -1252,7 +1309,7 @@ Table of Contents
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
-   categories provided in Table 21 match the physical product, Other
+   categories provided in Table 22 match the physical product, Other
    MUST be chosen.
 
                +============================+=============+
@@ -1343,7 +1400,7 @@ Table of Contents
                | Reserved for future use    | 2-127, 168+ |
                +----------------------------+-------------+
 
-                   Table 21: Accessory Category Values
+                   Table 22: Accessory Category Values
 
 5.  Firmware Updates
 
@@ -1432,11 +1489,13 @@ Table of Contents
 
    Accessory manufacturers MUST follow a minimum set of steps for their
    accessories to be detectable by platforms such as adding their
-   Network ID value to the Manufacturer network ID Registry
-   (Section 10.1).
+   Network ID value to the Finding Network Registry (Section 10.1).
 
-   During onboarding, a product data registry will be created that
-   includes information such as:
+   During onboarding, a product data registry SHALL be created and
+   maintained by the network provider for all accessory manufacturers
+   participating in their network.  Accessory manufacturers will work
+   with the network providers they participate in, to provide
+   information such as:
 
    *  Product Data: an 8-byte string representing a unique identifier
       for a product.  See Product Data (Section 3.11.1.1).
@@ -1567,40 +1626,41 @@ Table of Contents
 10.  IANA Considerations
 
    Eventually an IANA will create a new registry group called "Unwanted
-   Tracking Protocols (UTP)".  This group includes the "Manufacturer
-   Network ID" registry.
+   Tracking Protocols (UTP)".  This group includes the "Finding Network
+   ID" registry.
 
-10.1.  Manufacturer Network ID Registry
+10.1.  Finding Network Registry
 
    New entries are assigned only for values that have received Expert
    Review, per Section 4.5 of [RFC8126].
 
    An entry in this registry contains the following fields:
 
-   *  Manufacturer Name: the name of an organization that is producing a
-      location-tracker accessory
-
    *  Network ID: a 1-byte value specifying the Network ID associated
-      with the Manufacturer Name
+      with the Network Provider
+
+   *  Network Provider: the name of the organization that is
+      facilitating the locations for location-tracker accessories
 
 10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 22.
+   are listed in Table 23.
 
-                       +============+==============+
-                       | Network ID | Manufacturer |
-                       +============+==============+
-                       |    0x00    |   Reserved   |
-                       +------------+--------------+
-                       |    0x01    |  Apple Inc.  |
-                       +------------+--------------+
-                       |    0x02    |  Google LLC  |
-                       +------------+--------------+
-                       |    0xFF    |   Reserved   |
-                       +------------+--------------+
+                     +============+==================+
+                     | Network ID | Network Provider |
+                     +============+==================+
+                     |    0x00    |     Reserved     |
+                     +------------+------------------+
+                     |    0x01    |    Apple Inc.    |
+                     +------------+------------------+
+                     |    0x02    |    Google LLC    |
+                     +------------+------------------+
+                     |    0xFF    |     Reserved     |
+                     +------------+------------------+
 
-                       Table 22: Network ID Registry
+                         Table 23: Finding Network
+                                  Registry
 
 11.  Normative References
 

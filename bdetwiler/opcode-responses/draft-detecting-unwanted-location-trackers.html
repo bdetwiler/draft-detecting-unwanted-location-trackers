@@ -24,7 +24,7 @@
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 4.2.0
+    platformdirs 4.2.1
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.31.0
@@ -1029,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers</td>
-<td class="right">April 2024</td>
+<td class="right">May 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 20 October 2024</td>
+<td class="center">Expires 21 November 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-04-18" class="published">18 April 2024</time>
+<time datetime="2024-05-20" class="published">20 May 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-10-20">20 October 2024</time></dd>
+<dd class="expires"><time datetime="2024-11-21">21 November 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 October 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1387,7 +1387,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-manufacturer-network-id-reg" class="internal xref">Manufacturer Network ID Registry</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-finding-network-registry" class="internal xref">Finding Network Registry</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.1">
                     <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="auto internal xref">10.1.1</a>.  <a href="#name-temporary-registry" class="internal xref">Temporary Registry</a></p>
@@ -1740,7 +1740,7 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
         <h3 id="name-network-id">
 <a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-network-id" class="section-name selfRef">Network ID</a>
         </h3>
-<p id="section-3.7-1">The 1-byte Network ID <span class="bcp14">SHALL</span> be set based on a registered value for the manufacturer, as defined in <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer Network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-1">The 1-byte Network ID <span class="bcp14">SHALL</span> be set based on a registered value for the manufacturer, as defined in <span><a href="#finding-network-registry" class="internal xref">Finding Network Registry</a> (<a href="#finding-network-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="near-owner-bit">
@@ -1822,7 +1822,7 @@ In other words, all opcode response data must fit within a single write operatio
           <h4 id="name-opcodes">
 <a href="#section-3.11.1" class="section-number selfRef">3.11.1. </a><a href="#name-opcodes" class="section-name selfRef">Opcodes</a>
           </h4>
-<p id="section-3.11.1-1">The opcodes for accessory information are defined in <a href="#accessory-information-opcodes" class="auto internal xref">Table 4</a>.<a href="#section-3.11.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-1">The 2-byte opcodes for accessory information are defined in <a href="#accessory-information-opcodes" class="auto internal xref">Table 4</a>.<a href="#section-3.11.1-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-information-opcod"></span><div id="accessory-information-opcodes">
 <table class="center" id="table-4">
             <caption>
@@ -1841,7 +1841,7 @@ In other words, all opcode response data must fit within a single write operatio
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Product_Data</td>
-                <td class="text-right" rowspan="1" colspan="1">0x003</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0003</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1850,7 +1850,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Product_Data_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x803</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0803</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>
 </td>
@@ -1861,7 +1861,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Manufacturer_<br>Name</td>
-                <td class="text-right" rowspan="1" colspan="1">0x004</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0004</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1870,7 +1870,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Manufacturer_<br>Name_Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x804</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0804</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#manufacturer-name" class="internal xref">Manufacturer Name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>
 </td>
@@ -1881,7 +1881,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Model_Name</td>
-                <td class="text-right" rowspan="1" colspan="1">0x005</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0005</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1890,7 +1890,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Model_Name_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x805</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0805</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#model-name" class="internal xref">Model Name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>
 </td>
@@ -1901,7 +1901,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Category</td>
-                <td class="text-right" rowspan="1" colspan="1">0x006</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0006</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1910,7 +1910,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Category_Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x806</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0806</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#accessory-category" class="internal xref">Accessory Category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>
 </td>
@@ -1921,7 +1921,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Protocol_<br>Implementation_Version</td>
-                <td class="text-right" rowspan="1" colspan="1">0x007</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0007</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1930,7 +1930,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Protocol_<br>Implementation_Version_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x807</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0807</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#protocol-implementation-version" class="internal xref">Protocol Implementation Version</a> (<a href="#protocol-implementation-version" class="auto internal xref">Section 3.11.1.5</a>)</span>
 </td>
@@ -1941,7 +1941,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Capabilities</td>
-                <td class="text-right" rowspan="1" colspan="1">0x008</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0008</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1950,7 +1950,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Accessory_<br>Capabilities_Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x808</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0808</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#accessory-capabilities" class="internal xref">Accessory Capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>
 </td>
@@ -1961,7 +1961,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Network_ID</td>
-                <td class="text-right" rowspan="1" colspan="1">0x009</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0009</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1970,7 +1970,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Network_ID_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x809</td>
+                <td class="text-right" rowspan="1" colspan="1">0x0809</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>
 </td>
@@ -1981,7 +1981,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Firmware_Version</td>
-                <td class="text-right" rowspan="1" colspan="1">0x00A</td>
+                <td class="text-right" rowspan="1" colspan="1">0x000A</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -1990,7 +1990,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Firmware_Version_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x80A</td>
+                <td class="text-right" rowspan="1" colspan="1">0x080A</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.11.1.8</a>)</span>
 </td>
@@ -2001,7 +2001,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Battery_Type</td>
-                <td class="text-right" rowspan="1" colspan="1">0x00B</td>
+                <td class="text-right" rowspan="1" colspan="1">0x000B</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -2010,7 +2010,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Battery_Type_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x80B</td>
+                <td class="text-right" rowspan="1" colspan="1">0x080B</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#battery-type" class="internal xref">Battery Type</a> (<a href="#battery-type" class="auto internal xref">Section 3.11.1.9</a>)</span>
 </td>
@@ -2021,7 +2021,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level</td>
-                <td class="text-right" rowspan="1" colspan="1">0x00C</td>
+                <td class="text-right" rowspan="1" colspan="1">0x000C</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To Accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -2030,7 +2030,7 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level_<br>Response</td>
-                <td class="text-right" rowspan="1" colspan="1">0x80C</td>
+                <td class="text-right" rowspan="1" colspan="1">0x080C</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.11.1.10</a>)</span>
 </td>
@@ -2041,14 +2041,14 @@ In other words, all opcode response data must fit within a single write operatio
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">RESERVED</td>
-                <td class="text-right" rowspan="1" colspan="1">0x00D - 0x05F</td>
+                <td class="text-right" rowspan="1" colspan="1">0x000D - 0x005F</td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">RESERVED (Response)</td>
-                <td class="text-right" rowspan="1" colspan="1">0x80D - 0x85F</td>
+                <td class="text-right" rowspan="1" colspan="1">0x080D - 0x085F</td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
@@ -2062,7 +2062,8 @@ When any opcode is not available, the accessory <span class="bcp14">SHALL</span>
 If an optional opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
 If any opcode value is commanded that is not supported by the accessory, it <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in the Command_Response.
 See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> for details.<a href="#section-3.11.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.11.1-4">Opcodes should be structured as defined below.<a href="#section-3.11.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-4">In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in <a href="#accessory-information-opcodes" class="auto internal xref">Table 4</a> <span class="bcp14">SHALL</span> be sent through only to the connection that commanded the affiliated write subprocedure.<a href="#section-3.11.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-5">Opcodes should be structured as defined below.<a href="#section-3.11.1-5" class="pilcrow">¶</a></p>
 <span id="name-accessory-opcode-structure"></span><table class="center" id="table-5">
             <caption>
 <a href="#table-5" class="selfRef">Table 5</a>:
@@ -2149,6 +2150,9 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 </tr>
               </tbody>
             </table>
+<p id="section-3.11.1.2-3">When the Manufacturer Name is less than 64 bytes, it <span class="bcp14">SHALL</span> be formatted either as:
+* a string value with length less than 64 bytes
+* a string value that is both zero-terminated and zero-padded up to 64 bytes<a href="#section-3.11.1.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="model-name">
@@ -2181,6 +2185,9 @@ This value <span class="bcp14">SHALL</span> be determined during the <span><a hr
                 </tr>
               </tbody>
             </table>
+<p id="section-3.11.1.3-3">When the Model Name is less than 64 bytes, it <span class="bcp14">SHALL</span> be formatted either as:
+* a string value with length less than 64 bytes
+* a string value that is both zero-terminated and zero-padded up to 64 bytes<a href="#section-3.11.1.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="accessory-category">
@@ -2408,7 +2415,7 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
-                  <td class="text-center" rowspan="1" colspan="1">0 = Powered<br> 1 = Non-rechargeable battery<br> 2 = Rechargeable battery</td>
+                  <td class="text-center" rowspan="1" colspan="1">0x00 : Powered<br> 0x01 : Non-rechargeable battery<br> 0x02 : Rechargeable battery<br> 0x03-0xFF : Reserved</td>
                 </tr>
               </tbody>
             </table>
@@ -2440,7 +2447,7 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
-                  <td class="text-center" rowspan="1" colspan="1">0 = Full<br> 1 = Medium<br> 2 = Low<br>3 = Critically low</td>
+                  <td class="text-center" rowspan="1" colspan="1">0x00 : Full<br> 0x01 : Medium<br> 0x02 : Low<br> 0x03 : Critically low<br> 0x04-0xFF : Reserved</td>
                 </tr>
               </tbody>
             </table>
@@ -2555,7 +2562,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
           </h4>
 <p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.12.4-2">These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.<a href="#section-3.12.4-2" class="pilcrow">¶</a></p>
-<p id="section-3.12.4-3">These opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-3">These 2-byte opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
 <span id="name-non-owner-controls-opcodes"></span><div id="_table-non-owner-controls-opcodes">
 <table class="center" id="table-17">
             <caption>
@@ -2568,58 +2575,79 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <th class="text-center" rowspan="1" colspan="1">Opcode  value</th>
                 <th class="text-center" rowspan="1" colspan="1">Operands</th>
                 <th class="text-center" rowspan="1" colspan="1">GATT subprocedure</th>
+                <th class="text-center" rowspan="1" colspan="1">Requirement</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Sound_Start</td>
-                <td class="text-center" rowspan="1" colspan="1">0x300</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0300</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Sound_Stop</td>
-                <td class="text-center" rowspan="1" colspan="1">0x301</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0301</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Command_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x302</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0302</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Sound_Completed</td>
-                <td class="text-center" rowspan="1" colspan="1">0x303</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0303</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">REQUIRED</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Get_Identifier</td>
-                <td class="text-center" rowspan="1" colspan="1">0x404</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0404</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">Get_Identifier_Response</td>
-                <td class="text-center" rowspan="1" colspan="1">0x405</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0405</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span class="bcp14">OPTIONAL</span>
+</td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">RESERVED</td>
-                <td class="text-center" rowspan="1" colspan="1">0x304 - 0x35F</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0304 - 0x035F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">RESERVED (Response)</td>
-                <td class="text-center" rowspan="1" colspan="1">0x405 - 0x45F</td>
+                <td class="text-center" rowspan="1" colspan="1">0x0405 - 0x045F</td>
+                <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
                 <td class="text-center" rowspan="1" colspan="1"> </td>
               </tr>
@@ -2628,14 +2656,16 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
 </div>
 <p id="section-3.12.4-5">Sound_Start and Sound_Stop <span class="bcp14">SHALL</span> only be available to the platform when the accessory is in the separated state.<a href="#section-3.12.4-5" class="pilcrow">¶</a></p>
 <p id="section-3.12.4-6">In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.<a href="#section-3.12.4-6" class="pilcrow">¶</a></p>
-<p id="section-3.12.4-7">Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.12.4-7" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-7">If <span><a href="#identifier-retrieval-over-bluetooth-le" class="internal xref">Identifer Retrieval over Bluetooth LE</a> (<a href="#identifier-retrieval-over-bluetooth-le" class="auto internal xref">Section 3.14.3</a>)</span> is supported, Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.12.4-7" class="pilcrow">¶</a></p>
 <p id="section-3.12.4-8">The identifier read state is discussed further in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.12.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-9">In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a> <span class="bcp14">SHALL</span> be sent through only to the connection that commanded the affiliated write subprocedure.
+Sound_Completed <span class="bcp14">MAY</span> be sent over all non-owner connections.<a href="#section-3.12.4-9" class="pilcrow">¶</a></p>
 <div id="play-sound">
 <section id="section-3.12.4.1">
             <h5 id="name-play-sound">
 <a href="#section-3.12.4.1" class="section-number selfRef">3.12.4.1. </a><a href="#name-play-sound" class="section-name selfRef">Play sound</a>
             </h5>
-<p id="section-3.12.4.1-1">The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker <span class="bcp14">MUST</span> play sound for a minimum duration of 5 seconds.<a href="#section-3.12.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.1-1">The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker <span class="bcp14">MUST</span> play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The <span class="bcp14">RECOMMENDED</span> duration is 12 seconds.<a href="#section-3.12.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.12.4.1-2.1">
                 <p id="section-3.12.4.1-2.1.1">The accessory <span class="bcp14">SHALL</span> confirm the start of the play sound procedure by sending a <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the corresponding CommandOpCode and a ResponseStatus value of Success.<a href="#section-3.12.4.1-2.1.1" class="pilcrow">¶</a></p>
@@ -2693,7 +2723,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                     <td class="text-right" rowspan="1" colspan="1">Uint16</td>
                     <td class="text-center" rowspan="1" colspan="1">1</td>
                     <td class="text-center" rowspan="1" colspan="1">2</td>
-                    <td class="text-center" rowspan="1" colspan="1">0x0000 Success<br>0x0001 Invalid_state<br>0x0002 Invalid_configuration<br>0x0003 Invalid_length<br>0x0004 Invalid_param<br>0xFFFF Invalid_command</td>
+                    <td class="text-center" rowspan="1" colspan="1">0x0000 : Success<br>0x0001 : Invalid_state<br>0x0002 : Invalid_configuration<br>0x0003 : Invalid_length<br>0x0004 : Invalid_param<br> 0x0005-0xFFFE : Reserved<br> 0xFFFF : Invalid_command</td>
                   </tr>
                 </tbody>
               </table>
@@ -2729,10 +2759,10 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
               <tbody>
                 <tr>
                   <td class="text-center" rowspan="1" colspan="1">Identifier Payload</td>
-                  <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
+                  <td class="text-center" rowspan="1" colspan="1">Uint8</td>
                   <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
                   <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
-                  <td class="text-center" rowspan="1" colspan="1">The encrypted identifier, encoded as a hex string.</td>
+                  <td class="text-center" rowspan="1" colspan="1">The encrypted identifier as an array of bytes.</td>
                 </tr>
               </tbody>
             </table>
@@ -2756,7 +2786,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
           <h4 id="name-recommended-finding-options">
 <a href="#section-3.12.6" class="section-number selfRef">3.12.6. </a><a href="#name-recommended-finding-options" class="section-name selfRef">Recommended Finding Options</a>
           </h4>
-<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 20</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.6-1"><a href="#accessory-finding-hw" class="auto internal xref">Table 20</a> lists two <span class="bcp14">RECOMMENDED</span> options on the set of technology in an accessory to make it findable. Given that a sound maker is <span class="bcp14">REQUIRED</span>, the accessory maker <span class="bcp14">SHALL</span> at very least implement Option A.<a href="#section-3.12.6-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-finding-hardware-"></span><div id="accessory-finding-hw">
 <table class="center" id="table-20">
             <caption>
@@ -2867,8 +2897,70 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
           <h4 id="name-identifier-over-nfc">
 <a href="#section-3.14.5" class="section-number selfRef">3.14.5. </a><a href="#name-identifier-over-nfc" class="section-name selfRef">Identifier over NFC</a>
           </h4>
-<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the encrypted identifier encoded as a hex string. This string <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> which <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
-<p id="section-3.14.5-2">The encrypted identifier when in associated state <span class="bcp14">SHALL</span> be an argument passed to this URL and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.14.5-2" class="pilcrow">¶</a></p>
+<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the whole URL with arguments as the payload over NFC. The payload <span class="bcp14">SHALL</span> look like the URL shown below.
+"https://{URL}?pid=%04x&amp;b=%02x&amp;fv=%08x&amp;e=%s"<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
+<span id="name-identifier-lookup-url-argum"></span><div id="_table-temp-identifier-lookup-url-arguments">
+<table class="center" id="table-21">
+            <caption>
+<a href="#table-21" class="selfRef">Table 21</a>:
+<a href="#name-identifier-lookup-url-argum" class="selfRef">Identifier Lookup URL-arguments</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-center" rowspan="1" colspan="1">URL argument</th>
+                <th class="text-center" rowspan="1" colspan="1">URL Argument Type</th>
+                <th class="text-center" rowspan="1" colspan="1">Notes</th>
+                <th class="text-center" rowspan="1" colspan="1">Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">b</td>
+                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Battery Level  (Optional)</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.11.1.10</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">bt</td>
+                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">BT Mac address (Optional)</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">fv</td>
+                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Firmware version (Optional)</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.11.1.8</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">e</td>
+                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Encrypted Identifier (Required)</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-center" rowspan="1" colspan="1">pid</td>
+                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Product Data (Required)</td>
+                <td class="text-center" rowspan="1" colspan="1">
+                  <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>
+</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<p id="section-3.14.5-3">The URL <span class="bcp14">SHALL</span> be hosted by the network provider. The URL <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+One approach to exchange the URL with the accessory, is when the accessory owner associates the accessory to a network provider.
+When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string <span class="bcp14">SHALL</span> be an argument ("e") passed to the identifier retrieval URL.
+When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.<a href="#section-3.14.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2922,11 +3014,11 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-accessory-category-value" class="section-name selfRef">Accessory Category Value</a>
       </h2>
 <p id="section-4-1">Accessory manufacturer’s <span class="bcp14">MUST</span> pick an accessory category value that closest resembles their physical product.
-If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 21</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
+If none of the accessory categories provided in <a href="#_table-accessory-category-values" class="auto internal xref">Table 22</a> match the physical product, Other <span class="bcp14">MUST</span> be chosen.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <span id="name-accessory-category-values"></span><div id="_table-accessory-category-values">
-<table class="center" id="table-21">
+<table class="center" id="table-22">
         <caption>
-<a href="#table-21" class="selfRef">Table 21</a>:
+<a href="#table-22" class="selfRef">Table 22</a>:
 <a href="#name-accessory-category-values" class="selfRef">Accessory Category Values</a>
         </caption>
 <thead>
@@ -3199,8 +3291,8 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
       <h2 id="name-onboarding">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-onboarding" class="section-name selfRef">Onboarding</a>
       </h2>
-<p id="section-7-1">Accessory manufacturers <span class="bcp14">MUST</span> follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">During onboarding, a product data registry will be created that includes information such as:<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-1">Accessory manufacturers <span class="bcp14">MUST</span> follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the <span><a href="#finding-network-registry" class="internal xref">Finding Network Registry</a> (<a href="#finding-network-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">During onboarding, a product data registry <span class="bcp14">SHALL</span> be created and maintained by the network provider for all accessory manufacturers participating in their network. Accessory manufacturers will work with the network providers they participate in, to provide information such as:<a href="#section-7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-7-3.1">
           <p id="section-7-3.1.1">Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.<a href="#section-7-3.1.1" class="pilcrow">¶</a></p>
@@ -3317,20 +3409,20 @@ on the whereabouts of an accessory.<a href="#section-9.3.1-1" class="pilcrow">¶
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-10-1">Eventually an IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer Network ID" registry.<a href="#section-10-1" class="pilcrow">¶</a></p>
-<div id="manufacturer-protocol-registry">
+This group includes the "Finding Network ID" registry.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<div id="finding-network-registry">
 <section id="section-10.1">
-        <h3 id="name-manufacturer-network-id-reg">
-<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-manufacturer-network-id-reg" class="section-name selfRef">Manufacturer Network ID Registry</a>
+        <h3 id="name-finding-network-registry">
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-finding-network-registry" class="section-name selfRef">Finding Network Registry</a>
         </h3>
 <p id="section-10.1-1">New entries are assigned only for values that have received Expert Review, per <span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.5" class="relref">Section 4.5</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-10.1-1" class="pilcrow">¶</a></p>
 <p id="section-10.1-2">An entry in this registry contains the following fields:<a href="#section-10.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-10.1-3.1">
-            <p id="section-10.1-3.1.1">Manufacturer Name: the name of an organization that is producing a location-tracker accessory<a href="#section-10.1-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-10.1-3.1.1">Network ID: a 1-byte value specifying the Network ID associated with the Network Provider<a href="#section-10.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-10.1-3.2">
-            <p id="section-10.1-3.2.1">Network ID: a 1-byte value specifying the Network ID associated with the Manufacturer Name<a href="#section-10.1-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-10.1-3.2.1">Network Provider: the name of the organization that is facilitating the locations for location-tracker accessories<a href="#section-10.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div id="temporary-registry">
@@ -3338,17 +3430,17 @@ This group includes the "Manufacturer Network ID" registry.<a href="#section-10-
           <h4 id="name-temporary-registry">
 <a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-temporary-registry" class="section-name selfRef">Temporary Registry</a>
           </h4>
-<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-id-registry" class="auto internal xref">Table 22</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
-<span id="name-network-id-registry"></span><div id="_table-temp-network-id-registry">
-<table class="center" id="table-22">
+<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-registry" class="auto internal xref">Table 23</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
+<span id="name-finding-network-registry-2"></span><div id="_table-temp-network-registry">
+<table class="center" id="table-23">
             <caption>
-<a href="#table-22" class="selfRef">Table 22</a>:
-<a href="#name-network-id-registry" class="selfRef">Network ID Registry</a>
+<a href="#table-23" class="selfRef">Table 23</a>:
+<a href="#name-finding-network-registry-2" class="selfRef">Finding Network Registry</a>
             </caption>
 <thead>
               <tr>
                 <th class="text-center" rowspan="1" colspan="1">Network ID</th>
-                <th class="text-center" rowspan="1" colspan="1">Manufacturer</th>
+                <th class="text-center" rowspan="1" colspan="1">Network Provider</th>
               </tr>
             </thead>
             <tbody>
