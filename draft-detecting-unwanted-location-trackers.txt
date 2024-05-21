@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 7 November 2024                                          Google
+Expires: 22 November 2024                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                              6 May 2024
+                                                             21 May 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 November 2024.
+   This Internet-Draft will expire on 22 November 2024.
 
 Copyright Notice
 
@@ -754,12 +754,15 @@ Table of Contents
     |              |        |       |         |    Bit 3 : Supports   |
     |              |        |       |         |  identifier lookup by |
     |              |        |       |         |          BLE          |
+    |              |        |       |         |   Bit 4-8 : Reserved  |
+    |              |        |       |         |    for private use    |
+    |              |        |       |         |  Bit 9-31 : Reserved  |
     +--------------+--------+-------+---------+-----------------------+
 
                   Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
-   and identifier look-up over BT will have the value set as 1011 in
+   and identifier look-up over BT will have the value set as 0b1011 in
    binary and 11 as Uint32.
 
 3.11.1.7.  Network ID
@@ -1006,11 +1009,37 @@ Table of Contents
    |                       |      |  (Section | accessory  |           |
    |                       |      | 3.12.4.2) |            |           |
    +-----------------------+------+-----------+------------+-----------+
-   |        RESERVED       |0x0304|           |            |           |
+   |  RESERVED for private |0x0304|           |            |           |
+   |          use          |      |           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |        RESERVED       |0x0305|           |            |           |
+   |                       |  -   |           |            |           |
+   |                       |0x0319|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |  RESERVED for private |0x031A|           |            |           |
+   |          use          |      |           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |        RESERVED       |0x031B|           |            |           |
+   |                       |  -   |           |            |           |
+   |                       |0x031F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |  RESERVED for private |0x0320|           |            |           |
+   |          use          |  -   |           |            |           |
+   |                       |0x033F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |        RESERVED       |0x0340|           |            |           |
    |                       |  -   |           |            |           |
    |                       |0x035F|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
-   |  RESERVED (Response)  |0x0405|           |            |           |
+   |  RESERVED (Response)  |0x0406|           |            |           |
+   |                       |  -   |           |            |           |
+   |                       |0x041F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |  RESERVED for private |0x0420|           |            |           |
+   |     use (Response)    |  -   |           |            |           |
+   |                       |0x043F|           |            |           |
+   +-----------------------+------+-----------+------------+-----------+
+   |  RESERVED (Response)  |0x0440|           |            |           |
    |                       |  -   |           |            |           |
    |                       |0x045F|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
