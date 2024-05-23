@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-21T00:40:33.597460+00:00",
+  "timestamp": "2024-05-23T00:40:11.748331+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9445,24 +9445,26 @@
       "id": "PR_kwDOJdqgvc5t41zK",
       "title": "Update Accessory Capabilities and Non-Owner Controls Opcodes with Reserved Bits and Opcodes",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/187",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tertan26",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-04-26T23:35:13Z",
-      "updatedAt": "2024-05-20T18:30:50Z",
+      "updatedAt": "2024-05-21T23:37:41Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "79558a4cceb27a754cbe2cadd88bb29fd1f86c7a",
+      "baseRefOid": "5588641f5b7252c26e17d34d531b3f5bf6d8e234",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "tertan-reserved-updates",
-      "headRefOid": "08f40798200ed7b4aaec5a5fe112c0dc395dfa58",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "3cc6e5ee57487e96a5f7881a4cd0dced6b440170",
+      "closedAt": "2024-05-21T23:37:41Z",
+      "mergedAt": "2024-05-21T23:37:41Z",
+      "mergedBy": "tertan26",
+      "mergeCommit": {
+        "oid": "b107b45735ebfc51f44ef20d818e56fd9700cfb4"
+      },
       "comments": [],
       "reviews": [
         {
@@ -9504,6 +9506,19 @@
               "updatedAt": "2024-05-01T21:00:40Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc57PgsO",
+          "commit": {
+            "abbreviatedOid": "3cc6e5e"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-05-21T06:37:44Z",
+          "updatedAt": "2024-05-21T23:33:38Z",
+          "comments": []
         }
       ]
     },
@@ -9587,7 +9602,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-05-20T18:17:20Z",
-      "updatedAt": "2024-05-20T18:17:21Z",
+      "updatedAt": "2024-05-21T23:42:35Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "5588641f5b7252c26e17d34d531b3f5bf6d8e234",
@@ -9599,7 +9614,34 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc57SXZR",
+          "commit": {
+            "abbreviatedOid": "7da25b3"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-05-21T11:53:20Z",
+          "updatedAt": "2024-05-21T11:53:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc57XqMa",
+          "commit": {
+            "abbreviatedOid": "7da25b3"
+          },
+          "author": "sivagmovva",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-05-21T23:42:35Z",
+          "updatedAt": "2024-05-21T23:42:35Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
