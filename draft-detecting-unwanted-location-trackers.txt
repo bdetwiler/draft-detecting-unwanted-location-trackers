@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 22 November 2024                                         Google
+Expires: 25 November 2024                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                             21 May 2024
+                                                             24 May 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 November 2024.
+   This Internet-Draft will expire on 25 November 2024.
 
 Copyright Notice
 
@@ -624,6 +624,11 @@ Table of Contents
    Invalid_command error as the ResponseStatus in the Command_Response.
    See Command Response (Section 3.12.4.1.1) for details.
 
+   In the circumstances that there are multiple non-owner connections,
+   all GATT indication subprocedures defined in Table 4 SHALL be sent
+   through only to the connection that commanded the affiliated write
+   subprocedure.
+
    Opcodes should be structured as defined below.
 
                           +=======+==============+
@@ -1059,6 +1064,12 @@ Table of Contents
 
    The identifier read state is discussed further in Identifier Payload
    (Section 3.12.4.2).
+
+   In the circumstances that there are multiple non-owner connections,
+   all GATT indication subprocedures defined in Table 17 SHALL be sent
+   through only to the connection that commanded the affiliated write
+   subprocedure.  Sound_Completed MAY be sent over all non-owner
+   connections.
 
 3.12.4.1.  Play sound
 
