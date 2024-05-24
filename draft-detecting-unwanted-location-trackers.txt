@@ -602,11 +602,19 @@ Table of Contents
    |Response               |      |   (Section   |    From    |           |
    |                       |      |  3.11.1.10)  | Accessory  |           |
    +-----------------------+------+--------------+------------+-----------+
-   |RESERVED               |0x000D|              |            |           |
+   |Get_Network_Version    |0x000D|     None     | Write; To  |  OPTIONAL |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Network_Version_   |0x080D|   Network    |Indications;|  OPTIONAL |
+   |Response               |      |   Version    |    From    |           |
+   |                       |      |   (Section   | Accessory  |           |
+   |                       |      |  3.11.1.11)  |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |RESERVED               |0x000E|              |            |           |
    |                       |     -|              |            |           |
    |                       |0x005F|              |            |           |
    +-----------------------+------+--------------+------------+-----------+
-   |RESERVED (Response)    |0x080D|              |            |           |
+   |RESERVED (Response)    |0x080E|              |            |           |
    |                       |     -|              |            |           |
    |                       |0x085F|              |            |           |
    +-----------------------+------+--------------+------------+-----------+
@@ -874,6 +882,58 @@ Table of Contents
 
                       Table 15: Battery Level Operand
 
+3.11.1.11.  Network version
+
+   The Network Version describes the network specification the accessory
+   complies with for the network specified by Network ID (Section 3.7).
+   The network revision string SHALL use the x[.y[.z]] format where :
+
+   *  <x> is the major version number, required.
+
+   *  <y> is the minor version number, required if it is non zero or if
+      <z> is present.
+
+   *  <z> is the revision version number, required if non zero.
+
+   The network revision MUST follow these rules:
+
+   *  <x> is incremented when there is significant change; for example,
+      1.0.0, 2.0.0, 3.0.0, and so on.
+
+   *  <y> is incremented when minor changes are introduced, such as
+      1.1.0, 2.1.0, 3.1.0, and so on.
+
+   *  <z> is incremented when bug fixes are introduced, such as 1.0.1,
+      2.0.1, 3.0.1, and so on.
+
+   *  Subsequent network updates can have a lower <y> version only if
+      <x> is incremented.
+
+   *  Subsequent network updates can have a lower <z> version only if
+      <x> or <y> is incremented.
+
+   Major version MUST not be greater than (2^16 - 1).  Minor and
+   revision version MUST not be greater than (2^8 - 1).  The value MUST
+   change after every network update.
+
+        +=========+========+=======+=========+===================+
+        | Operand |  Data  | Count |  Total  |    Description    |
+        |   name  |  type  |       |   Size  |                   |
+        |         |        |       | (Bytes) |                   |
+        +=========+========+=======+=========+===================+
+        | Network | Uint32 |   1   |    4    | Byte 0 : revision |
+        | version |        |       |         |   version number  |
+        |         |        |       |         |   Byte 1 : minor  |
+        |         |        |       |         |   version number  |
+        |         |        |       |         |  Byte 2:3 : major |
+        |         |        |       |         |   version number  |
+        +---------+--------+-------+---------+-------------------+
+
+                    Table 16: Network Version Operand
+
+   As an example, a Major.Minor.Revision value of 1.0.0 has an
+   equivalent 4-byte value of 0x00010000.
+
 3.12.  Non-Owner Finding
 
    Once a user has been notified of an unknown accessory traveling with
@@ -896,7 +956,7 @@ Table of Contents
 
    The details in this section apply to those accessories that include a
    motion detector.  Values of the variables referenced are specified in
-   Table 16.
+   Table 17.
 
 
    After T_(SEPARATED_UT_TIMEOUT) in separated state, the accessory MUST
@@ -958,7 +1018,7 @@ Table of Contents
    |                                 | distribution |                  |
    +---------------------------------+--------------+------------------+
 
-                   Table 16: Motion Detector Time Values
+                   Table 17: Motion Detector Time Values
 
 3.12.3.  Sound maker
 
@@ -985,7 +1045,7 @@ Table of Contents
    sound as well as fetch an encrypted payload used to retrieve the
    identifier of the device.
 
-   These 2-byte opcodes are defined in Table 17.
+   These 2-byte opcodes are defined in Table 18.
 
    +=======================+======+===========+============+===========+
    |         Opcode        |Opcode|  Operands |    GATT    |Requirement|
@@ -1049,7 +1109,7 @@ Table of Contents
    |                       |0x045F|           |            |           |
    +-----------------------+------+-----------+------------+-----------+
 
-                    Table 17: Non-Owner Controls Opcodes
+                    Table 18: Non-Owner Controls Opcodes
 
    Sound_Start and Sound_Stop SHALL only be available to the platform
    when the accessory is in the separated state.
@@ -1066,7 +1126,7 @@ Table of Contents
    (Section 3.12.4.2).
 
    In the circumstances that there are multiple non-owner connections,
-   all GATT indication subprocedures defined in Table 17 SHALL be sent
+   all GATT indication subprocedures defined in Table 18 SHALL be sent
    through only to the connection that commanded the affiliated write
    subprocedure.  Sound_Completed MAY be sent over all non-owner
    connections.
@@ -1130,7 +1190,7 @@ Table of Contents
    |                |        |     |         |     Invalid_command     |
    +----------------+--------+-----+---------+-------------------------+
 
-                    Table 18: Command Response Operands
+                    Table 19: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
@@ -1153,7 +1213,7 @@ Table of Contents
     |            |       |            |            | array of bytes.  |
     +------------+-------+------------+------------+------------------+
 
-                Table 19: Identifier Payload Over Bluetooth
+                Table 20: Identifier Payload Over Bluetooth
 
    It is REQUIRED that the encrypted identifier (which in some cases is
    the product serial number) be non-identifiable.
@@ -1173,7 +1233,7 @@ Table of Contents
 
 3.12.6.  Recommended Finding Options
 
-   Table 20 lists two RECOMMENDED options on the set of technology in an
+   Table 21 lists two RECOMMENDED options on the set of technology in an
    accessory to make it findable.  Given that a sound maker is REQUIRED,
    the accessory maker SHALL at very least implement Option A.
 
@@ -1189,7 +1249,7 @@ Table of Contents
                    | Lights      |          |    X     |
                    +-------------+----------+----------+
 
-                        Table 20: Accessory Finding
+                        Table 21: Accessory Finding
                               Hardware Options
 
 3.12.7.  Future hardware
@@ -1281,7 +1341,7 @@ Table of Contents
    |          |              |    (Required)    |  (Section 3.11.1.1) |
    +----------+--------------+------------------+---------------------+
 
-                Table 21: Identifier Lookup URL-arguments
+                Table 22: Identifier Lookup URL-arguments
 
    The URL SHALL be hosted by the network provider.  The URL SHALL
    decrypt the identifier payload and return the identifier of the
@@ -1338,7 +1398,7 @@ Table of Contents
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
-   categories provided in Table 22 match the physical product, Other
+   categories provided in Table 23 match the physical product, Other
    MUST be chosen.
 
                +============================+=============+
@@ -1429,7 +1489,7 @@ Table of Contents
                | Reserved for future use    | 2-127, 168+ |
                +----------------------------+-------------+
 
-                   Table 22: Accessory Category Values
+                   Table 23: Accessory Category Values
 
 5.  Firmware Updates
 
@@ -1674,7 +1734,7 @@ Table of Contents
 10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 23.
+   are listed in Table 24.
 
                      +============+==================+
                      | Network ID | Network Provider |
@@ -1688,7 +1748,7 @@ Table of Contents
                      |    0xFF    |     Reserved     |
                      +------------+------------------+
 
-                         Table 23: Finding Network
+                         Table 24: Finding Network
                                   Registry
 
 11.  Normative References
