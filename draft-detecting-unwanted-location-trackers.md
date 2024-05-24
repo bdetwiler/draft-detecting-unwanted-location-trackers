@@ -292,6 +292,9 @@ If any opcode value is commanded that is not supported by the accessory, it SHAL
 See [Command Response](#command-response) for details.
 
 
+In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in {{accessory-information-opcodes}} SHALL be sent through only to the connection that commanded the affiliated write subprocedure.
+
+
 Opcodes should be structured as defined below.
 
 | Bytes | Description  |
@@ -508,6 +511,10 @@ In all other states, the accessory SHALL return the Invalid_command error as the
 If [Identifer Retrieval over Bluetooth LE](#identifier-retrieval-over-bluetooth-le) is supported, Get_Identifier SHALL only be available when in identifier read state; otherwise, it MUST send [Command_Response](#command-response) with the Invalid_command as the ResponseStatus.
 
 The identifier read state is discussed further in [Identifier Payload](#identifier-payload).
+
+In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in {{table-non-owner-controls-opcodes}} SHALL be sent through only to the connection that commanded the affiliated write subprocedure.
+Sound_Completed MAY be sent over all non-owner connections.
+
 
 ##### Play sound
 The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The RECOMMENDED duration is 12 seconds.
