@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-23T00:40:11.748331+00:00",
+  "timestamp": "2024-05-26T00:44:06.477360+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9569,50 +9569,68 @@
       "id": "PR_kwDOJdqgvc5usJ9J",
       "title": "Get network version in accessory information opcodes",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/189",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tertan26",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-06T22:12:18Z",
-      "updatedAt": "2024-05-10T21:43:53Z",
+      "updatedAt": "2024-05-24T17:12:51Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "5588641f5b7252c26e17d34d531b3f5bf6d8e234",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "tertan/Reserved-accessory-information-opcode",
       "headRefOid": "045e3f59d1704c5def016d8fc5fd3cc53f1e416d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-05-24T17:12:51Z",
+      "mergedAt": "2024-05-24T17:12:51Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "d33563eb092976319cf3cc96c174b1699d3a643a"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc57sb0w",
+          "commit": {
+            "abbreviatedOid": "045e3f5"
+          },
+          "author": "sivagmovva",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-05-23T22:31:18Z",
+          "updatedAt": "2024-05-23T22:31:18Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 190,
       "id": "PR_kwDOJdqgvc5v_Ns3",
       "title": "Add clarification on GATT indications if multiple non-owner connections",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/190",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-20T18:17:20Z",
-      "updatedAt": "2024-05-21T23:42:35Z",
+      "updatedAt": "2024-05-24T17:10:41Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "5588641f5b7252c26e17d34d531b3f5bf6d8e234",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bdetwiler/opcode-responses",
       "headRefOid": "7da25b330e7e2afb24c2e5ce6dce3cc96a15704b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-05-24T17:10:40Z",
+      "mergedAt": "2024-05-24T17:10:40Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "156225f8444ffa786806a686641bc4eea30c9dca"
+      },
       "comments": [],
       "reviews": [
         {
