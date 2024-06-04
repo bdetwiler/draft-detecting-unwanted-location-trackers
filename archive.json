@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-02T00:44:18.810064+00:00",
+  "timestamp": "2024-06-04T00:41:34.333212+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9660,6 +9660,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 191,
+      "id": "PR_kwDOJdqgvc5xPIPc",
+      "title": "Create SECURITY.md",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/191",
+      "state": "OPEN",
+      "author": "Javier0805",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Robo de archivos y app",
+      "createdAt": "2024-06-03T00:52:36Z",
+      "updatedAt": "2024-06-03T00:52:36Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "d33563eb092976319cf3cc96c174b1699d3a643a",
+      "headRepository": "Javier0805/draft-detecting-unwanted-location-trackers",
+      "headRefName": "patch-1",
+      "headRefOid": "2dab474420208d431f949b8a26cd9e323fb389e5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
