@@ -159,6 +159,8 @@ If the accessory maker chooses to continue advertising the location-enabled payl
 ### Overview
 When in location-enabled state, the accessory SHALL advertise a Bluetooth LE format, denoted the location-enabled Bluetooth advertisement payload, that is recognizable to the platforms.
 
+The primary purpose of the advertisement in the context of this specification is to allow the detection of unwanted location trackers. All accessories in scope of this document are associated with an owner. The advertisement MUST allow the owner’s platform to reliably recognize the owner's associated accessories, that is a critical signal to distinguish unwanted trackers from expected ones. False alerts associated to owned or expected accessories may otherwise desensitize users, leading them to miss relevant ones.
+
 ###  Location-enabled advertisement payload format
 The payload format is defined in {{table-payload-format}}
 
@@ -201,15 +203,15 @@ The accessory SHALL transition from near-owner mode to separated mode under the 
 The accessory SHALL transition from separated to near-owner mode if it has reunited with the owner device for a duration no longer than 30 minutes.
 
 ## MAC address {#mac-address}
-The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device. The address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
+The Bluetooth LE advertisement payload SHALL contain an address in the 6-byte Bluetooth MAC address field which looks random to all parties while being recognizable by the owner device.
 
-The owner MUST be able to predict the MAC address or the payload advertised by the accessory at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See [Owned Accessory Identification](#owned-accessory-identification) for additional details.
+The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices. Same rules apply to all of the advertised payload.
 
-The address SHALL rotate periodically (see [Rotation policy](#rotation-policy)); otherwise if the same address is used for long periods of time, an adversary may be able to track a legitimate person carrying the accessory through local Bluetooth LE scanning devices. Same rules apply to any other identifiable content of the advertised payload.
+It is possible to generate the MAC address in a way which meets the privacy requirement while allowing the platform to recognize an owned accessory without ambiguity using the MAC address, as defined in {{implementation-owned}}.
+When taking this approach, the address type SHALL be set as a non-resolvable private address or as a static device address, as defined in Random Device Address in Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}}.
+The owner MUST be able to predict the MAC address value at any given time in order to suppress unwanted tracking alerts caused by a device’s owned accessory. See [Owned Accessory Identification](#owned-accessory-identification) for additional details.
 
-A general approach to generate addresses meeting this requirement these properties is to construct them using a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
-
-This construction allows accessories to define their own MAC address generation process while also providing a means to meet the requirements for [owned accessory identification](#owned-accessory-identification).
+Alternatively, the owner recognizable value may be placed in Proprietary company payload data defined in [Proprietary company payload](#proprietary-company-payload). In this scenario, the MAC address of the accessory advertisement may be set to resolvable private address.
 
 ### Rotation policy
 An accessory SHALL rotate its address on any transition from near-owner state to separated state as well as any transition from separated state to near-owner state.
@@ -225,6 +227,11 @@ The Service data TLV with a 2-byte UUID value of 0xFCB2 provides a way for platf
 ## Network ID
 The 1-byte Network ID SHALL be set based on a registered value for the manufacturer, as defined in [Finding Network Registry](#finding-network-registry).
 
+## Proprietary company payload
+
+To maintain the privacy properties of the MAC address, the values of payload which may be different between accessories SHALL rotate at the same time and interval as the MAC address. The approach using a Pseudo-Random Function suggested in {{implementation-owned}}. may be used to meet this privacy requirement.
+
+If a Resolvable Private MAC address is used, this field SHALL be populated with a value of 6 bytes minimum which allows the platform to recognize an owned accessory without ambiguity to support the identification of owned accessory by the platform as defined in [Owned Accessory Identification](#owned-accessory-identification).
 
 ## Near-owner bit
 It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-enabled advertisement with the owner nearby, the accessory MUST set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. {{table-near-owner-bit}} specifies the values of this bit.
@@ -754,13 +761,19 @@ Any platform that supports unwanted tracking SHOULD also provide the capability 
 If an unwanted tracking alert occurs for an accessory and the platform does not already have the installed capability to prevent this alert for the owner of the accessory, then the platform SHOULD explain to the user how those capabilities can be acquired.
 
 
-### Implementation
-Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching the MAC address advertised as defined in {{table-payload-format}}, or some other part of the payload, against the one(s) expected during that time.
+### Implementation {#implementation-owned}
+Unwanted tracking SHOULD recognize an accessory associated to that owner device by matching one of two fields defined in {{table-payload-format}}: either the MAC address or a part of the proprietary payload. The field, offset and length will be determined based on the inputs defined in the [Platform Software Extension](#platform-software-extension).
+
+A general approach to generate a recognizable value which can also meet the privacy requirement for the advertisement is to use a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
+
+
+The Resolvable private address format as defined Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}} alone is not adequate for the purpose of recognizing an owned accessory. Only 3 bytes of the MAC address are calculated with the Bluetooth Identity Resolving Key. In the context of Unwanted Tracking it implies there would be a non negligible risk of an accessory to be incorrectly considered to be owned.
+
 
 ### Platform Software Extension
 Platforms SHOULD implement the owned accessory identification capability as a software extension to its unwanted tracking detection.
 
-Accessory manufacturers SHALL provide this set of MAC addresses or matching rules to the platform. This set MUST account for the uncertainty involved with the [MAC address](#mac-address).
+Accessory manufacturers SHALL provide this set of recognizable values to the platform, along with an offset and length indicating what part of the advertisement to match. This set MUST be large enough to accommodate a time offset between the accessory and owner's host platform.
 
 The Network ID in the advertisement payload, as specified in {{table-payload-format}}, SHALL be used to associate an accessory detected with the manufacturer's software extension.
 
