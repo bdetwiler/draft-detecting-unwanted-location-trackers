@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-04T00:41:34.333212+00:00",
+  "timestamp": "2024-06-06T00:41:01.051865+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9673,7 +9673,7 @@
       "labels": [],
       "body": "Robo de archivos y app",
       "createdAt": "2024-06-03T00:52:36Z",
-      "updatedAt": "2024-06-03T00:52:36Z",
+      "updatedAt": "2024-06-05T17:23:58Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "d33563eb092976319cf3cc96c174b1699d3a643a",
@@ -9684,8 +9684,84 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Hello! Could you please provide some context on the nature of this change? Thank you. \r\n",
+          "createdAt": "2024-06-05T17:23:57Z",
+          "updatedAt": "2024-06-05T17:23:57Z"
+        }
+      ],
       "reviews": []
+    },
+    {
+      "number": 192,
+      "id": "PR_kwDOJdqgvc5xfHGI",
+      "title": "Add support for Bluetooth RPA Mac addresses",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/192",
+      "state": "MERGED",
+      "author": "yannick-apple",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR add the support of Bluetooth RPA MAC address by allowing the owner recognizable value to be in the proprietary payload",
+      "createdAt": "2024-06-05T00:38:27Z",
+      "updatedAt": "2024-06-05T17:22:07Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "d33563eb092976319cf3cc96c174b1699d3a643a",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "ysierra/adding-rpa-support",
+      "headRefOid": "3202273ff7540b9d2781e8cead44a4c99bd37fcf",
+      "closedAt": "2024-06-05T17:22:07Z",
+      "mergedAt": "2024-06-05T17:22:07Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "1f7affb97ee3028928bdd028692c7d32ba89f350"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc59CsjB",
+          "commit": {
+            "abbreviatedOid": "3202273"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2024-06-05T02:52:56Z",
+          "updatedAt": "2024-06-05T02:52:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc59DztT",
+          "commit": {
+            "abbreviatedOid": "3202273"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for putting this together.",
+          "createdAt": "2024-06-05T06:28:42Z",
+          "updatedAt": "2024-06-05T06:28:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc59KKfW",
+          "commit": {
+            "abbreviatedOid": "3202273"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "This is a nice improvement, thank you for putting this together. ",
+          "createdAt": "2024-06-05T17:21:57Z",
+          "updatedAt": "2024-06-05T17:21:57Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
