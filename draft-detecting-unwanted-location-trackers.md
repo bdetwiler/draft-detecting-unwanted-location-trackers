@@ -336,7 +336,7 @@ When the Manufacturer Name is less than 64 bytes, it SHALL be formatted either a
 - a string value with length less than 64 bytes
 
 Or
- 
+
 - a string value that is both zero-terminated and zero-padded up to 64 bytes
 
 
