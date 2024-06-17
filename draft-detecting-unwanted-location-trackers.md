@@ -767,7 +767,7 @@ Unwanted tracking SHOULD recognize an accessory associated to that owner device 
 A general approach to generate a recognizable value which can also meet the privacy requirement for the advertisement is to use a Pseudo-Random Function (PRF) taking as input a key established during the association of the accessory and either a counter or coarse notion of time. The counter or coarse notion of time allows for the address to change periodically. The key allows the owner devices to predict the sequence of addresses for the purposes of recognizing its associated accessories.
 
 
-The Resolvable private address format as defined Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}} alone is not adequate for the purpose of recognizing an owned accessory. Only 3 bytes of the MAC address are calculated with the Bluetooth Identity Resolving Key. In the context of Unwanted Tracking it implies there would be a non negligible risk of an accessory to be incorrectly considered to be owned.
+The Resolvable private address format as defined Vol 6, Part B, Section 1.3.2 of the {{BTCore5.4}} alone is not adequate for the purpose of recognizing an owned accessory. Only 3 bytes of the MAC address are calculated with the Bluetooth Identity Resolving Key. In the context of Unwanted Tracking it implies there would be a non-negligible risk of an accessory to be incorrectly considered to be owned.
 
 
 ### Platform Software Extension
