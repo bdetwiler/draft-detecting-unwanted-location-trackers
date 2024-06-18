@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-16T00:45:54.512811+00:00",
+  "timestamp": "2024-06-18T00:42:37.379505+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9762,6 +9762,122 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 193,
+      "id": "PR_kwDOJdqgvc5yovJm",
+      "title": "Fixed bullets in opcode section",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/193",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "switched to dashes for bullets in manufacturer and model name opcode sections",
+      "createdAt": "2024-06-17T03:35:33Z",
+      "updatedAt": "2024-06-17T13:45:44Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "1f7affb97ee3028928bdd028692c7d32ba89f350",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-42",
+      "headRefOid": "2d7a7ba4f9b1c7bcda81c83dac326af9e031196b",
+      "closedAt": "2024-06-17T13:45:44Z",
+      "mergedAt": "2024-06-17T13:45:44Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "3f04339df0ce98fbae5c3ea980dc093f2559c3f0"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5-euQn",
+          "commit": {
+            "abbreviatedOid": "2d7a7ba"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-17T06:28:47Z",
+          "updatedAt": "2024-06-17T06:28:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 194,
+      "id": "PR_kwDOJdqgvc5yo0OD",
+      "title": "Fixed \"non-negligible\"",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/194",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "Found a minor typo when doing review",
+      "createdAt": "2024-06-17T03:55:27Z",
+      "updatedAt": "2024-06-17T13:45:33Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "1f7affb97ee3028928bdd028692c7d32ba89f350",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-43",
+      "headRefOid": "7bd4e7c7d8ee24fdf3c0eb5514d4838b8b243844",
+      "closedAt": "2024-06-17T13:45:32Z",
+      "mergedAt": "2024-06-17T13:45:32Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "e6a67e220ce7b1f3c215a929fdfb605af5c3d05c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5-euKe",
+          "commit": {
+            "abbreviatedOid": "7bd4e7c"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-17T06:28:28Z",
+          "updatedAt": "2024-06-17T06:28:28Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 195,
+      "id": "PR_kwDOJdqgvc5yvGo7",
+      "title": "Add \"or\" to make bullets more clear in 3.12.1.2 and 3.12.1.3",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/195",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-06-17T19:49:07Z",
+      "updatedAt": "2024-06-17T19:51:32Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "3f04339df0ce98fbae5c3ea980dc093f2559c3f0",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-44",
+      "headRefOid": "78615e56bedec5de40eba2e76494bf0f353846a5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
