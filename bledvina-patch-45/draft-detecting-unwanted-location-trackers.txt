@@ -1459,6 +1459,8 @@ Table of Contents
    *  The NFC implemention of the accessory MUST be configured as a NFC
       tag.
 
+   NFC specification documents can be found here [NFCForum].
+
 4.  Accessory Category Value
 
    Accessory manufacturer’s MUST pick an accessory category value that
@@ -1842,6 +1844,9 @@ Table of Contents
               "Bluetooth Core Specification v5.4", 31 January 2023,
               <https://www.bluetooth.org/DocMan/handlers/
               DownloadDoc.ashx?doc_id=556599>.
+
+   [NFCForum] "NFC Forum", n.d., <https://nfc-forum.org/build/
+              specifications#core-specification>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
