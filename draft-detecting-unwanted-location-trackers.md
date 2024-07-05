@@ -631,7 +631,7 @@ The accessory manufacturer SHALL provide both a text description of how to disab
 ## Identification
 The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
 
-### Serial number identification
+### Serial number identification {#serial-number-identification}
 
 If a serial number is available, it SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
 
@@ -666,6 +666,7 @@ One approach to exchange the URL with the accessory, is when the accessory owner
 When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string SHALL be an argument ("e") passed to the identifier retrieval URL.
 When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.
 
+Details on NFC hardware requirements can found in [NFC Requirements](#NFC-requirements).
 
 ## Owner registry
 Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.
@@ -684,6 +685,23 @@ The owner registry SHOULD be stored for a minimum of 25 days after an owner has 
 
 ### Availability for law enforcement
 Available ownership registry information SHOULD be produced in response to a valid law enforcement request seeking information related to the misuse of location-tracking accessories provided that the request is submitted pursuant to defined procedures for obtaining such information. Network providers SHOULD define their own procedures for submission of valid legal requests from law enforcement.
+
+## NFC Requirements {#NFC-requirements}
+
+Accessories that include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
+
+# Hardware
+
+These are the hardware requirements for accessories that include NFC:
+
+- The accessory MUST use a programmable NFC tag.
+- NFC tags MUST use the NFC Data Exchange Format (NDEF) as defined by NFC Forum™ in NDEF 1.0 NFCForum‑TS‑NDEF 1.0.
+An NDEF message is defined as a group of individual NDEF records as defined by NFC Forum™ in NFC Record Type Definition (RTD) RTD 1.0 NFCForum‑TS‑RTD 1.0.
+- The payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum™ in URI Record Type Definition RTD‑URI 1.0 NFCForum‑TS‑RTD URI 1.0. 
+- NFC tag types MUST be type 2 or greater.
+- The NFC tag SHALL not be scannable when the accessory is still in the packaging.
+- The payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum™ in Tag Performance Requirements Document.
+- The NFC implemention in the accessory MUST be configured as a NFC tag.
 
 
 # Accessory Category Value
