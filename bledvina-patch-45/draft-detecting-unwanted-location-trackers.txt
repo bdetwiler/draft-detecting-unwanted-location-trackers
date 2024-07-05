@@ -118,33 +118,33 @@ Table of Contents
        3.16.2.  Persistence
        3.16.3.  Availability for law enforcement
      3.17. NFC Requirements
-   4.  Hardware
-   5.  Accessory Category Value
-   6.  Firmware Updates
-     6.1.  Backwards Compatibility
-       6.1.1.  Existing trackers
-       6.1.2.  Advertisement backwards compatibility
-   7.  Platform Support for Unwanted Tracking
-     7.1.  Owned Accessory Identification
-       7.1.1.  Implementation
-       7.1.2.  Platform Software Extension
-       7.1.3.  Network Access
-       7.1.4.  Removal
-   8.  Onboarding
-     8.1.  Network providers
-   9.  Security Considerations
-     9.1.  Obfuscated owner information look-up
-       9.1.1.  Design of encrypted identifier look-up
-   10. Privacy Considerations
-     10.1.  Obfuscated owner information
-     10.2.  Identifier look-up
-     10.3.  Location-enabled payload
-       10.3.1.  Stable identifiers
-       10.3.2.  Proprietary company payload data
-   11. IANA Considerations
-     11.1.  Finding Network Registry
-       11.1.1.  Temporary Registry
-   12. Normative References
+       3.17.1.  Hardware
+   4.  Accessory Category Value
+   5.  Firmware Updates
+     5.1.  Backwards Compatibility
+       5.1.1.  Existing trackers
+       5.1.2.  Advertisement backwards compatibility
+   6.  Platform Support for Unwanted Tracking
+     6.1.  Owned Accessory Identification
+       6.1.1.  Implementation
+       6.1.2.  Platform Software Extension
+       6.1.3.  Network Access
+       6.1.4.  Removal
+   7.  Onboarding
+     7.1.  Network providers
+   8.  Security Considerations
+     8.1.  Obfuscated owner information look-up
+       8.1.1.  Design of encrypted identifier look-up
+   9.  Privacy Considerations
+     9.1.  Obfuscated owner information
+     9.2.  Identifier look-up
+     9.3.  Location-enabled payload
+       9.3.1.  Stable identifiers
+       9.3.2.  Proprietary company payload data
+   10. IANA Considerations
+     10.1.  Finding Network Registry
+       10.1.1.  Temporary Registry
+   11. Normative References
    Authors' Addresses
 
 1.  Introduction
@@ -423,13 +423,13 @@ Table of Contents
    It is possible to generate the MAC address in a way which meets the
    privacy requirement while allowing the platform to recognize an owned
    accessory without ambiguity using the MAC address, as defined in
-   Section 7.1.1.  When taking this approach, the address type SHALL be
+   Section 6.1.1.  When taking this approach, the address type SHALL be
    set as a non-resolvable private address or as a static device
    address, as defined in Random Device Address in Vol 6, Part B,
    Section 1.3.2 of the [BTCore5.4].  The owner MUST be able to predict
    the MAC address value at any given time in order to suppress unwanted
    tracking alerts caused by a device’s owned accessory.  See Owned
-   Accessory Identification (Section 7.1) for additional details.
+   Accessory Identification (Section 6.1) for additional details.
 
    Alternatively, the owner recognizable value may be placed in
    Proprietary company payload data defined in Proprietary company
@@ -462,21 +462,21 @@ Table of Contents
 
    The 1-byte Network ID SHALL be set based on a registered value for
    the manufacturer, as defined in Finding Network Registry
-   (Section 11.1).
+   (Section 10.1).
 
 3.8.  Proprietary company payload
 
    To maintain the privacy properties of the MAC address, the values of
    payload which may be different between accessories SHALL rotate at
    the same time and interval as the MAC address.  The approach using a
-   Pseudo-Random Function suggested in Section 7.1.1. may be used to
+   Pseudo-Random Function suggested in Section 6.1.1. may be used to
    meet this privacy requirement.
 
    If a Resolvable Private MAC address is used, this field SHALL be
    populated with a value of 6 bytes minimum which allows the platform
    to recognize an owned accessory without ambiguity to support the
    identification of owned accessory by the platform as defined in Owned
-   Accessory Identification (Section 7.1).
+   Accessory Identification (Section 6.1).
 
 3.9.  Near-owner bit
 
@@ -675,7 +675,7 @@ Table of Contents
    The Product Data operand represents an 8-byte value that is intended
    to serve as a unique identifier for the accessory make and model.
    This value SHALL be determined during the onboarding process
-   (Section 8).
+   (Section 7).
 
     +==============+=======+=======+============+====================+
     | Operand name |  Data | Count | Total Size |    Description     |
@@ -745,7 +745,7 @@ Table of Contents
       +===========+=======+=======+=========+=======================+
       | Accessory | Uint8 |   8   |    8    |  Byte 0: Uint8 value  |
       |  Category |       |       |         | of Accessory Category |
-      |           |       |       |         |   Value (Section 5)   |
+      |           |       |       |         |   Value (Section 4)   |
       |           |       |       |         |   Byte 1-7: Reserved  |
       +-----------+-------+-------+---------+-----------------------+
 
@@ -1249,7 +1249,7 @@ Table of Contents
    Command_Response (Section 3.13.4.1.1) with the Invalid_command as the
    ResponseStatus.  Further considerations for how these operands should
    be implemented are discussed in Design of encrypted identifier
-   look-up (Section 9.1.1).
+   look-up (Section 8.1.1).
 
 3.13.5.  Alternate finding hardware
 
@@ -1298,7 +1298,7 @@ Table of Contents
    image, diagram, animation, etc.) that MUST be available when the
    platform is online and OPTIONALLY when offline.  Disablement
    procedure or instructions CAN change with accessory firmware updates.
-   These are provided as part of the onboarding process (Section 8).
+   These are provided as part of the onboarding process (Section 7).
 
 3.15.  Identification
 
@@ -1333,7 +1333,7 @@ Table of Contents
    available when the platform is online and OPTIONALLY when offline.
    The description and visual depiction CAN change with accessory
    firmware updates.  These are provided as part of the onboarding
-   process (Section 8).
+   process (Section 7).
 
 3.15.4.  Identifier retrieval from a server
 
@@ -1426,11 +1426,11 @@ Table of Contents
 
 3.17.  NFC Requirements
 
-   Accessories that include NFC (see Serial number identification
-   (Section 3.15.1)) MUST support the requirements from this
-   subsecction.
+   Accessories that optionally include NFC (see Serial number
+   identification (Section 3.15.1)) MUST support the requirements from
+   this subsecction.
 
-4.  Hardware
+3.17.1.  Hardware
 
    These are the hardware requirements for accessories that include NFC:
 
@@ -1456,10 +1456,10 @@ Table of Contents
       tag performance guidelines are defined by NFC Forum™ in Tag
       Performance Requirements Document.
 
-   *  The NFC implemention in the accessory MUST be configured as a NFC
+   *  The NFC implemention of the accessory MUST be configured as a NFC
       tag.
 
-5.  Accessory Category Value
+4.  Accessory Category Value
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
@@ -1556,19 +1556,19 @@ Table of Contents
 
                    Table 23: Accessory Category Values
 
-6.  Firmware Updates
+5.  Firmware Updates
 
    The accessory SHOULD have a mechanism for the manufacturer to provide
    firmware updates.
 
-6.1.  Backwards Compatibility
+5.1.  Backwards Compatibility
 
-6.1.1.  Existing trackers
+5.1.1.  Existing trackers
 
    Existing trackers should be updated on a best-effort basis to
    implement the protocols and practices outlined above.
 
-6.1.2.  Advertisement backwards compatibility
+5.1.2.  Advertisement backwards compatibility
 
    The manufacturer MAY continue to use the company’s existing service
    UUID (Legacy ID) as registered in the Bluetooth SIG until November 1,
@@ -1590,13 +1590,13 @@ Table of Contents
    If using existing service UUIDs, rather than the unwanted tracking
    protocol UUID, detection performance might be degraded.
 
-7.  Platform Support for Unwanted Tracking
+6.  Platform Support for Unwanted Tracking
 
    This section details the requirements and recommendations for
    platforms to be compatible with the accessory protocol behavior
    described in the document.
 
-7.1.  Owned Accessory Identification
+6.1.  Owned Accessory Identification
 
    Any platform that supports unwanted tracking SHOULD also provide the
    capability to suppress unwanted tracking alerts caused by an
@@ -1607,13 +1607,13 @@ Table of Contents
    this alert for the owner of the accessory, then the platform SHOULD
    explain to the user how those capabilities can be acquired.
 
-7.1.1.  Implementation
+6.1.1.  Implementation
 
    Unwanted tracking SHOULD recognize an accessory associated to that
    owner device by matching one of two fields defined in Table 1: either
    the MAC address or a part of the proprietary payload.  The field,
    offset and length will be determined based on the inputs defined in
-   the Platform Software Extension (Section 7.1.2).
+   the Platform Software Extension (Section 6.1.2).
 
    A general approach to generate a recognizable value which can also
    meet the privacy requirement for the advertisement is to use a
@@ -1632,7 +1632,7 @@ Table of Contents
    negligible risk of an accessory to be incorrectly considered to be
    owned.
 
-7.1.2.  Platform Software Extension
+6.1.2.  Platform Software Extension
 
    Platforms SHOULD implement the owned accessory identification
    capability as a software extension to its unwanted tracking
@@ -1648,22 +1648,22 @@ Table of Contents
    SHALL be used to associate an accessory detected with the
    manufacturer's software extension.
 
-7.1.3.  Network Access
+6.1.3.  Network Access
 
    Network access MUST NOT be required in the moment that the platform
    performs owned accessory recognition.
 
-7.1.4.  Removal
+6.1.4.  Removal
 
    The platform MUST delete any local identifying information associated
    with an accessory if the manufacturer's software is removed or if the
    platform unassociates from the accessory.
 
-8.  Onboarding
+7.  Onboarding
 
    Accessory manufacturers MUST follow a minimum set of steps for their
    accessories to be detectable by platforms such as adding their
-   Network ID value to the Finding Network Registry (Section 11.1).
+   Network ID value to the Finding Network Registry (Section 10.1).
 
    During onboarding, a product data registry SHALL be created and
    maintained by the network provider for all accessory manufacturers
@@ -1689,16 +1689,16 @@ Table of Contents
    Additional details will follow in 2024 to specify formats for
    disablement instructions and product images.
 
-8.1.  Network providers
+7.1.  Network providers
 
    Companies that have their own accessory-locating networks will need
    to create infrastructure to support the scaled retrieval of
    disablement instructions and product images.  Additional information
    for network providers will be updated in 2024.
 
-9.  Security Considerations
+8.  Security Considerations
 
-9.1.  Obfuscated owner information look-up
+8.1.  Obfuscated owner information look-up
 
    Obfuscated owner information look-up is required to display important
    information to users who encounter an unwanted tracking notification.
@@ -1734,7 +1734,7 @@ Table of Contents
    the accessory, while the authentication prevents an adversary from
    impersonating any accessory from a single payload.
 
-9.1.1.  Design of encrypted identifier look-up
+8.1.1.  Design of encrypted identifier look-up
 
    One way to design this encryption is for the accessory to contain a
    public key for the accessory network server.  For every request
@@ -1751,9 +1751,9 @@ Table of Contents
    connect to for the decryption, and for the service to know which
    decryption key and protocol version to use.
 
-10.  Privacy Considerations
+9.  Privacy Considerations
 
-10.1.  Obfuscated owner information
+9.1.  Obfuscated owner information
 
    In many circumstances when unwanted tracking occurs, the individual
    being tracked knows the owner of the location-tracker.  By allowing
@@ -1764,7 +1764,7 @@ Table of Contents
    arbitrary situations where they have separated from those
    accessories.
 
-10.2.  Identifier look-up
+9.2.  Identifier look-up
 
    An identifier both physically on the device, as well as retrievable
    over NFC or Bluetooth LE, can aid recourse actions in the case of
@@ -1777,9 +1777,9 @@ Table of Contents
    to be in separated state as well as a physical action be performed to
    enable the identifier retrieval.
 
-10.3.  Location-enabled payload
+9.3.  Location-enabled payload
 
-10.3.1.  Stable identifiers
+9.3.1.  Stable identifiers
 
    Rotating the mac address of the location-enabled payload, as
    described in Section 3.5, balances the risk of nefarious stable
@@ -1790,20 +1790,20 @@ Table of Contents
    the ability to piece together long stretches of longitudinal data on
    the whereabouts of an accessory.
 
-10.3.2.  Proprietary company payload data
+9.3.2.  Proprietary company payload data
 
    Accessory manufacturers SHOULD evaluate the contents of the
    proprietary company payload data in Table 1 to ensure it does not
    introduce additional privacy risk through the broadcast of stable
    identifiers or unencrypted sensitive data.
 
-11.  IANA Considerations
+10.  IANA Considerations
 
    Eventually an IANA will create a new registry group called "Unwanted
    Tracking Protocols (UTP)".  This group includes the "Finding Network
    ID" registry.
 
-11.1.  Finding Network Registry
+10.1.  Finding Network Registry
 
    New entries are assigned only for values that have received Expert
    Review, per Section 4.5 of [RFC8126].
@@ -1816,7 +1816,7 @@ Table of Contents
    *  Network Provider: the name of the organization that is
       facilitating the locations for location-tracker accessories
 
-11.1.1.  Temporary Registry
+10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
    are listed in Table 24.
@@ -1836,7 +1836,7 @@ Table of Contents
                          Table 24: Finding Network
                                   Registry
 
-12.  Normative References
+11.  Normative References
 
    [BTCore5.4]
               "Bluetooth Core Specification v5.4", 31 January 2023,
