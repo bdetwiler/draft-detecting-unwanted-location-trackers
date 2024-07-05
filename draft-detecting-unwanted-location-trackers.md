@@ -688,9 +688,9 @@ Available ownership registry information SHOULD be produced in response to a val
 
 ## NFC Requirements {#NFC-requirements}
 
-Accessories that include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
+Accessories that optionally include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
 
-# Hardware
+### Hardware
 
 These are the hardware requirements for accessories that include NFC:
 
@@ -701,7 +701,7 @@ An NDEF message is defined as a group of individual NDEF records as defined by N
 - NFC tag types MUST be type 2 or greater.
 - The NFC tag SHALL not be scannable when the accessory is still in the packaging.
 - The payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum™ in Tag Performance Requirements Document.
-- The NFC implemention in the accessory MUST be configured as a NFC tag.
+- The NFC implemention of the accessory MUST be configured as a NFC tag.
 
 
 # Accessory Category Value
