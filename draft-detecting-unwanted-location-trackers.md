@@ -51,7 +51,10 @@ normative:
    format:
      PDF: https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=556599
 
-
+ NFCForum:
+   title: NFC Forum
+   format:
+     PDF: https://nfc-forum.org/build/specifications#core-specification
 
 RFC8126:
 
@@ -703,6 +706,7 @@ An NDEF message is defined as a group of individual NDEF records as defined by N
 - The payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum™ in Tag Performance Requirements Document.
 - The NFC implemention of the accessory MUST be configured as a NFC tag.
 
+NFC specification documents can be found here {{NFC Forum}}: 
 
 # Accessory Category Value
 Accessory manufacturer’s MUST pick an accessory category value that closest resembles their physical product.
