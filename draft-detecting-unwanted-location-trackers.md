@@ -697,7 +697,7 @@ These are the hardware requirements for accessories that include NFC:
 - The accessory MUST use a programmable NFC tag.
 - NFC tags MUST use the NFC Data Exchange Format (NDEF) as defined by NFC Forum™ in NDEF 1.0 NFCForum‑TS‑NDEF 1.0.
 An NDEF message is defined as a group of individual NDEF records as defined by NFC Forum™ in NFC Record Type Definition (RTD) RTD 1.0 NFCForum‑TS‑RTD 1.0.
-- The payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum™ in URI Record Type Definition RTD‑URI 1.0 NFCForum‑TS‑RTD URI 1.0. 
+- The payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum™ in URI Record Type Definition RTD‑URI 1.0 NFCForum‑TS‑RTD URI 1.0.
 - NFC tag types MUST be type 2 or greater.
 - The NFC tag SHALL not be scannable when the accessory is still in the packaging.
 - The payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum™ in Tag Performance Requirements Document.
