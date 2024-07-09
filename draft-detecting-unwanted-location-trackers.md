@@ -159,7 +159,7 @@ If the accessory maker chooses to continue advertising the location-enabled payl
 ### Overview
 When in location-enabled state, the accessory SHALL advertise a Bluetooth LE format, denoted the location-enabled Bluetooth advertisement payload, that is recognizable to the platforms.
 
-The primary purpose of the advertisement in the context of this specification is to allow the detection of unwanted location trackers. All accessories in scope of this document are associated with an owner. The advertisement MUST allow the owner’s platform to reliably recognize the owner's associated accessories, that is a critical signal to distinguish unwanted trackers from expected ones. False alerts associated to owned or expected accessories may otherwise desensitize users, leading them to miss relevant ones.
+The primary purpose of the advertisement in the context of this specification is to allow the detection of unwanted location trackers. All accessories in scope of this document are associated with an owner. The advertisement MUST allow the owner’s platform to reliably recognize the owner's associated accessories, that is a critical signal to distinguish unwanted trackers from expected ones. False alerts associated to owned or expected accessories may cause undue alarm for users, leading them to reach out for help when it’s not needed, or otherwise desensitize users, leading them to miss relevant alerts.
 
 ###  Location-enabled advertisement payload format
 The payload format is defined in {{table-payload-format}}
