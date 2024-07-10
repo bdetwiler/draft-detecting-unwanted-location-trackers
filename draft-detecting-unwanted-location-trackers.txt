@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 19 December 2024                                         Google
+Expires: 11 January 2025                                          Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            17 June 2024
+                                                            10 July 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 December 2024.
+   This Internet-Draft will expire on 11 January 2025.
 
 Copyright Notice
 
@@ -332,8 +332,10 @@ Table of Contents
    with an owner.  The advertisement MUST allow the owner’s platform to
    reliably recognize the owner's associated accessories, that is a
    critical signal to distinguish unwanted trackers from expected ones.
-   False alerts associated to owned or expected accessories may
-   otherwise desensitize users, leading them to miss relevant ones.
+   False alerts associated to owned or expected accessories may cause
+   undue alarm for users, leading them to reach out for help when it’s
+   not needed, or otherwise desensitize users, leading them to miss
+   relevant alerts.
 
 3.4.2.  Location-enabled advertisement payload format
 
