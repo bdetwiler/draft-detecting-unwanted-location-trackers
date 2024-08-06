@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 11 January 2025                                          Google
+Expires: 7 February 2025                                          Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            10 July 2024
+                                                           6 August 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 January 2025.
+   This Internet-Draft will expire on 7 February 2025.
 
 Copyright Notice
 
@@ -117,6 +117,8 @@ Table of Contents
        3.16.1.  Obfuscated owner information
        3.16.2.  Persistence
        3.16.3.  Availability for law enforcement
+     3.17. NFC Requirements
+       3.17.1.  Hardware
    4.  Accessory Category Value
    5.  Firmware Updates
      5.1.  Backwards Compatibility
@@ -1381,6 +1383,9 @@ Table of Contents
    and the accessory is not in associated state, the behavior is
    undefined and is beyond the scope of this spec.
 
+   Details on NFC hardware requirements can found in NFC Requirements
+   (Section 3.17).
+
 3.16.  Owner registry
 
    Verifiable identity information of the owner of an accessory at time
@@ -1420,6 +1425,43 @@ Table of Contents
    such information.  Network providers SHOULD define their own
    procedures for submission of valid legal requests from law
    enforcement.
+
+3.17.  NFC Requirements
+
+   Accessories that optionally include NFC (see Serial number
+   identification (Section 3.15.1)) MUST support the requirements from
+   this subsecction.
+
+3.17.1.  Hardware
+
+   These are the hardware requirements for accessories that include NFC:
+
+   *  The accessory MUST use a programmable NFC tag.
+
+   *  NFC tags MUST use the NFC Data Exchange Format (NDEF) as defined
+      by NFC Forum™ in NDEF 1.0 NFCForum-TS-NDEF 1.0.  An NDEF message
+      is defined as a group of individual NDEF records as defined by NFC
+      Forum™ in NFC Record Type Definition (RTD) RTD 1.0 NFCForum-TS-RTD
+      1.0.
+
+   *  The payload for NFC tags MUST use NDEF URI Record Type Definition
+      as defined by NFC Forum™ in URI Record Type Definition RTD-URI 1.0
+      NFCForum-TS-RTD URI 1.0.
+
+   *  NFC tag types MUST be type 2 or greater.
+
+   *  The NFC tag SHALL not be scannable when the accessory is still in
+      the packaging.
+
+   *  The payload MUST be scannable when holding an NFC-enabled device
+      near the center of the NFC tag on the accessory.  Recommended NFC
+      tag performance guidelines are defined by NFC Forum™ in Tag
+      Performance Requirements Document.
+
+   *  The NFC implemention of the accessory MUST be configured as a NFC
+      tag.
+
+   NFC specification documents can be found here [NFCForum].
 
 4.  Accessory Category Value
 
@@ -1804,6 +1846,9 @@ Table of Contents
               "Bluetooth Core Specification v5.4", 31 January 2023,
               <https://www.bluetooth.org/DocMan/handlers/
               DownloadDoc.ashx?doc_id=556599>.
+
+   [NFCForum] "NFC Forum", n.d., <https://nfc-forum.org/build/
+              specifications#core-specification>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
