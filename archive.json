@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-06T00:44:05.720403+00:00",
+  "timestamp": "2024-08-08T00:44:34.694792+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9884,7 +9884,7 @@
       "id": "PR_kwDOJdqgvc50j5FO",
       "title": "Add NFC Requirements section",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/196",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -9893,19 +9893,35 @@
       "labels": [],
       "body": "Added NFC requirements section",
       "createdAt": "2024-07-05T19:05:18Z",
-      "updatedAt": "2024-07-05T19:27:55Z",
+      "updatedAt": "2024-08-06T16:07:20Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "3f04339df0ce98fbae5c3ea980dc093f2559c3f0",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-45",
       "headRefOid": "3044df28e1e419b0208d22c37eb5722216e9c32d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-08-06T16:07:20Z",
+      "mergedAt": "2024-08-06T16:07:20Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "0a230550394c0c63ff37052703b73ee8f74b79e7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6EbLIj",
+          "commit": {
+            "abbreviatedOid": "3044df2"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-08-06T16:01:45Z",
+          "updatedAt": "2024-08-06T16:01:45Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 197,
