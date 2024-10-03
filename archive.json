@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-01T00:56:20.231126+00:00",
+  "timestamp": "2024-10-03T00:51:05.764778+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -2506,6 +2506,22 @@
       "body": "Re: 3.15.2 \r\n\r\nIn circumstances that indicate someone is possibly concerned the accessory has been used for unwanted tracking, e.g. upon NFC tap or other owner lookup that indicates the victim has physical access to the accessory (like a button push), we should consider extending the duration of the owner registry storage so that the victim has enough time to engage with the systems required to secure the owner information, e.g. law enforcement and the courts. This is another topic that is important to engage with victim advocacy groups on, for their expertise. \r\n",
       "createdAt": "2023-12-21T16:07:59Z",
       "updatedAt": "2024-01-05T20:50:41Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 198,
+      "id": "I_kwDOJdqgvc6Ykz_-",
+      "title": "Accessory Information for Owner connections",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/198",
+      "state": "OPEN",
+      "author": "kvicta",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently, the spec contains the following text:\r\nThese opcodes SHALL be available when the accessory is in separated state. These opcodes SHALL NOT be available when the accessory is in the near-owner state. \r\n\r\nSome accessory manufacturers may choose to implement AIS for owner connections.  The second sentence of the text above should be written as a MAY NOT statement:  \r\nThese opcodes MAY NOT be available when the accessory is in the near-owner state. ",
+      "createdAt": "2024-10-01T17:12:30Z",
+      "updatedAt": "2024-10-01T17:12:30Z",
       "closedAt": null,
       "comments": []
     }
