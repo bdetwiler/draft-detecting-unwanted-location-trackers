@@ -773,15 +773,6 @@ The accessory SHOULD have a mechanism for the manufacturer to provide firmware u
 
 Existing trackers should be updated on a best-effort basis to implement the protocols and practices outlined above.
 
-### Advertisement backwards compatibility
-The manufacturer MAY continue to use the company’s existing service UUID (Legacy ID) as registered in the Bluetooth SIG until November 1, 2024, after which all manufacturers MUST use the unwanted tracking service UUID to be detected for unwanted tracking. Trackers that use the company's Legacy ID MUST be able to have their firmware updated. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated.
-
-If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST be registered with platforms. If a manufacturer is using a Legacy ID, Network ID in {{table-payload-format}} MAY be omitted.
-
-Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024. Manufacturers who have registered their Network IDs will appear in a table below.
-
-If using existing service UUIDs, rather than the unwanted tracking protocol UUID, detection performance might be degraded.
-
 # Platform Support for Unwanted Tracking
 This section details the requirements and recommendations for platforms to be compatible with the accessory protocol behavior described in the document.
 
