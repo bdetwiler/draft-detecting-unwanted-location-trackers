@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 10 February 2025                                         Google
+Expires: 8 April 2025                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                           9 August 2024
+                                                          5 October 2024
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 February 2025.
+   This Internet-Draft will expire on 8 April 2025.
 
 Copyright Notice
 
@@ -123,7 +123,6 @@ Table of Contents
    5.  Firmware Updates
      5.1.  Backwards Compatibility
        5.1.1.  Existing trackers
-       5.1.2.  Advertisement backwards compatibility
    6.  Platform Support for Unwanted Tracking
      6.1.  Owned Accessory Identification
        6.1.1.  Implementation
@@ -1575,28 +1574,6 @@ Table of Contents
 
    Existing trackers should be updated on a best-effort basis to
    implement the protocols and practices outlined above.
-
-5.1.2.  Advertisement backwards compatibility
-
-   The manufacturer MAY continue to use the company’s existing service
-   UUID (Legacy ID) as registered in the Bluetooth SIG until November 1,
-   2024, after which all manufacturers MUST use the unwanted tracking
-   service UUID to be detected for unwanted tracking.  Trackers that use
-   the company's Legacy ID MUST be able to have their firmware updated.
-   This applies to new or updated trackers and any existing trackers
-   that have the ability to have their firmware updated.
-
-   If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST
-   be registered with platforms.  If a manufacturer is using a Legacy
-   ID, Network ID in Table 1 MAY be omitted.
-
-   Manufacturers can register their service UUID by reaching out to the
-   listed authors.  Backwards compatibility requests must be submitted
-   by January 15, 2024.  Manufacturers who have registered their Network
-   IDs will appear in a table below.
-
-   If using existing service UUIDs, rather than the unwanted tracking
-   protocol UUID, detection performance might be degraded.
 
 6.  Platform Support for Unwanted Tracking
 
