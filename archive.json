@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-03T00:51:05.764778+00:00",
+  "timestamp": "2024-10-06T00:55:06.527387+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -9995,6 +9995,50 @@
           "body": "",
           "createdAt": "2024-07-09T06:29:20Z",
           "updatedAt": "2024-07-09T06:29:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 199,
+      "id": "PR_kwDOJdqgvc59kebR",
+      "title": "Remove section 5.1.2 for legacy UUIDs",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/199",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-04T03:42:50Z",
+      "updatedAt": "2024-10-05T20:48:12Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "9b78ce2d54e878fb40b36b04fb31fdec74829efb",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-47",
+      "headRefOid": "9356a7e363bbd5d912664111efedbd88e75bd55e",
+      "closedAt": "2024-10-05T20:48:12Z",
+      "mergedAt": "2024-10-05T20:48:12Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "efd4016b28765e39f1d35a281d419ffdded02e6d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6MET5C",
+          "commit": {
+            "abbreviatedOid": "9356a7e"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-05T18:11:40Z",
+          "updatedAt": "2024-10-05T18:11:40Z",
           "comments": []
         }
       ]
