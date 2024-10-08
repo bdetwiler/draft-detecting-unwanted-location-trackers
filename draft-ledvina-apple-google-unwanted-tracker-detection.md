@@ -2,7 +2,7 @@
 title: "Detecting Unwanted Location Trackers"
 category: info
 
-docname: draft-detecting-unwanted-location-trackers-latest
+docname: draft-ledvina-apple-google-unwanted-tracker-detection-latest
 submissiontype: independent
 number:
 date:
