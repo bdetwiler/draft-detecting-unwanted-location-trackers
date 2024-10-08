@@ -5,16 +5,16 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 8 April 2025                                             Google
+Expires: 11 April 2025                                            Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                          5 October 2024
+                                                          8 October 2024
 
 
                   Detecting Unwanted Location Trackers
-           draft-detecting-unwanted-location-trackers-latest
+      draft-ledvina-apple-google-unwanted-tracker-detection-latest
 
 Abstract
 
@@ -32,8 +32,8 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    Status information for this document may be found at
-   https://datatracker.ietf.org/doc/draft-detecting-unwanted-location-
-   trackers/.
+   https://datatracker.ietf.org/doc/draft-ledvina-apple-google-unwanted-
+   tracker-detection/.
 
 Status of This Memo
 
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 April 2025.
+   This Internet-Draft will expire on 11 April 2025.
 
 Copyright Notice
 
