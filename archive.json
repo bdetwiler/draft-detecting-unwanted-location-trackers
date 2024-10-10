@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-08T00:50:55.301217+00:00",
+  "timestamp": "2024-10-10T00:50:50.805493+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -79,7 +79,7 @@
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-12-27T00:54:11Z",
+      "updatedAt": "2024-10-09T15:42:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -10039,6 +10039,94 @@
           "body": "",
           "createdAt": "2024-10-05T18:11:40Z",
           "updatedAt": "2024-10-05T18:11:40Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 200,
+      "id": "PR_kwDOJdqgvc594qHI",
+      "title": "Rename draft-detecting-unwanted-location-trackers.md to draft-ledvina\u2026",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/200",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "\u2026-apple-google-unwanted-tracker-detection.md\r\n\r\nChanging name per agreement in email on different name",
+      "createdAt": "2024-10-08T01:40:48Z",
+      "updatedAt": "2024-10-08T17:39:08Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "efd4016b28765e39f1d35a281d419ffdded02e6d",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-48",
+      "headRefOid": "a79d39b9dc390f51b97b5cc43ff6f908e4966c11",
+      "closedAt": "2024-10-08T17:39:08Z",
+      "mergedAt": "2024-10-08T17:39:08Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "cd56b9be05dba2f98efcf88c64f089513e9bd618"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6MRnPa",
+          "commit": {
+            "abbreviatedOid": "a79d39b"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-08T05:30:17Z",
+          "updatedAt": "2024-10-08T05:30:17Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 201,
+      "id": "PR_kwDOJdqgvc5-GstK",
+      "title": "Rename draft-ledvina-apple-google-unwanted-trackers",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/201",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "previous filename was too long to upload to data tracker (50-char limit), so shortened the name",
+      "createdAt": "2024-10-09T16:23:45Z",
+      "updatedAt": "2024-10-10T00:29:16Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "cd56b9be05dba2f98efcf88c64f089513e9bd618",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-49",
+      "headRefOid": "4d1eb924297d8085dfffbfe310d5d6c0bf599011",
+      "closedAt": "2024-10-10T00:29:15Z",
+      "mergedAt": "2024-10-10T00:29:15Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "e7dc73e8434df25b86fe9927f31ab4abb33a0847"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6Mkv9-",
+          "commit": {
+            "abbreviatedOid": "4d1eb92"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-09T22:32:29Z",
+          "updatedAt": "2024-10-09T22:32:29Z",
           "comments": []
         }
       ]
