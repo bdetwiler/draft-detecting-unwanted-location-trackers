@@ -2,10 +2,10 @@
 
 This is the working area for the individual Internet-Draft, "Detecting Unwanted Location Trackers".
 
-* [Editor's Copy](https://bdetwiler.github.io/draft-detecting-unwanted-location-trackers/#go.draft-ledvina-apple-google-unwanted-tracker-detection.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ledvina-apple-google-unwanted-tracker-detection)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-tracker-detection)
-* [Compare Editor's Copy to Individual Draft](https://bdetwiler.github.io/draft-detecting-unwanted-location-trackers/#go.draft-ledvina-apple-google-unwanted-tracker-detection.diff)
+* [Editor's Copy](https://bdetwiler.github.io/draft-detecting-unwanted-location-trackers/#go.draft-ledvina-apple-google-unwanted-trackers.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ledvina-apple-google-unwanted-trackers)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ledvina-apple-google-unwanted-trackers)
+* [Compare Editor's Copy to Individual Draft](https://bdetwiler.github.io/draft-detecting-unwanted-location-trackers/#go.draft-ledvina-apple-google-unwanted-trackers.diff)
 
 
 ## Contributing
