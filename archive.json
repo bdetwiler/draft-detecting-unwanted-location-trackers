@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T00:49:47.402781+00:00",
+  "timestamp": "2025-06-01T01:43:41.988484+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -10127,6 +10127,110 @@
           "body": "",
           "createdAt": "2024-10-09T22:32:29Z",
           "updatedAt": "2024-10-09T22:32:29Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 202,
+      "id": "PR_kwDOJdqgvc6YNgD-",
+      "title": "Trying a new upload_artifact version as a test",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/202",
+      "state": "CLOSED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-30T03:40:12Z",
+      "updatedAt": "2025-05-30T03:40:42Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "e7dc73e8434df25b86fe9927f31ab4abb33a0847",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-50",
+      "headRefOid": "6ca1f2d1619cc3fbf9aaabe271faeec9e4d75494",
+      "closedAt": "2025-05-30T03:40:42Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 203,
+      "id": "PR_kwDOJdqgvc6YNgb_",
+      "title": "Test to make sure editor copy is building correctly",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/203",
+      "state": "CLOSED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-30T03:41:48Z",
+      "updatedAt": "2025-05-30T03:47:06Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "e7dc73e8434df25b86fe9927f31ab4abb33a0847",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-51",
+      "headRefOid": "63c36de853688a92adf780b67d9e3acec1b189c3",
+      "closedAt": "2025-05-30T03:47:06Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 204,
+      "id": "PR_kwDOJdqgvc6YNiLq",
+      "title": "Update workflow files",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/204",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-30T03:49:33Z",
+      "updatedAt": "2025-05-30T03:59:33Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "e7dc73e8434df25b86fe9927f31ab4abb33a0847",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-52",
+      "headRefOid": "0beb3b457f80e92944c83c0999ac9ab8a1577d62",
+      "closedAt": "2025-05-30T03:59:33Z",
+      "mergedAt": "2025-05-30T03:59:33Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "0a3ab4b45c0c795d949966699d6d4121081b3ddb"
+      },
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I needed to change actions/upload-artifact@v3 to actions/upload-artifact@v4 in the 3 relevant workflow files so that editor's copy, publishing, and archiving work correctly.",
+          "createdAt": "2025-05-30T03:52:41Z",
+          "updatedAt": "2025-05-30T03:52:41Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6rqx1a",
+          "commit": {
+            "abbreviatedOid": "0beb3b4"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-30T03:58:41Z",
+          "updatedAt": "2025-05-30T03:58:41Z",
           "comments": []
         }
       ]
