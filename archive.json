@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-22T01:38:01.742521+00:00",
+  "timestamp": "2025-06-24T01:23:18.301291+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -10247,7 +10247,7 @@
       "labels": [],
       "body": "- switched from hex string to ASCII hex string\r\n- updated NFC URL format\r\n- made it clear it's okay to have additional optional parameters in NFC URL",
       "createdAt": "2025-06-19T02:45:45Z",
-      "updatedAt": "2025-06-19T02:58:26Z",
+      "updatedAt": "2025-06-23T20:36:58Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "0a3ab4b45c0c795d949966699d6d4121081b3ddb",
@@ -10259,7 +10259,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc6v69qI",
+          "commit": {
+            "abbreviatedOid": "28cd859"
+          },
+          "author": "HariharanSukumar",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-23T20:36:58Z",
+          "updatedAt": "2025-06-23T20:36:58Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
