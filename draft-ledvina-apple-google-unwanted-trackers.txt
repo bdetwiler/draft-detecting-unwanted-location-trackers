@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 1 December 2025                                          Google
+Expires: 6 February 2026                                          Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                             30 May 2025
+                                                           5 August 2025
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 December 2025.
+   This Internet-Draft will expire on 6 February 2026.
 
 Copyright Notice
 
@@ -1349,28 +1349,35 @@ Table of Contents
 
    For those accessories that support identifier retrieval over NFC, an
    associated accessory SHALL advertise the whole URL with arguments as
-   the payload over NFC.  The payload SHALL look like the URL shown
-   below. "https://{URL}?pid=%04x&b=%02x&fv=%08x&e=%s"
+   the payload over NFC.  The payload SHALL be formatted like this
+   "https://{URL}?pid=%s&b=%s&fv=%s&e=%s“ where the battery level
+   argument is optional.  It MAY include additional optional arguments,
+   for example "https://{URL}?pid=%s&b=%s&fv=%s&e=%s&optA=%s&optB=%s“,
+   where the optional arguments and their associated values are defined
+   by the accessory manufacturer.
+
+   The platform SHALL pass the URL to the associated website and not
+   strip, edit, or append any information.
 
    +==========+==============+==================+=====================+
    |   URL    | URL Argument |      Notes       |      Reference      |
    | argument |     Type     |                  |                     |
    +==========+==============+==================+=====================+
-   |    b     |  hex string  |  Battery Level   |    Battery Level    |
-   |          |              |    (Optional)    | (Section 3.12.1.10) |
+   |    b     |  ASCII hex   |  Battery Level   |    Battery Level    |
+   |          |    string    |    (Optional)    | (Section 3.12.1.10) |
    +----------+--------------+------------------+---------------------+
-   |    bt    |  hex string  |  BT Mac address  |     MAC address     |
-   |          |              |    (Optional)    |    (Section 3.5)    |
+   |    bt    |  ASCII hex   |  BT Mac address  |     MAC address     |
+   |          |    string    |    (Optional)    |    (Section 3.5)    |
    +----------+--------------+------------------+---------------------+
-   |    fv    |  hex string  | Firmware version |   Firmware version  |
-   |          |              |    (Optional)    |  (Section 3.12.1.8) |
+   |    fv    |  ASCII hex   | Firmware version |   Firmware version  |
+   |          |    string    |    (Required)    |  (Section 3.12.1.8) |
    +----------+--------------+------------------+---------------------+
-   |    e     |  hex string  |    Encrypted     |  Identifier Payload |
-   |          |              |    Identifier    |  (Section 3.13.4.2) |
+   |    e     |  ASCII hex   |    Encrypted     |  Identifier Payload |
+   |          |    string    |    Identifier    |  (Section 3.13.4.2) |
    |          |              |    (Required)    |                     |
    +----------+--------------+------------------+---------------------+
-   |   pid    |  hex string  |   Product Data   |     Product Data    |
-   |          |              |    (Required)    |  (Section 3.12.1.1) |
+   |   pid    |  ASCII hex   |   Product Data   |     Product Data    |
+   |          |    string    |    (Required)    |  (Section 3.12.1.1) |
    +----------+--------------+------------------+---------------------+
 
                 Table 22: Identifier Lookup URL-arguments

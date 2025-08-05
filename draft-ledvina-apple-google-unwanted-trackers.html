@@ -12,23 +12,23 @@
 <meta content="
        This document lists a set of best practices and protocols for accessory manufacturers whose products have built-in location-tracking capabilities. By following these requirements and recommendations, a location-tracking accessory will be compatible with unwanted tracking detection and alerts on mobile platforms. This is an important capability for improving the privacy and safety of individuals in the circumstance that those accessories are used to track their location without their knowledge or consent. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.30.0" name="generator">
 <meta content="unwanted tracking" name="keyword">
 <meta content="location tracker" name="keyword">
 <meta content="draft-ledvina-apple-google-unwanted-trackers-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.30.0
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
+    lxml 5.3.1
     platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
+    requests 2.32.4
+    setuptools 80.9.0
     wcwidth 0.2.13
 -->
 <link href="draft-ledvina-apple-google-unwanted-trackers.xml" rel="alternate" type="application/rfc+xml">
@@ -1048,11 +1048,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers</td>
-<td class="right">May 2025</td>
+<td class="right">August 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 1 December 2025</td>
+<td class="center">Expires 6 February 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ledvina-apple-google-unwanted-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-30" class="published">30 May 2025</time>
+<time datetime="2025-08-05" class="published">5 August 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-01">1 December 2025</time></dd>
+<dd class="expires"><time datetime="2026-02-06">6 February 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1124,7 +1124,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -3088,8 +3088,8 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
           <h4 id="name-identifier-over-nfc">
 <a href="#section-3.15.5" class="section-number selfRef">3.15.5. </a><a href="#name-identifier-over-nfc" class="section-name selfRef">Identifier over NFC</a>
           </h4>
-<p id="section-3.15.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the whole URL with arguments as the payload over NFC. The payload <span class="bcp14">SHALL</span> look like the URL shown below.
-"https://{URL}?pid=%04x&amp;b=%02x&amp;fv=%08x&amp;e=%s"<a href="#section-3.15.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.15.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the whole URL with arguments as the payload over NFC. The payload <span class="bcp14">SHALL</span> be formatted like this "https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s“ where the battery level argument is optional. It <span class="bcp14">MAY</span> include additional optional arguments, for example "https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s&amp;optA=%s&amp;optB=%s“, where the optional arguments and their associated values are defined by the accessory manufacturer.<a href="#section-3.15.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.15.5-2">The platform <span class="bcp14">SHALL</span> pass the URL to the associated website and not strip, edit, or append any information.<a href="#section-3.15.5-2" class="pilcrow">¶</a></p>
 <span id="name-identifier-lookup-url-argum"></span><div id="_table-temp-identifier-lookup-url-arguments">
 <table class="center" id="table-22">
             <caption>
@@ -3107,15 +3107,15 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
             <tbody>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">b</td>
-                <td class="text-center" rowspan="1" colspan="1">hex string</td>
-                <td class="text-center" rowspan="1" colspan="1">Battery Level  (Optional)</td>
+                <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Battery Level (Optional)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.12.1.10</a>)</span>
 </td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">bt</td>
-                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
                 <td class="text-center" rowspan="1" colspan="1">BT Mac address (Optional)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>
@@ -3123,15 +3123,15 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">fv</td>
-                <td class="text-center" rowspan="1" colspan="1">hex string</td>
-                <td class="text-center" rowspan="1" colspan="1">Firmware version (Optional)</td>
+                <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">Firmware version (Required)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.12.1.8</a>)</span>
 </td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">e</td>
-                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
                 <td class="text-center" rowspan="1" colspan="1">Encrypted Identifier (Required)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span>
@@ -3139,7 +3139,7 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">pid</td>
-                <td class="text-center" rowspan="1" colspan="1">hex string</td>
+                <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
                 <td class="text-center" rowspan="1" colspan="1">Product Data (Required)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.12.1.1</a>)</span>
@@ -3148,11 +3148,11 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
             </tbody>
           </table>
 </div>
-<p id="section-3.15.5-3">The URL <span class="bcp14">SHALL</span> be hosted by the network provider. The URL <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
+<p id="section-3.15.5-4">The URL <span class="bcp14">SHALL</span> be hosted by the network provider. The URL <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.
 One approach to exchange the URL with the accessory, is when the accessory owner associates the accessory to a network provider.
 When a user performs NFC Tap and the accessory is in associated state, the encrypted identifier encoded in hex string <span class="bcp14">SHALL</span> be an argument ("e") passed to the identifier retrieval URL.
-When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.<a href="#section-3.15.5-3" class="pilcrow">¶</a></p>
-<p id="section-3.15.5-4">Details on NFC hardware requirements can found in <span><a href="#NFC-requirements" class="internal xref">NFC Requirements</a> (<a href="#NFC-requirements" class="auto internal xref">Section 3.17</a>)</span>.<a href="#section-3.15.5-4" class="pilcrow">¶</a></p>
+When a user performs NFC Tap and the accessory is not in associated state, the behavior is undefined and is beyond the scope of this spec.<a href="#section-3.15.5-4" class="pilcrow">¶</a></p>
+<p id="section-3.15.5-5">Details on NFC hardware requirements can found in <span><a href="#NFC-requirements" class="internal xref">NFC Requirements</a> (<a href="#NFC-requirements" class="auto internal xref">Section 3.17</a>)</span>.<a href="#section-3.15.5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
