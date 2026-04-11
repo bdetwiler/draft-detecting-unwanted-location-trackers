@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 7 October 2026                                           Google
+Expires: 13 October 2026                                          Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            5 April 2026
+                                                           11 April 2026
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 October 2026.
+   This Internet-Draft will expire on 13 October 2026.
 
 Copyright Notice
 
@@ -1813,24 +1813,23 @@ Table of Contents
    Until this an IANA registry is available, the values in this registry
    are listed in Table 24.
 
-                     +============+==================+
-                     | Network ID | Network Provider |
-                     +============+==================+
-                     |    0x00    |     Reserved     |
-                     +------------+------------------+
-                     |    0x01    |    Apple Inc.    |
-                     +------------+------------------+
-                     |    0x02    |    Google LLC    |
-                     +------------+------------------+
-                     |    0x03    |     Samsung      |
-                     +------------+------------------+
-                     |    0x04    |      Amazon      |
-                     +------------+------------------+
-                     |    0xFF    |     Reserved     |
-                     +------------+------------------+
+                   +============+=====================+
+                   | Network ID |   Network Provider  |
+                   +============+=====================+
+                   |    0x00    |       Reserved      |
+                   +------------+---------------------+
+                   |    0x01    |      Apple Inc.     |
+                   +------------+---------------------+
+                   |    0x02    |      Google LLC     |
+                   +------------+---------------------+
+                   |    0x03    | Samsung Electronics |
+                   +------------+---------------------+
+                   |    0x04    |        Amazon       |
+                   +------------+---------------------+
+                   |    0xFF    |       Reserved      |
+                   +------------+---------------------+
 
-                         Table 24: Finding Network
-                                  Registry
+                    Table 24: Finding Network Registry
 
 11.  Normative References
 
