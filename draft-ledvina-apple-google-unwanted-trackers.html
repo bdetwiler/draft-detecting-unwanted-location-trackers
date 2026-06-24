@@ -12,23 +12,24 @@
 <meta content="
        This document lists a set of best practices and protocols for accessory manufacturers whose products have built-in location-tracking capabilities. By following these requirements and recommendations, a location-tracking accessory will be compatible with unwanted tracking detection and alerts on mobile platforms. This is an important capability for improving the privacy and safety of individuals in the circumstance that those accessories are used to track their location without their knowledge or consent. 
     " name="description">
-<meta content="xml2rfc 3.33.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="unwanted tracking" name="keyword">
 <meta content="location tracker" name="keyword">
 <meta content="draft-ledvina-apple-google-unwanted-trackers-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.33.0
-    Python 3.12.13
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.5
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.10.0
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.7.0
+    wcwidth 0.8.1
 -->
 <link href="draft-ledvina-apple-google-unwanted-trackers.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1051,7 +1052,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 18 December 2026</td>
+<td class="center">Expires 26 December 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1065,12 @@ svg {
 <dd class="internet-draft">draft-ledvina-apple-google-unwanted-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-06-16" class="published">16 June 2026</time>
+<time datetime="2026-06-24" class="published">24 June 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-12-18">18 December 2026</time></dd>
+<dd class="expires"><time datetime="2026-12-26">26 December 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1124,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1371,6 +1372,42 @@ svg {
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-network-providers" class="internal xref">Network providers</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="auto internal xref">7.1.1</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-accessory-info-specificatio" class="internal xref">Accessory Info Specifications</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-accessoryinfo-service" class="internal xref">AccessoryInfo Service</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.2">
+                    <p id="section-toc.1-1.7.2.2.2.2.1"><a href="#section-7.2.2" class="auto internal xref">7.2.2</a>.  <a href="#name-accessoryinfo-url" class="internal xref">AccessoryInfo URL</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.3">
+                    <p id="section-toc.1-1.7.2.2.2.3.1"><a href="#section-7.2.3" class="auto internal xref">7.2.3</a>.  <a href="#name-accessoryinfo-request" class="internal xref">AccessoryInfo Request</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.4">
+                    <p id="section-toc.1-1.7.2.2.2.4.1"><a href="#section-7.2.4" class="auto internal xref">7.2.4</a>.  <a href="#name-accessoryinfo-response" class="internal xref">AccessoryInfo Response</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.5">
+                    <p id="section-toc.1-1.7.2.2.2.5.1"><a href="#section-7.2.5" class="auto internal xref">7.2.5</a>.  <a href="#name-response-format-json-fields" class="internal xref">Response Format (JSON Fields)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.6">
+                    <p id="section-toc.1-1.7.2.2.2.6.1"><a href="#section-7.2.6" class="auto internal xref">7.2.6</a>.  <a href="#name-asset-specifications" class="internal xref">Asset Specifications</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-identifier-look-up-webpage" class="internal xref">Identifier Look-up Webpage</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3.2.1">
+                    <p id="section-toc.1-1.7.2.3.2.1.1"><a href="#section-7.3.1" class="auto internal xref">7.3.1</a>.  <a href="#name-url-format-and-query-params" class="internal xref">URL Format and Query Params</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -2118,7 +2155,7 @@ These opcodes <span class="bcp14">SHALL NOT</span> be available when the accesso
 When any opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
 If an optional opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
 If any opcode value is commanded that is not supported by the accessory, it <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in the Command_Response.
-See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.1.1</a>)</span> for details.<a href="#section-3.12.1-3" class="pilcrow">¶</a></p>
+See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.2</a>)</span> for details.<a href="#section-3.12.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.12.1-4">In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in <a href="#accessory-information-opcodes" class="auto internal xref">Table 4</a> <span class="bcp14">SHALL</span> be sent through only to the connection that commanded the affiliated write subprocedure.<a href="#section-3.12.1-4" class="pilcrow">¶</a></p>
 <p id="section-3.12.1-5">Opcodes should be structured as defined below.<a href="#section-3.12.1-5" class="pilcrow">¶</a></p>
 <span id="name-accessory-opcode-structure"></span><table class="center" id="table-5">
@@ -2742,7 +2779,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <td class="text-center" rowspan="1" colspan="1">Command_Response</td>
                 <td class="text-center" rowspan="1" colspan="1">0x0302</td>
                 <td class="text-center" rowspan="1" colspan="1">
-                  <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.1.1</a>)</span>
+                  <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.2</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -2771,7 +2808,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <td class="text-center" rowspan="1" colspan="1">Get_Identifier_Response</td>
                 <td class="text-center" rowspan="1" colspan="1">0x0405</td>
                 <td class="text-center" rowspan="1" colspan="1">
-                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span>
+                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.3</a>)</span>
 </td>
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
                 <td class="text-center" rowspan="1" colspan="1">
@@ -2846,8 +2883,8 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
 </div>
 <p id="section-3.13.4-5">Sound_Start and Sound_Stop <span class="bcp14">SHALL</span> only be available to the platform when the accessory is in the separated state.<a href="#section-3.13.4-5" class="pilcrow">¶</a></p>
 <p id="section-3.13.4-6">In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.<a href="#section-3.13.4-6" class="pilcrow">¶</a></p>
-<p id="section-3.13.4-7">If <span><a href="#identifier-retrieval-over-bluetooth-le" class="internal xref">Identifer Retrieval over Bluetooth LE</a> (<a href="#identifier-retrieval-over-bluetooth-le" class="auto internal xref">Section 3.15.3</a>)</span> is supported, Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.13.4-7" class="pilcrow">¶</a></p>
-<p id="section-3.13.4-8">The identifier read state is discussed further in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span>.<a href="#section-3.13.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.13.4-7">If <span><a href="#identifier-retrieval-over-bluetooth-le" class="internal xref">Identifer Retrieval over Bluetooth LE</a> (<a href="#identifier-retrieval-over-bluetooth-le" class="auto internal xref">Section 3.15.3</a>)</span> is supported, Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.2</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.13.4-7" class="pilcrow">¶</a></p>
+<p id="section-3.13.4-8">The identifier read state is discussed further in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.3</a>)</span>.<a href="#section-3.13.4-8" class="pilcrow">¶</a></p>
 <p id="section-3.13.4-9">In the circumstances that there are multiple non-owner connections, all GATT indication subprocedures defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 18</a> <span class="bcp14">SHALL</span> be sent through only to the connection that commanded the affiliated write subprocedure.
 Sound_Completed <span class="bcp14">MAY</span> be sent over all non-owner connections.<a href="#section-3.13.4-9" class="pilcrow">¶</a></p>
 <div id="play-sound">
@@ -2858,7 +2895,7 @@ Sound_Completed <span class="bcp14">MAY</span> be sent over all non-owner connec
 <p id="section-3.13.4.1-1">The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker <span class="bcp14">MUST</span> play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The <span class="bcp14">RECOMMENDED</span> duration is 12 seconds.<a href="#section-3.13.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.13.4.1-2.1">
-                <p id="section-3.13.4.1-2.1.1">The accessory <span class="bcp14">SHALL</span> confirm the start of the play sound procedure by sending a <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.1.1</a>)</span> with the corresponding CommandOpCode and a ResponseStatus value of Success.<a href="#section-3.13.4.1-2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.13.4.1-2.1.1">The accessory <span class="bcp14">SHALL</span> confirm the start of the play sound procedure by sending a <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.2</a>)</span> with the corresponding CommandOpCode and a ResponseStatus value of Success.<a href="#section-3.13.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.13.4.1-2.2">
                 <p id="section-3.13.4.1-2.2.1">Once the play sound action is completed, the accessory sends the Sound_Completed message.<a href="#section-3.13.4.1-2.2.1" class="pilcrow">¶</a></p>
@@ -2879,58 +2916,58 @@ Sound_Completed <span class="bcp14">MAY</span> be sent over all non-owner connec
                 <p id="section-3.13.4.1-2.7.1">The accessory <span class="bcp14">SHALL</span> confirm the completion of the stop sound procedure by sending the Sound_Completed message.<a href="#section-3.13.4.1-2.7.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
-<div id="command-response">
-<section id="section-3.13.4.1.1">
-              <h6 id="name-command-response">
-<a href="#section-3.13.4.1.1" class="section-number selfRef">3.13.4.1.1. </a><a href="#name-command-response" class="section-name selfRef">Command Response</a>
-              </h6>
-<p id="section-3.13.4.1.1-1">There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
- The accessory <span class="bcp14">SHALL</span> respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.<a href="#section-3.13.4.1.1-1" class="pilcrow">¶</a></p>
-<span id="name-command-response-operands"></span><table class="center" id="table-19">
-                <caption>
-<a href="#table-19" class="selfRef">Table 19</a>:
-<a href="#name-command-response-operands" class="selfRef">Command Response Operands</a>
-                </caption>
-<thead>
-                  <tr>
-                    <th class="text-left" rowspan="1" colspan="1">Operand name</th>
-                    <th class="text-right" rowspan="1" colspan="1">Data type</th>
-                    <th class="text-center" rowspan="1" colspan="1">Count</th>
-                    <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
-                    <th class="text-center" rowspan="1" colspan="1">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-left" rowspan="1" colspan="1">CommandOpCode</td>
-                    <td class="text-right" rowspan="1" colspan="1">Uint16</td>
-                    <td class="text-center" rowspan="1" colspan="1">1</td>
-                    <td class="text-center" rowspan="1" colspan="1">2</td>
-                    <td class="text-center" rowspan="1" colspan="1">The control procedure matching this response</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left" rowspan="1" colspan="1">ResponseStatus</td>
-                    <td class="text-right" rowspan="1" colspan="1">Uint16</td>
-                    <td class="text-center" rowspan="1" colspan="1">1</td>
-                    <td class="text-center" rowspan="1" colspan="1">2</td>
-                    <td class="text-center" rowspan="1" colspan="1">0x0000 : Success<br>0x0001 : Invalid_state<br>0x0002 : Invalid_configuration<br>0x0003 : Invalid_length<br>0x0004 : Invalid_param<br> 0x0005-0xFFFE : Reserved<br> 0xFFFF : Invalid_command</td>
-                  </tr>
-                </tbody>
-              </table>
 </section>
 </div>
+<div id="command-response">
+<section id="section-3.13.4.2">
+            <h5 id="name-command-response">
+<a href="#section-3.13.4.2" class="section-number selfRef">3.13.4.2. </a><a href="#name-command-response" class="section-name selfRef">Command Response</a>
+            </h5>
+<p id="section-3.13.4.2-1">There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
+ The accessory <span class="bcp14">SHALL</span> respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.<a href="#section-3.13.4.2-1" class="pilcrow">¶</a></p>
+<span id="name-command-response-operands"></span><table class="center" id="table-19">
+              <caption>
+<a href="#table-19" class="selfRef">Table 19</a>:
+<a href="#name-command-response-operands" class="selfRef">Command Response Operands</a>
+              </caption>
+<thead>
+                <tr>
+                  <th class="text-left" rowspan="1" colspan="1">Operand name</th>
+                  <th class="text-right" rowspan="1" colspan="1">Data type</th>
+                  <th class="text-center" rowspan="1" colspan="1">Count</th>
+                  <th class="text-center" rowspan="1" colspan="1">Total Size (Bytes)</th>
+                  <th class="text-center" rowspan="1" colspan="1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">CommandOpCode</td>
+                  <td class="text-right" rowspan="1" colspan="1">Uint16</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">2</td>
+                  <td class="text-center" rowspan="1" colspan="1">The control procedure matching this response</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">ResponseStatus</td>
+                  <td class="text-right" rowspan="1" colspan="1">Uint16</td>
+                  <td class="text-center" rowspan="1" colspan="1">1</td>
+                  <td class="text-center" rowspan="1" colspan="1">2</td>
+                  <td class="text-center" rowspan="1" colspan="1">0x0000 : Success<br>0x0001 : Invalid_state<br>0x0002 : Invalid_configuration<br>0x0003 : Invalid_length<br>0x0004 : Invalid_param<br> 0x0005-0xFFFE : Reserved<br> 0xFFFF : Invalid_command</td>
+                </tr>
+              </tbody>
+            </table>
 </section>
 </div>
 <div id="identifier-payload">
-<section id="section-3.13.4.2">
+<section id="section-3.13.4.3">
             <h5 id="name-identifier-payload">
-<a href="#section-3.13.4.2" class="section-number selfRef">3.13.4.2. </a><a href="#name-identifier-payload" class="section-name selfRef">Identifier Payload</a>
+<a href="#section-3.13.4.3" class="section-number selfRef">3.13.4.3. </a><a href="#name-identifier-payload" class="section-name selfRef">Identifier Payload</a>
             </h5>
-<p id="section-3.13.4.2-1">The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
+<p id="section-3.13.4.3-1">The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
 To enable this opcode, the accessory <span class="bcp14">MUST</span> be in the identifier read state.
 To enter the identifier read state, a user action on the accessory <span class="bcp14">MUST</span> be performed (for example, press and hold a button for 10 seconds).
 The identifier read state <span class="bcp14">MUST</span> be enabled for 5 minutes once the user action on the accessory is successfully performed.
-When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.13.4.2-1" class="pilcrow">¶</a></p>
+When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.13.4.3-1" class="pilcrow">¶</a></p>
 <span id="name-identifier-payload-over-blu"></span><div id="_table-id-payload-over-bt">
 <table class="center" id="table-20">
               <caption>
@@ -2957,8 +2994,8 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
               </tbody>
             </table>
 </div>
-<p id="section-3.13.4.2-3">It is <span class="bcp14">REQUIRED</span> that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.<a href="#section-3.13.4.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.13.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-identifier-look-up" class="internal xref">Design of encrypted identifier look-up</a> (<a href="#design-of-encrypted-identifier-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.13.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.13.4.3-3">It is <span class="bcp14">REQUIRED</span> that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.<a href="#section-3.13.4.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.13.4.3-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.13.4.2</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-identifier-look-up" class="internal xref">Design of encrypted identifier look-up</a> (<a href="#design-of-encrypted-identifier-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.13.4.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3070,7 +3107,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
 <a href="#section-3.15.3" class="section-number selfRef">3.15.3. </a><a href="#name-identifier-retrieval-over-b" class="section-name selfRef">Identifier retrieval over Bluetooth LE</a>
           </h4>
 <p id="section-3.15.3-1">For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE <span class="bcp14">MUST</span> have a physical mechanism, for example, a button, that <span class="bcp14">SHALL</span> be required to
-enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span>.<a href="#section-3.15.3-1" class="pilcrow">¶</a></p>
+enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.3</a>)</span>.<a href="#section-3.15.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.15.3-2">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.15.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -3133,7 +3170,7 @@ enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-pay
                 <td class="text-center" rowspan="1" colspan="1">ASCII hex string</td>
                 <td class="text-center" rowspan="1" colspan="1">Encrypted Identifier (Required)</td>
                 <td class="text-center" rowspan="1" colspan="1">
-                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span>
+                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.3</a>)</span>
 </td>
               </tr>
               <tr>
@@ -3533,13 +3570,690 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
           <p id="section-7-3.5.1">Product Name: a string representing the accessory make and model associated with the Product Data string.<a href="#section-7-3.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-7-4">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <div id="network-providers">
 <section id="section-7.1">
         <h3 id="name-network-providers">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-network-providers" class="section-name selfRef">Network providers</a>
         </h3>
-<p id="section-7.1-1">Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">This section defines the <strong>Accessory Network Protocol specification</strong>, outlining the communication contract with a network provider. When a client platform detects an unwanted tracking accessory, it sends a network request to the respective network provider's service to retrieve the information needed to display an unwanted tracking alert to the user. The service response returns accessory metadata, capability descriptors, localized user-facing strings, and asset URLs required to render the UT alert and associated informational screens.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<div id="scope">
+<section id="section-7.1.1">
+          <h4 id="name-scope">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+          </h4>
+<p id="section-7.1.1-1">This section is intended for <strong>network providers</strong> who wish to adopt the accessory Network API to support cross-platform unwanted tracking detection for any accessory participating in a network.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="accessory-info-specifications">
+<section id="section-7.2">
+        <h3 id="name-accessory-info-specificatio">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-accessory-info-specificatio" class="section-name selfRef">Accessory Info Specifications</a>
+        </h3>
+<div id="accessoryinfo-service">
+<section id="section-7.2.1">
+          <h4 id="name-accessoryinfo-service">
+<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-accessoryinfo-service" class="section-name selfRef">AccessoryInfo Service</a>
+          </h4>
+<p id="section-7.2.1-1">The HTTP endpoint used to query accessory information from a network provider is described in <a href="#_table-accessoryinfo-endpoint" class="auto internal xref">Table 24</a>.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-service-endpo"></span><div id="_table-accessoryinfo-endpoint">
+<table class="center" id="table-24">
+            <caption>
+<a href="#table-24" class="selfRef">Table 24</a>:
+<a href="#name-accessoryinfo-service-endpo" class="selfRef">AccessoryInfo Service Endpoint</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">HTTP Method</th>
+                <th class="text-left" rowspan="1" colspan="1">URL</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">POST</td>
+                <td class="text-left" rowspan="1" colspan="1">https://{host}/{endpoint}</td>
+                <td class="text-left" rowspan="1" colspan="1">AccessoryInfo Query Service</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-url">
+<section id="section-7.2.2">
+          <h4 id="name-accessoryinfo-url">
+<a href="#section-7.2.2" class="section-number selfRef">7.2.2. </a><a href="#name-accessoryinfo-url" class="section-name selfRef">AccessoryInfo URL</a>
+          </h4>
+<p id="section-7.2.2-1">The AccessoryInfo endpoint URLs for each supported network provider are listed in <a href="#_table-accessoryinfo-urls" class="auto internal xref">Table 25</a>.<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-endpoint-urls"></span><div id="_table-accessoryinfo-urls">
+<table class="center" id="table-25">
+            <caption>
+<a href="#table-25" class="selfRef">Table 25</a>:
+<a href="#name-accessoryinfo-endpoint-urls" class="selfRef">AccessoryInfo Endpoint URLs by Network Provider</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Network Provider</th>
+                <th class="text-left" rowspan="1" colspan="1">Endpoint URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple Inc.</td>
+                <td class="text-left" rowspan="1" colspan="1">https://findmyut.apple.com/productinfo</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Google LLC</td>
+                <td class="text-left" rowspan="1" colspan="1">https://spot-pa.googleapis.com/lookup</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-request">
+<section id="section-7.2.3">
+          <h4 id="name-accessoryinfo-request">
+<a href="#section-7.2.3" class="section-number selfRef">7.2.3. </a><a href="#name-accessoryinfo-request" class="section-name selfRef">AccessoryInfo Request</a>
+          </h4>
+<p id="section-7.2.3-1"><strong>Request Headers:</strong><a href="#section-7.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.3-2">The HTTP request headers required when making an AccessoryInfo request are described in <a href="#_table-accessoryinfo-request-headers" class="auto internal xref">Table 26</a>.<a href="#section-7.2.3-2" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-request-heade"></span><div id="_table-accessoryinfo-request-headers">
+<table class="center" id="table-26">
+            <caption>
+<a href="#table-26" class="selfRef">Table 26</a>:
+<a href="#name-accessoryinfo-request-heade" class="selfRef">AccessoryInfo Request Headers</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Accept</td>
+                <td class="text-left" rowspan="1" colspan="1">Only “application/json” supported</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Accept-Language</td>
+                <td class="text-left" rowspan="1" colspan="1">Language to be used for localization<br>Example: “en-US, en”</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<p id="section-7.2.3-4"><strong>Request Parameters (JSON Fields):</strong><a href="#section-7.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-7.2.3-5">The request parameters required when making an AccessoryInfo request are described in <a href="#_table-accessoryinfo-request-params" class="auto internal xref">Table 27</a>.<a href="#section-7.2.3-5" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-request-param"></span><div id="_table-accessoryinfo-request-params">
+<table class="center" id="table-27">
+            <caption>
+<a href="#table-27" class="selfRef">Table 27</a>:
+<a href="#name-accessoryinfo-request-param" class="selfRef">AccessoryInfo Request Parameters</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Data Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▤ products</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON array containing one or more accessory product objects for which information is being requested.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ version</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The network version defines which network standard the network provider is compatible with.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ networkId</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex-String<br>(lowercase zero padded) (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Specifies the Network ID associated with the network provider, present in the BT advertisement header.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ productData</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex-String<br>(lowercase zero padded) (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Unique identifier of the accessory make and model.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ firmwareData</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON object encapsulating firmware-related parameters associated with the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">    └ firmwareVersion</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The current firmware version of the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">    └ category</td>
+                <td class="text-left" rowspan="1" colspan="1">int (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The accessory category value that closest resembles the physical product.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<div id="sample-request">
+<section id="section-7.2.3.1">
+            <h5 id="name-sample-request">
+<a href="#section-7.2.3.1" class="section-number selfRef">7.2.3.1. </a><a href="#name-sample-request" class="section-name selfRef">Sample Request</a>
+            </h5>
+<p id="section-7.2.3.1-1">The following is an example of a well-formed AccessoryInfo request body, illustrating the expected JSON structure and representative field values.<a href="#section-7.2.3.1-1" class="pilcrow">¶</a></p>
+<div class="lang-json sourcecode" id="section-7.2.3.1-2">
+<pre>
+{
+  "products": [
+    {
+      "version": "1",
+      "networkId": "01",
+      "productData": "dd6fcc3d20cfbdce",
+      "firmwareData": {
+        "firmwareVersion": "84.8.112",
+        "category": 1
+      }
+    }
+  ]
+}
+</pre><a href="#section-7.2.3.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-response">
+<section id="section-7.2.4">
+          <h4 id="name-accessoryinfo-response">
+<a href="#section-7.2.4" class="section-number selfRef">7.2.4. </a><a href="#name-accessoryinfo-response" class="section-name selfRef">AccessoryInfo Response</a>
+          </h4>
+<p id="section-7.2.4-1">The JSON response fields returned by the network provider's service upon a successful AccessoryInfo request are described in <a href="#_table-accessoryinfo-response-fields" class="auto internal xref">Table 28</a>.<a href="#section-7.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.4-2">The following additional requirements and conventions apply to the response:<a href="#section-7.2.4-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7.2.4-3.1">
+              <p id="section-7.2.4-3.1.1">The network provider <span class="bcp14">MUST</span> provide “disable instructions”, in structured format, as defined in this specification.<a href="#section-7.2.4-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.2">
+              <p id="section-7.2.4-3.2.1">The network provider <span class="bcp14">MUST</span> provide the identifier retrieval instructions ("Learn More"), in structured format, as defined in this specification.<a href="#section-7.2.4-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.3">
+              <p id="section-7.2.4-3.3.1">Asset fields containing 2x, 3x are different size specifications of the same asset, meant to be shown on bigger screens.<a href="#section-7.2.4-3.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.4">
+              <p id="section-7.2.4-3.4.1">The localizations are based on the “Accept-Language” header from the HTTP request.<a href="#section-7.2.4-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="response-format-json-fields">
+<section id="section-7.2.5">
+          <h4 id="name-response-format-json-fields">
+<a href="#section-7.2.5" class="section-number selfRef">7.2.5. </a><a href="#name-response-format-json-fields" class="section-name selfRef">Response Format (JSON Fields)</a>
+          </h4>
+<span id="name-accessoryinfo-response-fiel"></span><div id="_table-accessoryinfo-response-fields">
+<table class="center" id="table-28">
+            <caption>
+<a href="#table-28" class="selfRef">Table 28</a>:
+<a href="#name-accessoryinfo-response-fiel" class="selfRef">AccessoryInfo Response Fields</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Data Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▤ products</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON array containing one or more accessory product objects for which information is being returned.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ softwareInfo</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the fields specified below.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ networkId</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The NetworkId hosting the service.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ productData</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The productData for which the response is generated.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ surfaceUt</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Whether the UT alert should be shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ snLookupUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">The URL where the "identifier" look-up HTML page is hosted. Refer to the DULT Internet Draft for "identifier" look-up request parameters.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ capabilities</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Enumerates the capabilities of the queried UT accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ utAccel</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Motion detector UT.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ nfcLookup</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Identifier look-up by NFC.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ bleLookup</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Identifier look-up by BLE.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ playSound</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Play sound.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ configuration</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the fields specified below.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ manufacturerName</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Name of the accessory manufacturer.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ modelName</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Model name of the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ category</td>
+                <td class="text-left" rowspan="1" colspan="1">int (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Category to which the accessory belongs. The full list of supported categories is in the DULT IETF Draft.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreItems</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array of String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string values in structured format, in the sequence to be shown on screen. Contains the instructions to retrieve the identifier over BLE / NFC.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableItems</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array of String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string values in structured format, in the sequence to be shown on screen.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableUrl</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">URL hosting the disable instructions page. Usually provided if the network provider cannot supply the instructions via <code>instructionsToDisableItems</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMorePageTitle</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string value for the Learn More page title.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ disablePageTitle</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string value for the Instructions To Disable page title.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ <code>learnMoreIconCoordinates</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the X,Y coordinates to place the "red" dot on the learn more icon. Applicable when the generic category image is shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ <code>instructionsToDisableIconCoordinates</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the X,Y coordinates to place the "red" dot on the instructionsToDisable icon. Applicable when the generic category image is shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ assets</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Refer to <a href="#asset-urls" class="auto internal xref">Section 7.2.5.1</a>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed on the Safety Alert and Detail screens.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>defaultHeroIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>defaultHeroIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Unknown Items Detected" list view.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>defaultListIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>defaultListIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Learn More" section or page.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>learnMoreIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>learnMoreIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Instructions To Disable" section or page.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon2x</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>instructionsToDisableIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon3x</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>instructionsToDisableIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Link to the Learn More instructional video.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableVideoUrl</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Link to the Disable instructional video.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<div id="asset-urls">
+<section id="section-7.2.5.1">
+            <h5 id="name-asset-urls">
+<a href="#section-7.2.5.1" class="section-number selfRef">7.2.5.1. </a><a href="#name-asset-urls" class="section-name selfRef">Asset URLs</a>
+            </h5>
+<p id="section-7.2.5.1-1">These are the requirements for asset URLs provided by the network provider:<a href="#section-7.2.5.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7.2.5.1-2.1">
+                <p id="section-7.2.5.1-2.1.1">Accessory assets, when provided, <span class="bcp14">SHALL</span> be hosted by the network provider.<a href="#section-7.2.5.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-7.2.5.1-2.2">
+                <p id="section-7.2.5.1-2.2.1">Accessory assets, when provided, <span class="bcp14">MUST</span> be provided as hyperlinks pointing to publicly accessible web servers or CDN.<a href="#section-7.2.5.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-7.2.5.1-2.3">
+                <p id="section-7.2.5.1-2.3.1">Network providers <span class="bcp14">SHALL</span> provide accessory-category-specific image asset URLs for a product data.<a href="#section-7.2.5.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</section>
+</div>
+<div id="sample-json-response">
+<section id="section-7.2.5.2">
+            <h5 id="name-sample-json-response">
+<a href="#section-7.2.5.2" class="section-number selfRef">7.2.5.2. </a><a href="#name-sample-json-response" class="section-name selfRef">Sample JSON Response</a>
+            </h5>
+<p id="section-7.2.5.2-1">The following is an example of a well-formed AccessoryInfo JSON response, illustrating the complete response structure including software info, capabilities, configuration, and asset URLs returned by the network provider's service.<a href="#section-7.2.5.2-1" class="pilcrow">¶</a></p>
+<div class="breakable lang-json sourcecode" id="section-7.2.5.2-2">
+<pre>
+{
+  "products": [
+    {
+      "softwareInfo": {
+        "networkId": "01",
+        "productData": "dd6fcc3d20cfbdce",
+        "surfaceUt": true,
+        "snLookupUrl": "https://{network-provider-host}/{identifier-lookup-path}"
+      },
+      "capabilities": {
+        "utAccel": true,
+        "nfcLookup": false,
+        "bleLookup": true,
+        "playSound": true
+      },
+      "configuration": {
+        "manufacturerName": "Rolling Square",
+        "modelName": "AirCard",
+        "category": 1,
+        "learnMoreItems": [
+          "This item can be located by its owner using the Find My app. For more info, follow the instructions below.",
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button six times. A confirmation beep will sound and the light will flash three times.",
+          "Tap \"Continue On Website\" for more information including any lost mode message from the owner."
+        ],
+        "instructionsToDisableItems": [
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button five times. A confirmation chime will sound and the light will flash six times.",
+          "This will stop sharing the location of this item."
+        ],
+        "instructionsToDisableUrl": "https://&lt;disable_instructions_static_product_specific&gt;",
+        "learnMorePageTitle": "Learn More",
+        "disablePageTitle": "How to Disable",
+        "learnMoreIconCoordinates": {
+          "x": -1,
+          "y": -1
+        },
+        "instructionsToDisableIconCoordinates": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "assets": {
+        "defaultHeroIcon": "https://{network-provider-image-host}/hero.png",
+        "defaultHeroIcon2x": "https://{network-provider-image-host}/hero@2x.png",
+        "defaultHeroIcon3x": "https://{network-provider-image-host}/hero@3x.png",
+        "defaultListIcon": "https://{network-provider-image-host}/list.png",
+        "defaultListIcon2x": "https://{network-provider-image-host}/list@2x.png",
+        "defaultListIcon3x": "https://{network-provider-image-host}/list@3x.png",
+        "learnMoreIcon": "https://{network-provider-image-host}/learnmore.png",
+        "learnMoreIcon2x": "https://{network-provider-image-host}/learnmore@2x.png",
+        "learnMoreIcon3x": "https://{network-provider-image-host}/learnmore@3x.png",
+        "instructionsToDisableIcon": "https://{network-provider-image-host}/instructionstodisable.png",
+        "instructionsToDisableIcon2x": "https://{network-provider-image-host}/instructionstodisable@2x.png",
+        "instructionsToDisableIcon3x": "https://{network-provider-image-host}/instructionstodisable@3x.png",
+        "learnMoreVideoUrl": "",
+        "instructionsToDisableVideoUrl": ""
+      }
+    }
+  ]
+}
+</pre><a href="#section-7.2.5.2-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="asset-specifications">
+<section id="section-7.2.6">
+          <h4 id="name-asset-specifications">
+<a href="#section-7.2.6" class="section-number selfRef">7.2.6. </a><a href="#name-asset-specifications" class="section-name selfRef">Asset Specifications</a>
+          </h4>
+<p id="section-7.2.6-1">The required asset names and their corresponding size specifications (in pixels) that <span class="bcp14">SHALL</span> be provided by the network provider for rendering accessory images and videos across all display resolutions are defined in <a href="#_table-accessoryinfo-asset-specs" class="auto internal xref">Table 29</a>.<a href="#section-7.2.6-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-asset-specifi"></span><div id="_table-accessoryinfo-asset-specs">
+<table class="center" id="table-29">
+            <caption>
+<a href="#table-29" class="selfRef">Table 29</a>:
+<a href="#name-accessoryinfo-asset-specifi" class="selfRef">AccessoryInfo Asset Specifications</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Asset Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Size Spec (px)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">160x160</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">320x320</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">30x30</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">60x60</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">90x90</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">240x240</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">720x720</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">240x240</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">720x720</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">N/A</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">N/A</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="identifier-look-up-webpage">
+<section id="section-7.3">
+        <h3 id="name-identifier-look-up-webpage">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-identifier-look-up-webpage" class="section-name selfRef">Identifier Look-up Webpage</a>
+        </h3>
+<p id="section-7.3-1">A network provider <span class="bcp14">SHALL</span> host a  webpage that displays ownership information, including an obfuscated contact identifier and the accessory's identifier in plaintext, along with any lost mode message set by the owner.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<div id="url-format-and-query-params">
+<section id="section-7.3.1">
+          <h4 id="name-url-format-and-query-params">
+<a href="#section-7.3.1" class="section-number selfRef">7.3.1. </a><a href="#name-url-format-and-query-params" class="section-name selfRef">URL Format and Query Params</a>
+          </h4>
+<p id="section-7.3.1-1"><a href="https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s">https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s</a>
+            <em><strong>Note:</strong> The base URL is defined by each network provider. The query parameters listed in <a href="#_table-identifier-lookup-query-params" class="auto internal xref">Table 30</a> are standardized across all network providers.</em><a href="#section-7.3.1-1" class="pilcrow">¶</a></p>
+<span id="name-identifier-look-up-url-quer"></span><div id="_table-identifier-lookup-query-params">
+<table class="center" id="table-30">
+            <caption>
+<a href="#table-30" class="selfRef">Table 30</a>:
+<a href="#name-identifier-look-up-url-quer" class="selfRef">Identifier Look-up URL Query Parameters</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Key</th>
+                <th class="text-left" rowspan="1" colspan="1">URL Param Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Notes</th>
+                <th class="text-left" rowspan="1" colspan="1">Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">b</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Battery level <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#battery-level" class="internal xref">Battery level</a> (<a href="#battery-level" class="auto internal xref">Section 3.12.1.10</a>)</span> — Get_Battery_Level</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">bt</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">BT MAC address <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">fv</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">FW version <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.12.1.8</a>)</span> — Get_Firmware_Version</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">e</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Encrypted identifier payload <em>(Required)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.3</a>)</span> — Get_Identifier</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">pid</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Accessory product data <em>(Required)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.12.1.1</a>)</span> — Get_Product_Data</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -3653,11 +4367,11 @@ This group includes the "Finding Network ID" registry.<a href="#section-10-1" cl
           <h4 id="name-temporary-registry">
 <a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-temporary-registry" class="section-name selfRef">Temporary Registry</a>
           </h4>
-<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-registry" class="auto internal xref">Table 24</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.1.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-network-registry" class="auto internal xref">Table 31</a>.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
 <span id="name-finding-network-registry-2"></span><div id="_table-temp-network-registry">
-<table class="center" id="table-24">
+<table class="center" id="table-31">
             <caption>
-<a href="#table-24" class="selfRef">Table 24</a>:
+<a href="#table-31" class="selfRef">Table 31</a>:
 <a href="#name-finding-network-registry-2" class="selfRef">Finding Network Registry</a>
             </caption>
 <thead>
