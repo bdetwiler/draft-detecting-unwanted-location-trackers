@@ -562,7 +562,7 @@ In the circumstances that there are multiple non-owner connections, all GATT ind
 Sound_Completed MAY be sent over all non-owner connections.
 
 
-##### Play sound
+#### Play sound
 The Sound_Start opcode is used to play sound on the sound maker of the accessory. The sound maker MUST play sound for a minimum duration of 5 seconds and a maximum duration of 30 seconds. The RECOMMENDED duration is 12 seconds.
 
 * The accessory SHALL confirm the start of the play sound procedure by sending a [Command_Response](#command-response) with the corresponding CommandOpCode and a ResponseStatus value of Success.
@@ -580,7 +580,7 @@ The Sound_Start opcode is used to play sound on the sound maker of the accessory
 * The accessory SHALL confirm the completion of the stop sound procedure by sending the Sound_Completed message.
 
 
-##### Command Response
+#### Command Response
 
 There are 2 components of the command response operands: CommandOpCode and ResponseStatus. The CommandOpCode operand indicates the procedure that the accessory is responding to and ResponseStatus operand indicates the status of the response.
  The accessory SHALL respond to any invalid opcode with Command_Response and Invalid_command as the ResponseStatus.
@@ -817,11 +817,253 @@ During onboarding, a product data registry SHALL be created and maintained by th
 - Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.
 - Product Name: a string representing the accessory make and model associated with the Product Data string.
 
-Additional details will follow in 2024 to specify formats for disablement instructions and product images.
-
 ## Network providers
 
-Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images. Additional information for network providers will be updated in 2024.
+Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images.
+
+This section defines the **Accessory Network Protocol specification**, outlining the communication contract with a network provider. When a client platform detects an unwanted tracking accessory, it sends a network request to the respective network provider's service to retrieve the information needed to display an unwanted tracking alert to the user. The service response returns accessory metadata, capability descriptors, localized user-facing strings, and asset URLs required to render the UT alert and associated informational screens.
+
+### Scope
+
+This section is intended for **network providers** who wish to adopt the accessory Network API to support cross-platform unwanted tracking detection for any accessory participating in a network.
+
+## Accessory Info Specifications
+
+### AccessoryInfo Service
+
+The HTTP endpoint used to query accessory information from a network provider is described in {{table-accessoryinfo-endpoint}}.
+
+| HTTP Method | URL | Description |
+| :---- | :---- | :---- |
+| POST | https://{host}/{endpoint} | AccessoryInfo Query Service |
+{: #table-accessoryinfo-endpoint title="AccessoryInfo Service Endpoint"}
+
+### AccessoryInfo URL
+
+The AccessoryInfo endpoint URLs for each supported network provider are listed in {{table-accessoryinfo-urls}}.
+
+| Network Provider | Endpoint URL |
+| :---- | :---- |
+| Apple Inc. | https://findmyut.apple.com/productinfo |
+| Google LLC | https://spot-pa.googleapis.com/lookup |
+{: #table-accessoryinfo-urls title="AccessoryInfo Endpoint URLs by Network Provider"}
+
+### AccessoryInfo Request
+
+**Request Headers:**
+
+The HTTP request headers required when making an AccessoryInfo request are described in {{table-accessoryinfo-request-headers}}.
+
+| Name | Description |
+| :---- | :---- |
+| Accept | Only “application/json” supported |
+| Accept-Language | Language to be used for localization<br>Example: “en-US, en” |
+{: #table-accessoryinfo-request-headers title="AccessoryInfo Request Headers"}
+
+**Request Parameters (JSON Fields):**
+
+The request parameters required when making an AccessoryInfo request are described in {{table-accessoryinfo-request-params}}.
+
+| Name | Data Type | Description |
+| :---- | :---- | :---- |
+| ▤ products | JSON Array (Required) | A JSON array containing one or more accessory product objects for which information is being requested. |
+| &nbsp;&nbsp;└&nbsp;version | String (Required) | The network version defines which network standard the network provider is compatible with. |
+| &nbsp;&nbsp;└&nbsp;networkId | Hex-String<br>(lowercase zero padded) (Required) | Specifies the Network ID associated with the network provider, present in the BT advertisement header. |
+| &nbsp;&nbsp;└&nbsp;productData | Hex-String<br>(lowercase zero padded) (Required) | Unique identifier of the accessory make and model. |
+| &nbsp;&nbsp;└&nbsp;▦&nbsp;firmwareData | JSON Object (Required) | A JSON object encapsulating firmware-related parameters associated with the accessory. |
+| &nbsp;&nbsp;&nbsp;&nbsp;└&nbsp;firmwareVersion | String (Required) | The current firmware version of the accessory. |
+| &nbsp;&nbsp;&nbsp;&nbsp;└&nbsp;category | int (Required) | The accessory category value that closest resembles the physical product. |
+{: #table-accessoryinfo-request-params title="AccessoryInfo Request Parameters"}
+
+#### Sample Request
+
+The following is an example of a well-formed AccessoryInfo request body, illustrating the expected JSON structure and representative field values.
+
+~~~ json
+{
+  "products": [
+    {
+      "version": "1",
+      "networkId": "01",
+      "productData": "dd6fcc3d20cfbdce",
+      "firmwareData": {
+        "firmwareVersion": "84.8.112",
+        "category": 1
+      }
+    }
+  ]
+}
+~~~
+
+### AccessoryInfo Response
+
+The JSON response fields returned by the network provider's service upon a successful AccessoryInfo request are described in {{table-accessoryinfo-response-fields}}.
+
+The following additional requirements and conventions apply to the response:
+
+- The network provider MUST provide “disable instructions”, in structured format, as defined in this specification.
+- The network provider MUST provide the identifier retrieval instructions ("Learn More"), in structured format, as defined in this specification.
+- Asset fields containing 2x, 3x are different size specifications of the same asset, meant to be shown on bigger screens.
+- The localizations are based on the “Accept-Language” header from the HTTP request.
+
+### Response Format (JSON Fields)
+
+| Name | Data Type | Description |
+| :---- | :---- | :---- |
+| ▤ products | JSON Array (Required) | A JSON array containing one or more accessory product objects for which information is being returned. |
+| ▦ softwareInfo | JSON Object (Required) | Contains the fields specified below. |
+| &nbsp;&nbsp;└&nbsp;networkId | String (Required) | The NetworkId hosting the service. |
+| &nbsp;&nbsp;└&nbsp;productData | String (Required) | The productData for which the response is generated. |
+| &nbsp;&nbsp;└&nbsp;surfaceUt | Boolean (Optional) | Whether the UT alert should be shown. |
+| &nbsp;&nbsp;└&nbsp;snLookupUrl | String (Optional) | The URL where the "identifier" look-up HTML page is hosted. Refer to the DULT Internet Draft for "identifier" look-up request parameters. |
+| ▦ capabilities | JSON Object (Optional) | Enumerates the capabilities of the queried UT accessory. |
+| &nbsp;&nbsp;└&nbsp;utAccel | Boolean (Optional) | Motion detector UT. |
+| &nbsp;&nbsp;└&nbsp;nfcLookup | Boolean (Optional) | Identifier look-up by NFC. |
+| &nbsp;&nbsp;└&nbsp;bleLookup | Boolean (Optional) | Identifier look-up by BLE. |
+| &nbsp;&nbsp;└&nbsp;playSound | Boolean (Optional) | Play sound. |
+| ▦ configuration | JSON Object (Required) | Contains the fields specified below. |
+| &nbsp;&nbsp;└&nbsp;manufacturerName | String (Required) | Name of the accessory manufacturer. |
+| &nbsp;&nbsp;└&nbsp;modelName | String (Required) | Model name of the accessory. |
+| &nbsp;&nbsp;└&nbsp;category | int (Required) | Category to which the accessory belongs. The full list of supported categories is in the DULT IETF Draft. |
+| &nbsp;&nbsp;└&nbsp;learnMoreItems | JSON Array of String (Required) | localized string values in structured format, in the sequence to be shown on screen. Contains the instructions to retrieve the identifier over BLE / NFC. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableItems` | JSON Array of String (Required) | localized string values in structured format, in the sequence to be shown on screen. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableUrl` | String (Optional) | URL hosting the disable instructions page. Usually provided if the network provider cannot supply the instructions via `instructionsToDisableItems`. |
+| &nbsp;&nbsp;└&nbsp;learnMorePageTitle | String (Optional) | localized string value for the Learn More page title. |
+| &nbsp;&nbsp;└&nbsp;disablePageTitle | String (Optional) | localized string value for the Instructions To Disable page title. |
+| &nbsp;&nbsp;└&nbsp;▦&nbsp;`learnMoreIconCoordinates` | JSON Object (Optional) | Contains the X,Y coordinates to place the "red" dot on the learn more icon. Applicable when the generic category image is shown. |
+| &nbsp;&nbsp;└&nbsp;▦&nbsp;`instructionsToDisableIconCoordinates` | JSON Object (Optional) | Contains the X,Y coordinates to place the "red" dot on the instructionsToDisable icon. Applicable when the generic category image is shown. |
+| ▦ assets | JSON Object (Required) | Refer to {{asset-urls}}. |
+| &nbsp;&nbsp;└&nbsp;defaultHeroIcon | String (Required) | This image SHALL be displayed on the Safety Alert and Detail screens. |
+| &nbsp;&nbsp;└&nbsp;defaultHeroIcon2x | String (Optional) | 2x resolution variant of `defaultHeroIcon`. |
+| &nbsp;&nbsp;└&nbsp;defaultHeroIcon3x | String (Optional) | 3x resolution variant of `defaultHeroIcon`. |
+| &nbsp;&nbsp;└&nbsp;defaultListIcon | String (Optional) | This image SHALL be displayed in the "Unknown Items Detected" list view. |
+| &nbsp;&nbsp;└&nbsp;defaultListIcon2x | String (Optional) | 2x resolution variant of `defaultListIcon`. |
+| &nbsp;&nbsp;└&nbsp;defaultListIcon3x | String (Optional) | 3x resolution variant of `defaultListIcon`. |
+| &nbsp;&nbsp;└&nbsp;learnMoreIcon | String (Optional) | This image SHALL be displayed in the "Learn More" section or page. |
+| &nbsp;&nbsp;└&nbsp;learnMoreIcon2x | String (Optional) | 2x resolution variant of `learnMoreIcon`. |
+| &nbsp;&nbsp;└&nbsp;learnMoreIcon3x | String (Optional) | 3x resolution variant of `learnMoreIcon`. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableIcon` | String (Optional) | This image SHALL be displayed in the "Instructions To Disable" section or page. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableIcon2x` | String (Optional) | 2x resolution variant of `instructionsToDisableIcon`. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableIcon3x` | String (Optional) | 3x resolution variant of `instructionsToDisableIcon`. |
+| &nbsp;&nbsp;└&nbsp;learnMoreVideoUrl | String (Optional) | Link to the Learn More instructional video. |
+| &nbsp;&nbsp;└&nbsp;`instructionsToDisableVideoUrl` | String (Optional) | Link to the Disable instructional video. |
+{: #table-accessoryinfo-response-fields title="AccessoryInfo Response Fields"}
+
+#### Asset URLs {#asset-urls}
+
+These are the requirements for asset URLs provided by the network provider:
+
+- Accessory assets, when provided, SHALL be hosted by the network provider.
+- Accessory assets, when provided, MUST be provided as hyperlinks pointing to publicly accessible web servers or CDN.
+- Network providers SHALL provide accessory-category-specific image asset URLs for a product data.
+
+#### Sample JSON Response
+
+The following is an example of a well-formed AccessoryInfo JSON response, illustrating the complete response structure including software info, capabilities, configuration, and asset URLs returned by the network provider's service.
+
+~~~ json
+{
+  "products": [
+    {
+      "softwareInfo": {
+        "networkId": "01",
+        "productData": "dd6fcc3d20cfbdce",
+        "surfaceUt": true,
+        "snLookupUrl": "https://{network-provider-host}/{identifier-lookup-path}"
+      },
+      "capabilities": {
+        "utAccel": true,
+        "nfcLookup": false,
+        "bleLookup": true,
+        "playSound": true
+      },
+      "configuration": {
+        "manufacturerName": "Rolling Square",
+        "modelName": "AirCard",
+        "category": 1,
+        "learnMoreItems": [
+          "This item can be located by its owner using the Find My app. For more info, follow the instructions below.",
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button six times. A confirmation beep will sound and the light will flash three times.",
+          "Tap \"Continue On Website\" for more information including any lost mode message from the owner."
+        ],
+        "instructionsToDisableItems": [
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button five times. A confirmation chime will sound and the light will flash six times.",
+          "This will stop sharing the location of this item."
+        ],
+        "instructionsToDisableUrl": "https://<disable_instructions_static_product_specific>",
+        "learnMorePageTitle": "Learn More",
+        "disablePageTitle": "How to Disable",
+        "learnMoreIconCoordinates": {
+          "x": -1,
+          "y": -1
+        },
+        "instructionsToDisableIconCoordinates": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "assets": {
+        "defaultHeroIcon": "https://{network-provider-image-host}/hero.png",
+        "defaultHeroIcon2x": "https://{network-provider-image-host}/hero@2x.png",
+        "defaultHeroIcon3x": "https://{network-provider-image-host}/hero@3x.png",
+        "defaultListIcon": "https://{network-provider-image-host}/list.png",
+        "defaultListIcon2x": "https://{network-provider-image-host}/list@2x.png",
+        "defaultListIcon3x": "https://{network-provider-image-host}/list@3x.png",
+        "learnMoreIcon": "https://{network-provider-image-host}/learnmore.png",
+        "learnMoreIcon2x": "https://{network-provider-image-host}/learnmore@2x.png",
+        "learnMoreIcon3x": "https://{network-provider-image-host}/learnmore@3x.png",
+        "instructionsToDisableIcon": "https://{network-provider-image-host}/instructionstodisable.png",
+        "instructionsToDisableIcon2x": "https://{network-provider-image-host}/instructionstodisable@2x.png",
+        "instructionsToDisableIcon3x": "https://{network-provider-image-host}/instructionstodisable@3x.png",
+        "learnMoreVideoUrl": "",
+        "instructionsToDisableVideoUrl": ""
+      }
+    }
+  ]
+}
+~~~
+
+### Asset Specifications
+
+The required asset names and their corresponding size specifications (in pixels) that SHALL be provided by the network provider for rendering accessory images and videos across all display resolutions are defined in {{table-accessoryinfo-asset-specs}}.
+
+| Asset Name | Size Spec (px) |
+| :---- | :---- |
+| defaultHeroIcon | 160x160 |
+| defaultHeroIcon2x | 320x320 |
+| defaultHeroIcon3x | 480x480 |
+| defaultListIcon | 30x30 |
+| defaultListIcon2x | 60x60 |
+| defaultListIcon3x | 90x90 |
+| learnMoreIcon | 240x240 |
+| learnMoreIcon2x | 480x480 |
+| learnMoreIcon3x | 720x720 |
+| instructionsToDisableIcon | 240x240 |
+| instructionsToDisableIcon2x | 480x480 |
+| instructionsToDisableIcon3x | 720x720 |
+| learnMoreVideoUrl | N/A |
+| instructionsToDisableVideoUrl | N/A |
+{: #table-accessoryinfo-asset-specs title="AccessoryInfo Asset Specifications"}
+
+## Identifier Look-up Webpage
+
+A network provider SHALL host a  webpage that displays ownership information, including an obfuscated contact identifier and the accessory's identifier in plaintext, along with any lost mode message set by the owner.
+
+### URL Format and Query Params
+
+[https://{URL}?pid=%s&b=%s&fv=%s&e=%s](https://{URL}?pid=%s&b=%s&fv=%s&e=%s)
+***Note:** The base URL is defined by each network provider. The query parameters listed in {{table-identifier-lookup-query-params}} are standardized across all network providers.*
+
+| Key | URL Param Type | Notes | Reference  |
+| :---- | :---- | :---- | :---- |
+| b | Hex String | Battery level *(Optional)* | [Battery level](#battery-level) — Get\_Battery\_Level |
+| bt | Hex String | BT MAC address *(Optional)* | [MAC address](#mac-address) |
+| fv | Hex String | FW version *(Optional)* | [Firmware version](#firmware-version) — Get\_Firmware\_Version |
+| e | Hex String | Encrypted identifier payload *(Required)* | [Identifier Payload](#identifier-payload) — Get\_Identifier |
+| pid | Hex String | Accessory product data *(Required)* | [Product data](#product-data) — Get\_Product\_Data |
+{: #table-identifier-lookup-query-params title="Identifier Look-up URL Query Parameters"}
 
 # Security Considerations
 
