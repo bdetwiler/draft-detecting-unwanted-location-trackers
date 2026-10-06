@@ -1133,7 +1133,7 @@ Until this an IANA registry is available, the values in this registry are listed
 |  0x02        | Google LLC          |
 |  0x03        | Samsung Electronics |
 |  0x04        | Amazon              |
-|  0x05        | Tile                |
+|  0x05        | Tile, Inc.          |
 |  0xFF        | Reserved            |
 {: #table-temp-network-registry title="Finding Network Registry"}
 
