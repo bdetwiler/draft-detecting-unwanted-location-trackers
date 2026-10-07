@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 26 December 2026                                         Google
+Expires: 10 April 2027                                            Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            24 June 2026
+                                                          7 October 2026
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 December 2026.
+   This Internet-Draft will expire on 10 April 2027.
 
 Copyright Notice
 
@@ -2308,6 +2308,8 @@ Table of Contents
                    |    0x03    | Samsung Electronics |
                    +------------+---------------------+
                    |    0x04    |        Amazon       |
+                   +------------+---------------------+
+                   |    0x05    |      Tile, Inc.     |
                    +------------+---------------------+
                    |    0xFF    |       Reserved      |
                    +------------+---------------------+
